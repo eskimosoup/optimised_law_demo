@@ -1,0 +1,28 @@
+<footer>
+  <div class="row">
+    <div class="small-12 columns">
+      <h6>Awards &amp; Accreditations</h6>
+
+      <div class="awards-and-accreditations">
+        <%= image_tag 'http://placehold.it/150x80' %>
+      </div>
+
+      <ul class="footer navigation">
+        <%= nested_menu_items(menu_items: @footer.menu_items) %>
+      </ul>
+
+      <p class="microcopy">
+        &copy; 2015 Harrison &amp; Cambell LLP. All Rights Reserved.
+        Registered number 0C457849.
+        Registered office 12 High Street, Northampton, Northamptonshire NN1 1JX.
+        A list of members may be inspected at our offices listed above. The term Partner
+        means a member of Harrison & Cambell LLP or a senior employee of equivalent
+        standing. Authorised and Regulated by the Solicitors
+        Regulation Authority (No 472589). VAT Number: 12876389997
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+<%= yield :footer %>

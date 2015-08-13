@@ -1,0 +1,32 @@
+html,
+body {
+  font-size: 14px;
+}
+
+body {
+  background: $body-background-color;
+  color: $primary-text-color;
+  font-family: $secondary-sans-serif-font;
+}
+
+a {
+  ///color: $deep-purple;
+  text-decoration: none;
+
+  &:link {
+    //color: $deep-purple;
+  }
+
+  &:visited {
+    //color: $deep-purple;
+  }
+
+  &:hover {
+    //color: $purple;
+    text-decoration: underline;
+  }
+
+  &:active {
+    //color: $light-purple;
+  }
+}
