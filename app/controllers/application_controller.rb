@@ -3,9 +3,13 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  before_action :global_site_settings
+  before_action :global_site_settings, :menus
 
   private
+
+  def menus
+    @header_menu = Optimadmin::Menu.new(name: "header")
+  end
 
   def global_site_settings
     @global_site_settings ||= Optimadmin::SiteSetting.current_environment
