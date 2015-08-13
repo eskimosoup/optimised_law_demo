@@ -38,10 +38,26 @@ group :development, :test do
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
+  gem 'rspec-rails', '~> 3.0'
+  gem "factory_girl_rails"
+  gem 'shoulda-matchers'
+end
+
+group :test do
+  gem 'database_cleaner', '~> 1.4.1'
+  gem "capybara"
+  gem 'launchy', '~> 2.4.3'
+  gem 'poltergeist'
+end
+
+group :development do
+  gem 'quiet_assets', '~> 1.1.0'
+  gem 'guard-rspec', require: false
+  gem 'optimadmin_generators', git: 'git@github.com:eskimosoup/optimadmin_generators.git'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'optimadmin_generators', git: 'git@github.com:eskimosoup/optimadmin_generators.git', group: :development
 gem 'optimadmin', git: 'git@github.com:eskimosoup/Optimadmin.git'
+gem 'friendly_id', '~> 5.1.0'
