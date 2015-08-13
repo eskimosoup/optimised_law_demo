@@ -1,0 +1,21 @@
+<div class="home-content-block">
+  <div class="row">
+    <div class="small-12 columns">
+      <div class="content-block">
+        <div class="articles-title"
+          <h6>Latest news</h6>
+
+          <%= link_to (image_tag 'components/icons/expand.png', alt: 'Expand'), '#', class: 'right', title: 'Expand' %>
+        </div>
+
+        <div class="articles">
+          <div class="row">
+            <%= render 'articles/home_article' %>
+            <%= render 'articles/home_article' %>
+            <%= render 'articles/home_article' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

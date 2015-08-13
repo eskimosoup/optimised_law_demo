@@ -4,8 +4,9 @@ body {
 }
 
 body {
-  font-family: $secondary-sans-serif-font;
+  background: $body-background-color;
   color: $primary-text-color;
+  font-family: $secondary-sans-serif-font;
 }
 
 a {

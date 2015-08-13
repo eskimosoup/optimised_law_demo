@@ -7,7 +7,7 @@ $first-color:   #45575E;
 $second-color:  #8FABB8;
 $third-color:   #222A33;
 $fourth-color:  #444a59;
-$fith-color:    #e6e6e6;
+$fifth-color:    #e6e6e6;
 $sixth-color:   #548782;
 $seventh-color: #6E8B87;
 $eighth-color:  #875454;
@@ -24,44 +24,47 @@ $eighteenth-color: #404655;
 $white: #fff;
 $black: #000;
 
-$dot-active: $nineth-color;
+$dot-active: #284654;
+$success: #548782;
+$alert: #875454;
 
+$body-background-color: #e6e6e6;
+$content-background-color: #fff;
+$primary-text-color: #333;
 
-$success: $sixth-color;
-$alert: $eighth-color;
+$header-color: #444a59;
 
-$header-color: $fourth-color;
-
-$client-area-button-color: $sixth-color;
+$client-area-button-color: #548782;
 $client-area-border-color: $client-area-button-color;
-$client-area-background: $fifth-color;
+$client-area-background: #e6e6e6;
 
-$header-aside-navigation: $fourth-color;
-$header-primary-navigation: $tenth-color;
-$header-primary-border-color: $eleventh-color;
+$header-aside-navigation: #444a59;
+$header-primary-navigation: #284654;
+$header-primary-border-color: #548781;
 
-$request-a-callback-button: $twelfth-color;
-$find-a-lawyer-button: $sixth-color;
+$request-a-callback-button: #444A5B;
+$find-a-lawyer-button: #548782;
 
-$hero-title: $white;
-$hero-accent-title: $thirteenth-color;
+$hero-title: #fff;
+$hero-accent-title: #c8e5e6;
 
-$first-department: $first-color;
-$second-department: $second-color;
-$third-department: $third-color;
-$department-title-border-color: $sixth-color;
-$department-title-color: $fifteenth-color;
-$department-color: $white;
-$department-hover-border-color: $fourteenth-color;
-$department-link-hover-border-color: $sixth-color;
+$first-department: #45575E;
+$second-department: #8FABB8;
+$third-department: #222A33;
+$department-title-border-color: #548782;
+$department-title-color: #f0eee8;
+$department-color: #fff;
+$department-hover-border-color: #85817a;
+$department-link-hover-border-color: #548782;
 
-$module-section-background: $white;
+$module-section-background: #fff;
 
-$internet-marketing-focus-background: $fourteenth-color;
+$internet-marketing-focus-background: #85817a;
 
-$article-hover-border-color: $eleventh-color;
-$article-header-border-color: $sixteenth-color;
+$article-hover-border-color: #548781;
+$article-header-border-color: #718b87;
 
-$footer-background-color: $eighteenth-color;
-$footer-title-color: $white;
-$footer-link-color: $white;
+$footer-background-color: #404655;
+$footer-text-color: #fff;
+$footer-title-color: $footer-text-color;
+$footer-link-color: $footer-text-color;

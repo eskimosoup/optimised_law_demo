@@ -9,6 +9,8 @@ class ApplicationController < ActionController::Base
 
   def menus
     @header_menu = Optimadmin::Menu.new(name: "header")
+    @header_aside_menu = Optimadmin::Menu.new(name: "header_aside")
+    @footer = Optimadmin::Menu.new(name: "footer")
   end
 
   def global_site_settings
