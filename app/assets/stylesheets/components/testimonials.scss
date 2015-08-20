@@ -1,0 +1,23 @@
+.testimonials {
+  font-family: $testimonial-font;
+  text-align: center;
+  position: relative;
+  margin: 0 0 em(70px);
+
+  p {
+    font-size: em(12px);
+    padding: 0 em(15px, 12px);
+  }
+
+  .testimonial-author {
+    margin: em(13px, 13px) auto em(9px, 12px);
+    font-weight: $testimonial-author-font-weight;
+    color: $testimonial-author-color;
+  }
+}
+
+.quote-close {
+  position: absolute;
+  bottom: 60px;
+  right: 20px;
+}

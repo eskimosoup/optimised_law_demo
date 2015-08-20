@@ -1,0 +1,29 @@
+.marketing-campaign {
+  background: $marketing-campaign-background;
+}
+
+.marketing-campaign-content {
+  color: $marketing-campaign-color;
+  padding: em(70px) em(20px) em(20px);
+
+  h5 {
+    font-size: em(18px);
+    font-weight: $marketing-campaign-header-font-weight;
+    letter-spacing: 2px;
+    line-height: 1.1;
+    margin: em(12px, 18px) auto 0;
+    padding: 0 0 em(9px, 18px);
+    text-transform: uppercase;
+  }
+
+  p {
+    font-size: em(12px);
+  }
+
+  p:first-of-type {
+    font-family: $marketing-campaign-intro-paragraph-font;
+    font-size: em(14px);
+    font-weight: $marketing-campaign-intro-paragraph-font-weight;
+    margin: em(10px, 14px) 0 em(20px, 14px);
+  }
+}

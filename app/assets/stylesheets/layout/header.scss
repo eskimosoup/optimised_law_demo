@@ -1,0 +1,11 @@
+.top {
+  background: $header-background-color;
+}
+
+.header {
+  @extend %clearfix;
+}
+
+.logo {
+  margin: 0 0 em(10px) em(20px);
+}

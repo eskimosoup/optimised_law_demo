@@ -15,6 +15,10 @@ class BasePresenter
     end
   end
 
+  def octicon(code)
+    h.content_tag :span, '', class: "octicon octicon-#{code.to_s.dasherize}"
+  end
+
   private
 
   def h

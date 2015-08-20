@@ -1,4 +1,6 @@
 Rails.application.configure do
+  config.middleware.insert_after ActionDispatch::Static, Rack::LiveReload
+
   Rails.application.routes.default_url_options[:host] = '192.168.0.37:3000'
   config.action_mailer.smtp_settings = {:enable_starttls_auto => false}
 

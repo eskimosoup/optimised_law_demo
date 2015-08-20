@@ -1,0 +1,36 @@
+.twitter-bird {
+  display: block;
+  margin: 0 auto;
+  padding: em(28px) 0 0;
+}
+
+.twitter-username {
+  color: $twitter-username-color;
+  display: block;
+  font-family: $twitter-font;
+  font-size: em(14px);
+  margin: em(20px, 14px) 0 em(15px, 14px);
+}
+
+.tweet {
+  font-family: $twitter-font;
+  font-size: em(12px);
+
+  a {
+    &:link,
+    &:visited {
+      text-decoration: underline;
+    }
+
+    &:active,
+    &:hover {
+      color: darken($primary-text-color, 15%);
+    }
+  }
+}
+
+.tweet-time {
+  color: $twitter-username-color;
+  margin: em(21px, 12px) auto 0;
+  font-size: em(11px);
+}

@@ -54,6 +54,12 @@ group :development do
   gem 'quiet_assets', '~> 1.1.0'
   gem 'guard-rspec', require: false
   gem 'optimadmin_generators', git: 'git@github.com:eskimosoup/optimadmin_generators.git'
+  gem 'guard-livereload', '~> 2.4', require: false
+  gem 'rack-livereload'
+end
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-slick.js'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -61,3 +67,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'optimadmin', git: 'git@github.com:eskimosoup/Optimadmin.git'
 gem 'friendly_id', '~> 5.1.0'
+gem 'octicons-rails'

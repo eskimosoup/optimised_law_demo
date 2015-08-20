@@ -9,9 +9,16 @@ class MenuItemPresenter < BasePresenter
     @descendants_hash = descendants_hash
   end
 
-  def link_to_webpage
+  def link_to_webpage(additional_classes = '')
     return nil if destination.nil?
-    h.link_to name, destination, title: title_attribute, class: classes
+    h.link_to name, destination, title: title_attribute, class: "#{classes} #{additional_classes}"
+  end
+
+  def link_to_dropdown(additional_classes = '')
+    return nil if destination.nil?
+    h.link_to destination, title: title_attribute, class: "#{classes} #{additional_classes} reveal-dropdown" do
+      h.raw "#{name} #{octicon('chevron-down')}"
+    end
   end
 
   def classes
