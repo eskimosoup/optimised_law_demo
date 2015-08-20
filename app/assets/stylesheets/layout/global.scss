@@ -6,27 +6,37 @@ body {
 body {
   background: $body-background-color;
   color: $primary-text-color;
-  font-family: $secondary-sans-serif-font;
+  font-family: $body-font;
+}
+
+h6 {
+  color:  rgba($header-color, .74);
+  font-family: $header-font;
+  font-size: em(14px);
+  font-weight: $header-font-weight;
+  line-height: 2.2;
+  margin: 0;
+  padding: em(15px) em(20px) em(10px);
 }
 
 a {
-  ///color: $deep-purple;
+  color: $primary-text-color;
   text-decoration: none;
 
   &:link {
-    //color: $deep-purple;
+    color: $primary-text-color;
   }
 
   &:visited {
-    //color: $deep-purple;
+    color: $primary-text-color;
   }
 
   &:hover {
-    //color: $purple;
+    color: $primary-text-color;
     text-decoration: underline;
   }
 
   &:active {
-    //color: $light-purple;
+    color: $primary-text-color;
   }
 }

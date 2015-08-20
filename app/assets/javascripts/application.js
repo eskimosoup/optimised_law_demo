@@ -12,4 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require slick.js.js
+//= require components/dropdown_navigation
+//= require components/hero_department
+//= require components/toggle_class
+//= require vendor/foundation/foundation.js
+//= require vendor/foundation/foundation.equalizer.js

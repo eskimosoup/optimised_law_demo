@@ -1,0 +1,53 @@
+fieldset {
+  padding: em(15px);
+
+  legend {
+    padding: 0 em(10px);
+    text-transform: uppercase;
+  }
+
+  .fields {
+    margin: em(20px) 0;
+  }
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="week"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+input[type="color"],
+input[type='search'],
+textarea,
+select {
+  background: $form-input-background-color;
+  border: 1px solid $form-input-border-color;
+  color: $form-input-color;
+  font-size: em(14px);
+  line-height: 1.5;
+  padding: em(12px, 14px) em(25px, 14px);
+}
+
+
+input[type='submit'],
+.submit,
+.primary-button {
+  border: 0;
+  background: $form-submit-background-color;
+  color: $form-submit-color;
+  font-size: em(14px);
+  line-height: 1.5;
+  padding: em(12px, 14px) em(25px, 14px);
+
+  &:hover {
+    background: $form-submit-hover-background-color;
+  }
+}

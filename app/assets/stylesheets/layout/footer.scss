@@ -1,7 +1,20 @@
 footer {
   background: $footer-background-color;
+  padding: em(36px) 0;
+  text-align: center;
 
-  .microcopy {
-    @include color-opacity($footer-text-color, 0.5);
+  h6 {
+    color: $footer-text-color;
   }
+}
+
+.footer-awards-and-accreditations {
+  margin: em(35px) 0 em(20px);
+}
+
+.footer-microcopy {
+  color: rgba($footer-text-color, 0.5);
+  font-size: em(10px);
+  line-height: 1.6;
+  margin: em(27px, 10px) 0 0;
 }

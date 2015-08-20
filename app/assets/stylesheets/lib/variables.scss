@@ -3,6 +3,14 @@ $secondary-serif-font: 'Merriweather', serif;
 $primary-sans-serif-font: 'Open Sans', 'Arial', 'Helvetica', sans-serif;
 $secondary-sans-serif-font: 'Lato', sans-serif;
 
+$body-font: $secondary-sans-serif-font;
+$primary-navigation-font: $secondary-serif-font;
+$primary-navigation-font-weight: 700;
+$primary-navigation-dropdown-font: $primary-sans-serif-font;
+
+$secondary-navigation-font: $primary-sans-serif-font;
+
+/*
 $first-color:   #45575E;
 $second-color:  #8FABB8;
 $third-color:   #222A33;
@@ -20,6 +28,7 @@ $fourteenth-color: #85817a;
 $fifteenth-color: #f0eee8;
 $sixteenth-color: #718b87;
 $eighteenth-color: #404655;
+*/
 
 $white: #fff;
 $black: #000;
@@ -32,35 +41,77 @@ $body-background-color: #e6e6e6;
 $content-background-color: #fff;
 $primary-text-color: #333;
 
+$form-input-background-color: $white;
+$form-input-border-color: #ccc;
+$form-input-color: #555;
+
+$form-submit-background-color: #548782;
+$form-submit-hover-background-color: #718b87;
+$form-submit-color: $white;
+
 $header-color: #444a59;
+$header-font: $secondary-serif-font;
+$header-font-weight: 400;
 
 $client-area-button-color: #548782;
+$client-area-button-text-color: $white;
 $client-area-border-color: $client-area-button-color;
 $client-area-background: #e6e6e6;
 
+$header-background-color: $white;
 $header-aside-navigation: #444a59;
 $header-primary-navigation: #284654;
 $header-primary-border-color: #548781;
+$header-primary-dropdown-background-color: #f2f2f2;
+$header-primary-dropdown-border-color: #cfcfcf;
+$header-primary-dropdown-link-color: #85817a;
 
 $request-a-callback-button: #444A5B;
 $find-a-lawyer-button: #548782;
 
+$hero-gradient-start: $black;
+$hero-gradient-end: #284654;
 $hero-title: #fff;
+$hero-title-font: $primary-serif-font;
+$hero-title-font-weight: 400;
 $hero-accent-title: #c8e5e6;
 
-$first-department: #45575E;
-$second-department: #8FABB8;
-$third-department: #222A33;
-$department-title-border-color: #548782;
-$department-title-color: #f0eee8;
-$department-color: #fff;
-$department-hover-border-color: #85817a;
-$department-link-hover-border-color: #548782;
+$hero-first-department: #45575E;
+$hero-second-department: #8FABB8;
+$hero-third-department: #222A33;
+$hero-department-title-border-color: #548782;
+$hero-department-title-color: #f0eee8;
+$hero-department-font: $secondary-serif-font;
+$hero-department-font-weight: 400;
+$hero-department-color: $white;
+$hero-department-hover-background-color: $white;
+$hero-department-hover-border-color: #85817a;
+$hero-department-hover-link-color: #284654;
+$hero-department-link-hover-border-color: #548782;
+$hero-department-service-title-font: $primary-sans-serif-font;
+$hero-department-service-title-font-weight: 700;
+$hero-department-service-title-color: $white;
+$hero-department-service-title-hover-color: #444a59;
 
-$module-section-background: #fff;
+$module-section-background: $white;
 
-$internet-marketing-focus-background: #85817a;
+$testimonial-font: $primary-sans-serif-font;
+$testimonial-author-color: #444a59;
+$testimonial-author-font-weight: 600;
 
+$marketing-campaign-background: #85817a;
+$marketing-campaign-color: $white;
+$marketing-campaign-header-font-weight: 900;
+$marketing-campaign-intro-paragraph-font-weight: 600;
+$marketing-campaign-intro-paragraph-font: $primary-sans-serif-font;
+
+$twitter-font: $primary-sans-serif-font;
+$twitter-username-color: #85817a;
+
+$article-color: #444a59;
+$article-title-font: $secondary-serif-font;
+$article-body-font: $primary-sans-serif-font;
+$article-title-font-weight: 600;
 $article-hover-border-color: #548781;
 $article-header-border-color: #718b87;
 

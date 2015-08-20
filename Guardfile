@@ -23,6 +23,16 @@
 #                          installed the spring binstubs per the docs)
 #  * zeus: 'zeus rspec' (requires the server to be started separately)
 #  * 'just' rspec: 'rspec'
+# bundle exec guard -P livereload
+# https://chrome.google.com/webstore/detail/jnihajbhpnppcggbcgedagnkighmdlei
+guard :livereload do
+  watch(%r{app/views/.+\.(erb|haml|slim)})
+  watch(%r{app/helpers/.+\.rb})
+  watch(%r{public/.+\.(css|js|html)})
+  watch(%r{config/locales/.+\.yml})
+  # Rails Assets Pipeline
+  watch(%r{(app|vendor)(/assets/\w+/(.+\.(css|js|html|scss))).*}) { |m| "/assets/#{m[3]}" }
+end
 
 guard :rspec, cmd: "bundle exec rspec" do
   require "guard/rspec/dsl"

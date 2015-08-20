@@ -1,25 +1,63 @@
-<div class="client-area-content hide" id="client-area-content">
-  Content
-</div>
+<div class="top">
+  <div class="client-area-content hide" id="client-area-content">
+    Content
+  </div>
 
-<div class="client-area-toggle">
-  <%= link_to 'Client Area', '#client-area-content', class: 'toggle-class right', data: { container: '.client-area-content', class: 'hide', return: 'true' } %>
-</div>
+  <div class="client-area-toggle">
+    <%= link_to 'Client Area', '#client-area-content', class: 'toggle-class right', data: { container: '.client-area-content', class: 'hide', return: 'true' } %>
+  </div>
 
-<div class="header">
-  <%= link_to root_url, title: global_site_settings['Name'], class: 'left' do %>
-    <%= image_tag 'layout/header/logo.png', alt: global_site_settings['Name'] %>
-  <% end %>
+  <div class="header">
+    <%= link_to root_url, title: global_site_settings['Name'], class: 'logo left' do %>
+      <%= image_tag 'layout/header/logo.png', alt: global_site_settings['Name'] %>
+    <% end %>
 
-  <ul class="navigation right">
-    <%= nested_menu_items(menu_items: @header_aside_menu.menu_items) %>
-  </ul>
-</div>
-
-<nav class="row">
-  <div class="small-12 columns">
-    <ul class="primary navigation">
-      <%= nested_menu_items(menu_items: @header_menu.menu_items) %>
+    <ul class="secondary navigation right">
+      <%= nested_menu_items(menu_items: @header_aside_menu.menu_items) %>
     </ul>
   </div>
-</nav>
+
+  <nav class="row">
+    <div class="small-12 columns">
+      <ul class="primary navigation">
+        <%= nested_menu_items(menu_items: @header_menu.menu_items) %>
+
+        <li>
+          <%= link_to '#', class: 'icon-based reveal-dropdown', title: 'Offices' do %>
+            <%= image_tag 'components/navigation/pin.png', alt: 'Offices' %>
+          <% end %>
+          <div class="dropdown">
+            <ul>
+              <li><%= link_to 'Location', '#' %></li>
+              <li><%= link_to 'Location', '#' %></li>
+              <li><%= link_to 'Location', '#' %></li>
+              <li><%= link_to 'Location', '#' %></li>
+              <li><%= link_to 'Location', '#' %></li>
+              <li><%= link_to 'Location', '#' %></li>
+              <li><%= link_to 'Location', '#' %></li>
+            </ul>
+          </div>
+        </li>
+
+        <li>
+          <%= link_to '#', class: 'icon-based reveal-dropdown', title: 'Search' do %>
+            <%= image_tag 'components/navigation/search.png', alt: 'Search' %>
+          <% end %>
+          <div class="dropdown">
+            <div class="search-form collapse">
+              <%= form_tag '' do %>
+                <div class="small-11 columns">
+                  <%= text_field_tag :search %>
+                </div>
+
+                <div class="small-1 column">
+                  <%= submit_tag 'Submit' %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>

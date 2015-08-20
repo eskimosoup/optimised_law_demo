@@ -1,3 +1,9 @@
+/*
+  *= require octicons
+  *= require slick.js/slick.scss
+  *= require slick.js/slick-theme.scss
+*/
+
 @import 'vendor/foundation',
 'vendor/normalize',
 'lib/variables',
@@ -9,4 +15,11 @@
 'layout/home',
 'components/client_area',
 'components/navigation',
-'components/hero';
+'components/hero',
+'components/testimonials',
+'components/marketing_campaign',
+'components/twitter',
+'components/articles',
+'components/partners',
+'components/forms',
+'vendor/slick-theme';

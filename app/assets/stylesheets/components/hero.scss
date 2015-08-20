@@ -1,4 +1,127 @@
 .hero {
-  background: transparent image-url('layout/home/hero-background.jpg') no-repeat 50% 100%;
-  background-size: cover;
+  background-image: linear-gradient(rgba($hero-gradient-start, .38), rgba($hero-gradient-end, .76)),
+                    image-url('layout/home/hero-background.jpg');
+  background-position: 0 0, 50% 100%;
+  background-repeat: repeat, no-repeat;
+  background-size: auto, cover;
+  position: relative;
+  text-align: center;
+}
+
+.hero-content-wrap {
+  display: inline-block;
+  margin: 8% auto 12%;
+}
+
+.hero-primary-title {
+  color: $hero-title;
+  font-family: $hero-title-font;
+  font-size: em(30px);
+  font-weight: $hero-title-font-weight;
+  letter-spacing: 2px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.hero-secondary-title {
+  color: $hero-accent-title;
+  font-family: $hero-title-font;
+  font-size: em(40px);
+  font-weight: $hero-title-font-weight;
+  margin: 0;
+}
+
+.hero-department-wrap {
+  margin-top: em(-127px);
+  padding: 0 0 em(50px);
+}
+
+.hero-department {
+  position: relative;
+
+  .state-normal {
+    border-bottom: 12px solid transparent;
+    border-top: 12px solid transparent;
+    display: block;
+    min-height: 300px;
+    padding: em(45px);
+    width: 100%;
+  }
+
+  .department-type {
+    border-bottom: 2px solid $hero-department-title-border-color;
+    color: $hero-department-title-color;
+    font-family: $hero-department-font;
+    font-size: em(13px);
+    font-weight: $hero-department-font-weight;
+    margin-bottom: em(15px, 13px);
+  }
+
+  h3 {
+    color: $hero-department-service-title-color;
+    font-family: $hero-department-service-title-font;
+    font-size: em(19px);
+    font-weight: $hero-department-service-title-font-weight;
+    letter-spacing: 1px;
+    margin: 0 0 em(18px, 19px);
+    text-transform: uppercase;
+  }
+
+  p {
+    color: $hero-department-service-title-color;
+    font-size: em(13px);
+    margin: 0 0 em(20px, 13px);
+    line-height: 1.7;
+  }
+
+  &.first {
+    background: $hero-first-department;
+  }
+
+  &.second {
+    background: $hero-second-department;
+  }
+
+  &.third {
+    background: $hero-third-department;
+  }
+}
+
+.hero-department .state-hover {
+  background: $hero-department-hover-background-color;
+  border-bottom: 12px solid $hero-department-hover-border-color;
+  border-top: 12px solid $hero-department-hover-border-color;
+  height: 100%;
+  left: 0;
+  padding: em(45px);
+  position: absolute;
+  top: 0;
+  width: 100%;
+
+  .department-type {
+    color: $hero-department-service-title-hover-color;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  a {
+    &:link,
+    &:visited {
+      border-left: 6px solid transparent;
+      color: $hero-department-hover-link-color;
+      display: block;
+      font-family: $hero-department-service-title-font;
+      font-size: em(12px);
+      margin: em(5px, 12px) 0;
+    }
+
+    &:hover,
+    &:active {
+      border-left: 6px solid $hero-department-link-hover-border-color;
+      padding-left: em(10px, 12px);
+      text-decoration: none;
+    }
+  }
 }
