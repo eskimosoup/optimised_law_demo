@@ -18,7 +18,7 @@
   </div>
 
   <nav class="row">
-    <div class="small-12 columns">
+    <div class="small-12 columns position-static">
       <ul class="primary navigation">
         <%= nested_menu_items(menu_items: @header_menu.menu_items) %>
 
@@ -27,7 +27,7 @@
             <%= image_tag 'components/navigation/pin.png', alt: 'Offices' %>
           <% end %>
           <div class="dropdown">
-            <ul>
+            <ul data-animation-type="slideInLeft">
               <li><%= link_to 'Location', '#' %></li>
               <li><%= link_to 'Location', '#' %></li>
               <li><%= link_to 'Location', '#' %></li>

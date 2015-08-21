@@ -42,7 +42,7 @@
   bottom: 0;
   box-shadow: rgba(0, 0, 0, .29) -4px 0 5px 0;
   color: $call-to-action-text-color;
-  height: 70%;
+  min-height: 70%;
   left: 0;
   margin: 10% auto;
   padding: 3% 0 0;
@@ -53,6 +53,7 @@
   z-index: 9999;
 
   .row {
+    width: 100%;
     max-width: 940px;
   }
 
@@ -62,6 +63,18 @@
 
   &.lawyer-search {
     background: $find-a-lawyer-modal-background;
+  }
+}
+
+.ie8 .modal-call-to-action,
+.ie9 .modal-call-to-action {
+  @extend %clearfix;
+  width: 90%;
+  height: 100%;
+  top: -120px;
+
+  .row {
+    width: 90%;
   }
 }
 
@@ -133,7 +146,7 @@
 }
 
 .modal-call-to-action-small-print {
-  color: rgba($call-to-action-text-color, .61);
+  @include color-rgba($call-to-action-text-color, .61);
   font-size: em(11px);
   margin: em(21px, 11px) em(117px, 11px);
   text-align: center;

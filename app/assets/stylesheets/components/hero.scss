@@ -8,9 +8,22 @@
   text-align: center;
 }
 
+.ie8 .hero,
+.ie9 .hero {
+  background-image: image-url('layout/home/hero-background.jpg');
+  background-position: 50% 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .hero-content-wrap {
-  display: inline-block;
-  margin: 8% auto 12%;
+  background: rgba($hero-gradient-start, .38);
+  padding: em(160px) 0 em(220px);
+}
+
+.ie8 .hero-content-wrap,
+.ie9 .hero-content-wrap {
+  background: rgba($hero-gradient-start, .38);
 }
 
 .hero-primary-title {
