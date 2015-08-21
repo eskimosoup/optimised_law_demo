@@ -17,6 +17,6 @@
 //= require components/hero_department
 //= require components/toggle_class
 //= require components/animation
+//= require components/call_to_actions
 //= require vendor/foundation/foundation.js
-//= require vendor/foundation/foundation.equalizer.js
 //= require vendor/onscreen

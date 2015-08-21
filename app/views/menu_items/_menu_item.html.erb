@@ -3,7 +3,7 @@
     <%= menu_item_presenter.link_to_dropdown("level-#{depth}") %>
 
     <div class="dropdown">
-      <%= content_tag :ul, class: "depth-#{ depth }" do %>
+      <%= content_tag :ul, class: "depth-#{ depth }", data: { animation_type: 'slideInLeft' } do %>
         <%= nested_menu_items(menu_items: sub_menu_items, depth: depth + 1) %>
       <% end %>
     </div>
