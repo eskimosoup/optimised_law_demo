@@ -29,6 +29,17 @@
   font-size: em(40px);
   font-weight: $hero-title-font-weight;
   margin: 0;
+
+  span {
+    display: inline-block;
+  }
+
+  .ampersand {
+    background: transparent image-url('layout/home/ampersand.png') no-repeat;
+    text-indent: -9999px;
+    width: 64px;
+    height: 60px;
+  }
 }
 
 .hero-department-wrap {
@@ -109,7 +120,6 @@
   a {
     &:link,
     &:visited {
-      border-left: 6px solid transparent;
       color: $hero-department-hover-link-color;
       display: block;
       font-family: $hero-department-service-title-font;
