@@ -18,7 +18,7 @@
   </script>
 <% end %>
 
-<div class="home-content-block">
+<div class="home-content-block" data-animation-type="slideInLeft">
   <div class="row collapse"  data-equalizer="marketing">
     <section class="small-12 medium-3 columns" data-equalizer-watch="marketing">
       <div class="content-block">
@@ -28,33 +28,8 @@
 
         <%= image_tag 'layout/testimonials/quote-open.png', class: 'quote-open', alt: '' %>
         <div class="testimonials">
-          <div class="testimonial">
-            <div class="testimonial-content">
-              <p>
-                The speed, professionalism and depth of expertise that I have found
-                within Harrison & Campbell in the space of ten minuets amazed me,
-                the faith that I have in the advice given is absolute.
-              </p>
-            </div>
-
-            <div class="testimonial-author">
-              Francis King
-            </div>
-          </div>
-
-          <div class="testimonial">
-            <div class="testimonial-content">
-              <p>
-                The speed, professionalism and depth of expertise that I have found
-                within Harrison & Campbell in the space of ten minuets amazed me,
-                the faith that I have in the advice given is absolute.
-              </p>
-            </div>
-
-            <div class="testimonial-author">
-              Francis King
-            </div>
-          </div>
+          <%= render 'testimonials/testimonial' %>
+          <%= render 'testimonials/testimonial' %>
         </div>
         <%= image_tag 'layout/testimonials/quote-close.png', class: 'quote-close', alt: '' %>
       </div>
@@ -62,25 +37,7 @@
 
     <section class="small-12 medium-6 columns" data-equalizer-watch="marketing">
       <div class="marketing-campaign">
-        <div class="row collapse">
-          <div class="small-12 medium-6 columns">
-            <%= link_to (image_tag 'placeholders/ad.jpg', alt: ''), '#' %>
-          </div>
-
-          <div class="small-12 medium-6 columns">
-            <div class="marketing-campaign-content">
-              <h5>Are you moving home?</h5>
-
-              <p class="call-to-action">
-                Read our free buying &amp; selling guides
-              </p>
-
-              <p>
-                Expert guidance for buying and selling houses. Use our 24/7 tracker! <!-- you're going to track your house doesn't grow wheels and move?! -->
-              </p>
-            </div>
-          </div>
-        </div>
+        <%= render 'marketing_campaign/home_marketing_campaign' %>
       </div>
     </section>
 
@@ -91,27 +48,8 @@
         <%= link_to '@WCllpSoliciters', '#', class: 'twitter-username' %>
 
         <div class="tweets">
-          <div>
-            <p class="tweet">
-              We're recruiting for a corporate #solicitor Check out the job details at: <%= link_to 'http://www.linkedin.com/jobs2/view/63841640', 'http://www.linkedin.com/jobs2/view/63841640' %> …
-        <%= link_to '#legaljobs', 'http://www.linkedin.com/jobs2/view/63841640' %> <%= link_to '#londonlaw', 'http://www.linkedin.com/jobs2/view/63841640' %> <%= link_to '#legal', 'http://www.linkedin.com/jobs2/view/63841640' %>
-            </p>
-
-            <p class="tweet-time">
-              6:46 AM - 22 Jul 2015
-            </p>
-          </div>
-
-           <div>
-            <p class="tweet">
-              We're recruiting for a corporate #solicitor Check out the job details at: <%= link_to 'http://www.linkedin.com/jobs2/view/63841640', 'http://www.linkedin.com/jobs2/view/63841640' %> …
-        <%= link_to '#legaljobs', 'http://www.linkedin.com/jobs2/view/63841640' %> <%= link_to '#londonlaw', 'http://www.linkedin.com/jobs2/view/63841640' %> <%= link_to '#legal', 'http://www.linkedin.com/jobs2/view/63841640' %>
-            </p>
-
-            <p class="tweet-time">
-              6:46 AM - 22 Jul 2015
-            </p>
-          </div>
+          <%= render 'shared/twitter' %>
+          <%= render 'shared/twitter' %>
         </div>
       </div>
     </section>
