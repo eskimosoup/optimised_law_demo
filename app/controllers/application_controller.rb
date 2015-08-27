@@ -5,6 +5,12 @@ class ApplicationController < ActionController::Base
 
   before_action :global_site_settings, :menus
 
+  def index
+  end
+
+  def service_page
+  end
+
   private
 
   def menus

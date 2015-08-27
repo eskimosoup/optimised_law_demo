@@ -10,26 +10,6 @@ $primary-navigation-dropdown-font: $primary-sans-serif-font;
 
 $secondary-navigation-font: $primary-sans-serif-font;
 
-/*
-$first-color:   #45575E;
-$second-color:  #8FABB8;
-$third-color:   #222A33;
-$fourth-color:  #444a59;
-$fifth-color:    #e6e6e6;
-$sixth-color:   #548782;
-$seventh-color: #6E8B87;
-$eighth-color:  #875454;
-$nineth-color:  #333;
-$tenth-color:   #284654;
-$eleventh-color: #548781;
-$twelfth-color: #444A5B;
-$thirteenth-color: #c8e5e6;
-$fourteenth-color: #85817a;
-$fifteenth-color: #f0eee8;
-$sixteenth-color: #718b87;
-$eighteenth-color: #404655;
-*/
-
 $white: #fff;
 $black: #000;
 
@@ -66,7 +46,7 @@ $header-primary-dropdown-background-color: #f2f2f2;
 $header-primary-dropdown-border-color: #cfcfcf;
 $header-primary-dropdown-link-color: #85817a;
 
-$request-a-callback-button: #444A5B;
+$request-a-callback-button: #444a5b;
 $request-a-callback-modal-background: $request-a-callback-button;
 $find-a-lawyer-button: #548782;
 $find-a-lawyer-modal-background: #7d918f;
@@ -81,9 +61,9 @@ $hero-title-font: $primary-serif-font;
 $hero-title-font-weight: 400;
 $hero-accent-title: #c8e5e6;
 
-$hero-first-department: #45575E;
-$hero-second-department: #8FABB8;
-$hero-third-department: #222A33;
+$hero-first-department: #45575e;
+$hero-second-department: #8fabb8;
+$hero-third-department: #222a33;
 $hero-department-title-border-color: #548782;
 $hero-department-title-color: #f0eee8;
 $hero-department-font: $secondary-serif-font;
@@ -124,3 +104,41 @@ $footer-background-color: #404655;
 $footer-text-color: #fff;
 $footer-title-color: $footer-text-color;
 $footer-link-color: $footer-text-color;
+
+$department-header: #8fabb8;
+$department-header-text-color: #fff;
+$department-header-font: $primary-sans-serif-font;
+$department-header-font-weight: 700;
+
+$service-category-title-text-color: #6a6f7b;
+$service-category-title-font-weight: 300;
+$service-category-title-border-color: #798584;
+$service-category-overview-paragraph-text-color: #404655;
+$service-category-overview-paragraph-font-weight: 900;
+$service-category-main-text-color: #666666;
+$service-category-main-text-font: $primary-sans-serif-font;
+
+$sidebar-tab-navigation-active: $content-background-color;
+$sidebar-tab-navigation-active-border-color: #548782;
+$sidebar-tab-navigation-active-text-color: #808080;
+$sidebar-tab-background: #8fabb8;
+$sidebar-tab-border-color: #b3c6cf;
+$sidebar-tab-navigation-text-color: $white;
+
+$call-to-action-link-1-background: #548782;
+$call-to-action-link-1-color: $white;
+
+$call-to-action-link-2-background: #2b2e30;
+$call-to-action-link-2-color: $white;
+
+$call-to-action-link-3-background: #464b4e;
+$call-to-action-link-3-color: $white;
+
+$call-to-action-link-4-background: #798584;
+$call-to-action-link-4-color: $white;
+
+$call-to-action-link-5-background: #a4abaa;
+$call-to-action-link-5-color: $white;
+
+$service-overview-content-text-color: $service-category-overview-paragraph-text-color;
+$service-overview-content-separator-border-color: #798584;
