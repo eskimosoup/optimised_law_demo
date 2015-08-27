@@ -1,0 +1,57 @@
+.service-wrap {
+  background: transparent image-url('layout/services/header.jpg') no-repeat top center;
+  padding: em(63px) 0 0;
+}
+
+.department {
+  background: $department-header;
+  color: $department-header-text-color;
+  display: inline-block;
+  font-size: em(16px);
+  font-weight: $department-header-font-weight;
+  letter-spacing: 1px;
+  line-height: 1;
+  margin: 0 0 0 em(30px, 16px);
+  padding: em(30px, 16px) em(25px, 16px) em(15px, 16px);
+  text-transform: uppercase;
+}
+
+.service-category-overview {
+  background: $content-background-color;
+  border-top: 14px solid $department-header;
+
+  p:first-of-type {
+    margin-top: 0;
+  }
+}
+
+.service-category-overview-content {
+  padding: em(41px) em(41px) 0;
+}
+
+.service-category-overview-header {
+  border-bottom: 6px solid $service-category-title-border-color;
+  color: $service-category-title-text-color;
+  font-size: em(36px);
+  font-weight: $service-category-title-font-weight;
+  margin: 0 0 em(34px, 36px);
+  padding: 0 0 em(23px, 36px);
+}
+
+.service-category-overview-paragraph {
+  color: $service-category-overview-paragraph-text-color;
+  font-size: em(24px);
+  font-weight: $service-category-overview-paragraph-font-weight;
+  line-height: 1.375;
+}
+
+.service-category-main-content p {
+  color: $service-category-main-text-color;
+  font-family: $service-category-main-text-font;
+  font-size: em(13px);
+  margin: em(18px, 13px) 0;
+}
+
+.service-category-image {
+  display: block;
+}
