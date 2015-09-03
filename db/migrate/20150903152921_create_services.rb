@@ -1,10 +1,11 @@
-class CreateServiceCategories < ActiveRecord::Migration
+class CreateServices < ActiveRecord::Migration
   def change
-    create_table :service_categories do |t|
-      t.belongs_to :department, index: true, foreign_key: true
+    create_table :services do |t|
+      t.belongs_to :service_category, index: true, foreign_key: true
+      t.integer :parent_id
       t.string :name, null: false
-      t.text :summary
       t.string :image
+      t.string :summary
       t.string :slug, index: true
       t.string :suggested_url
       t.boolean :display, default: true
