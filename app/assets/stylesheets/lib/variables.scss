@@ -106,7 +106,7 @@ $footer-title-color: $footer-text-color;
 $footer-link-color: $footer-text-color;
 
 $department-header: #8fabb8;
-$department-header-text-color: #fff;
+$department-header-text-color: $white;
 $department-header-font: $primary-sans-serif-font;
 $department-header-font-weight: 700;
 
@@ -116,7 +116,7 @@ $service-category-title-border-color: #798584;
 $service-category-overview-background-color: #fff;
 $service-category-overview-paragraph-text-color: #404655;
 $service-category-overview-paragraph-font-weight: 900;
-$service-category-main-text-color: #666666;
+$service-category-main-text-color: #666;
 $service-category-main-text-font: $primary-sans-serif-font;
 
 $sidebar-tab-navigation-active: $content-background-color;
@@ -143,11 +143,22 @@ $call-to-action-link-5-color: $white;
 
 $service-overview-header-background: $department-header;
 $service-overview-header-text-color: $department-header-text-color;
-$service-overview-header-font: $secondary-sans-serif-font;
 $service-overview-header-font-weight: 700;
 
 $service-overview-content-text-color: $service-category-overview-paragraph-text-color;
 $service-overview-content-separator-border-color: #798584;
+$service-overview-content-high-emphasis-font-weight: 700;
+$service-overview-content-low-emphasis-font-weight: 600;
+
+$service-overview-read-more-border-color: #777;
+$service-overview-read-more-font-weight: 900;
+
+$service-category-services-sidebar-background: #bab9b9;
+$service-category-services-sidebar-color: $white;
+$service-category-services-sidebar-active-color: #808080;
+$service-category-services-sidebar-active-border: #548782;
+$service-category-services-sidebar-active-background: $service-category-overview-background-color;
+$service-category-services-sidebar-font-weight: 900;
 
 $breadcrumbs-font: $secondary-sans-serif-font;
 $breadcrumbs-font-weight: 900;
