@@ -11,6 +11,8 @@ require 'capybara/poltergeist'
 require 'shoulda-matchers'
 require 'database_cleaner'
 require 'support/mailer_macros'
+require 'support/carrierwave_config'
+require 'support/site_settings_macros'
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -58,14 +60,24 @@ RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
   config.include ActionView::TestCase::Behavior, type: :presenter
   config.include Capybara::DSL, type: :feature
-  config.include(MailerMacros)
+  config.include MailerMacros
+  config.include SiteSettingsMacros, type: :feature
   config.before(:each, type: :feature) { reset_email }
   config.before(:each, type: :feature) do
     create(:site_setting_name)
     create(:site_setting_email)
   end
+  config.before(:each, type: :mailer) do
+    create(:site_setting_name)
+    create(:site_setting_email)
+  end
   config.before(:each, js: true) do
     page.driver.browser.url_blacklist = ["https://maps.googleapis.com", "connect.facebook.net"]
+  end
+  config.after(:all) do
+    if Rails.env.test?
+      FileUtils.rm_rf(Rails.root + "public/test_uploads")
+    end
   end
 
   # RSpec Rails can automatically mix in different behaviours to your tests
