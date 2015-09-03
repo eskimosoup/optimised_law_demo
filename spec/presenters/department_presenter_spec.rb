@@ -50,9 +50,4 @@ RSpec.describe DepartmentPresenter, type: :presenter do
       end
     end
   end
-  #t.string   "name",                         null: false
-  #t.string   "image"
-  #t.text     "summary"
-  #t.text     "content"
-  #t.string   "layout"
 end
