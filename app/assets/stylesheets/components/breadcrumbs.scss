@@ -1,0 +1,32 @@
+.breadcrumbs {
+  @extend %clearfix;
+  margin-bottom: em(65px);
+
+  li {
+    float: left;
+    list-style: none;
+  }
+}
+
+.breadcrumb-link {
+  font-family: $breadcrumbs-font;
+  font-weight: $breadcrumbs-font-weight;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  &:link,
+  &:visited {
+    color: rgba($breadcrumbs-colour, .8);
+  }
+
+  &:hover,
+  &:active {
+    color: $breadcrumbs-colour;
+    text-decoration: none;
+  }
+
+  &:after {
+    content: '/';
+    padding: 0 em(7px);
+  }
+}
