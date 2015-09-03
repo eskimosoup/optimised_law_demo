@@ -6,4 +6,8 @@ RSpec.describe Department, type: :model do
     it { should validate_presence_of(:summary) }
     it { should validate_presence_of(:content) }
   end
+
+  describe "associations", :association do
+    it { should have_many(:service_categories).dependent(:destroy) }
+  end
 end

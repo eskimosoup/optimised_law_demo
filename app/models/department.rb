@@ -5,6 +5,8 @@ class Department < ActiveRecord::Base
 
   mount_uploader :image, DepartmentUploader
 
+  has_many :service_categories, dependent: :destroy
+
   validates :name, :summary, :content, presence: true
 
   def self.layouts
