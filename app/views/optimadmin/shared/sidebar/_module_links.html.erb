@@ -27,6 +27,9 @@
         <% if can? :manage, Optimadmin::MenuItem %>
           <li><%= link_to 'Site Navigation', menu_items_path %></li>
         <% end %>
+        <% if can? :manage, Department %>
+          <li><%= link_to 'Departments', departments_path %></li>
+        <% end %>
       </ul>
 
       <div class="content-category-type">
