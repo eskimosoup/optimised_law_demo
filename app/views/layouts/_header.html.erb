@@ -4,7 +4,7 @@
   </div>
 
   <div class="client-area-toggle">
-    <%= link_to 'Client Area', '#client-area-content', class: 'toggle-class right', data: { container: '.client-area-content', class: 'hide', return: 'true' } %>
+    <%= link_to 'Client Area', '#client-area-content', class: 'toggle-class right', data: { container: '.client-area-content', class: 'hide', return: 'true', animation_type: 'slideInRight' } %>
   </div>
 
   <div class="header">
@@ -12,13 +12,13 @@
       <%= image_tag 'layout/header/logo.png', alt: global_site_settings['Name'] %>
     <% end %>
 
-    <ul class="secondary navigation right">
+    <ul class="secondary navigation right" data-animation-type="slideInRight">
       <%= nested_menu_items(menu_items: @header_aside_menu.menu_items) %>
     </ul>
   </div>
 
   <nav class="row">
-    <div class="small-12 columns">
+    <div class="small-12 columns position-static">
       <ul class="primary navigation">
         <%= nested_menu_items(menu_items: @header_menu.menu_items) %>
 
@@ -27,7 +27,7 @@
             <%= image_tag 'components/navigation/pin.png', alt: 'Offices' %>
           <% end %>
           <div class="dropdown">
-            <ul>
+            <ul data-animation-type="slideInLeft">
               <li><%= link_to 'Location', '#' %></li>
               <li><%= link_to 'Location', '#' %></li>
               <li><%= link_to 'Location', '#' %></li>
@@ -44,17 +44,7 @@
             <%= image_tag 'components/navigation/search.png', alt: 'Search' %>
           <% end %>
           <div class="dropdown">
-            <div class="search-form collapse">
-              <%= form_tag '' do %>
-                <div class="small-11 columns">
-                  <%= text_field_tag :search %>
-                </div>
-
-                <div class="small-1 column">
-                  <%= submit_tag 'Submit' %>
-                </div>
-              <% end %>
-            </div>
+            <%= render 'lawyer_searches/form' %>
           </div>
         </li>
       </ul>

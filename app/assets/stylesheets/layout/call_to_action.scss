@@ -1,0 +1,153 @@
+.fixed-call-to-actions {
+  @extend %clearfix;
+  bottom: 0;
+  position: fixed;
+  right: 0;
+}
+
+.call-to-action {
+  display: block;
+  float: right;
+  font-family: $call-to-action-font;
+  font-size: em(13px);
+  padding: em(30px, 13px) em(19px, 13px) em(18px, 13px);
+  text-transform: uppercase;
+  width: 45%;
+
+  span {
+    display: inline-block;
+    width: 80%;
+  }
+
+  &:link,
+  &:visited {
+    color: $call-to-action-text-color;
+  }
+
+  &:hover,
+  &:active {
+    color: $call-to-action-text-color;
+  }
+
+  &.callback {
+    background: $request-a-callback-button image-url('layout/call-to-actions/phone.png') no-repeat 92% 10px;
+  }
+
+  &.lawyer-search {
+    background: $find-a-lawyer-button image-url('layout/call-to-actions/lawyer.png') no-repeat 92% 10px;
+  }
+}
+
+.modal-call-to-action {
+  bottom: 0;
+  box-shadow: rgba(0, 0, 0, .29) -4px 0 5px 0;
+  color: $call-to-action-text-color;
+  min-height: 70%;
+  left: 0;
+  margin: 10% auto;
+  padding: 3% 0 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 65%;
+  z-index: 9999;
+
+  .row {
+    width: 100%;
+    max-width: 940px;
+  }
+
+  &.callback {
+    background: $request-a-callback-modal-background;
+  }
+
+  &.lawyer-search {
+    background: $find-a-lawyer-modal-background;
+  }
+}
+
+.ie8 .modal-call-to-action,
+.ie9 .modal-call-to-action {
+  @extend %clearfix;
+  width: 90%;
+  height: 100%;
+  top: -120px;
+
+  .row {
+    width: 90%;
+  }
+}
+
+.modal-call-to-action-header {
+  border-bottom: 3px solid $call-to-action-header-border-color;
+  color: $white;
+  font-size: em(15px);
+  line-height: 1.4;
+  margin: em(12px, 15px) 0;
+  padding: 0 0 em(9px, 15px);
+  text-align: center;
+}
+
+.modal-call-to-action-form {
+  margin: em(20px) 0 0;
+
+  input[type="text"],
+  input[type="password"],
+  input[type="date"],
+  input[type="datetime"],
+  input[type="datetime-local"],
+  input[type="month"],
+  input[type="week"],
+  input[type="email"],
+  input[type="number"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="time"],
+  input[type="url"],
+  input[type="color"],
+  input[type='search'],
+  textarea,
+  select {
+    font-size: em(14px);
+    padding: em(8px, 14px) em(12px, 14px);
+  }
+
+  .actions {
+    text-align: center;
+  }
+}
+
+.modal-call-to-action-content p {
+  font-family: $call-to-action-font;
+  font-size: em(13px);
+  line-height: 1.6;
+}
+
+.modal-call-to-action-button {
+  background: $call-to-action-header-border-color;
+  color: $call-to-action-text-color;
+  float: right;
+  font-family: $call-to-action-font;
+  font-size: em(12px);
+  letter-spacing: 1px;
+  padding: em(9px, 12px) em(25px, 12px);
+  text-align: center;
+
+  &:link,
+  &:visited {
+    color: $call-to-action-text-color;
+  }
+
+  &:hover,
+  &:active {
+    color: $call-to-action-text-color;
+    cursor: pointer;
+  }
+}
+
+.modal-call-to-action-small-print {
+  @include color-rgba($call-to-action-text-color, .61);
+  font-size: em(11px);
+  margin: em(21px, 11px) em(117px, 11px);
+  text-align: center;
+}

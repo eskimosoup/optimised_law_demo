@@ -13,7 +13,7 @@ footer {
 }
 
 .footer-microcopy {
-  color: rgba($footer-text-color, 0.5);
+  @include color-rgba($footer-text-color, 0.5);
   font-size: em(10px);
   line-height: 1.6;
   margin: em(27px, 10px) 0 0;

@@ -1,0 +1,78 @@
+
+<div class="fixed-call-to-actions">
+  <%= link_to '#', class: 'call-to-action lawyer-search slide-toggle-class', data: { container: '.modal-call-to-action.lawyer-search', return: 'false' } do %>
+    <span>Find a Lawyer</span>
+  <% end %>
+
+  <%= link_to '#', class: 'call-to-action callback slide-toggle-class', data: { container: '.modal-call-to-action.callback', return: 'false' } do %>
+    <span>Request a Callback</span>
+  <% end %>
+</div>
+
+<div class="modal-call-to-action hide callback">
+  <%= link_to 'Close', '#', class: 'modal-call-to-action-button slide-toggle-class', data: { container: '.modal-call-to-action.callback', return: 'false' } %>
+
+  <div class="row">
+    <div class="small-12 columns">
+      <h6 class="modal-call-to-action-header">Request a Callback</h6>
+
+      <div class="modal-call-to-action-content">
+        <p>
+          If you need to speak to us about a general query fill in the form below and we will call you back within the same working day. You can also manage your account easily with My Account.
+        </p>
+      </div>
+
+      <%= form_tag '', class: 'modal-call-to-action-form' do %>
+        <div class="field">
+          <%= select_tag :title, options_for_select(['Mr', 'Mrs', 'Miss', 'Ms', 'Dr']), prompt: 'Title' %>
+        </div>
+
+        <div class="field">
+          <%= text_field_tag :first_name, nil, placeholder: 'First name' %>
+        </div>
+
+        <div class="field">
+          <%= text_field_tag :last_name, nil, placeholder: 'Last name' %>
+        </div>
+
+        <div class="field">
+          <%= text_field_tag :email_address, nil, placeholder: 'Email address' %>
+        </div>
+
+        <div class="field">
+          <%= text_field_tag :contact_telephone, nil, placeholder: 'Contact telephone' %>
+        </div>
+
+        <div class="field">
+          <%= select_tag :callback_time, options_for_select(['2 hour callback', '09:00 - 11:00', '11:00 - 13:00', '13:00 - 15:00', '15:00 - 17:00', '17:00 - 20:00 (Monday to Friday only)']), prompt: 'Call back time' %>
+        </div>
+
+        <div class="actions">
+          <%= submit_tag "Submit" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <p class="modal-call-to-action-small-print">
+    Please note for billing call backs we will always call you back during the hours of 8am – 8pm Monday to Friday and 9am-5pm on Saturdays. For operational call back requests we will call you back between 7am and 10pm Monday to Friday and 8am to 4pm Saturday and Sunday.
+  </p>
+</div>
+
+<div class="modal-call-to-action hide lawyer-search">
+  <%= link_to 'Close', '#', class: 'modal-call-to-action-button slide-toggle-class', data: { container: '.modal-call-to-action.lawyer-search', return: 'false' } %>
+
+  <div class="row">
+    <div class="small-12 columns">
+      <h6 class="modal-call-to-action-header">Find a Lawyer</h6>
+
+      <div class="modal-call-to-action-content">
+        <p>
+          Use the form below to find a lawyer in your area.
+        </p>
+      </div>
+
+      <%= render 'lawyer_searches/form' %>
+    </div>
+  </div>
+</div>

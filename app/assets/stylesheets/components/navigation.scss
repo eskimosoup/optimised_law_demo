@@ -27,7 +27,6 @@
 
   li {
     display: inline-block;
-    position: relative;
   }
 
   .level-1 {
@@ -64,9 +63,9 @@
   }
 
   a {
+    color: $footer-link-color;
     font-size: em(11px);
     margin: 0 em(15px, 11px) 0 0;
-    color: $footer-link-color;
 
     &:hover {
       text-decoration: underline;
@@ -77,10 +76,9 @@
 .primary .dropdown {
   background: $header-primary-dropdown-background-color;
   left: 0;
-  margin: 0;
-  position: fixed;
-  padding: em(100px) 0;
   margin: em(4px) 0 0;
+  padding: em(100px) 0;
+  position: absolute;
   width: 100%;
   z-index: 100;
 
@@ -88,9 +86,9 @@
   .search-form {
     @extend %clearfix;
     display: block;
-    text-align: left;
     margin: 0 auto;
     max-width: 960px;
+    text-align: left;
     width: 100%;
 
     &.collapse .columns {
@@ -105,15 +103,15 @@
   }
 
   a {
-    display: block;
-    margin: em(20px, 12px) 0;
-    padding: 0 0 em(15px, 12px) em(20px, 12px);
     border-bottom: 1px solid $header-primary-dropdown-border-color;
     border-left: 8px solid $header-primary-dropdown-background-color;
-    font-family: $primary-navigation-dropdown-font;
     color: $header-primary-dropdown-link-color;
+    display: block;
+    font-family: $primary-navigation-dropdown-font;
     font-size: em(12px);
     letter-spacing: 1px;
+    margin: em(20px, 12px) 0;
+    padding: 0 0 em(15px, 12px) em(20px, 12px);
     text-transform: uppercase;
 
     &:hover {

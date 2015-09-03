@@ -7,8 +7,18 @@
 <%= stylesheet_link_tag    'application', media: 'all' %>
 <%= csrf_meta_tags %>
 
-<link href='http://fonts.googleapis.com/css?family=Lato|Droid+Serif|Merriweather:400,600,700|Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Lato:300,400,900|Droid+Serif|Merriweather:400,600,700|Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+
+<!--[if lt IE 9]>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+  <script src="//s3.amazonaws.com/nwapi/nwmatcher/nwmatcher-1.2.5-min.js"></script>
+  <script src="//html5base.googlecode.com/svn-history/r38/trunk/js/selectivizr-1.0.3b.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.1.0/respond.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<![endif]-->
 
 <%= javascript_include_tag 'application' %>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.6.0/jquery.matchHeight-min.js"></script>
+<%= javascript_include_tag 'equal-height' %>
 
 <%= yield :head %>
