@@ -113,6 +113,7 @@ $department-header-font-weight: 700;
 $service-category-title-text-color: #6a6f7b;
 $service-category-title-font-weight: 300;
 $service-category-title-border-color: #798584;
+$service-category-overview-background-color: #fff;
 $service-category-overview-paragraph-text-color: #404655;
 $service-category-overview-paragraph-font-weight: 900;
 $service-category-main-text-color: #666666;
@@ -140,5 +141,14 @@ $call-to-action-link-4-color: $white;
 $call-to-action-link-5-background: #a4abaa;
 $call-to-action-link-5-color: $white;
 
+$service-overview-header-background: $department-header;
+$service-overview-header-text-color: $department-header-text-color;
+$service-overview-header-font: $secondary-sans-serif-font;
+$service-overview-header-font-weight: 700;
+
 $service-overview-content-text-color: $service-category-overview-paragraph-text-color;
 $service-overview-content-separator-border-color: #798584;
+
+$breadcrumbs-font: $secondary-sans-serif-font;
+$breadcrumbs-font-weight: 900;
+$breadcrumbs-colour: #fff;
