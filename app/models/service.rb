@@ -1,14 +1,15 @@
-class ServiceCategory < ActiveRecord::Base
+class Service < ActiveRecord::Base
 
   extend FriendlyId
   friendly_id :slug_candidates, use: [:slugged, :history]
 
-  mount_uploader :image, ServiceCategoryUploader
+  has_closure_tree
 
-  belongs_to :department
-  has_many :services, dependent: :destroy
+  mount_uploader :image, ServiceUploader
 
-  validates :department, presence: true
+  belongs_to :service_category
+  has_one :department, through: :service_category
+
   validates :name, presence: true
 
   def slug_candidates

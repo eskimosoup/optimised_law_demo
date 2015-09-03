@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150903131507) do
+ActiveRecord::Schema.define(version: 20150903153734) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -131,12 +131,41 @@ ActiveRecord::Schema.define(version: 20150903131507) do
     t.string   "name",                         null: false
     t.text     "summary"
     t.string   "image"
+    t.string   "slug"
+    t.string   "suggested_url"
     t.boolean  "display",       default: true
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
   end
 
   add_index "service_categories", ["department_id"], name: "index_service_categories_on_department_id", using: :btree
+  add_index "service_categories", ["slug"], name: "index_service_categories_on_slug", using: :btree
+
+  create_table "service_hierarchies", id: false, force: :cascade do |t|
+    t.integer "ancestor_id",   null: false
+    t.integer "descendant_id", null: false
+    t.integer "generations",   null: false
+  end
+
+  add_index "service_hierarchies", ["ancestor_id", "descendant_id", "generations"], name: "service_anc_desc_idx", unique: true, using: :btree
+  add_index "service_hierarchies", ["descendant_id"], name: "service_desc_idx", using: :btree
+
+  create_table "services", force: :cascade do |t|
+    t.integer  "service_category_id"
+    t.integer  "parent_id"
+    t.string   "name",                               null: false
+    t.string   "image"
+    t.string   "summary"
+    t.string   "slug"
+    t.string   "suggested_url"
+    t.boolean  "display",             default: true
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+  end
+
+  add_index "services", ["service_category_id"], name: "index_services_on_service_category_id", using: :btree
+  add_index "services", ["slug"], name: "index_services_on_slug", using: :btree
 
   add_foreign_key "service_categories", "departments"
+  add_foreign_key "services", "service_categories"
 end

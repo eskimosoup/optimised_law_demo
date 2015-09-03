@@ -8,5 +8,6 @@ RSpec.describe ServiceCategory, type: :model do
 
   describe "associations", :association do
     it { should belong_to(:department) }
+    it { should have_many(:services).dependent(:destroy) }
   end
 end
