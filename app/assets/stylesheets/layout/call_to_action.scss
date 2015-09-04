@@ -151,3 +151,73 @@
   margin: em(21px, 11px) em(117px, 11px);
   text-align: center;
 }
+
+%call-to-action-style {
+  display: block;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+@mixin call-to-action-styles($background, $color, $icon) {
+  background: $background image-url($icon) 20px 25px no-repeat;
+  color: $color;
+
+  a:link,
+  a:visited,
+  a:hover,
+  a:active {
+    color: $color;
+    display: block;
+    padding: em(30px) em(30px) em(30px) em(70px);
+  }
+}
+
+.call-to-action-1 {
+  @extend %call-to-action-style;
+  @include call-to-action-styles(
+    $call-to-action-link-1-background,
+    $call-to-action-link-1-color,
+    'components/icons/call-to-actions/call-to-action-1.png'
+  );
+}
+
+.call-to-action-2 {
+  @extend %call-to-action-style;
+  @include call-to-action-styles(
+    $call-to-action-link-2-background,
+    $call-to-action-link-2-color,
+    'components/icons/call-to-actions/call-to-action-2.png'
+  );
+}
+
+.call-to-action-3 {
+  @extend %call-to-action-style;
+  @include call-to-action-styles(
+    $call-to-action-link-3-background,
+    $call-to-action-link-3-color,
+    'components/icons/call-to-actions/call-to-action-3.png'
+  );
+}
+
+.call-to-action-4 {
+  @extend %call-to-action-style;
+  @include call-to-action-styles(
+    $call-to-action-link-4-background,
+    $call-to-action-link-4-color,
+    'components/icons/call-to-actions/call-to-action-4.png'
+  );
+}
+
+.call-to-action-5 {
+  @extend %call-to-action-style;
+  @include call-to-action-styles(
+    $call-to-action-link-5-background,
+    $call-to-action-link-5-color,
+    'components/icons/call-to-actions/call-to-action-5.png'
+  );
+}
+
+.call-to-action-content-wrap {
+  padding: em(30px) em(30px) em(30px) em(70px);
+}

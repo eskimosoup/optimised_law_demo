@@ -1,0 +1,31 @@
+.team-members-service-overview-link {
+  margin: em(70px) 0 em(50px);
+
+  .text-link {
+    background: transparent image-url('components/icons/page-arrow-down.png') left 7px no-repeat;
+    display: block;
+    padding: 0 0 0 em(22px);
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+}
+
+.team-members-service-overview-title {
+  color: $team-members-service-overview-title-color;
+  font-size: em(17px);
+  font-weight: $team-members-service-overview-title-font-weight;
+  text-transform: uppercase;
+}
+
+.team-members-service-overview-name {
+  color: $team-members-service-overview-name-color;
+  font-size: em(22px);
+  font-style: italic;
+  font-weight: $team-members-service-overview-name-font-weight;
+}
+
+.team-members-service-overview-avatar {
+  @include border-radius(50%);
+}

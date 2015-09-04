@@ -50,22 +50,24 @@
 
     <div class="small-12 medium-4 columns">
       <div class="team-members-service-overview-link">
-        <div class="row">
-          <%= link_to '#' do %>
-            <div class="small-12 medium-7 columns">
-              <div class="team-members-service-overview-title">
-                Talk to our
-              </div>
+        <div class="row collapse">
+            <div class="small-12 medium-8 columns">
+              <%= link_to '#', class: 'text-link' do %>
+                <div class="team-members-service-overview-title">
+                  Talk to our
+                </div>
 
-              <div class="team-members-service-overview-name">
-                family law team
-              </div>
+                <div class="team-members-service-overview-name">
+                  family law team
+                </div>
+              <% end %>
             </div>
 
-            <div class="small-12 medium-5 columns text-center">
-              <%= image_tag 'http://placehold.it/61x61' %>
+            <div class="small-12 medium-4 columns text-center">
+              <%= link_to '#' do %>
+                <%= image_tag 'http://placehold.it/61x61', class: 'team-members-service-overview-avatar' %>
+              <% end %>
             </div>
-          <% end %>
         </div>
       </div>
 

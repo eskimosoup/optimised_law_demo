@@ -1,35 +1,35 @@
 <ul class="service-overview-contact-methods">
-  <li>
-    <%= link_to '#', class: 'call-to-action-1' do %>
+  <li class="call-to-action-1">
+    <%= link_to '#', class: 'slide-toggle-class', data: { container: '.call-to-action-1-content', return: 'false' } do %>
       Call Us At
-
-      <div class="hide">
-        <div class="call-to-action-content-title">London</div>
-        <div class="call-to-action-content">020</div>
-      </div>
     <% end %>
+
+    <div class="call-to-action-1-content call-to-action-content-wrap hide">
+      <div class="call-to-action-content-title">London</div>
+      <div class="call-to-action-content">020</div>
+    </div>
   </li>
 
-  <li>
-    <%= link_to '#', class: 'call-to-action-2' do %>
+  <li class="call-to-action-2">
+    <%= link_to '#' do %>
       Request a Callback
     <% end %>
   </li>
 
-  <li>
-    <%= link_to '#', class: 'call-to-action-3' do %>
+  <li class="call-to-action-3">
+    <%= link_to '#' do %>
       Email us
     <% end %>
   </li>
 
-  <li>
-    <%= link_to '#', class: 'call-to-action-4' do %>
+  <li class="call-to-action-4">
+    <%= link_to '#' do %>
       Our Offices
     <% end %>
   </li>
 
-  <li>
-    <%= link_to '#', class: 'call-to-action-5' do %>
+  <li class="call-to-action-5">
+    <%= link_to '#' do %>
       Download a leaflet
     <% end %>
   </li>
