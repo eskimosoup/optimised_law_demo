@@ -42,9 +42,9 @@
   bottom: 0;
   box-shadow: rgba(0, 0, 0, .29) -4px 0 5px 0;
   color: $call-to-action-text-color;
-  min-height: 70%;
   left: 0;
   margin: 10% auto;
+  min-height: 70%;
   padding: 3% 0 0;
   position: fixed;
   right: 0;
@@ -53,8 +53,8 @@
   z-index: 9999;
 
   .row {
-    width: 100%;
     max-width: 940px;
+    width: 100%;
   }
 
   &.callback {
@@ -69,9 +69,9 @@
 .ie8 .modal-call-to-action,
 .ie9 .modal-call-to-action {
   @extend %clearfix;
-  width: 90%;
   height: 100%;
   top: -120px;
+  width: 90%;
 
   .row {
     width: 90%;
@@ -155,8 +155,8 @@
 %call-to-action-style {
   display: block;
   line-height: 1;
-  text-transform: uppercase;
   letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 @mixin call-to-action-styles($background, $color, $icon) {
@@ -169,7 +169,7 @@
   a:active {
     color: $color;
     display: block;
-    padding: em(30px) em(30px) em(30px) em(70px);
+    padding: em(30px) 0 em(30px) em(70px);
   }
 }
 

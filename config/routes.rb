@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   mount Optimadmin::Engine => "/admin"
 
   get 'service-page', to: 'application#service_page'
+  get 'service-page-detailed', to: 'application#service_page_detailed'
 
   root to: "application#index"
 end

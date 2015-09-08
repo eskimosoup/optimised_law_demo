@@ -1,0 +1,45 @@
+.service-content-tab-controls {
+  @extend %clearfix;
+  list-style: none;
+  margin: 0;
+
+  li {
+    display: block;
+    float: left;
+    width: 33%;
+  }
+
+  a {
+    background: $service-category-services-sidebar-background;
+    border-top: 10px solid $service-category-services-sidebar-background;
+    border-right: 1px solid $service-category-services-sidebar-active-background;
+    color: $service-category-services-sidebar-color;
+    display: block;
+    font-size: em(15px);
+    font-weight: $service-category-services-sidebar-font-weight;
+    padding: em(34px, 16px) em(12px, 16px);
+    text-align: center;
+
+    &:hover {
+      background: $service-category-services-sidebar-active-background;
+      border-top: 10px solid $service-category-services-sidebar-active-background;
+      color: $service-category-services-sidebar-active-color;
+      text-decoration: none;
+    }
+
+    &:active,
+    &.active {
+      background: $service-category-services-sidebar-active-background;
+      border-top: 10px solid $service-category-services-sidebar-active-border;
+      color: $service-category-services-sidebar-active-color;
+      margin: 0 0 em(8px, 16px);
+    }
+  }
+}
+
+.service-content-tab-content {
+
+}
+
+.service-content-tab-content-type {
+}

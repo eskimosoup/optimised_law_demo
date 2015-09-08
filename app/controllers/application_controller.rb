@@ -11,6 +11,9 @@ class ApplicationController < ActionController::Base
   def service_page
   end
 
+  def service_page_detailed
+  end
+
   private
 
   def menus
