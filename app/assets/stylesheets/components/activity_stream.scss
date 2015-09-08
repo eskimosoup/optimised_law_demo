@@ -1,0 +1,61 @@
+.activity-stream {
+  background: $content-background-color;
+  height: 100%;
+  
+  h3 {
+    color: $activity-stream-color;
+    font-size: em(16px);
+    font-weight: $activity-stream-header-font-weight;
+    letter-spacing: 1px;
+    margin: 0;
+    padding: em(46px, 16px) em(40px, 16px) em(36px, 16px);
+    text-transform: uppercase;
+  }
+}
+
+.activity-stream-featured-headline {
+  color: $activity-stream-color;
+  display: block;
+  font-size: em(21px);
+  font-weight: $activity-stream-activity-featured-headline-font-weight;
+  line-height: 1.1;
+  margin: em(23px, 21px) 0;
+}
+
+.activity-stream-featured-summary {
+  color: $activity-stream-activity-headline-color;
+  font-family: $activity-stream-activity-headline-font;
+  font-size: em(15px);
+}
+
+.activity-stream-featured-image {
+  @include border-radius(4px);
+}
+
+.activity-stream-activity {
+  border-top: 1px solid $activity-stream-activity-border;
+  padding: em(24p) em(40px);
+}
+
+.activity-time-ago {
+  background: image-url('components/icons/activity-stream/time-icon.png') left center no-repeat;
+  color: $activity-stream-time-ago-color;
+  font-style: italic;
+  padding-left: em(27px);
+}
+
+.activity-stream-headline {
+  background: image-url('components/icons/activity-stream/arrow-right.png') center right no-repeat;
+  color: $activity-stream-activity-headline-color;
+  display: block;
+  font-family: $activity-stream-activity-headline-font;
+  font-size: em(17px);
+  font-weight: $activity-stream-activity-headline-font-weight;
+
+  &:link,
+  &:visited,
+  &:hover,
+  &:active {
+    color: $activity-stream-activity-headline-color;
+  }
+}

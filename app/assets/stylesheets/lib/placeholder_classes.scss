@@ -1,0 +1,13 @@
+// USE SPARINGLY!
+
+%read-more {
+  @include border-radius(30px);
+  border: 1px solid $service-overview-read-more-border-color;
+  display: block;
+  font-size: em(10px);
+  font-weight: $service-overview-read-more-font-weight;
+  margin: em(51px, 10px) 0 0;
+  padding: em(11px, 10px);
+  text-align: center;
+  text-transform: uppercase;
+}

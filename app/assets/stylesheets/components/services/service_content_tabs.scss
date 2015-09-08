@@ -17,8 +17,10 @@
     display: block;
     font-size: em(15px);
     font-weight: $service-category-services-sidebar-font-weight;
-    padding: em(34px, 16px) em(12px, 16px);
+    letter-spacing: 1px;
+    padding: em(34px, 15px) em(12px, 15px);
     text-align: center;
+    text-transform: uppercase;
 
     &:hover {
       background: $service-category-services-sidebar-active-background;
@@ -31,15 +33,53 @@
     &.active {
       background: $service-category-services-sidebar-active-background;
       border-top: 10px solid $service-category-services-sidebar-active-border;
-      color: $service-category-services-sidebar-active-color;
-      margin: 0 0 em(8px, 16px);
+      color: $service-content-tab-active-color;
+      font-weight: $service-content-tab-active-font-weight;
     }
   }
 }
 
 .service-content-tab-content {
+  background: $content-background-color;
+  padding: em(38px) em(50px);
 
+  h2 {
+    color: $service-content-tab-header-color;
+    font-size: em(24px);
+    font-weight: $service-content-tab-header-font-weight;
+    margin: 0 0 em(20px);
+  }
+
+  p {
+    color: $service-content-tab-body-color;
+    line-height: 2;
+    margin: em(10px) 0;
+  }
+}
+
+.service-content-tab-read-more {
+  @extend %read-more;
+  letter-spacing: 1px;
+  margin-bottom: em(35px);
+  width: 75%;
+}
+
+.service-content-tab-content-item {
+  @include border-radius(4px);
 }
 
 .service-content-tab-content-type {
+  @include border-radius(4px);
+  display: inline-block;
+  font-weight: $service-content-tab-content-type-font-weight;
+  letter-spacing: 1px;
+  margin: 0 0 em(24px);
+  padding: em(4px) em(9px);
+  text-align: center;
+  text-transform: uppercase;
+
+  &.case-study {
+    background: $service-content-tab-content-type-case-study-background;
+    color: $service-content-tab-content-type-case-study-color;
+  }
 }
