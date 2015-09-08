@@ -1,0 +1,19 @@
+.service-twitter {
+  background: $service-twitter-background image-url('components/icons/service-twitter/twitter.png') center 50px no-repeat;
+  color: $service-twitter-color;
+  text-align: center;
+  height: 100%;
+
+  p {
+    font-size: em(25px);
+    font-weight: $service-twitter-font-weight;
+    line-height: 1.1;
+    margin: 0;
+    padding: em(124px, 25px) em(22px, 25px) em(12px, 25px);
+  }
+}
+
+.service-twitter-username {
+  font-size: em(10px);
+  text-transform: uppercase;
+}
