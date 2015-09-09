@@ -1,0 +1,39 @@
+.service-video-image {
+  position: relative;
+}
+
+.service-video-category {
+  background: transparent image-url('components/service-video/triangle.png') 20px bottom no-repeat;
+  bottom: -25px;
+  color: $service-video-category-color;
+  font-weight: $service-video-font-weight;
+  left: 28px;
+  letter-spacing: 2px;
+  position: absolute;
+  text-transform: uppercase;
+}
+
+.service-video-category-name {
+  background: $service-video-category-background;
+  padding: em(12px) em(12px) em(8px);
+  margin: 0 0 em(25px);
+}
+
+.service-video-overview {
+  background: $content-background-color;
+  padding: em(28px);
+
+  p {
+    color: $service-video-overview-color;
+    font-family: $service-video-overview-font;
+    font-size: em(13px);
+    line-height: 1.4;
+    margin: 0;
+  }
+}
+
+.service-video-title {
+  font-size: em(24px);
+  font-weight: $service-video-font-weight;
+  margin: 0 0 em(24px, 24px);
+}

@@ -1,0 +1,56 @@
+.people-helped-widget {
+  background: $people-helped-background image-url('components/people-helped/background.png') center no-repeat;
+  color: $people-helped-color;
+  margin: 0 0 em(38px);
+  padding: em(73px) 0 em(50px);
+  text-align: center;
+
+  p {
+    font-family: $people-helped-paragraph-font;
+  }
+}
+
+.people-helped-title {
+  font-size: em(25px);
+  font-weight: $people-helped-title-font-weight;
+}
+
+.people-helped-count {
+  font-family: $people-helped-paragraph-font;
+  font-size: em(64px);
+  font-weight: $people-helped-figure-font-weight;
+}
+
+.people-helped-service-wrap {
+  padding: 0 em(50px);
+  text-align: left;
+}
+
+.people-helped-service-name {
+  display: inline-block;
+  font-size: em(10px);
+  font-weight: $people-helped-service-font-weight;
+  letter-spacing: 1px;
+  margin-right: em(30px, 10px);
+  text-transform: uppercase;
+}
+
+.people-helped-service-progress {
+  background: $people-helped-progress-bar-color;
+  display: inline-block;
+  line-height: 1;
+  text-indent: -9999px;
+}
+
+.people-helped-button {
+  @include border-radius(30px);
+  background: $people-helped-button-background;
+  color: $people-helped-button-color;
+  display: inline-block;
+  font-size: em(10px);
+  font-weight: $people-helped-button-font-weight;
+  letter-spacing: 1px;
+  margin: em(30px, 10px) 0 0;
+  padding: em(17px, 10px) em(30px, 10px);
+  text-transform: uppercase;
+}
