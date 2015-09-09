@@ -1,3 +1,25 @@
+.service-download {
+  background: $content-background-color;
+}
+
+.service-download-title {
+  font-weight: $service-download-title-font-weight;
+  line-height: 1.1;
+  margin: 0 0 em(24px, 13px);
+}
+
+.service-download-content {
+  padding: em(24px);
+}
+
 .service-download-read-more {
   @extend %read-more;
+  margin-top: 0;
+}
+
+.service-download-overview {
+  color: $service-download-summary-color;
+  font-family: $service-download-summary-font;
+  font-size: em(13px);
+  margin: 0;
 }
