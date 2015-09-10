@@ -10,7 +10,9 @@ class Service < ActiveRecord::Base
   belongs_to :service_category
   has_one :department, through: :service_category
 
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: { scope: :service_category_id }
+
+  scope :displayable, -> { where(display: true) }
 
   def slug_candidates
     [

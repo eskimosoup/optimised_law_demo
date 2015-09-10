@@ -12,14 +12,14 @@
       </ul>
 
       <p class="footer-microcopy">
-        &copy; 2015 Harrison &amp; Cambell LLP. All Rights Reserved.
-        Registered number 0C457849.
-        Registered office 12 High Street, Northampton, Northamptonshire NN1 1JX.<br />
+        &copy; 2015 <%= global_site_settings['Name'] %>. All Rights Reserved.
+        Registered number <%= global_site_settings['Registered Number'] %>.
+        Registered office <%= global_site_settings['Address'] %>.<br />
         A list of members may be inspected at our offices listed above. The term Partner
-        means a member of Harrison & Cambell LLP or a senior employee of equivalent
+        means a member of <%= global_site_settings['Name'] %> or a senior employee of equivalent
         standing. <br />
         Authorised and Regulated by the Solicitors
-        Regulation Authority (No 472589). VAT Number: 12876389997
+        Regulation Authority (No <%= global_site_settings['SRA Number'] %>). VAT Number: <%= global_site_settings['VAT Number'] %>
       </p>
     </div>
   </div>

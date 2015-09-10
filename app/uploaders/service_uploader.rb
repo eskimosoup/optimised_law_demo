@@ -5,7 +5,7 @@ class ServiceUploader < Optimadmin::ImageUploader
   end
 
   version :show do
-    process resize_to_fill: [218, 135]
+    process resize_to_fill: [165, 160]
   end
 
 end

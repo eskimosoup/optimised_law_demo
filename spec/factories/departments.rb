@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :department do
     sequence(:name) {|n| "Department #{ n }" }
-    summary "<p>MyText</p>"
+    summary "MyText"
     content "<p>MyText</p>"
     layout "basic"
     display true

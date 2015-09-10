@@ -45,10 +45,9 @@
       <div class="content-block text-center">
         <%= link_to (image_tag 'components/icons/twitter.png', alt: 'Twitter'), '#', class: 'twitter-bird' %>
 
-        <%= link_to '@WCllpSoliciters', '#', class: 'twitter-username' %>
+        <%= link_to global_site_settings['Twitter'], '#', class: 'twitter-username' %>
 
         <div class="tweets">
-          <%= render 'shared/twitter' %>
           <%= render 'shared/twitter' %>
         </div>
       </div>

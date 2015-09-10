@@ -9,6 +9,8 @@ class Department < ActiveRecord::Base
 
   validates :name, :summary, :content, presence: true
 
+  scope :displayable, -> { where(display: true) }
+
   def self.layouts
     %w( basic )
   end
