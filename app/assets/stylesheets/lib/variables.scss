@@ -1,7 +1,9 @@
 $primary-serif-font: 'Droid Serif', serif;
 $secondary-serif-font: 'Merriweather', serif;
+$tertiary-serif-font: 'PT Serif', serif;
 $primary-sans-serif-font: 'Open Sans', 'Arial', 'Helvetica', sans-serif;
 $secondary-sans-serif-font: 'Lato', sans-serif;
+$tertiary-sans-serif-font: 'Montserrat', sans-serif;
 
 $body-font: $secondary-sans-serif-font;
 $primary-navigation-font: $secondary-serif-font;
@@ -141,6 +143,9 @@ $call-to-action-link-4-color: $white;
 $call-to-action-link-5-background: #a4abaa;
 $call-to-action-link-5-color: $white;
 
+$call-to-action-content-font: $primary-serif-font;
+$call-to-action-content-font-weight: 700;
+
 $service-overview-header-background: $department-header;
 $service-overview-header-text-color: $department-header-text-color;
 $service-overview-header-font-weight: 700;
@@ -215,3 +220,21 @@ $service-video-category-color: #fff;
 $service-video-font-weight: 900;
 $service-video-overview-font: $primary-serif-font;
 $service-video-overview-color: #808080;
+
+$team-members-service-carousel-header-border-color: #eee;
+$team-members-service-carousel-header-color: #3b3d40;
+$team-members-service-carousel-header-service-font-weight: 300;
+$team-members-service-carousel-team-member-search-border-color: #548782;
+$team-members-service-carousel-input-font-weight: 700;
+$team-members-service-carousel-team-member-name-color: #515255;
+$team-members-service-carousel-team-member-name-font-weight: 600;
+$team-members-service-carousel-team-member-role-font: $primary-serif-font;
+
+$service-calendar-color: #4a4d51;
+$service-calendar-font: $tertiary-sans-serif-font;
+$service-calendar-header-font-weight: 700;
+$service-calendar-border-color: #f1f1f1;
+$service-calendar-overview-font: $tertiary-serif-font;
+$service-calendar-overview-color: #666c70;
+$service-calendar-event-date-background: #cfdfe2;
+$service-calendar-event-date-color: #3b3d40;

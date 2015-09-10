@@ -20,7 +20,7 @@
 .service-overview-content-wrap {
   background: $service-category-overview-background-color;
   border-top: 14px solid $department-header;
-  margin: 0 0 em(81px);
+  margin: 0 0 em(38px);
 
   p {
     @extend %service-category-paragraph;
@@ -74,4 +74,41 @@
 
 .service-resources-wrap {
   margin: em(38px) 0;
+}
+
+.service-overview-fixed-contact-methods {
+  @extend %clearfix;
+  list-style: none;
+  bottom: 0;
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+
+  @include media('<desktop') {
+    display: none;
+  }
+
+  li {
+    background-position-x: 5px;
+    float: left;
+    width: 20%;
+
+    a:link,
+    a:visited,
+    a:hover,
+    a:active {
+      font-size: em(12px);
+      padding: em(30px, 12px) 0 em(23px, 12px) em(40px, 12px);
+    }
+  }
+
+  .call-to-action-content-wrap {
+    bottom: 65px;
+    position: absolute;
+    width: 100%;
+  }
+
+  .call-to-action-content-wrap {
+    padding: em(30px) em(23px) em(10px);
+  }
 }

@@ -1,0 +1,85 @@
+.service-event-focus-wrap {
+  margin-bottom: em(38px);
+}
+
+.service-calendar-wrap {
+  background: $content-background-color;
+  color: $service-calendar-color;
+  padding: em(50px) em(79px);
+
+  h6 {
+    color: $service-calendar-color;
+    font-family: $service-calendar-font;
+    font-size: em(16px);
+    font-weight: $service-calendar-header-font-weight;
+    letter-spacing: 2px;
+    line-height: 1.25;
+    text-transform: uppercase;
+    padding: 0 0 0 em(23px, 16px);
+  }
+}
+
+.service-event-focus {
+  border-top: 1px solid $service-calendar-border-color;
+  padding: em(33px) em(23px);
+}
+
+.service-event-date {
+  font-family: $service-calendar-font;
+
+  &.focus {
+    background: image-url('components/icons/calendar.png') top right no-repeat;
+    line-height: 1;
+  }
+
+  strong {
+    font-size: em(55px);
+  }
+}
+
+.service-event-date-inner {
+  @include border-radius(6px);
+  background: $service-calendar-event-date-background;
+  color: $service-calendar-event-date-color;
+  display: inline-block;
+  font-size: em(14px);
+  font-weight: $service-calendar-header-font-weight;
+  padding: em(2px) em(4px);
+  margin: 0 0 em(16px);
+}
+
+
+.service-event-focus-title {
+  font-size: em(20px);
+  font-weight: $service-calendar-header-font-weight;
+  margin: em(20px, 20px) 0;
+}
+
+.service-event-overview {
+  color: $service-calendar-overview-color;
+  font-family: $service-calendar-overview-font;
+  font-size: em(20px);
+}
+
+.service-events-list  .columns {
+  border-left: 1px solid $service-calendar-border-color;
+  border-right: 1px solid $service-calendar-border-color;
+
+  &.no-right-border {
+    border-right: 0;
+  }
+}
+
+.service-event-list-inner {
+  border-top: 1px solid $service-calendar-border-color;
+  font-family: $service-calendar-overview-font;
+  font-size: em(16px);
+  padding: em(28px, 16px);
+
+  a:link,
+  a:visited,
+  a:hover,
+  a:active {
+    color: $service-calendar-overview-color;
+  }
+}

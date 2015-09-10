@@ -25,6 +25,10 @@
   </div>
 </footer>
 
-<%= render 'shared/call_to_action' %>
+<% if content_for?(:call_to_action) %>
+  <%= yield :call_to_action %>
+<% else %>
+  <%= render 'shared/call_to_action'  %>
+<% end %>
 
 <%= yield :footer %>
