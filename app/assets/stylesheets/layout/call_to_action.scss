@@ -162,6 +162,7 @@
 @mixin call-to-action-styles($background, $color, $icon) {
   background: $background image-url($icon) 20px 25px no-repeat;
   color: $color;
+  position: relative;
 
   a:link,
   a:visited,
@@ -180,6 +181,10 @@
     $call-to-action-link-1-color,
     'components/icons/call-to-actions/call-to-action-1.png'
   );
+
+  .call-to-action-1-content {
+    background: $call-to-action-link-1-background;
+  }
 }
 
 .call-to-action-2 {
@@ -189,6 +194,10 @@
     $call-to-action-link-2-color,
     'components/icons/call-to-actions/call-to-action-2.png'
   );
+
+  .call-to-action-2-content {
+    background: $call-to-action-link-2-background;
+  }
 }
 
 .call-to-action-3 {
@@ -198,6 +207,10 @@
     $call-to-action-link-3-color,
     'components/icons/call-to-actions/call-to-action-3.png'
   );
+
+  .call-to-action-3-content {
+    background: $call-to-action-link-3-background;
+  }
 }
 
 .call-to-action-4 {
@@ -207,6 +220,10 @@
     $call-to-action-link-4-color,
     'components/icons/call-to-actions/call-to-action-4.png'
   );
+
+  .call-to-action-4-content {
+    background: $call-to-action-link-4-background;
+  }
 }
 
 .call-to-action-5 {
@@ -216,8 +233,19 @@
     $call-to-action-link-5-color,
     'components/icons/call-to-actions/call-to-action-5.png'
   );
+
+  .call-to-action-5-content {
+    background: $call-to-action-link-5-background;
+  }
 }
 
 .call-to-action-content-wrap {
   padding: em(30px) em(30px) em(30px) em(70px);
+}
+
+.call-to-action-content {
+  font-family: $call-to-action-content-font;
+  font-size: em(18px);
+  font-weight: $call-to-action-content-font-weight;
+  margin: 0 0 em(22px, 18px);
 }

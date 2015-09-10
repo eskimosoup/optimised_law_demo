@@ -1,0 +1,48 @@
+<%= content_for :footer do %>
+  <script>
+    $('.team-members-service-carousel').slick({
+      infinte: true,
+      dots: false,
+      arrows: true,
+      slidesToShow: 4,
+      slidesToScroll: 1
+    });
+  </script>
+<% end %>
+
+<div class="row">
+  <div class="medium-12 columns">
+    <div class="team-members-service-carousel-wrap" id="team-members-carousel" data-animation-type="fadeIn">
+      <div class="team-members-service-carousel-header">
+        <div class="row">
+          <div class="medium-6 columns">
+            <h5>Meet your specialists:</h5> <span>family law team</span>
+          </div>
+
+          <div class="medium-3 columns">
+            <%= form_tag '', method: :get, class: 'team-member-carousel-location-search' do %>
+              <%= select_tag :office_id, options_for_select(['London', 'Hull'], params[:office_id]) %>
+            <% end %>
+          </div>
+
+          <div class="medium-3 columns">
+            <%= form_tag '', method: :get, class: 'team-member-carousel-name-search' do %>
+              <%= search_field_tag :team_member_name, params[:team_member_name], placeholder: 'People search' %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-members-service-carousel">
+        <%= render 'team_members/service_carousel_team_member' %>
+        <%= render 'team_members/service_carousel_team_member' %>
+        <%= render 'team_members/service_carousel_team_member' %>
+        <%= render 'team_members/service_carousel_team_member' %>
+        <%= render 'team_members/service_carousel_team_member' %>
+        <%= render 'team_members/service_carousel_team_member' %>
+        <%= render 'team_members/service_carousel_team_member' %>
+        <%= render 'team_members/service_carousel_team_member' %>
+      </div>
+    </div>
+  </div>
+</div>

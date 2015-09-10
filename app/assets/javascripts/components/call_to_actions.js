@@ -4,3 +4,31 @@ $(document).keyup(function(e) {
     $('.modal-call-to-action').slideUp();
   }
 });
+
+function hideStickyCTA() {
+  var $elem = $('.service-overview-fixed-contact-methods');
+  var animationType = $elem.attr('data-animation-type');
+  $elem.removeClass('animated ' + animationType).addClass('visibility-hidden');
+}
+
+function showStickyCTA() {
+  var $elem = $('.service-overview-fixed-contact-methods');
+  var animationType  = $elem.attr('data-animation-type');
+  var animationDelay = $elem.attr('data-animation-delay');
+
+  if( animationDelay !== undefined )  {
+    setTimeout(function() {
+      $elem.removeClass('visibility-hidden').addClass('animated ' + animationType);
+    }, animationDelay);
+  } else {
+    $elem.removeClass('visibility-hidden').addClass('animated ' + animationType);
+  }
+}
+
+$(function() {
+  $('.service-overview-contact-methods').onScreen({
+    tolerance: 0,
+    doIn: hideStickyCTA,
+    doOut: showStickyCTA
+  });
+});

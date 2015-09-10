@@ -29,3 +29,85 @@
 .team-members-service-overview-avatar {
   @include border-radius(50%);
 }
+
+.team-members-service-carousel-wrap {
+  background: $content-background-color;
+  margin: 0 0 em(38px);
+}
+
+.team-members-service-carousel-header {
+  border-bottom: 1px solid $team-members-service-carousel-header-border-color;
+  padding: em(25px) em(27px) em(15px) em(37px);
+
+  h5 {
+    color: $team-members-service-carousel-header-color;
+    display: inline-block;
+    font-size: em(15px);
+    font-weight: $team-members-service-overview-title-font-weight;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  span {
+    font-size: em(25px);
+    font-style: italic;
+    font-weight: $team-members-service-carousel-header-service-font-weight;
+  }
+}
+
+.team-members-service-carousel {
+  padding: em(40px) em(100px) em(60px) em(75px);
+
+  &.slick-slider {
+    margin: 0;
+  }
+}
+
+.team-member-carousel-location-search {
+  background: transparent image-url('components/team-members-service-carousel/location.png') left center no-repeat;
+  padding-left: em(30px);
+
+  select {
+    border: 0;
+    font-size: em(12px);
+    font-weight: $team-members-service-carousel-input-font-weight;
+    padding-left: em(5px);
+
+    &:focus {
+      outline: 0;
+    }
+  }
+}
+
+.team-member-carousel-name-search {
+  background: transparent image-url('components/team-members-service-carousel/search.png') right center no-repeat;
+  border-bottom: 4px solid $team-members-service-carousel-team-member-search-border-color;
+  padding-right: em(32px);
+
+  input[type="search"] {
+    border: 0;
+    font-size: em(12px);
+    font-weight: $team-members-service-carousel-input-font-weight;
+    padding-left: em(10px);
+
+    &:focus {
+      outline: 0;
+    }
+  }
+}
+
+.team-member-service-carousel {
+  margin: 0 em(35px);
+}
+
+.team-members-service-carousel-name {
+  color: $team-members-service-carousel-team-member-name-color;
+  font-size: em(20px);
+  font-weight: $team-members-service-carousel-team-member-name-font-weight;
+  margin: em(21px, 20px) 0 em(20px, 20px);
+}
+
+.team-members-service-carousel-role {
+  font-family: $team-members-service-carousel-team-member-role-font;
+  line-height: 1.35;
+}

@@ -5,7 +5,7 @@
 
 <div class="row">
   <div class="small-12 columns">
-    <div class="service-overview-content-wrap">
+    <div class="service-overview-content-wrap" data-animation-type="slideInLeft">
       <div class="row" data-equalizer>
         <%= render 'services/tabbed_sidebar' %>
 
@@ -14,3 +14,9 @@
     </div>
   </div>
 </div>
+
+<% content_for :call_to_action do %>
+  <ul class="service-overview-fixed-contact-methods" data-animation-type='slideInLeft' data-animation-delay='500'>
+    <%= render 'services/contact_sidebar_content' %>
+  </ul>
+<% end %>
