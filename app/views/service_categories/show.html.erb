@@ -1,0 +1,22 @@
+<section class="service-wrap">
+  <%= render 'shared/breadcrumbs' %>
+  <%= render 'service_categories/header' %>
+</section>
+
+<div class="row">
+  <div class="small-12 columns">
+    <div class="service-overview-content-wrap" data-animation-type="slideInLeft">
+      <div class="row" data-equalizer>
+        <%= render 'services/tabbed_sidebar' %>
+
+        <%= render 'services/overview' %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% content_for :call_to_action do %>
+  <ul class="service-overview-fixed-contact-methods" data-animation-type='slideInLeft' data-animation-delay='500'>
+    <%= render 'services/contact_sidebar_content' %>
+  </ul>
+<% end %>

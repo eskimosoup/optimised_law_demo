@@ -30,6 +30,12 @@
         <% if can? :manage, Department %>
           <li><%= link_to 'Departments', departments_path %></li>
         <% end %>
+        <% if can? :manage, Service %>
+          <li><%= link_to 'Services', services_path %></li>
+        <% end %>
+        <% if can? :manage, ServiceCategory %>
+          <li><%= link_to 'Service Categories', service_categories_path %></li>
+        <% end %>
       </ul>
 
       <div class="content-category-type">

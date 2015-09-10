@@ -4,20 +4,17 @@
         <div class="row collapse">
           <div class="small-12 medium-8 columns" data-animation-type='fadeIn' data-animation-delay='250'>
             <div class="service-category-inner-content">
-              <h2 class="service-category-overview-header">About Family Law</h2>
+              <h2 class="service-category-overview-header">About <%= @presented_service_category.name %></h2>
 
               <div class="row">
                 <div class="small-12 medium-4 columns">
+                  <% # TODO: Make this dynamic %>
                   <p class="service-category-overview-paragraph">At Harrison &amp; Campbell, we believe Family Law requires a very different approach to many other areas where we practise.</p>
                 </div>
 
                 <div class="small-12 medium-8 columns">
                   <div class="service-category-overview-content">
-                    <p>In our extensive experience, taking a less aggressive approach to handling family legal matters often achieves a far more positive outcome. Wherever possible, we want to minimise conflict and instead focus on mediation and communication between the parties.</p>
-
-                    <p>Naturally, some cases need urgent and immediate action and where appropriate we shall not hesitate to go to court to defend and protect our clients’ interests.</p>
-
-                    <p>Our team is sensitive to the emotional upheaval divorce, separation and financial disputes can cause.  We  always have your best interests at heart and advise you accordingly keeping you fully informe, up to date with developments and with any costs implications.  So with Tollers you will always know where you stand legally and financially.</p>
+                    <%= @presented_service_category.summary %>
                   </div>
                 </div>
               </div>
@@ -25,7 +22,7 @@
           </div>
 
           <div class="small-12 medium-4 columns" data-animation-type='fadeInRight' data-animation-delay='500'>
-            <%= image_tag 'http://placehold.it/438x499', class: 'service-category-image' %>
+            <%= @presented_service_category.show_image %>
           </div>
         </div>
       </div>

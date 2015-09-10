@@ -1,10 +1,7 @@
-<div>
-  <p class="tweet">
-    We're recruiting for a corporate #solicitor Check out the job details at: <%= link_to 'http://www.linkedin.com/jobs2/view/63841640', 'http://www.linkedin.com/jobs2/view/63841640' %> …
-<%= link_to '#legaljobs', 'http://www.linkedin.com/jobs2/view/63841640' %> <%= link_to '#londonlaw', 'http://www.linkedin.com/jobs2/view/63841640' %> <%= link_to '#legal', 'http://www.linkedin.com/jobs2/view/63841640' %>
-  </p>
+<% [0, 1, 2].each do |index| %>
+  <div>
+    <p class="tweet"><%= raw twitter_timeline_text(index, global_site_settings['Twitter']) %></p>
 
-  <p class="tweet-time">
-    6:46 AM - 22 Jul 2015
-  </p>
-</div>
+    <p class="tweet-time"><%= twitter_timeline_ago(index, global_site_settings['Twitter']) %></p>
+  </div>
+<% end %>

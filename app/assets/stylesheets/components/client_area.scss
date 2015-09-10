@@ -1,5 +1,6 @@
 .client-area-toggle {
   @extend %clearfix;
+  border-top: 5px solid $client-area-border-color;
 
   a {
     background: $client-area-button-color;
@@ -8,7 +9,7 @@
     font-size: em(12px);
     letter-spacing: 1px;
     margin: 0 em(10px, 12px) em(34px, 12px);
-    padding: em(9px, 12px) em(50px, 12px);
+    padding: em(5px, 12px) em(50px, 12px) em(9px, 12px);
     text-transform: uppercase;
 
     &:link,
@@ -20,6 +21,5 @@
 
 .client-area-content {
   background-color: $client-area-background;
-  border-bottom: 5px solid $client-area-border-color;
   padding: em(71px);
 }

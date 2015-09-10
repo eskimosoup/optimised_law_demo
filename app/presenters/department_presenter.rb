@@ -4,7 +4,7 @@ class DepartmentPresenter < BasePresenter
   delegate :name, :layout, to: :department
 
   def summary
-    h.raw department.summary
+    h.simple_format department.summary
   end
 
   def content
@@ -17,6 +17,10 @@ class DepartmentPresenter < BasePresenter
 
   def show_image
     image(:show)
+  end
+
+  def service_categories
+    department.service_categories
   end
 
   private

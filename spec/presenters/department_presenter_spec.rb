@@ -15,7 +15,7 @@ RSpec.describe DepartmentPresenter, type: :presenter do
     end
 
     it "returns the summary - html escaped" do
-      content = raw(department.summary)
+      content = simple_format(department.summary)
       expect(department_presenter.summary).to eq(content)
     end
 

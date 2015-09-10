@@ -4,7 +4,7 @@ class ServiceCategoryPresenter < BasePresenter
   delegate :name, to: :service_category
 
   def summary
-    h.raw service_category.summary
+    h.simple_format service_category.summary
   end
 
   def index_image

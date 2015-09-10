@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   before_action :global_site_settings, :menus
 
   def index
+    @presented_departments = BaseCollectionPresenter.new(collection: Department.displayable, view_template: view_context, presenter: DepartmentPresenter)
   end
 
   def service_page
