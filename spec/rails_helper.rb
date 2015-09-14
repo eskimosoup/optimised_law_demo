@@ -55,6 +55,7 @@ RSpec.configure do |config|
 
   config.after(:each) do
     DatabaseCleaner.clean
+    FileUtils.rm_rf(Dir["#{Rails.root}/spec/support/uploads"])
   end
 
   config.include FactoryGirl::Syntax::Methods

@@ -14,9 +14,14 @@ Rails.application.routes.draw do
 end
 
 Optimadmin::Engine.routes.draw do
-  get 'services/show'
-
-  get 'service_categories/show'
+  resources :articles, except: [:show] do
+    collection do
+      post 'order'
+    end
+    member do
+      get 'toggle'
+    end
+  end
 
   resources :service_categories, except: [:show] do
     collection do
