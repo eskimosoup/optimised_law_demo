@@ -10,5 +10,4 @@ FactoryGirl.define do
     end
     factory :service_with_image, traits: [:with_image]
   end
-
 end

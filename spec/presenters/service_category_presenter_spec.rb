@@ -6,13 +6,21 @@ RSpec.describe ServiceCategoryPresenter, type: :presenter do
     let(:service_category) { build(:service_category) }
     subject(:service_category_presenter) { ServiceCategoryPresenter.new(object: service_category, view_template: view)}
 
+    it "returns the sub heading" do
+      expect(service_category_presenter.sub_heading).to eq(service_category.sub_heading)
+    end
+
     it "returns the name" do
       expect(service_category_presenter.name).to eq(service_category.name)
     end
 
-    it "returns the summary using simple format" do
-      content = simple_format(service_category.summary)
+    it "returns the summary - html escaped" do
+      content = raw(service_category.summary)
       expect(service_category_presenter.summary).to eq(content)
+    end
+
+    it "returns the services" do
+      expect(service_category_presenter.services).to eq(service_category.services)
     end
 
   end
