@@ -11,7 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150914101533) do
+ActiveRecord::Schema.define(version: 20150914120526) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -177,6 +178,16 @@ ActiveRecord::Schema.define(version: 20150914101533) do
   add_index "service_hierarchies", ["ancestor_id", "descendant_id", "generations"], name: "service_anc_desc_idx", unique: true, using: :btree
   add_index "service_hierarchies", ["descendant_id"], name: "service_desc_idx", using: :btree
 
+  create_table "service_testimonials", force: :cascade do |t|
+    t.integer  "service_id"
+    t.integer  "testimonial_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "service_testimonials", ["service_id"], name: "index_service_testimonials_on_service_id", using: :btree
+  add_index "service_testimonials", ["testimonial_id"], name: "index_service_testimonials_on_testimonial_id", using: :btree
+
   create_table "services", force: :cascade do |t|
     t.integer  "service_category_id"
     t.integer  "parent_id"
@@ -194,7 +205,19 @@ ActiveRecord::Schema.define(version: 20150914101533) do
   add_index "services", ["service_category_id"], name: "index_services_on_service_category_id", using: :btree
   add_index "services", ["slug"], name: "index_services_on_slug", using: :btree
 
+  create_table "testimonials", force: :cascade do |t|
+    t.string   "author"
+    t.string   "author_company"
+    t.text     "recommendation",                null: false
+    t.integer  "position",       default: 0
+    t.boolean  "display",        default: true
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+  end
+
   add_foreign_key "articles", "article_categories"
   add_foreign_key "service_categories", "departments"
+  add_foreign_key "service_testimonials", "services"
+  add_foreign_key "service_testimonials", "testimonials"
   add_foreign_key "services", "service_categories"
 end
