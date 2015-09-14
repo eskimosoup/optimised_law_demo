@@ -10,8 +10,8 @@ RSpec.describe ServiceCategoryPresenter, type: :presenter do
       expect(service_category_presenter.name).to eq(service_category.name)
     end
 
-    it "returns the summary using simple format" do
-      content = simple_format(service_category.summary)
+    it "returns the summary - html escaped" do
+      content = raw(service_category.summary)
       expect(service_category_presenter.summary).to eq(content)
     end
 
