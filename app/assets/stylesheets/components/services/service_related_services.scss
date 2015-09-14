@@ -1,0 +1,45 @@
+.service-related-services-tab {
+  @include border-radius(8px 8px 0 0);
+  background: $service-related-services-background;
+  color: $service-related-services-text-color;
+  padding: em(20px);
+  margin: 0 em(20px) 0 0;
+
+  a:link,
+  a:visited,
+  a:hover,
+  a:active {
+    color: $service-related-services-text-color;
+    display: block;
+    padding-right: em(45px);
+
+    &.expand {
+      background: image-url('components/icons/service-related-services/arrow-down.png') center right no-repeat;
+    }
+  }
+}
+
+.service-related-services-list {
+  @include border-radius(0 0 8px 8px);
+  background: $service-related-services-background;
+  padding: 0 em(20px);
+  position: absolute;
+  right: 33px;
+  top: 63px;
+  width: 266px;
+  z-index: 1;
+
+  ul {
+    list-style: none;
+  }
+
+  a:link,
+  a:visited,
+  a:hover,
+  a:active {
+    color: $service-related-services-text-color;
+    display: block;
+    padding: em(5px) 0;
+    margin: em(5px) 0;
+  }
+}

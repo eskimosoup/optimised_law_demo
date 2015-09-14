@@ -49,6 +49,10 @@ class ServicePresenter < BasePresenter
     service == service.service_category.services.first
   end
 
+  def related_services
+    service.service_category.services
+  end
+
   private
 
   def image(version)
