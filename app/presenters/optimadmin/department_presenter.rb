@@ -5,5 +5,13 @@ module Optimadmin
     def name
       department.name
     end
+
+    def toggle_title
+      inline_detail_toggle_link(name)
+    end
+
+    def optimadmin_summary
+      h.raw department.summary
+    end
   end
 end

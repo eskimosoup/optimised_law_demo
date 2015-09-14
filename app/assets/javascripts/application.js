@@ -18,5 +18,6 @@
 //= require components/toggle_class
 //= require components/animation
 //= require components/call_to_actions
+//= require components/tabs
 //= require vendor/foundation/foundation.js
 //= require vendor/onscreen
