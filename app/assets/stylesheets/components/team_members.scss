@@ -1,5 +1,16 @@
+.service-overview-content-wrap {
+  .team-members-service-overview-link {
+    margin: em(70px) 0 em(50px);
+  }
+}
+
+.service-content-wrap {
+  .team-members-service-overview-link {
+    margin: em(43px) 0 em(30px);
+  }
+}
+
 .team-members-service-overview-link {
-  margin: em(70px) 0 em(50px);
 
   .text-link {
     background: transparent image-url('components/icons/page-arrow-down.png') left 7px no-repeat;

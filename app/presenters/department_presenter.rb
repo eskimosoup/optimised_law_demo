@@ -1,7 +1,7 @@
 class DepartmentPresenter < BasePresenter
   presents :department
 
-  delegate :name, :layout, to: :department
+  delegate :name, :sub_heading, :layout, to: :department
 
   def summary
     h.simple_format department.summary

@@ -1,10 +1,10 @@
 <div class="row collapse module-list-index <%= cycle('odd', 'even') %>" data-equalizer="module-list" id="item_<%= department_presenter.id %>">
-  <div class="large-1 small-2 columns" data-equalizer-watch="module-list">
-    <%= department_presenter.detail_toggle_link %>
+  <div class="large-1 hide-for-medium-down columns" data-equalizer-watch="module-list">
+    <span class="drag-helper"></span>
   </div>
 
-  <div class="large-5 small-6 columns" data-equalizer-watch="module-list">
-    <%= department_presenter.name %>
+  <div class="large-5 small-8 columns" data-equalizer-watch="module-list">
+    <%= department_presenter.toggle_title %>
   </div>
 
   <div class="large-2 hide-for-medium-down columns" data-equalizer-watch="module-list">
@@ -29,7 +29,7 @@
 
   <div class="row module-list-detail hide" id="index-list-<%= department_presenter.id %>">
     <div class="small-12 columns module-list-summary last">
-
+      <%= department_presenter.optimadmin_summary %>
     </div>
   </div>
 </div>

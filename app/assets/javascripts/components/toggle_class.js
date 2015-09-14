@@ -4,6 +4,7 @@ $(document).on("click", ".toggle-class", function(e) {
   var dataReturn      = $(this).attr('data-return');
 
   $(toggleContainer).toggleClass(toggleClass);
+  $('[data-equalizer-watch]').matchHeight();
 
   if (dataReturn === 'false') {
     e.preventDefault();
@@ -18,7 +19,9 @@ $(document).on("click", ".slide-toggle-class", function(e) {
 
   $containerClass = $('.' + containerClass[1]);
   $containerClass.not($toggleContainer).attr('style', '');
-  $toggleContainer.slideToggle(toggleContainer);
+  $toggleContainer.slideToggle(toggleContainer, function() {
+    $('[data-equalizer-watch]').matchHeight();
+  });
 
   if (dataReturn === 'false') {
     e.preventDefault();

@@ -29,6 +29,11 @@
     </ul>
 
     <%= field_set_tag nil, id: 'tabs-1' do %>
+    <div class="field">
+      <%= f.label :sub_heading %><br>
+      <%= f.text_field :sub_heading %>
+    </div>
+
       <div class="field">
         <%= f.label :summary %><br>
         <%= f.text_area :summary %>

@@ -2,7 +2,11 @@ class ServicePresenter < BasePresenter
   presents :service
 
   def service_category
-    service.service_category.name
+    service.service_category
+  end
+
+  def service_category_name
+    service_category.name
   end
 
   def department
@@ -13,16 +17,36 @@ class ServicePresenter < BasePresenter
     service.name
   end
 
-  def summary
-    h.simple_format service.summary
+  def slug
+    service.slug
   end
 
-  def index_image
+  def summary
+    h.raw service.summary
+  end
+
+  def content
+    h.raw service.content
+  end
+
+  def sidebar_image
     image(:index)
   end
 
-  def show_image
+  def overview_image
     image(:show)
+  end
+
+  def read_more_link
+    h.link_to "More on #{name}", service, class: 'service-overview-read-more'
+  end
+
+  def tab_link
+    h.link_to service.name, "##{slug}", class: "tab-toggle #{"active" if first_service?}"
+  end
+
+  def first_service?
+    service == service.service_category.services.first
   end
 
   private

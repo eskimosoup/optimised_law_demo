@@ -1,0 +1,97 @@
+<section class="service-wrap">
+  <%= render 'shared/breadcrumbs' %>
+
+  <div class="row">
+    <div class="small-12 columns">
+      <div class="service-content-wrap" data-animation-type="slideInLeft">
+        <div class="row" data-equalizer>
+          <div class="medium-3 columns" data-equalizer-watch>
+            <div class="service-navigation">
+              <%= @presented_service.sidebar_image %>
+
+              <ul class="service-navigation-page-links">
+                <li><%= link_to 'Case Studies', '#case-studies' %></li>
+                <li><%= link_to 'Testimonials', '#testimonials' %></li>
+                <li><%= link_to 'Tweets', '#tweets' %></li>
+                <li><%= link_to 'People Helped', '#people-helped' %></li>
+                <li><%= link_to 'Downloads', '#downloads' %></li>
+                <li><%= link_to 'Client Journey', '#videos' %></li>
+                <li><%= link_to 'Meet your Specialists', '#team-members-carousel' %></li>
+                <li><%= link_to 'Latest Events', '#events' %></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="small-12 medium-9 columns" data-equalizer-watch>
+            <div class="row">
+              <div class="small-12 medium-8 columns">
+                <div class="service-content">
+                  <h1><%= @presented_service.name %></h1>
+
+                  <%= @presented_service.content %>
+                </div>
+              </div>
+
+              <div class="small-12 medium-4 columns">
+                <div class="team-members-service-overview-link">
+                  <div class="row collapse">
+                      <div class="small-12 medium-8 columns">
+                        <%= link_to '#team-members-carousel', class: 'text-link' do %>
+                          <div class="team-members-service-overview-title">
+                            Talk to our
+                          </div>
+
+                          <div class="team-members-service-overview-name">
+                            <%= @presented_service.service_category_name %> team
+                          </div>
+                        <% end %>
+                      </div>
+
+                      <div class="small-12 medium-4 columns text-center">
+                        <%= link_to '#' do %>
+                          <%= image_tag 'http://placehold.it/61x61', class: 'team-members-service-overview-avatar' %>
+                        <% end %>
+                      </div>
+                  </div>
+                </div>
+
+                <%= render 'services/contact_sidebar' %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row" data-equalizer="additional-content">
+        <%= render 'services/content_tabs' %>
+        <%= render 'services/activity_stream' %>
+      </div>
+
+      <%= render 'services/resources' %>
+
+      <div class="row">
+        <%= render 'services/people_helped' %>
+        <%= render 'services/service_video' %>
+      </div>
+
+      <%= render 'team_members/service_carousel' %>
+
+      <div class="service-event-focus-wrap">
+        <div class="row" data-equalizer="event-focus">
+          <div class="medium-4 columns" data-equalizer-watch="event-focus">
+            Placeholder
+          </div>
+
+          <%= render 'events/service_calendar' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<% content_for :call_to_action do %>
+  <ul class="service-overview-fixed-contact-methods hide" data-animation-type='slideInLeft' data-animation-delay='500'>
+    <%= render 'services/contact_sidebar_content' %>
+  </ul>
+<% end %>

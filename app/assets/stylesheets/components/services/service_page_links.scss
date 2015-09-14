@@ -1,0 +1,17 @@
+.service-navigation-page-links {
+  list-style: none;
+  padding: em(73px) 0 em(54px) em(54px);
+
+  li {
+    margin: em(22px) 0;
+  }
+
+  a:link,
+  a:visited,
+  a:hover,
+  a:active {
+    color: $service-navigation-page-links-color;
+    font-weight: $service-navigation-page-links-font-weight;
+    line-height: 1.25;
+  }
+}

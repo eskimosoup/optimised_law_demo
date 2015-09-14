@@ -16,6 +16,8 @@ function showStickyCTA() {
   var animationType  = $elem.attr('data-animation-type');
   var animationDelay = $elem.attr('data-animation-delay');
 
+  $elem.removeClass('hide');
+  
   if( animationDelay !== undefined )  {
     setTimeout(function() {
       $elem.removeClass('visibility-hidden').addClass('animated ' + animationType);
@@ -26,9 +28,11 @@ function showStickyCTA() {
 }
 
 $(function() {
-  $('.service-overview-contact-methods').onScreen({
-    tolerance: 0,
-    doIn: hideStickyCTA,
-    doOut: showStickyCTA
-  });
+  setTimeout(function() {
+    $('.service-overview-contact-methods').onScreen({
+      tolerance: 0,
+      doIn: hideStickyCTA,
+      doOut: showStickyCTA
+    });
+  }, 1500);
 });

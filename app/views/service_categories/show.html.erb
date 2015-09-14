@@ -9,14 +9,46 @@
       <div class="row" data-equalizer>
         <%= render 'services/tabbed_sidebar' %>
 
-        <%= render 'services/overview' %>
+        <div class="small-12 medium-9 columns" data-equalizer-watch>
+          <div class="row">
+            <div class="small-12 medium-8 columns">
+              <%= render partial: 'services/overview', collection: BaseCollectionPresenter.new(collection: @presented_service_category.services, view_template: self, presenter: ServicePresenter), as: :service_presenter %>
+            </div>
+
+            <div class="small-12 medium-4 columns">
+              <div class="team-members-service-overview-link">
+                <div class="row collapse">
+                    <div class="small-12 medium-8 columns">
+                      <%= link_to '#team-members-carousel', class: 'text-link' do %>
+                        <div class="team-members-service-overview-title">
+                          Talk to our
+                        </div>
+
+                        <div class="team-members-service-overview-name">
+                          <%= @presented_service_category.name %> team
+                        </div>
+                      <% end %>
+                    </div>
+
+                    <div class="small-12 medium-4 columns text-center">
+                      <%= link_to '#' do %>
+                        <%= image_tag 'http://placehold.it/61x61', class: 'team-members-service-overview-avatar' %>
+                      <% end %>
+                    </div>
+                </div>
+              </div>
+
+              <%= render 'services/contact_sidebar' %>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
 <% content_for :call_to_action do %>
-  <ul class="service-overview-fixed-contact-methods" data-animation-type='slideInLeft' data-animation-delay='500'>
+  <ul class="service-overview-fixed-contact-methods hide" data-animation-type='slideInLeft' data-animation-delay='500'>
     <%= render 'services/contact_sidebar_content' %>
   </ul>
 <% end %>
