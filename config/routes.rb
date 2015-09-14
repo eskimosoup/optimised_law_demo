@@ -20,6 +20,10 @@ Optimadmin::Engine.routes.draw do
     end
     member do
       get 'toggle'
+      get 'edit_images'
+      post 'update_image_default'
+      post 'update_image_fill'
+      post 'update_image_fit'
     end
   end
 

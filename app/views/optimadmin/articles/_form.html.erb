@@ -11,12 +11,12 @@
   </div>
 <% end %>
 
-  
+
   <div class="field">
     <%= f.label :title %><br />
     <%= f.text_field :title %>
   </div>
-  
+
 
   <div class="tabs prevent-flash">
     <ul class="tab-list">
@@ -33,35 +33,26 @@
     <%= field_set_tag nil, id: 'tabs-1' do %>
             <div class="field">
         <%= f.label :summary %><br>
-        <%= f.text_area :summary, class: 'tinymce' %>
+        <%= f.text_area :summary %>
       </div>
-            <div class="field">
-        <%= f.label :image %><br>
-        <%= f.text_field :image %>
-      </div>
+
             <div class="field">
         <%= f.label :content %><br>
         <%= f.text_area :content, class: 'tinymce' %>
       </div>
-            <div class="field">
-        <%= f.label :date %><br>
-        <%= f.date_select :date %>
-      </div>
-            <div class="field">
-        <%= f.label :slug %><br>
-        <%= f.text_field :slug %>
-      </div>
-            <div class="field">
-        <%= f.label :suggested_url %><br>
-        <%= f.text_field :suggested_url %>
-      </div>
+
+        <%= f.datepicker_field :date %>
           <% end %>
 
     <%= field_set_tag nil, id: 'tabs-2' do %>
-      
+          <%= f.image_field :image %>
           <% end %>
 
     <%= field_set_tag nil, id: 'tabs-3' do %>
+    <div class="field">
+<%= f.label :suggested_url %><br>
+<%= f.text_field :suggested_url %>
+</div>
             <div class="field">
         <%= f.label :display %><br>
         <%= f.check_box :display %>

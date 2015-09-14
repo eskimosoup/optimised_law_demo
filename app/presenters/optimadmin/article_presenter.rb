@@ -7,7 +7,7 @@ module Optimadmin
     end
 
     def title
-      #article.title
+      article.title
     end
 
     def toggle_title
@@ -15,7 +15,7 @@ module Optimadmin
     end
 
     def optimadmin_summary
-      #h.raw article.summary
+      h.raw article.summary
     end
   end
 end
