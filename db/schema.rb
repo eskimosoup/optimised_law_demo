@@ -11,10 +11,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150910123815) do
+ActiveRecord::Schema.define(version: 20150914101533) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "article_categories", force: :cascade do |t|
+    t.string   "name",                         null: false
+    t.string   "slug"
+    t.string   "suggested_url"
+    t.boolean  "display",       default: true
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  create_table "articles", force: :cascade do |t|
+    t.integer  "article_category_id"
+    t.string   "title",                              null: false
+    t.text     "summary"
+    t.string   "image"
+    t.text     "content",                            null: false
+    t.date     "date",                               null: false
+    t.string   "slug"
+    t.string   "suggested_url"
+    t.boolean  "display",             default: true
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+  end
+
+  add_index "articles", ["article_category_id"], name: "index_articles_on_article_category_id", using: :btree
 
   create_table "departments", force: :cascade do |t|
     t.string   "name",                         null: false
@@ -27,6 +52,8 @@ ActiveRecord::Schema.define(version: 20150910123815) do
     t.boolean  "display",       default: true
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
+    t.string   "sub_heading"
+    t.integer  "position"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -136,6 +163,7 @@ ActiveRecord::Schema.define(version: 20150910123815) do
     t.boolean  "display",       default: true
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
+    t.text     "sub_heading"
   end
 
   add_index "service_categories", ["department_id"], name: "index_service_categories_on_department_id", using: :btree
@@ -161,11 +189,13 @@ ActiveRecord::Schema.define(version: 20150910123815) do
     t.boolean  "display",             default: true
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
+    t.text     "content"
   end
 
   add_index "services", ["service_category_id"], name: "index_services_on_service_category_id", using: :btree
   add_index "services", ["slug"], name: "index_services_on_slug", using: :btree
 
+  add_foreign_key "articles", "article_categories"
   add_foreign_key "service_categories", "departments"
   add_foreign_key "services", "service_categories"
 end

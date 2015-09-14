@@ -1,10 +1,5 @@
 <div class="medium-3 columns service-category-navigation" data-equalizer-watch>
   <ul class="service-category-services-sidebar">
-    <li><%= link_to 'Divorce', '#', class: 'active' %></li>
-    <li><%= link_to 'Divorce', '#' %></li>
-    <li><%= link_to 'Divorce', '#' %></li>
-    <li><%= link_to 'Divorce', '#' %></li>
-    <li><%= link_to 'Divorce', '#' %></li>
-    <li><%= link_to 'Divorce', '#' %></li>
+    <%= render partial: 'service_categories/service_navigation', collection: BaseCollectionPresenter.new(collection: @presented_service_category.services, view_template: self, presenter: ServicePresenter), as: :service_presenter %>
   </ul>
 </div>

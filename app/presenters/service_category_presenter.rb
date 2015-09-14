@@ -3,8 +3,12 @@ class ServiceCategoryPresenter < BasePresenter
 
   delegate :name, to: :service_category
 
+  def sub_heading
+    service_category.sub_heading
+  end
+
   def summary
-    h.simple_format service_category.summary
+    h.raw service_category.summary
   end
 
   def index_image
@@ -13,6 +17,10 @@ class ServiceCategoryPresenter < BasePresenter
 
   def show_image
     image(:show)
+  end
+
+  def services
+    service_category.services
   end
 
   private

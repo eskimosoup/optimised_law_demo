@@ -17,7 +17,8 @@
 }
 
 
-.service-overview-content-wrap {
+.service-overview-content-wrap,
+.service-content-wrap {
   background: $service-category-overview-background-color;
   border-top: 14px solid $department-header;
   margin: 0 0 em(38px);
@@ -27,9 +28,7 @@
   }
 }
 
-.service-overview-content {
-  padding: 0 em(51px) em(51px);
-
+%service-content-style {
   p {
     &:first-of-type {
       font-size: em(18px);
@@ -44,10 +43,28 @@
   }
 }
 
+.service-overview-content,
+.service-content {
+  @extend %service-content-style;
+  padding: 0 em(51px) em(51px);
+}
+
+.service-content {
+  padding: em(40px) em(31px);
+
+  h1 {
+    color: $service-content-header-color;
+    font-size: em(34px);
+    font-weight: $service-content-header;
+    margin: 0 0 em(43px, 34px);
+  }
+}
+
 .service-overview-header {
   background: $service-overview-header-background;
   color: $service-overview-header-text-color;
   margin: 0 0 em(40px);
+  min-height: 135px;
   position: relative;
   text-align: right;
 
@@ -70,6 +87,7 @@
 .service-overview-contact-methods {
   list-style: none;
   margin: 0 em(15px) 0 0;
+  padding: 0 0 em(51px);
 }
 
 .service-resources-wrap {
@@ -111,4 +129,9 @@
   .call-to-action-content-wrap {
     padding: em(30px) em(23px) em(10px);
   }
+}
+
+.service-navigation {
+  background: $department-header;
+  height: 100%;
 }
