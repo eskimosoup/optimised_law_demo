@@ -9,6 +9,8 @@ class Service < ActiveRecord::Base
 
   belongs_to :service_category
   has_one :department, through: :service_category
+  has_many :service_testimonials, class_name: 'Service::Testimonial', dependent: :destroy
+  has_many :testimonials, through: :service_testimonials
 
   validates :name, presence: true, uniqueness: { scope: :service_category_id }
 

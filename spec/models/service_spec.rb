@@ -8,7 +8,8 @@ RSpec.describe Service, type: :model do
   describe "associations", :association do
     it { should belong_to(:service_category) }
     it { should have_one(:department).through(:service_category) }
-    it "should have_many(:testimonials)"
+    it { should have_many(:service_testimonials).class_name("Service::Testimonial").dependent(:destroy) }
+    it { should have_many(:testimonials).through(:service_testimonials) }
     it "should have_many(:service_pages)"
     it "should have_many(:team_members)"
     it "should have_many(:related_services)"
