@@ -38,11 +38,11 @@ class ServicePresenter < BasePresenter
   end
 
   def read_more_link
-    h.link_to "More on #{name}", service, class: 'service-overview-read-more'
+    h.link_to "More on #{name}", h.service_path(service), class: 'service-overview-read-more'
   end
 
   def tab_link
-    h.link_to service.name, "##{slug}", class: "tab-toggle #{"active" if first_service?}"
+    h.link_to service.name, "##{slug}", class: "tab-toggle#{" active" if first_service?}"
   end
 
   def first_service?
