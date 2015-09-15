@@ -55,6 +55,11 @@
       </div>
 
       <div class="field">
+        <%= f.label :service_id %><br>
+        <%= f.select :service_id, Service.select(:name, :id).map{|x| [ x.name, x.id ] }, include_blank: 'No service' %>
+      </div>
+
+      <div class="field">
         <%= f.label :suggested_url %><br>
         <%= f.text_field :suggested_url %>
       </div>

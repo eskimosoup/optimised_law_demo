@@ -1,6 +1,7 @@
 FactoryGirl.define do
   factory :article do
     article_category
+    team_member
     sequence(:title) {|n| "Article #{ n }"}
     summary "MyText"
     content "<p>MyText</p>"

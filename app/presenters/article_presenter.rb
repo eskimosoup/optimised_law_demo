@@ -4,6 +4,26 @@ class ArticlePresenter < BasePresenter
 
   delegate :title, to: :article
 
+  def link
+    article
+  end
+
+  def article_category
+    article.article_category
+  end
+
+  def article_category_name
+    article_category.name
+  end
+
+  def linked_article_category
+    "in #{h.link_to article_category.name, article_category}" unless article_category.blank?
+  end
+
+  def linked_team_member
+    "by #{h.link_to [article.team_member.forename, article.team_member.surname].join(" "), article.team_member}" unless article.team_member.blank?
+  end
+
   def summary
     h.simple_format article.summary if article.summary
   end
