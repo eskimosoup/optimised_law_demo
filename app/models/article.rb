@@ -4,6 +4,7 @@ class Article < ActiveRecord::Base
   friendly_id :slug_candidates, use: [:slugged, :history]
 
   belongs_to :article_category, class_name: "Article::Category"
+  belongs_to :team_member
   mount_uploader :image, ArticleUploader
 
   validates :title, :content, :date, presence: true

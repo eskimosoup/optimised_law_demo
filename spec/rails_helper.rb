@@ -91,11 +91,6 @@ RSpec.configure do |config|
   config.before(:each, js: true) do
     page.driver.browser.url_blacklist = ["https://maps.googleapis.com", "connect.facebook.net"]
   end
-  config.after(:all) do
-    if Rails.env.test?
-      FileUtils.rm_rf(Rails.root + "public/test_uploads")
-    end
-  end
 
   # RSpec Rails can automatically mix in different behaviours to your tests
   # based on their file location, for example enabling you to call `get` and

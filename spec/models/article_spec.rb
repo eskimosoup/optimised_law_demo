@@ -10,8 +10,7 @@ RSpec.describe Article, type: :model do
 
   describe "associations", :association do
     it { should belong_to(:article_category).class_name("Article::Category") }
-    it "should have_many(:team_members)"
-    it "should have_many(:offices)"
+    it { should belong_to(:team_member) }
   end
 
   describe "friendly_id" do
