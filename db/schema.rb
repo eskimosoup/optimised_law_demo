@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150914144400) do
+ActiveRecord::Schema.define(version: 20150915094436) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,6 +70,39 @@ ActiveRecord::Schema.define(version: 20150914144400) do
   add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
+
+  create_table "office_locations", force: :cascade do |t|
+    t.string   "name",                         null: false
+    t.string   "slug"
+    t.string   "suggested_url"
+    t.boolean  "display",       default: true
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  create_table "offices", force: :cascade do |t|
+    t.string   "name",                              null: false
+    t.string   "building_name"
+    t.string   "building_number"
+    t.string   "street"
+    t.string   "town"
+    t.string   "county"
+    t.string   "postcode",                          null: false
+    t.string   "phone_number"
+    t.string   "fax_number"
+    t.string   "email"
+    t.string   "dx_number"
+    t.string   "image"
+    t.text     "details"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.boolean  "display",            default: true
+    t.integer  "office_location_id"
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+  end
+
+  add_index "offices", ["office_location_id"], name: "index_offices_on_office_location_id", using: :btree
 
   create_table "optimadmin_administrators", force: :cascade do |t|
     t.string   "username",               null: false
@@ -269,6 +302,7 @@ ActiveRecord::Schema.define(version: 20150914144400) do
 
   add_foreign_key "articles", "article_categories"
   add_foreign_key "articles", "team_members"
+  add_foreign_key "offices", "office_locations"
   add_foreign_key "service_categories", "departments"
   add_foreign_key "service_team_members", "services"
   add_foreign_key "service_team_members", "team_members"
