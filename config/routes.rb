@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   resources :service_categories, only: :show, path: 'service-category'
   resources :services, only: :show
   resources :departments, only: :show
+  resources :articles, only: :show
+  resources :article_categories, only: :show, path: 'article-category'
+  resources :team_members, only: [:index, :show], path: 'team-members'
 
   get 'service-page', to: 'application#service_page'
   get 'service-page-detailed', to: 'application#service_page_detailed'

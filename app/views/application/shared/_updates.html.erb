@@ -21,10 +21,7 @@
         </div>
 
         <div class="collected-articles">
-          <%= render 'articles/home_article' %>
-          <%= render 'articles/home_article' %>
-          <%= render 'articles/home_article' %>
-          <%= render 'articles/home_article' %>
+          <%= render partial: 'articles/home_article', collection: @presented_articles, as: :article_presenter %>
         </div>
       </div>
     </div>
