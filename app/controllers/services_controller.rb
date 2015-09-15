@@ -3,6 +3,7 @@ class ServicesController < ApplicationController
 
   def show
     @presented_service = ServicePresenter.new(object: @service, view_template: view_context)
+    @presented_service_articles = BaseCollectionPresenter.new(collection: @presented_service.articles, view_template: view_context, presenter: ArticlePresenter)
   end
 
   private

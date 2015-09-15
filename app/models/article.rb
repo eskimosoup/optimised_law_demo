@@ -5,9 +5,12 @@ class Article < ActiveRecord::Base
 
   belongs_to :article_category, class_name: "Article::Category"
   belongs_to :team_member
+  belongs_to :service
   mount_uploader :image, ArticleUploader
 
   validates :title, :content, :date, presence: true
+
+  scope :displayable, -> { where("display = ? AND date <= ?", true, Date.today) }
 
   def slug_candidates
     [

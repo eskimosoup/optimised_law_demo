@@ -1,6 +1,10 @@
 class ServicePresenter < BasePresenter
   presents :service
 
+  def articles
+    service.articles
+  end
+
   def service_category
     service.service_category
   end

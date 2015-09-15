@@ -38,9 +38,11 @@ ActiveRecord::Schema.define(version: 20150915094436) do
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
     t.integer  "team_member_id"
+    t.integer  "service_id"
   end
 
   add_index "articles", ["article_category_id"], name: "index_articles_on_article_category_id", using: :btree
+  add_index "articles", ["service_id"], name: "index_articles_on_service_id", using: :btree
   add_index "articles", ["team_member_id"], name: "index_articles_on_team_member_id", using: :btree
 
   create_table "departments", force: :cascade do |t|
