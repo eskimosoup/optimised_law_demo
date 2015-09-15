@@ -19,7 +19,7 @@ RSpec.describe Service, type: :model do
   describe "friendly_id" do
     subject(:service) { build(:service) }
 
-    it "creates a slug if title changed" do
+    it "creates a slug if name changed" do
       service.name = "My new title"
       expect(service.should_generate_new_friendly_id?).to be true
     end
