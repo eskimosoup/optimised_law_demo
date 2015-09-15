@@ -2,7 +2,7 @@ module Optimadmin
   class ArticlesController < Optimadmin::ApplicationController
     before_action :set_article, only: [:show, :edit, :update, :destroy]
 
-    edit_images_for Article, [[:image, { index: ['fill', 316, 164], show: ['fill', 165, 135] }]]
+    edit_images_for Article, [[:image, { index: ['fill', 316, 164], show: ['fill', 165, 135], activity_stream: ['fill', 199, 155] }]]
 
     def index
       @articles = Optimadmin::BaseCollectionPresenter.new(collection: Article.where('title ILIKE ?', "%#{params[:search]}%").page(params[:page]).per(params[:per_page] || 15), view_template: view_context, presenter: Optimadmin::ArticlePresenter)

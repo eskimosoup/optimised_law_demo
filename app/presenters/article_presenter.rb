@@ -36,6 +36,10 @@ class ArticlePresenter < BasePresenter
     image(:index)
   end
 
+  def activity_stream_image(options = {})
+    image(:activity_stream, options)
+  end
+
   def show_image
     image(:show)
   end
@@ -46,8 +50,8 @@ class ArticlePresenter < BasePresenter
 
   private
 
-  def image(version)
-    h.image_tag article.image.url(version), title: title, alt: title if article.image?
+  def image(version, options = {})
+    h.image_tag article.image.url(version), options.merge({ title: title, alt: title }) if article.image?
   end
 
 end

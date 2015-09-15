@@ -62,6 +62,10 @@ RSpec.describe ArticlePresenter, type: :presenter do
       it "show_image should return nil" do
         expect(article_presenter.show_image).to eq(nil)
       end
+
+      it "activity_stream_image should return nil" do
+        expect(article_presenter.activity_stream_image).to eq(nil)
+      end
     end
 
     describe "has image" do
@@ -73,6 +77,10 @@ RSpec.describe ArticlePresenter, type: :presenter do
 
       it "show_image should return nil" do
         expect(article_presenter.show_image).to eq(image_tag(article.image.show, title: article.title, alt: article.title))
+      end
+
+      it "activity_stream_image should not return nil" do
+        expect(article_presenter.activity_stream_image).to eq(image_tag(article.image.activity_stream, title: article.title, alt: article.title))
       end
     end
   end
