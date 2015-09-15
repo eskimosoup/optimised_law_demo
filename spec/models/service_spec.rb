@@ -11,7 +11,8 @@ RSpec.describe Service, type: :model do
     it { should have_many(:service_testimonials).class_name("Service::Testimonial").dependent(:destroy) }
     it { should have_many(:testimonials).through(:service_testimonials) }
     it "should have_many(:service_pages)"
-    it "should have_many(:team_members)"
+    it { should have_many(:service_team_members).class_name("Service::TeamMember").dependent(:destroy) }
+    it { should have_many(:team_members).through(:service_team_members) }
     it "should have_many(:related_services)"
   end
 

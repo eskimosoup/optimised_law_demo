@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150914120526) do
+ActiveRecord::Schema.define(version: 20150914144400) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,9 +37,11 @@ ActiveRecord::Schema.define(version: 20150914120526) do
     t.boolean  "display",             default: true
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
+    t.integer  "team_member_id"
   end
 
   add_index "articles", ["article_category_id"], name: "index_articles_on_article_category_id", using: :btree
+  add_index "articles", ["team_member_id"], name: "index_articles_on_team_member_id", using: :btree
 
   create_table "departments", force: :cascade do |t|
     t.string   "name",                         null: false
@@ -178,6 +180,16 @@ ActiveRecord::Schema.define(version: 20150914120526) do
   add_index "service_hierarchies", ["ancestor_id", "descendant_id", "generations"], name: "service_anc_desc_idx", unique: true, using: :btree
   add_index "service_hierarchies", ["descendant_id"], name: "service_desc_idx", using: :btree
 
+  create_table "service_team_members", force: :cascade do |t|
+    t.integer  "service_id"
+    t.integer  "team_member_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "service_team_members", ["service_id"], name: "index_service_team_members_on_service_id", using: :btree
+  add_index "service_team_members", ["team_member_id"], name: "index_service_team_members_on_team_member_id", using: :btree
+
   create_table "service_testimonials", force: :cascade do |t|
     t.integer  "service_id"
     t.integer  "testimonial_id"
@@ -205,6 +217,46 @@ ActiveRecord::Schema.define(version: 20150914120526) do
   add_index "services", ["service_category_id"], name: "index_services_on_service_category_id", using: :btree
   add_index "services", ["slug"], name: "index_services_on_slug", using: :btree
 
+  create_table "team_member_roles", force: :cascade do |t|
+    t.string   "name",                      null: false
+    t.integer  "position",   default: 0
+    t.boolean  "display",    default: true
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  create_table "team_member_testimonials", force: :cascade do |t|
+    t.integer  "team_member_id"
+    t.integer  "testimonial_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "team_member_testimonials", ["team_member_id"], name: "index_team_member_testimonials_on_team_member_id", using: :btree
+  add_index "team_member_testimonials", ["testimonial_id"], name: "index_team_member_testimonials_on_testimonial_id", using: :btree
+
+  create_table "team_members", force: :cascade do |t|
+    t.string   "forename",                              null: false
+    t.string   "surname",                               null: false
+    t.string   "image"
+    t.integer  "team_member_role_id"
+    t.string   "email"
+    t.string   "primary_phone_number"
+    t.string   "secondary_phone_number"
+    t.string   "mobile_phone_number"
+    t.string   "google_plus"
+    t.string   "twitter"
+    t.string   "linkedin"
+    t.text     "biography"
+    t.string   "suggested_url"
+    t.string   "slug"
+    t.boolean  "display",                default: true
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+  end
+
+  add_index "team_members", ["team_member_role_id"], name: "index_team_members_on_team_member_role_id", using: :btree
+
   create_table "testimonials", force: :cascade do |t|
     t.string   "author"
     t.string   "author_company"
@@ -216,8 +268,14 @@ ActiveRecord::Schema.define(version: 20150914120526) do
   end
 
   add_foreign_key "articles", "article_categories"
+  add_foreign_key "articles", "team_members"
   add_foreign_key "service_categories", "departments"
+  add_foreign_key "service_team_members", "services"
+  add_foreign_key "service_team_members", "team_members"
   add_foreign_key "service_testimonials", "services"
   add_foreign_key "service_testimonials", "testimonials"
   add_foreign_key "services", "service_categories"
+  add_foreign_key "team_member_testimonials", "team_members"
+  add_foreign_key "team_member_testimonials", "testimonials"
+  add_foreign_key "team_members", "team_member_roles"
 end

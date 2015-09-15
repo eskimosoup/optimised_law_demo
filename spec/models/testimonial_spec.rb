@@ -8,5 +8,7 @@ RSpec.describe Testimonial, type: :model do
   describe "associations", :association do
     it { should have_many(:service_testimonials).class_name("Service::Testimonial").dependent(:destroy) }
     it { should have_many(:services).through(:service_testimonials) }
+    it { should have_many(:team_member_testimonials).class_name("TeamMember::Testimonial").dependent(:destroy) }
+    it { should have_many(:team_members).through(:team_member_testimonials) }
   end
 end
