@@ -36,7 +36,7 @@
       </div>
             <div class="field">
         <%= f.label :team_member_role_id %><br>
-        <%= f.select :team_member_role_id, TeamMember::Role.pluck(:id, :name) %>
+        <%= f.select :team_member_role_id, TeamMember::Role.pluck(:name, :id), prompt: 'Please select' %>
       </div>
             <div class="field">
         <%= f.label :email %><br>

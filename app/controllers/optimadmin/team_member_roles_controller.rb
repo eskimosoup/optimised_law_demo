@@ -3,7 +3,7 @@ module Optimadmin
     before_action :set_team_member_role, only: [:show, :edit, :update, :destroy]
 
     def index
-      @team_member_roles = Optimadmin::BaseCollectionPresenter.new(collection: TeamMember::Role.where('title ILIKE ?', "%#{params[:search]}%").page(params[:page]).per(params[:per_page] || 15), view_template: view_context, presenter: TeamMemberRolePresenter)
+      @team_member_roles = Optimadmin::BaseCollectionPresenter.new(collection: TeamMember::Role.where('name ILIKE ?', "%#{params[:search]}%").page(params[:page]).per(params[:per_page] || 15), view_template: view_context, presenter: TeamMemberRolePresenter)
     end
 
     def show

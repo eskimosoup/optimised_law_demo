@@ -7,11 +7,11 @@ module Optimadmin
     end
 
     def title
-      #team_member_role.title
+      team_member_role.name
     end
 
     def toggle_title
-      inline_detail_toggle_link(title)
+      title
     end
 
     def optimadmin_summary
