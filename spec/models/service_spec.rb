@@ -15,7 +15,10 @@ RSpec.describe Service, type: :model do
     it { should have_many(:team_members).through(:service_team_members) }
     it { should have_many(:service_offices).class_name("Service::Office").dependent(:destroy) }
     it { should have_many(:offices).through(:service_offices) }
-    it "should have_many(:related_services)"
+    it { should have_many(:service_related_services).class_name("Service::RelatedService").dependent(:destroy) }
+    it { should have_many(:related_services).through(:service_related_services) }
+    it { should have_many(:inverse_service_related_services).class_name("Service::RelatedService").with_foreign_key(:related_service_id).dependent(:destroy) }
+    it { should have_many(:inverse_related_services).through(:inverse_service_related_services).source(:service) }
   end
 
   describe "friendly_id" do

@@ -16,6 +16,10 @@ class Service < ActiveRecord::Base
   has_many :articles, dependent: :destroy
   has_many :service_offices, class_name: 'Service::Office', dependent: :destroy
   has_many :offices, through: :service_offices
+  has_many :service_related_services, class_name: 'Service::RelatedService', dependent: :destroy
+  has_many :related_services, through: :service_related_services
+  has_many :inverse_service_related_services, class_name: 'Service::RelatedService', foreign_key: :related_service_id, dependent: :destroy
+  has_many :inverse_related_services, through: :inverse_service_related_services, source: :service
 
   validates :name, presence: true, uniqueness: { scope: :service_category_id }
 
