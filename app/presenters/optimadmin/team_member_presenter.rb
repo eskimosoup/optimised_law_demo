@@ -7,7 +7,7 @@ module Optimadmin
     end
 
     def title
-      #team_member.title
+      "#{team_member.forename} #{team_member.surname}"
     end
 
     def toggle_title
@@ -15,7 +15,7 @@ module Optimadmin
     end
 
     def optimadmin_summary
-      #h.raw team_member.summary
+      h.raw team_member.biography
     end
   end
 end

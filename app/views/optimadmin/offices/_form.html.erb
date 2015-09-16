@@ -11,7 +11,7 @@
   </div>
 <% end %>
 
-  
+
 
   <div class="tabs prevent-flash">
     <ul class="tab-list">
@@ -76,13 +76,13 @@
       </div>
             <div class="field">
         <%= f.label :office_location_id %><br>
-        <%= f.text_field :office_location_id %>
+        <%= f.select :office_location_id, Office::Location.pluck(:id, :name), prompt: 'Please select' %>
       </div>
           <% end %>
 
     <%= field_set_tag nil, id: 'tabs-2' do %>
             <%= f.image_field :image %>
-      
+
           <% end %>
 
     <%= field_set_tag nil, id: 'tabs-3' do %>

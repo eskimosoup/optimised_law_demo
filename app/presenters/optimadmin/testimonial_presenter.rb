@@ -7,7 +7,7 @@ module Optimadmin
     end
 
     def title
-      #testimonial.title
+      "#{testimonial.author} #{testimonial.author_company}"
     end
 
     def toggle_title
@@ -15,7 +15,7 @@ module Optimadmin
     end
 
     def optimadmin_summary
-      #h.raw testimonial.summary
+      h.raw testimonial.recommendation
     end
   end
 end
