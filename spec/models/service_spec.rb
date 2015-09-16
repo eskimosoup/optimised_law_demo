@@ -13,6 +13,8 @@ RSpec.describe Service, type: :model do
     it "should have_many(:service_pages)"
     it { should have_many(:service_team_members).class_name("Service::TeamMember").dependent(:destroy) }
     it { should have_many(:team_members).through(:service_team_members) }
+    it { should have_many(:service_offices).class_name("Service::Office").dependent(:destroy) }
+    it { should have_many(:offices).through(:service_offices) }
     it "should have_many(:related_services)"
   end
 

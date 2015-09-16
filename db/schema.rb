@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150915094436) do
+ActiveRecord::Schema.define(version: 20150916134137) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -215,6 +215,16 @@ ActiveRecord::Schema.define(version: 20150915094436) do
   add_index "service_hierarchies", ["ancestor_id", "descendant_id", "generations"], name: "service_anc_desc_idx", unique: true, using: :btree
   add_index "service_hierarchies", ["descendant_id"], name: "service_desc_idx", using: :btree
 
+  create_table "service_offices", force: :cascade do |t|
+    t.integer  "service_id"
+    t.integer  "office_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "service_offices", ["office_id"], name: "index_service_offices_on_office_id", using: :btree
+  add_index "service_offices", ["service_id"], name: "index_service_offices_on_service_id", using: :btree
+
   create_table "service_team_members", force: :cascade do |t|
     t.integer  "service_id"
     t.integer  "team_member_id"
@@ -306,6 +316,8 @@ ActiveRecord::Schema.define(version: 20150915094436) do
   add_foreign_key "articles", "team_members"
   add_foreign_key "offices", "office_locations"
   add_foreign_key "service_categories", "departments"
+  add_foreign_key "service_offices", "offices"
+  add_foreign_key "service_offices", "services"
   add_foreign_key "service_team_members", "services"
   add_foreign_key "service_team_members", "team_members"
   add_foreign_key "service_testimonials", "services"
