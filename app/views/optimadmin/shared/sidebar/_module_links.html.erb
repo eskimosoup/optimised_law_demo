@@ -39,6 +39,18 @@
         <% if can? :manage, Article %>
           <li><%= link_to 'Articles', articles_path %></li>
         <% end %>
+        <% if can? :manage, Office %>
+          <li><%= link_to 'Offices', offices_path %></li>
+        <% end %>
+        <% if can? :manage, TeamMember %>
+          <li><%= link_to 'Team Members', team_members_path %></li>
+        <% end %>
+        <% if can? :manage, TeamMember %>
+          <li><%= link_to 'Team Member Roles', team_member_roles_path %></li>
+        <% end %>
+        <% if can? :manage, Testimonial %>
+          <li><%= link_to 'Testimonials', testimonials_path %></li>
+        <% end %>
       </ul>
 
       <div class="content-category-type">

@@ -3,7 +3,7 @@ module Optimadmin
     before_action :set_office, only: [:show, :edit, :update, :destroy]
 
     def index
-      @offices = Optimadmin::BaseCollectionPresenter.new(collection: Office.where('title ILIKE ?', "%#{params[:search]}%").page(params[:page]).per(params[:per_page] || 15), view_template: view_context, presenter: Optimadmin::OfficePresenter)
+      @offices = Optimadmin::BaseCollectionPresenter.new(collection: Office.where('name ILIKE ?', "%#{params[:search]}%").page(params[:page]).per(params[:per_page] || 15), view_template: view_context, presenter: Optimadmin::OfficePresenter)
     end
 
     def show

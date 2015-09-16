@@ -1,5 +1,5 @@
 module Optimadmin
-  class TeamMember::RolePresenter < Optimadmin::BasePresenter
+  class TeamMemberRolePresenter < Optimadmin::BasePresenter
     presents :team_member_role
 
     def id
