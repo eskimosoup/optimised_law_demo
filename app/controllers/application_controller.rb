@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   def index
     @presented_departments = BaseCollectionPresenter.new(collection: Department.ordered.displayable, view_template: view_context, presenter: DepartmentPresenter)
-    @presented_articles = BaseCollectionPresenter.new(collection: Article.displayable, view_template: view_context, presenter: ArticlePresenter)    
+    @presented_articles = BaseCollectionPresenter.new(collection: Article.displayable, view_template: view_context, presenter: ArticlePresenter)
   end
 
   def service_page
