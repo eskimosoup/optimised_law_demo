@@ -3,7 +3,7 @@ module Optimadmin
     before_action :set_department, only: [:show, :edit, :update, :destroy]
 
     def index
-      @departments = Optimadmin::BaseCollectionPresenter.new(collection: Department.ordered.where('name LIKE ?', "%#{params[:search]}%").page(params[:page]).per(params[:per_page] || 15), view_template: view_context, presenter: Optimadmin::DepartmentPresenter)
+      @departments = Optimadmin::BaseCollectionPresenter.new(collection: Department.positioned.where('name LIKE ?', "%#{params[:search]}%").page(params[:page]).per(params[:per_page] || 15), view_template: view_context, presenter: Optimadmin::DepartmentPresenter)
     end
 
     def show

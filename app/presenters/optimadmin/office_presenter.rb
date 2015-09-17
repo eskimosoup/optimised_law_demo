@@ -7,7 +7,7 @@ module Optimadmin
     end
 
     def title
-      #office.title
+      office.name
     end
 
     def toggle_title
@@ -15,7 +15,7 @@ module Optimadmin
     end
 
     def optimadmin_summary
-      #h.raw office.summary
+      h.raw office.details
     end
   end
 end
