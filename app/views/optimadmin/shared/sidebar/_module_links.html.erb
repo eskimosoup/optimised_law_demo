@@ -39,6 +39,9 @@
         <% if can? :manage, Article %>
           <li><%= link_to 'Articles', articles_path %></li>
         <% end %>
+        <% if can? :manage, Article %>
+          <li><%= link_to 'Article Categories', article_categories_path %></li>
+        <% end %>
         <% if can? :manage, Office %>
           <li><%= link_to 'Offices', offices_path %></li>
         <% end %>
@@ -50,6 +53,12 @@
         <% end %>
         <% if can? :manage, Testimonial %>
           <li><%= link_to 'Testimonials', testimonials_path %></li>
+        <% end %>
+        <% if can? :manage, Award %>
+          <li><%= link_to 'Awards and Accreditations', awards_path %></li>
+        <% end %>
+        <% if can? :manage, BusinessPartner %>
+          <li><%= link_to 'Business Partners', business_partners_path %></li>
         <% end %>
       </ul>
 
