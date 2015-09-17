@@ -9,7 +9,7 @@ RSpec.describe AwardPresenter, type: :presenter do
       expect(award_presenter.show_image(alt: award.name)).to eq(image_tag(award.image.show, alt: award.name))
     end
 
-    it "returns the award" do
+    it "returns the unlined image" do
       expect(award_presenter.show).to eq(image_tag(award.image.show, alt: award.name))
     end
 
