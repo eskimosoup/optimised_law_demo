@@ -4,7 +4,9 @@
       <h6>Awards &amp; Accreditations</h6>
 
       <div class="footer-awards-and-accreditations">
-        <%= image_tag 'http://placehold.it/150x80' %>
+        <ul class="footer-awards-and-accreditations-list">
+          <%= render partial: 'awards/award', collection: @presented_awards, as: :award_presenter %>
+        </ul>
       </div>
 
       <ul class="footer navigation">

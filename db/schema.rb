@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150916151111) do
+ActiveRecord::Schema.define(version: 20150917094325) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,27 @@ ActiveRecord::Schema.define(version: 20150916151111) do
   add_index "articles", ["article_category_id"], name: "index_articles_on_article_category_id", using: :btree
   add_index "articles", ["service_id"], name: "index_articles_on_service_id", using: :btree
   add_index "articles", ["team_member_id"], name: "index_articles_on_team_member_id", using: :btree
+
+  create_table "awards", force: :cascade do |t|
+    t.integer  "position"
+    t.string   "name"
+    t.string   "link"
+    t.string   "image"
+    t.string   "award_type"
+    t.boolean  "display",    default: true
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  create_table "business_partners", force: :cascade do |t|
+    t.integer  "position"
+    t.string   "name"
+    t.string   "link"
+    t.string   "image"
+    t.boolean  "display",    default: true
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
 
   create_table "departments", force: :cascade do |t|
     t.string   "name",                         null: false
