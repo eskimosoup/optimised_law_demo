@@ -23,51 +23,71 @@
         Manage Your Content
       </div>
 
-      <ul class="content-category-list">
-        <% if can? :manage, Optimadmin::MenuItem %>
-          <li><%= link_to 'Site Navigation', menu_items_path %></li>
-        <% end %>
-        <% if can? :manage, Department %>
-          <li><%= link_to 'Departments', departments_path %></li>
-        <% end %>
-        <% if can? :manage, Service %>
-          <li><%= link_to 'Services', services_path %></li>
-        <% end %>
-        <% if can? :manage, ServiceCategory %>
-          <li><%= link_to 'Service Categories', service_categories_path %></li>
-        <% end %>
-        <% if can? :manage, Article %>
-          <li><%= link_to 'Articles', articles_path %></li>
-        <% end %>
-        <% if can? :manage, Article %>
-          <li><%= link_to 'Article Categories', article_categories_path %></li>
-        <% end %>
-        <% if can? :manage, Office %>
-          <li><%= link_to 'Offices', offices_path %></li>
-        <% end %>
-        <% if can? :manage, TeamMember %>
-          <li><%= link_to 'Team Members', team_members_path %></li>
-        <% end %>
-        <% if can? :manage, TeamMember %>
-          <li><%= link_to 'Team Member Roles', team_member_roles_path %></li>
-        <% end %>
-        <% if can? :manage, Testimonial %>
-          <li><%= link_to 'Testimonials', testimonials_path %></li>
-        <% end %>
-        <% if can? :manage, Award %>
-          <li><%= link_to 'Awards and Accreditations', awards_path %></li>
-        <% end %>
-        <% if can? :manage, BusinessPartner %>
-          <li><%= link_to 'Business Partners', business_partners_path %></li>
-        <% end %>
+      <ul id="modules" class="content-category-list">
+        <li><%= module_link(content: "Site Navigation", model: Optimadmin::MenuItem, path: menu_items_path) %></li>
       </ul>
 
       <div class="content-category-type">
-        Website Visuals
+        Manage Inpage Content
       </div>
 
       <ul class="content-category-list">
+        <ul class="content-category-list">
+          <li><%= module_link(model: Award, path: awards_path) %></li>
+          <li><%= module_link(content: "Business Partners", model: BusinessPartner, path: business_partners_path) %></li>
+          <li><%= module_link(model: Testimonial, path: testimonials_path) %></li>
+        </ul>
+      </ul>
 
+      <% if can? :manage, Service %>
+        <div class="content-category-type">
+          Manage Services
+        </div>
+
+        <ul class="content-category-list">
+          <ul class="content-category-list">
+            <li><%= module_link(model: Department, path: departments_path) %></li>
+            <li><%= module_link(model: Service, path: services_path) %></li>
+            <li><%= module_link(content: "Service Categories", model: ServiceCategory, path: service_categories_path) %></li>
+          </ul>
+        </ul>
+      <% end %>
+
+      <% if can? :manage, Article %>
+        <div class="content-category-type">
+          Manage Articles
+        </div>
+
+        <ul class="content-category-list">
+          <ul class="content-category-list">
+            <li><%= module_link(model: Article, path: articles_path) %></li>
+            <li><%= module_link(content: "Article Categories", model: Article::Category, path: article_categories_path) %></li>
+          </ul>
+        </ul>
+      <% end %>
+
+      <% if can? :manage, TeamMember %>
+        <div class="content-category-type">
+          Manage Team Members
+        </div>
+
+        <ul class="content-category-list">
+          <ul class="content-category-list">
+            <li><%= module_link(content: "Team Members", model: TeamMember, path: team_members_path) %></li>
+            <li><%= module_link(content: "Team Member Roles", model: TeamMember::Role, path: team_member_roles_path) %></li>
+          </ul>
+        </ul>
+      <% end %>
+
+      <div class="content-category-type">
+        Manage Offices
+      </div>
+
+      <ul class="content-category-list">
+        <ul class="content-category-list">
+          <li><%= module_link(model: Office, path: offices_path) %></li>
+          <li><%= module_link(content: "Office Locations", model: Office::Location, path: office_locations_path) %></li>
+        </ul>
       </ul>
     </div>
   </div>

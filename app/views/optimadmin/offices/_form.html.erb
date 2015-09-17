@@ -76,7 +76,7 @@
       </div>
             <div class="field">
         <%= f.label :office_location_id %><br>
-        <%= f.select :office_location_id, Office::Location.pluck(:id, :name), prompt: 'Please select' %>
+        <%= f.select :office_location_id, Office::Location.pluck(:name, :id), prompt: 'Please select' %>
       </div>
           <% end %>
 

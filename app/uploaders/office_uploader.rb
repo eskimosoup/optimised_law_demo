@@ -1,11 +1,11 @@
 class OfficeUploader < Optimadmin::ImageUploader
 
   version :index do
-    process resize_to_fill: [223, 223]
+    process resize_to_fill: [316, 164]
   end
 
   version :show do
-    process resize_to_fill: [218, 135]
+    process resize_to_fill: [165, 135]
   end
 
 end
