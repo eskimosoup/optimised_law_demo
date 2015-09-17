@@ -1,12 +1,21 @@
+<%= content_for :footer do %>
+  <script>
+    $('.service-testimonial').slick({
+      fade: true,
+      infinte: true,
+      dots: false,
+      arrows: false,
+      autoplay: true,
+      autoplaySpeed: 5000
+    });
+  </script>
+<% end %>
+
 <div class="service-resources-wrap">
   <div class="row" data-equalizer="service-resources">
     <div class="medium-4 columns" id="testimonials" data-animation-type="slideInLeft" data-animation-delay="750" data-equalizer-watch="service-resources">
       <div class="service-testimonial">
-        <p>
-          Wireframe Kit is a professional instrument; here you won’t find
-          any bright interface or colorful layout, only a precise set of
-          tools to make a working prototype of any complexity.
-        </p>
+        <%= render partial: 'testimonials/service_testimonial', collection: @presented_testimonials, as: :testimonial_presenter %>
       </div>
     </div>
 

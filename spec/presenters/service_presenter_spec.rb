@@ -34,8 +34,20 @@ RSpec.describe ServicePresenter, type: :presenter do
     end
 
     it "returns the related services" do
-      expect(service_presenter.related_services).to eq(service.service_category.services)
+      expect(service_presenter.related_services).to eq(service.related_services)
     end
+
+    it "returns a boolean whether service has related services" do
+      expect(service_presenter.has_related_services?).to eq(nil)
+    end
+
+    #describe "has related services" do
+    #  let(:service_with_related_service) { build(:service_with_related_service) }
+    #  subject(:service_presenter) { ServicePresenter.new(object: service_with_related_service, view_template: view)}
+    #  it "returns a boolean whether service has related services" do
+    #    expect(service_presenter.has_related_services?).to eq(true)
+    #  end
+    #end
 
     describe "links" do
       let(:service) { create(:service) }
