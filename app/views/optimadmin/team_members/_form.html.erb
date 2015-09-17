@@ -80,6 +80,18 @@
           <% end %>
 
     <%= field_set_tag nil, id: 'tabs-3' do %>
+    <div class="field">
+<%= f.label :service_ids, "Services" %><br>
+<%= f.select :service_ids, Service.pluck(:name, :id), {  }, { multiple: true } %>
+</div>
+    <div class="field">
+<%= f.label :article_ids, "Articles" %><br>
+<%= f.select :article_ids, Article.pluck(:title, :id), {  }, { multiple: true } %>
+</div>
+    <div class="field">
+<%= f.label :testimonial_ids, "Testimonials" %><br>
+<%= f.select :testimonial_ids, Testimonial.all.map{|x| ["#{x.author} - #{x.author_company}", x.id]}, {  }, { multiple: true } %>
+</div>
             <div class="field">
         <%= f.label :display %><br>
         <%= f.check_box :display %>

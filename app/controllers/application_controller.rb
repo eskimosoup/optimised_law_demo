@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
     @presented_departments = BaseCollectionPresenter.new(collection: Department.positioned.displayable, view_template: view_context, presenter: DepartmentPresenter)
     @presented_articles = BaseCollectionPresenter.new(collection: Article.displayable, view_template: view_context, presenter: ArticlePresenter)
     @presented_business_partners = BaseCollectionPresenter.new(collection: BusinessPartner.positioned.displayable, view_template: view_context, presenter: BusinessPartnerPresenter)
+    @presented_testimonials = BaseCollectionPresenter.new(collection: Testimonial.positioned.displayable, view_template: view_context, presenter: TestimonialPresenter)
   end
 
   def service_page

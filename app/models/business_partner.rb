@@ -5,7 +5,8 @@ class BusinessPartner < ActiveRecord::Base
   scope :displayable, -> { where display: true }
 
   validates :name, :image, presence: true
-  before_save :smart_add_url_protocol
+  
+  before_save :smart_add_url_protocol, if: Proc.new{|f| f.link.present? }
 
   private
 

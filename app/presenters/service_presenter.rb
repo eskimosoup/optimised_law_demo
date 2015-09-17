@@ -1,10 +1,6 @@
 class ServicePresenter < BasePresenter
   presents :service
 
-  def articles
-    service.articles
-  end
-
   def service_category
     service.service_category
   end
@@ -54,7 +50,11 @@ class ServicePresenter < BasePresenter
   end
 
   def related_services
-    service.service_category.services
+    service.related_services
+  end
+
+  def has_related_services?
+    true if service.related_services.present?
   end
 
   private

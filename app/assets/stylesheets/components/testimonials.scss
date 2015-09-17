@@ -10,8 +10,14 @@
   }
 
   .testimonial-author {
-    margin: em(13px, 13px) auto em(9px, 12px);
+    margin: em(13px, 13px) auto em(4px, 12px);
     font-weight: $testimonial-author-font-weight;
+    color: $testimonial-author-color;
+  }
+
+  .testimonial-author-company {
+    margin: 0 auto em(9px, 12px);
+    font-size: em(12px);
     color: $testimonial-author-color;
   }
 }

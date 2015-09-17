@@ -1,32 +1,34 @@
-<div class="medium-6 columns" data-equalizer-watch="additional-content">
-  <div class="activity-stream">
-    <h3>Activity Stream</h3>
+<% if @presented_service_articles.present? %>
+  <div class="medium-6 columns" data-equalizer-watch="additional-content">
+    <div class="activity-stream">
+      <h3>Activity Stream</h3>
 
-    <div class="activity-stream-activity" data-animation-type="slideInDown">
-      <div class="row">
-        <div class="medium-5 columns">
-          <%= @presented_service_articles.first.activity_stream_image(class: 'activity-stream-featured-image') %>
-        </div>
-
-        <div class="medium-7 columns">
-          <div class="activity-time-ago">
-            <%= @presented_service_articles.first.date(:long) %>
+      <div class="activity-stream-activity" data-animation-type="slideInDown">
+        <div class="row">
+          <div class="medium-5 columns">
+            <%= @presented_service_articles.first.activity_stream_image(class: 'activity-stream-featured-image') %>
           </div>
 
+          <div class="medium-7 columns">
+            <div class="activity-time-ago">
+              <%= @presented_service_articles.first.date(:long) %>
+            </div>
 
 
 
-          <%= link_to @presented_service_articles.first.link, class: 'activity-stream-featured-headline' do %>
-            <%= @presented_service_articles.first.title %>
-          <% end %>
 
-          <div class="activity-stream-featured-summary">
-            <%= @presented_service_articles.first.summary %>
+            <%= link_to @presented_service_articles.first.link, class: 'activity-stream-featured-headline' do %>
+              <%= @presented_service_articles.first.title %>
+            <% end %>
+
+            <div class="activity-stream-featured-summary">
+              <%= @presented_service_articles.first.summary %>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <%= render partial: 'articles/activity_stream', collection: @presented_service_articles[1..2], as: :article_presenter %>
+      <%= render partial: 'articles/activity_stream', collection: @presented_service_articles[1..2], as: :article_presenter %>
+    </div>
   </div>
-</div>
+<% end %>

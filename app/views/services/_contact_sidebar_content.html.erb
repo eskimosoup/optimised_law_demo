@@ -4,14 +4,7 @@
   <% end %>
 
   <div class="call-to-action-1-content call-to-action-content-wrap hide">
-    <div class="call-to-action-content-title">London</div>
-    <div class="call-to-action-content">020 7815 1234</div>
-
-    <div class="call-to-action-content-title">Leeds</div>
-    <div class="call-to-action-content">020 7815 1234</div>
-
-    <div class="call-to-action-content-title">Hull</div>
-    <div class="call-to-action-content">020 7815 1234</div>
+    <%= render partial: 'offices/call_to_action', collection: @presented_offices, as: :office_presenter %>
   </div>
 </li>
 

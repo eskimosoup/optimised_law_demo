@@ -50,7 +50,7 @@ module Optimadmin
     def team_member_params
       params.require(:team_member).permit(:forename, :surname, :image, :team_member_role_id, :email, :primary_phone_number,
                                           :secondary_phone_number, :mobile_phone_number, :google_plus, :twitter, :linkedin,
-                                          :biography, :display)
+                                          :biography, :display, service_ids: [], article_ids: [], testimonial_ids: [])
     end
   end
 end
