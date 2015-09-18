@@ -2,8 +2,8 @@ class Office < ActiveRecord::Base
 
   mount_uploader :image, OfficeUploader
 
-  belongs_to :office_location, class_name: "Office::Location"
-  has_many :service_offices, class_name: 'Service::Office', dependent: :destroy
+  belongs_to :office_location
+  has_many :service_offices, dependent: :destroy
   has_many :services, through: :service_offices
 
   delegate :name, to: :office_location, prefix: true

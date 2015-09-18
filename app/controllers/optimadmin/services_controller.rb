@@ -48,7 +48,7 @@ module Optimadmin
     end
 
     def service_params
-      params.require(:service).permit(:service_category_id, :parent_id, :name, :image, :summary, :content, :suggested_url, :display)
+      params.require(:services).permit(:service_category_id, :parent_id, :name, :image, :summary, :content, :suggested_url, :display)
     end
   end
 end

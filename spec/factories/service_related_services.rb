@@ -1,8 +1,7 @@
 FactoryGirl.define do
-  factory :service_related_service, :class => 'Service::RelatedService' do
-    service nil
-related_service nil
-position 1
+  factory :service_related_service do
+    service
+    related_service
+    position 1
   end
-
 end

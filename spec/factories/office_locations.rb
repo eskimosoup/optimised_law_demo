@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :office_location, class: 'Office::Location' do
+  factory :office_location do
     sequence(:name) {|n| "Location #{ n }"}
     display true
   end

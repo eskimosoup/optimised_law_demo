@@ -1,6 +1,6 @@
 module Optimadmin
   class ServicePresenter < Optimadmin::BasePresenter
-    presents :service
+    presents :services
 
     def id
       service.id

@@ -13,7 +13,7 @@ RSpec.describe TeamMember, type: :model do
     it { should have_many(:team_member_testimonials).dependent(:destroy) }
     it { should have_many(:testimonials).through(:team_member_testimonials) }
     it { should have_many(:articles).dependent(:nullify) }
-    it { should have_many(:service_team_members).class_name("Service::TeamMember").dependent(:destroy) }
+    it { should have_many(:service_team_members).dependent(:destroy) }
     it { should have_many(:services).through(:service_team_members) }
   end
 
