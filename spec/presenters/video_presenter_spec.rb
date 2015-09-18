@@ -35,15 +35,15 @@ RSpec.describe VideoPresenter, type: :presenter do
       let(:video) { build(:video_with_image) }
       subject(:video_presenter) { VideoPresenter.new(object: video, view_template: view)}
       it "index_image should return nil" do
-        expect(video_presenter.index_image(alt: video.title)).to eq(image_tag(video.image.index, alt: video.title))
+        expect(video_presenter.index_image(alt: video.name)).to eq(image_tag(video.image.index, alt: video.name))
       end
 
       it "show_image should return nil" do
-        expect(video_presenter.show_image(alt: video.title)).to eq(image_tag(video.image.show, alt: video.title))
+        expect(video_presenter.show_image(alt: video.name)).to eq(image_tag(video.image.show, alt: video.name))
       end
 
       it "activity_stream_image should not return nil" do
-        expect(video_presenter.activity_stream_image(alt: video.title)).to eq(image_tag(video.image.activity_stream, alt: video.title))
+        expect(video_presenter.activity_stream_image(alt: video.name)).to eq(image_tag(video.image.activity_stream, alt: video.name))
       end
     end
   end

@@ -55,10 +55,6 @@ RSpec.describe EventPresenter, type: :presenter do
       it "show_image should return nil" do
         expect(event_presenter.show_image(alt: event.title)).to eq(image_tag(event.image.show, alt: event.title))
       end
-
-      it "activity_stream_image should not return nil" do
-        expect(event_presenter.activity_stream_image(alt: event.title)).to eq(image_tag(event.image.activity_stream, alt: event.title))
-      end
     end
   end
 end
