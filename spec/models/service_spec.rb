@@ -8,18 +8,18 @@ RSpec.describe Service, type: :model do
   describe "associations", :association do
     it { should belong_to(:service_category) }
     it { should have_one(:department).through(:service_category) }
-    it { should have_many(:service_testimonials).class_name("Service::Testimonial").dependent(:destroy) }
+    it { should have_many(:service_testimonials).dependent(:destroy) }
     it { should have_many(:testimonials).through(:service_testimonials) }
     it "should have_many(:service_pages)"
-    it { should have_many(:service_team_members).class_name("Service::TeamMember").dependent(:destroy) }
+    it { should have_many(:service_team_members).dependent(:destroy) }
     it { should have_many(:team_members).through(:service_team_members) }
-    it { should have_many(:service_offices).class_name("Service::Office").dependent(:destroy) }
+    it { should have_many(:service_offices).dependent(:destroy) }
     it { should have_many(:offices).through(:service_offices) }
     it { should have_many(:service_events).class_name("Service::Event").dependent(:destroy) }
     it { should have_many(:events).through(:service_events) }
-    it { should have_many(:service_related_services).class_name("Service::RelatedService").dependent(:destroy) }
+    it { should have_many(:service_related_services).dependent(:destroy) }
     it { should have_many(:related_services).through(:service_related_services) }
-    it { should have_many(:inverse_service_related_services).class_name("Service::RelatedService").with_foreign_key(:related_service_id).dependent(:destroy) }
+    it { should have_many(:inverse_service_related_services).class_name("ServiceRelatedService").with_foreign_key(:related_service_id).dependent(:destroy) }
     it { should have_many(:inverse_related_services).through(:inverse_service_related_services).source(:service) }
   end
 

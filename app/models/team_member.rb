@@ -4,11 +4,11 @@ class TeamMember < ActiveRecord::Base
   friendly_id :slug_candidates, use: [:slugged, :history]
   mount_uploader :image, TeamMemberUploader
 
-  belongs_to :team_member_role, class_name: "TeamMember::Role"
-  has_many :team_member_testimonials, class_name: "TeamMember::Testimonial", dependent: :destroy
+  belongs_to :team_member_role
+  has_many :team_member_testimonials, dependent: :destroy
   has_many :testimonials, through: :team_member_testimonials
   has_many :articles, dependent: :nullify
-  has_many :service_team_members, class_name: "Service::TeamMember", dependent: :destroy
+  has_many :service_team_members, dependent: :destroy
   has_many :services, through: :service_team_members
   has_many :event_team_members, class_name: "Event::TeamMember", dependent: :destroy
   has_many :events, through: :event_team_members

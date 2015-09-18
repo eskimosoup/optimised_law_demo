@@ -1,13 +1,13 @@
 require 'rails_helper'
 
-RSpec.describe Office::Location, type: :model do
+RSpec.describe OfficeLocation, type: :model do
    describe "validations", :validation do
      it { should validate_presence_of(:name) }
      it { should validate_uniqueness_of(:name) }
    end
 
   describe "associations", :association do
-    it { should have_many(:offices).with_foreign_key(:office_location_id).dependent(:destroy) }
+    it { should have_many(:offices).dependent(:destroy) }
   end
 
    describe "friendly_id" do

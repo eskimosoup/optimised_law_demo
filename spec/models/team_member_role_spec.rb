@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe TeamMember::Role, type: :model do
+RSpec.describe TeamMemberRole, type: :model do
   describe "validations", :validation do
     it { should validate_presence_of(:name) }
     it { should validate_uniqueness_of(:name) }
