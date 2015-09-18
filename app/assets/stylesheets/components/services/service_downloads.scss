@@ -14,7 +14,10 @@
 
 .service-download-read-more {
   @extend %read-more;
-  margin-top: 0;
+
+  @include media('>=tablet') {
+    margin-top: 0;
+  }
 }
 
 .service-download-overview {

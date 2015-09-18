@@ -7,6 +7,10 @@
   color: $service-calendar-color;
   padding: em(50px) em(79px);
 
+  @include media('<tablet') {
+    padding: em(15px);
+  }
+
   h6 {
     color: $service-calendar-color;
     font-family: $service-calendar-font;
@@ -65,8 +69,10 @@
   border-left: 1px solid $service-calendar-border-color;
   border-right: 1px solid $service-calendar-border-color;
 
-  &.no-right-border {
-    border-right: 0;
+  @include media('>=tablet') {
+    &.no-right-border {
+      border-right: 0;
+    }
   }
 }
 

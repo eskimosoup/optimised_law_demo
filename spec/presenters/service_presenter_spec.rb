@@ -82,7 +82,7 @@ RSpec.describe ServicePresenter, type: :presenter do
       let(:service) { build(:service) }
       subject(:service_presenter) { ServicePresenter.new(object: service, view_template: view)}
       it "index_image should return nil" do
-        expect(service_presenter.sidebar_image).to eq(nil)
+        expect(service_presenter.index_image).to eq(nil)
       end
 
       it "show_image should return nil" do
@@ -93,12 +93,12 @@ RSpec.describe ServicePresenter, type: :presenter do
     describe "has image" do
       let(:service) { build(:service_with_image) }
       subject(:service_presenter) { ServicePresenter.new(object: service, view_template: view)}
-      it "index_image should return nil" do
-        expect(service_presenter.sidebar_image).to eq(image_tag(service.image.index, title: service.name, alt: service.name))
+      it "index_image should not return nil" do
+        expect(service_presenter.index_image(alt: service.name)).to eq(image_tag(service.image.index, alt: service.name))
       end
 
-      it "show_image should return nil" do
-        expect(service_presenter.overview_image).to eq(image_tag(service.image.show, title: service.name, alt: service.name))
+      it "show_image should not return nil" do
+        expect(service_presenter.overview_image).to eq(image_tag(service.image.show, alt: service.name, class: 'hide-for-small'))
       end
     end
   end

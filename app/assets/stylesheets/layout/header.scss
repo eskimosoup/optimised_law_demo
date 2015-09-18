@@ -5,8 +5,20 @@
 
 .header {
   @extend %clearfix;
+
+  @include media('>tablet') {
+    padding: 0 0 0 em(20px);
+  }
 }
 
 .logo {
   margin: 0 0 em(10px) em(20px);
+
+  @include media('<tablet') {
+    width: 75%;
+  }
+}
+
+.mobile-menu {
+  padding: em(20px) em(20px) 0 0;
 }

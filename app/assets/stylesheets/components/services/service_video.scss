@@ -23,6 +23,10 @@
   background: $content-background-color;
   padding: em(28px);
 
+  @include media('<tablet') {
+    margin: 0 0 em(15px);
+  }
+
   p {
     color: $service-video-overview-color;
     font-family: $service-video-overview-font;

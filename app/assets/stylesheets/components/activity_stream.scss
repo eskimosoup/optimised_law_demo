@@ -2,6 +2,10 @@
   background: $content-background-color;
   height: 100%;
 
+  @include media('<tablet') {
+    margin: em(15px) 0 0;
+  }
+
   h3 {
     color: $activity-stream-color;
     font-size: em(16px);
@@ -10,6 +14,10 @@
     margin: 0;
     padding: em(46px, 16px) em(40px, 16px) em(36px, 16px);
     text-transform: uppercase;
+
+    @include media('<tablet') {
+      padding: em(23px, 16px) em(20px, 16px) em(18px, 16px);
+    }
   }
 }
 
@@ -30,11 +38,19 @@
 
 .activity-stream-featured-image {
   @include border-radius(4px);
+
+  @include media('<tablet') {
+    margin: 0 0 em(5px);
+  }
 }
 
 .activity-stream-activity {
   border-top: 1px solid $activity-stream-activity-border;
-  padding: em(24p) em(40px);
+  padding: em(24px) em(40px);
+
+  @include media('<tablet') {
+    padding: em(15px);
+  }
 }
 
 .activity-time-ago {
@@ -51,6 +67,12 @@
   font-family: $activity-stream-activity-headline-font;
   font-size: em(17px);
   font-weight: $activity-stream-activity-headline-font-weight;
+
+  @include media('<tablet') {
+    font-size: em(14px);
+    padding-right: em(15px, 14px);
+    margin: em(5px, 14px) 0;
+  }
 
   &:link,
   &:visited,

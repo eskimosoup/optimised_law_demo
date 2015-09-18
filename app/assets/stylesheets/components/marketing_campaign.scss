@@ -1,11 +1,19 @@
 .marketing-campaign {
   background: $marketing-campaign-background;
   height: 100%;
+
+  @include media('<tablet') {
+    margin: 0 em(15px);
+  }
 }
 
 .marketing-campaign-content {
   color: $marketing-campaign-color;
   padding: em(70px) em(20px) em(20px);
+
+  @include media('<tablet') {
+    padding: em(15px);
+  }
 
   h5 {
     font-size: em(18px);

@@ -1,6 +1,10 @@
 .service-wrap {
   background: transparent image-url('layout/services/header.jpg') no-repeat top center;
   padding: em(63px) 0 0;
+
+  @include media('<tablet') {
+    padding: em(10px);
+  }
 }
 
 .department {
@@ -47,26 +51,46 @@
 .service-content {
   @extend %service-content-style;
   padding: 0 em(51px) em(51px);
+
+  @include media('<tablet') {
+    padding: 0 em(15px);
+  }
 }
 
 .service-content {
   padding: em(40px) em(31px);
+
+  @include media('<tablet') {
+    padding: em(15px);
+  }
 
   h1 {
     color: $service-content-header-color;
     font-size: em(34px);
     font-weight: $service-content-header;
     margin: 0 0 em(43px, 34px);
+
+    @include media('<tablet') {
+      margin: 0 0 em(22px, 34px);
+    }
   }
 }
 
 .service-overview-header {
   background: $service-overview-header-background;
   color: $service-overview-header-text-color;
-  margin: 0 0 em(40px);
-  min-height: 135px;
   position: relative;
   text-align: right;
+
+  @include media('>=desktop') {
+    min-height: 135px;
+    margin: 0 0 em(40px);
+  }
+
+  @include media('<desktop') {
+    padding: em(15px);
+    margin: 0 0 em(15px);
+  }
 
   h1 {
     bottom: 44px;
@@ -75,8 +99,15 @@
     left: 36px;
     margin: 0;
     max-width: 270px;
-    position: absolute;
     text-align: left;
+
+    @include media('>=desktop') {
+      position: absolute;
+    }
+  }
+
+  img {
+    float: right;
   }
 }
 
@@ -86,8 +117,16 @@
 
 .service-overview-contact-methods {
   list-style: none;
-  margin: 0 em(15px) 0 0;
   padding: 0 0 em(51px);
+
+  @include media('<tablet') {
+    padding: 0;
+  }
+
+  
+  @include media('>=desktop') {
+    margin: 0 em(15px) 0 0;
+  }
 }
 
 .service-resources-wrap {

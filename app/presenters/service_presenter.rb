@@ -29,12 +29,8 @@ class ServicePresenter < BasePresenter
     h.raw service.content
   end
 
-  def sidebar_image
-    image(:index)
-  end
-
   def overview_image
-    image(:show)
+    show_image(alt: name, class: 'hide-for-small')
   end
 
   def read_more_link
@@ -55,11 +51,5 @@ class ServicePresenter < BasePresenter
 
   def has_related_services?
     true if service.related_services.present?
-  end
-
-  private
-
-  def image(version)
-    h.image_tag service.image.url(version), title: name, alt: name if service.image?
   end
 end

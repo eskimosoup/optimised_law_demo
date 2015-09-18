@@ -10,6 +10,10 @@ footer {
 
 .footer-awards-and-accreditations {
   margin: em(35px) 0 em(20px);
+
+  @include media('<tablet') {
+    margin: em(15px) 0;
+  }
 }
 
 .footer-awards-and-accreditations-list {
@@ -18,6 +22,10 @@ footer {
   li {
     display: inline-block;
     margin: 0 em(15px);
+
+    @include media('<tablet') {
+      margin: em(15px);
+    }
   }
 }
 

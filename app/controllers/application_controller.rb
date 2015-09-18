@@ -21,6 +21,7 @@ class ApplicationController < ActionController::Base
   private
 
   def objects
+    @presented_offices = BaseCollectionPresenter.new(collection: Office.displayed, view_template: view_context, presenter: OfficePresenter)
     @presented_awards = BaseCollectionPresenter.new(collection: Award.positioned.displayed, view_template: view_context, presenter: AwardPresenter)
     @header_menu = Optimadmin::Menu.new(name: "header")
     @header_aside_menu = Optimadmin::Menu.new(name: "header_aside")
