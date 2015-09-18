@@ -7,7 +7,7 @@ module Optimadmin
     end
 
     def title
-      #video.title
+      video.name
     end
 
     def toggle_title
@@ -15,7 +15,7 @@ module Optimadmin
     end
 
     def optimadmin_summary
-      #h.raw video.summary
+      h.raw video.youtube_embed_code
     end
   end
 end

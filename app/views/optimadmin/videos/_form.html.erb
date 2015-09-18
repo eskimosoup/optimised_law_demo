@@ -11,7 +11,7 @@
   </div>
 <% end %>
 
-  
+
 
   <div class="tabs prevent-flash">
     <ul class="tab-list">
@@ -32,19 +32,24 @@
       </div>
             <div class="field">
         <%= f.label :youtube_embed_code %><br>
-        <%= f.text_area :youtube_embed_code, class: 'tinymce' %>
-      </div>
-            <div class="field">
-        <%= f.label :video_category_id %><br>
-        <%= f.text_field :video_category_id %>
+        <%= f.text_area :youtube_embed_code %>
       </div>
           <% end %>
 
     <%= field_set_tag nil, id: 'tabs-2' do %>
-      
+
           <% end %>
 
     <%= field_set_tag nil, id: 'tabs-3' do %>
+
+          <div class="field">
+      <%= f.label :video_category_id %><br>
+      <%= f.select :video_category_id, VideoCategory.pluck(:name, :id), prompt: 'Please select' %>
+    </div>
+    <div class="field">
+<%= f.label :service_ids, "Services" %><br>
+<%= f.select :service_ids, Service.pluck(:name, :id), {  }, { multiple: true } %>
+</div>
             <div class="field">
         <%= f.label :display %><br>
         <%= f.check_box :display %>

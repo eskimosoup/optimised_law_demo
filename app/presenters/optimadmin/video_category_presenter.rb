@@ -2,6 +2,8 @@ module Optimadmin
   class VideoCategoryPresenter < Optimadmin::BasePresenter
     presents :video_category
 
+    delegate :name, to: :video_category
+
     def id
       video_category.id
     end

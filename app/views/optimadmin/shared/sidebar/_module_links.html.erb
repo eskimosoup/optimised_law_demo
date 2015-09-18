@@ -79,7 +79,6 @@
           </ul>
         </ul>
       <% end %>
-      <% end %>
 
       <% if can? :manage, Video %>
         <div class="content-category-type">
@@ -88,8 +87,8 @@
 
         <ul class="content-category-list">
           <ul class="content-category-list">
-            <%= module_link(content: "Video Categories", model: VideoCategory, path: video_categories_path) %>
             <%= module_link(model: Video, path: videos_path) %>
+            <%= module_link(content: "Video Categories", model: VideoCategory, path: video_categories_path) %>
           </ul>
         </ul>
       <% end %>

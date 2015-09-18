@@ -3,7 +3,7 @@ module Optimadmin
     before_action :set_video_category, only: [:show, :edit, :update, :destroy]
 
     def index
-      @video_categories = Optimadmin::BaseCollectionPresenter.new(collection: VideoCategory.where('title ILIKE ?', "%#{params[:search]}%").page(params[:page]).per(params[:per_page] || 15), view_template: view_context, presenter: Optimadmin::VideoCategoryPresenter)
+      @video_categories = Optimadmin::BaseCollectionPresenter.new(collection: VideoCategory.where('name ILIKE ?', "%#{params[:search]}%").page(params[:page]).per(params[:per_page] || 15), view_template: view_context, presenter: Optimadmin::VideoCategoryPresenter)
     end
 
     def show
