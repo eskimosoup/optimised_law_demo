@@ -98,7 +98,7 @@ RSpec.describe ServicePresenter, type: :presenter do
       end
 
       it "show_image should not return nil" do
-        expect(service_presenter.overview_image).to eq(image_tag(service.image.show, alt: service.name, class: 'hide-for-small'))
+        expect(service_presenter.overview_image).to eq(image_tag(service.image.show, alt: service.name, class: 'hide-for-medium-down'))
       end
     end
   end

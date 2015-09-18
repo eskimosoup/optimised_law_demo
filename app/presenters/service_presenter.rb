@@ -30,7 +30,7 @@ class ServicePresenter < BasePresenter
   end
 
   def overview_image
-    show_image(alt: name, class: 'hide-for-small')
+    show_image(alt: name, class: 'hide-for-medium-down')
   end
 
   def read_more_link
