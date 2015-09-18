@@ -10,6 +10,8 @@ class TeamMember < ActiveRecord::Base
   has_many :articles, dependent: :nullify
   has_many :service_team_members, class_name: "Service::TeamMember", dependent: :destroy
   has_many :services, through: :service_team_members
+  has_many :event_team_members, class_name: "Event::TeamMember", dependent: :destroy
+  has_many :events, through: :event_team_members
 
   delegate :name, to: :team_member_role, prefix: true, allow_nil: true
 

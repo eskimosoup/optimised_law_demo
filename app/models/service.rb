@@ -13,6 +13,8 @@ class Service < ActiveRecord::Base
   has_many :testimonials, through: :service_testimonials
   has_many :service_team_members, class_name: 'Service::TeamMember', dependent: :destroy
   has_many :team_members, through: :service_team_members
+  has_many :service_events, class_name: 'Service::Event', dependent: :destroy
+  has_many :team_members, through: :service_events
   has_many :articles, dependent: :destroy
   has_many :service_offices, class_name: 'Service::Office', dependent: :destroy
   has_many :offices, through: :service_offices

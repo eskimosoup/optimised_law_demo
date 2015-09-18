@@ -1,0 +1,96 @@
+<%= form_for(event) do |f| %>
+<% if event.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+    <ul>
+      <% event.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+
+
+  <div class="tabs prevent-flash">
+    <ul class="tab-list">
+      <li><a href="#tabs-1">Content</a></li>
+      <li><a href="#tabs-2">Media</a></li>
+      <li><a href="#tabs-3">Settings</a></li>
+      <li>
+        <%= link_to '#', class: 'destroy-tabs right', data: { class: 'tabs' } do %>
+          <%= octicon('chevron-down') %>
+        <% end %>
+      </li>
+    </ul>
+
+    <%= field_set_tag nil, id: 'tabs-1' do %>
+            <div class="field">
+        <%= f.label :summary %><br>
+        <%= f.text_area :summary %>
+      </div>
+            <div class="field">
+        <%= f.label :content %><br>
+        <%= f.text_area :content, class: 'tinymce' %>
+      </div>
+            <div class="field">
+        <%= f.label :start_date_time %><br>
+        <%= f.datetime_select :start_date_time %>
+      </div>
+            <div class="field">
+        <%= f.label :end_date_time %><br>
+        <%= f.datetime_select :end_date_time %>
+      </div>
+            <div class="field">
+        <%= f.label :booking_link %><br>
+        <%= f.text_field :booking_link %>
+      </div>
+            <div class="field">
+        <%= f.label :booking_information %><br>
+        <%= f.text_field :booking_information %>
+      </div>
+          <% end %>
+
+    <%= field_set_tag nil, id: 'tabs-2' do %>
+            <%= f.image_field :image %>
+
+          <% end %>
+
+    <%= field_set_tag nil, id: 'tabs-3' do %>
+    <div class="field">
+<%= f.label :service_ids, "Services" %><br>
+<%= f.select :service_ids, Service.pluck(:name, :id), {  }, { multiple: true } %>
+</div>
+
+    <div class="field">
+<%= f.label :team_member_ids, "Team Members" %><br>
+<%= f.select :team_member_ids, TeamMember.all.map{|x| ["#{x.forename} #{x.surname}", x.id]}, {  }, { multiple: true } %>
+</div>
+
+    <div class="field">
+<%= f.label :event_category_id, "Category" %><br>
+<%= f.select :event_category_id, Event::Category.pluck(:name, :id), prompt: 'Please select' %>
+</div>
+
+    <div class="field">
+<%= f.label :event_location_id, "Location" %><br>
+<%= f.select :event_location_id, Event::Location.pluck(:name, :id), prompt: 'Please select' %>
+</div>
+
+            <div class="field">
+        <%= f.label :display %><br>
+        <%= f.check_box :display %>
+      </div>
+          <% end %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
