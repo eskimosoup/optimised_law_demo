@@ -12,6 +12,15 @@ footer {
   margin: em(35px) 0 em(20px);
 }
 
+.footer-awards-and-accreditations-list {
+  list-style: none;
+
+  li {
+    display: inline-block;
+    margin: 0 em(15px);
+  }
+}
+
 .footer-microcopy {
   @include color-rgba($footer-text-color, 0.5);
   font-size: em(10px);

@@ -8,7 +8,10 @@ Rails.application.routes.draw do
   resources :departments, only: :show
   resources :articles, only: :show
   resources :article_categories, only: :show, path: 'article-category'
-  resources :team_members, only: [:index, :show], path: 'team-members'
+
+  resources :team_members, only: [:index, :show], path: 'team-members'  
+  resources :offices, only: :show
+  resources :office_locations, only: :show, path: 'office-locations'
 
   get 'service-page', to: 'application#service_page'
   get 'service-page-detailed', to: 'application#service_page_detailed'
@@ -17,6 +20,46 @@ Rails.application.routes.draw do
 end
 
 Optimadmin::Engine.routes.draw do
+  resources :office_locations, except: [:show] do
+    collection do
+      post 'order'
+    end
+    member do
+      get 'toggle'
+    end
+  end
+  resources :business_partners, except: [:show] do
+    collection do
+      post 'order'
+    end
+    member do
+      get 'toggle'
+      get 'edit_images'
+      post 'update_image_default'
+      post 'update_image_fill'
+      post 'update_image_fit'
+    end
+  end
+  resources :awards, except: [:show] do
+    collection do
+      post 'order'
+    end
+    member do
+      get 'toggle'
+      get 'edit_images'
+      post 'update_image_default'
+      post 'update_image_fill'
+      post 'update_image_fit'
+    end
+  end
+  resources :article_categories, except: [:show] do
+    collection do
+      post 'order'
+    end
+    member do
+      get 'toggle'
+    end
+  end
   resources :offices, except: [:show] do
     collection do
       post 'order'

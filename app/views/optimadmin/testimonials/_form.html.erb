@@ -41,6 +41,15 @@
 
 
     <%= field_set_tag nil, id: 'tabs-3' do %>
+    <div class="field">
+<%= f.label :service_ids, "Services" %><br>
+<%= f.select :service_ids, Service.pluck(:name, :id), {  }, { multiple: true } %>
+</div>
+    <div class="field">
+<%= f.label :team_member_ids, "Team Members" %><br>
+<%= f.select :team_member_ids, TeamMember.all.map{|x| ["#{x.forename} #{x.surname}", x.id]}, {  }, { multiple: true } %>
+</div>
+
             <div class="field">
         <%= f.label :display %><br>
         <%= f.check_box :display %>

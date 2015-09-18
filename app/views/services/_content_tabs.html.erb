@@ -2,43 +2,29 @@
   <div data-animation-type="slideInLeft" id="case-studies">
     <ul class="service-content-tab-controls">
       <li>
-        <%= link_to 'First', '#', class: 'active' %>
+        <%= link_to 'First', '#tab-1', class: 'tab-toggle active' %>
       </li>
 
       <li>
-        <%= link_to 'Second', '#' %>
+        <%= link_to 'Second', '#tab-2', class: 'tab-toggle' %>
       </li>
 
       <li>
-        <%= link_to 'Third', '#' %>
+        <%= link_to 'Third', '#-tab2', class: 'tab-toggle' %>
       </li>
     </ul>
 
-    <div class="service-content-tab-content">
-      <div class="row">
-        <div class="medium-12 columns">
-          <div class="service-content-tab-content-type case-study">
-            Case Study
-          </div>
-        </div>
+    <div class="service-content-tab-wrap">
+      <div class="service-content-tab-content" id="tab-1">
+        <%= render 'case_studies/service_case_study' %>
       </div>
 
-      <div class="row">
-        <div class="medium-8 columns">
-          <h2>Waiting for the Sun</h2>
+      <div class="service-content-tab-content hide" id="tab-2">
+        <%= render 'case_studies/service_case_study' %>
+      </div>
 
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco
-          </p>
-
-          <%= link_to 'Read more', '#', class: 'service-content-tab-read-more' %>
-        </div>
-
-        <div class="medium-4 columns">
-          <%= image_tag 'http://placehold.it/203x202', class: 'service-content-tab-content-item' %>
-        </div>
+      <div class="service-content-tab-content hide" id="tab-3">
+        <%= render 'case_studies/service_case_study' %>
       </div>
     </div>
   </div>

@@ -9,7 +9,7 @@ class Department < ActiveRecord::Base
 
   validates :name, :summary, :content, presence: true
 
-  scope :ordered, -> { order(:position) }
+  scope :positioned, -> { order(:position) }
   scope :displayable, -> { where(display: true) }
 
   def self.layouts

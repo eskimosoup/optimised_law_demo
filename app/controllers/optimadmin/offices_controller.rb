@@ -2,6 +2,8 @@ module Optimadmin
   class OfficesController < Optimadmin::ApplicationController
     before_action :set_office, only: [:show, :edit, :update, :destroy]
 
+    edit_images_for Office, [[:image, { index: ['fill', 316, 164], show: ['fill', 165, 135] }]]
+
     def index
       @offices = Optimadmin::BaseCollectionPresenter.new(collection: Office.where('name ILIKE ?', "%#{params[:search]}%").page(params[:page]).per(params[:per_page] || 15), view_template: view_context, presenter: Optimadmin::OfficePresenter)
     end
@@ -46,7 +48,7 @@ module Optimadmin
     end
 
     def office_params
-      params.require(:office).permit(:name, :building_name, :building_number, :street, :town, :county, :postcode, :phone_number, :fax_number, :email, :dx_number, :image, :details, :display, :office_location_id)
+      params.require(:office).permit(:name, :building_name, :building_number, :street, :town, :county, :postcode, :phone_number, :fax_number, :email, :dx_number, :image, :details, :display, :office_location_id, service_ids: [])
     end
   end
 end

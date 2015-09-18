@@ -34,14 +34,7 @@
       </div>
 
       <div class="team-members-service-carousel">
-        <%= render 'team_members/service_carousel_team_member' %>
-        <%= render 'team_members/service_carousel_team_member' %>
-        <%= render 'team_members/service_carousel_team_member' %>
-        <%= render 'team_members/service_carousel_team_member' %>
-        <%= render 'team_members/service_carousel_team_member' %>
-        <%= render 'team_members/service_carousel_team_member' %>
-        <%= render 'team_members/service_carousel_team_member' %>
-        <%= render 'team_members/service_carousel_team_member' %>
+        <%= render partial: 'team_members/service_carousel_team_member', collection: @presented_team_members, as: :team_member_presenter %>
       </div>
     </div>
   </div>

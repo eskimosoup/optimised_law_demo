@@ -1,15 +1,17 @@
-<div class="row">
-  <div class="medium-12 columns">
-    <div class="service-related-services-tab right" data-animation-type="slideInRight">
-      <%= link_to '#related-services', class: 'expand toggle-class', data: { container: '.service-related-services-list', class: 'hide', return: 'false' } do %>
-        <%= @presented_service.service_category_name %>:
-        <strong>Related Services</strong>
-      <% end %>
-    </div>
-    <div class="service-related-services-list hide">
-      <ul>
-        <%= render partial: 'services/related_service', collection: BaseCollectionPresenter.new(collection: @presented_service.related_services, view_template: self, presenter: ServicePresenter), as: :service_presenter %>
-      </ul>
+<% if @presented_service.has_related_services? %>
+  <div class="row">
+    <div class="medium-12 columns">
+      <div class="service-related-services-tab right" data-animation-type="slideInRight">
+        <%= link_to '#related-services', class: 'expand toggle-class', data: { container: '.service-related-services-list', class: 'hide', return: 'false' } do %>
+          <%= @presented_service.service_category_name %>:
+          <strong>Related Services</strong>
+        <% end %>
+      </div>
+      <div class="service-related-services-list hide">
+        <ul>
+          <%= render partial: 'services/related_service', collection: BaseCollectionPresenter.new(collection: @presented_service.related_services, view_template: self, presenter: ServicePresenter), as: :service_presenter %>
+        </ul>
+      </div>
     </div>
   </div>
-</div>
+<% end %>

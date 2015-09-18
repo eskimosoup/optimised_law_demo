@@ -3,7 +3,12 @@ class ServicesController < ApplicationController
 
   def show
     @presented_service = ServicePresenter.new(object: @service, view_template: view_context)
-    @presented_service_articles = BaseCollectionPresenter.new(collection: @presented_service.articles, view_template: view_context, presenter: ArticlePresenter)
+    @presented_service_articles = BaseCollectionPresenter.new(collection: @service.articles, view_template: view_context, presenter: ArticlePresenter)
+    # FIXME: this is broken :(
+    #raise @service.testimonials.to_yaml
+    #@presented_testimonials = BaseCollectionPresenter.new(collection: @service.testimonials, view_template: view_context, presenter: TestimonialPresenter)
+    #@presented_team_members = BaseCollectionPresenter.new(collection: @service.team_members, view_template: view_context, presenter: TeamMemberPresenter)
+    #@presented_offices = BaseCollectionPresenter.new(collection: @service.offices, view_template: view_context, presenter: OfficePresenter)
   end
 
   private
