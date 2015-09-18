@@ -35,6 +35,9 @@ en:
       default: "%Y-%m-%d"
       long: "%B %d, %Y"
       short: "%d/%m/%y"
+      day: "%d"
+      month: "%m"
+      day_month: "%d/%m"
     month_names:
     -
     - January

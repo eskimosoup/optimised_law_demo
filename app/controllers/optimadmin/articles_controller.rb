@@ -49,7 +49,7 @@ module Optimadmin
 
     def article_params
       params.require(:article).permit(:title, :summary, :image, :content, :date, :slug, :suggested_url, :display,
-                                      :team_member_id, :service_id)
+                                      :team_member_id, :service_id, :article_category_id)
     end
   end
 end

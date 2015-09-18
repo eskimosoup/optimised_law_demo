@@ -60,6 +60,11 @@
       </div>
 
       <div class="field">
+        <%= f.label :article_category_id %><br>
+        <%= f.select :article_category_id, ArticleCategory.pluck(:name, :id), prompt: 'Please select' %>
+      </div>
+
+      <div class="field">
         <%= f.label :suggested_url %><br>
         <%= f.text_field :suggested_url %>
       </div>

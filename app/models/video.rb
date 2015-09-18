@@ -10,6 +10,10 @@ class Video < ActiveRecord::Base
   validates :youtube_embed_code, :video_category, presence: true
   after_validation :set_video_embed_width_and_height
 
+  mount_uploader :image, VideoUploader
+
+  scope :displayed, -> { joins(:video_category).where(display: true).merge(VideoCategory.displayed) }
+
   def set_video_embed_width_and_height
     self.youtube_embed_code.gsub!(/width="\d*"/, 'width="600"').gsub!(/height="\d*"/, 'height="300"') unless youtube_embed_code.blank?
   end

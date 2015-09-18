@@ -6,10 +6,10 @@ class ApplicationController < ActionController::Base
   before_action :global_site_settings, :objects
 
   def index
-    @presented_departments = BaseCollectionPresenter.new(collection: Department.positioned.displayable, view_template: view_context, presenter: DepartmentPresenter)
-    @presented_articles = BaseCollectionPresenter.new(collection: Article.displayable, view_template: view_context, presenter: ArticlePresenter)
-    @presented_business_partners = BaseCollectionPresenter.new(collection: BusinessPartner.positioned.displayable, view_template: view_context, presenter: BusinessPartnerPresenter)
-    @presented_testimonials = BaseCollectionPresenter.new(collection: Testimonial.positioned.displayable, view_template: view_context, presenter: TestimonialPresenter)
+    @presented_departments = BaseCollectionPresenter.new(collection: Department.positioned.displayed, view_template: view_context, presenter: DepartmentPresenter)
+    @presented_articles = BaseCollectionPresenter.new(collection: Article.displayed, view_template: view_context, presenter: ArticlePresenter)
+    @presented_business_partners = BaseCollectionPresenter.new(collection: BusinessPartner.positioned.displayed, view_template: view_context, presenter: BusinessPartnerPresenter)
+    @presented_testimonials = BaseCollectionPresenter.new(collection: Testimonial.positioned.displayed, view_template: view_context, presenter: TestimonialPresenter)
   end
 
   def service_page
@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
   private
 
   def objects
-    @presented_awards = BaseCollectionPresenter.new(collection: Award.positioned.displayable, view_template: view_context, presenter: AwardPresenter)
+    @presented_awards = BaseCollectionPresenter.new(collection: Award.positioned.displayed, view_template: view_context, presenter: AwardPresenter)
     @header_menu = Optimadmin::Menu.new(name: "header")
     @header_aside_menu = Optimadmin::Menu.new(name: "header_aside")
     @footer_menu = Optimadmin::Menu.new(name: "footer")

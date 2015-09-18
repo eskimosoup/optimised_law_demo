@@ -63,7 +63,8 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-slick.js'
 end
 
-gem 'optimadmin', git: 'git@github.com:eskimosoup/Optimadmin.git'
+#gem 'optimadmin', git: 'git@github.com:eskimosoup/Optimadmin.git'
+gem 'optimadmin', path: '../optimadmin'
 gem 'friendly_id', '~> 5.1.0'
 gem 'octicons-rails'
 gem 'twitter'

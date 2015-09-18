@@ -13,8 +13,8 @@ RSpec.describe Award, type: :model do
     let(:award) { create(:award) }
     let(:hidden_award) { create(:award, display: false) }
 
-    it 'only returns displayable' do
-      expect(Award.displayable).not_to include hidden_award
+    it 'only returns displayed' do
+      expect(Award.displayed).not_to include hidden_award
     end
   end
 end

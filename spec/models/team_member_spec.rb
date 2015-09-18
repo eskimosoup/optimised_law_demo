@@ -15,6 +15,8 @@ RSpec.describe TeamMember, type: :model do
     it { should have_many(:articles).dependent(:nullify) }
     it { should have_many(:service_team_members).dependent(:destroy) }
     it { should have_many(:services).through(:service_team_members) }
+    it { should have_many(:team_member_events).dependent(:nullify) }
+    it { should have_many(:events).through(:team_member_events) }
   end
 
   describe "delegations", :delegation do

@@ -2,7 +2,7 @@
 
 <div class="main-content">
   <div class="row module-header collapse">
-    <%= render 'optimadmin/shared/module/index/new_item', title: 'Team Member Role', object: TeamMember::Role, path: new_team_member_role_path %>
+    <%= render 'optimadmin/shared/module/index/new_item', title: 'Team Member Role', object: TeamMemberRole, path: new_team_member_role_path %>
     <%= render 'optimadmin/shared/search_form' %>
     <%= render 'optimadmin/shared/module/index/pagination' %>
     <!--
@@ -36,7 +36,7 @@
     <%= list_item 'large-1 hide-for-medium-down text-center last' do 'Delete' end %>
   </div>
 
-  <!-- <div class='module-sortable' data-module="TeamMember::Role"> -->
+  <!-- <div class='module-sortable' data-module="TeamMemberRole"> -->
   <%= render partial: 'team_member_role', collection: @team_member_roles, as: :team_member_role_presenter %>
   <!-- </div> -->
   <%= paginate @team_member_roles %>

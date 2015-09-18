@@ -11,12 +11,14 @@ RSpec.describe ArticlePresenter, type: :presenter do
     end
 
     it "returns the linked team member name" do
-      link = "by #{link_to [article.team_member.forename, article.team_member.surname].join(' '), article.team_member}"
+      #link = "by #{link_to [article.team_member.forename, article.team_member.surname].join(' '), article.team_member}"
+      link = "by " + [article.team_member.forename, article.team_member.surname].join(' ')
       expect(article_presenter.linked_team_member).to eq(link)
     end
 
     it "returns the linked article category name" do
-      link = "in #{link_to article.article_category.name, article.article_category}"
+      #link = "in #{link_to article.article_category.name, article.article_category}"
+      link = "in #{article.article_category.name}"
       expect(article_presenter.linked_article_category).to eq(link)
     end
 

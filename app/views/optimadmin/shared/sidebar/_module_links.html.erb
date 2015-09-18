@@ -24,9 +24,7 @@
       </div>
 
       <ul id="modules" class="content-category-list">
-<%= module_link(model: Video Category, path: video_categories_path) %>
-<%= module_link(model: Video, path: videos_path) %>
-        <li><%= module_link(content: "Site Navigation", model: Optimadmin::MenuItem, path: menu_items_path) %></li>
+        <%= module_link(content: "Site Navigation", model: Optimadmin::MenuItem, path: menu_items_path) %>
       </ul>
 
       <div class="content-category-type">
@@ -35,9 +33,9 @@
 
       <ul class="content-category-list">
         <ul class="content-category-list">
-          <li><%= module_link(model: Award, path: awards_path) %></li>
-          <li><%= module_link(content: "Business Partners", model: BusinessPartner, path: business_partners_path) %></li>
-          <li><%= module_link(model: Testimonial, path: testimonials_path) %></li>
+          <%= module_link(model: Award, path: awards_path) %>
+          <%= module_link(content: "Business Partners", model: BusinessPartner, path: business_partners_path) %>
+          <%= module_link(model: Testimonial, path: testimonials_path) %>
         </ul>
       </ul>
 
@@ -48,9 +46,9 @@
 
         <ul class="content-category-list">
           <ul class="content-category-list">
-            <li><%= module_link(model: Department, path: departments_path) %></li>
-            <li><%= module_link(model: Service, path: services_path) %></li>
-            <li><%= module_link(content: "Service Categories", model: ServiceCategory, path: service_categories_path) %></li>
+            <%= module_link(model: Department, path: departments_path) %>
+            <%= module_link(model: Service, path: services_path) %>
+            <%= module_link(content: "Service Categories", model: ServiceCategory, path: service_categories_path) %>
           </ul>
         </ul>
       <% end %>
@@ -62,8 +60,35 @@
 
         <ul class="content-category-list">
           <ul class="content-category-list">
-            <li><%= module_link(model: Article, path: articles_path) %></li>
-            <li><%= module_link(content: "Article Categories", model: Article::Category, path: article_categories_path) %></li>
+            <%= module_link(model: Article, path: articles_path) %>
+            <%= module_link(content: "Article Categories", model: ArticleCategory, path: article_categories_path) %>
+          </ul>
+        </ul>
+      <% end %>
+
+      <% if can? :manage, Event %>
+        <div class="content-category-type">
+          Manage Events
+        </div>
+
+        <ul class="content-category-list">
+          <ul class="content-category-list">
+            <%= module_link(model: Event, path: events_path) %>
+            <%= module_link(content: "Event Categories", model: EventCategory, path: event_categories_path) %>
+            <%= module_link(content: "Event Locations", model: EventLocation, path: event_locations_path) %>
+          </ul>
+        </ul>
+      <% end %>
+
+      <% if can? :manage, Video %>
+        <div class="content-category-type">
+          Manage Events
+        </div>
+
+        <ul class="content-category-list">
+          <ul class="content-category-list">
+            <%= module_link(model: Video, path: videos_path) %>
+            <%= module_link(content: "Video Categories", model: VideoCategory, path: video_categories_path) %>
           </ul>
         </ul>
       <% end %>
@@ -75,8 +100,8 @@
 
         <ul class="content-category-list">
           <ul class="content-category-list">
-            <li><%= module_link(content: "Team Members", model: TeamMember, path: team_members_path) %></li>
-            <li><%= module_link(content: "Team Member Roles", model: TeamMember::Role, path: team_member_roles_path) %></li>
+            <%= module_link(content: "Team Members", model: TeamMember, path: team_members_path) %>
+            <%= module_link(content: "Team Member Roles", model: TeamMemberRole, path: team_member_roles_path) %>
           </ul>
         </ul>
       <% end %>
@@ -87,8 +112,8 @@
 
       <ul class="content-category-list">
         <ul class="content-category-list">
-          <li><%= module_link(model: Office, path: offices_path) %></li>
-          <li><%= module_link(content: "Office Locations", model: Office::Location, path: office_locations_path) %></li>
+          <%= module_link(model: Office, path: offices_path) %>
+          <%= module_link(content: "Office Locations", model: OfficeLocation, path: office_locations_path) %>
         </ul>
       </ul>
     </div>
