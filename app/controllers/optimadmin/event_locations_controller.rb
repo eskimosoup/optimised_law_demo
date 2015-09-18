@@ -3,21 +3,21 @@ module Optimadmin
     before_action :set_event_location, only: [:show, :edit, :update, :destroy]
 
     def index
-      @event_locations = Optimadmin::BaseCollectionPresenter.new(collection: Event::Location.where('name ILIKE ?', "%#{params[:search]}%").page(params[:page]).per(params[:per_page] || 15), view_template: view_context, presenter: Optimadmin::EventLocationPresenter)
+      @event_locations = Optimadmin::BaseCollectionPresenter.new(collection: EventLocation.where('name ILIKE ?', "%#{params[:search]}%").page(params[:page]).per(params[:per_page] || 15), view_template: view_context, presenter: Optimadmin::EventLocationPresenter)
     end
 
     def show
     end
 
     def new
-      @event_location = Event::Location.new
+      @event_location = EventLocation.new
     end
 
     def edit
     end
 
     def create
-      @event_location = Event::Location.new(event_location_params)
+      @event_location = EventLocation.new(event_location_params)
       if @event_location.save
         redirect_to event_locations_url, notice: 'Event location was successfully created.'
       else
@@ -42,7 +42,7 @@ module Optimadmin
 
 
     def set_event_location
-      @event_location = Event::Location.find(params[:id])
+      @event_location = EventLocation.find(params[:id])
     end
 
     def event_location_params

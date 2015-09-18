@@ -7,6 +7,8 @@ class OfficeLocation < ActiveRecord::Base
 
   validates :name, presence: true, uniqueness: true
 
+  scope :displayed, -> { where(display: true) }
+
   def slug_candidates
     [
       :suggested_url,

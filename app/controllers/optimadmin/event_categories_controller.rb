@@ -3,7 +3,7 @@ module Optimadmin
     before_action :set_event_category, only: [:show, :edit, :update, :destroy]
 
     def index
-      @event_categories = Optimadmin::BaseCollectionPresenter.new(collection: Event::Category.where('name ILIKE ?', "%#{params[:search]}%").page(params[:page]).per(params[:per_page] || 15), view_template: view_context, presenter: Optimadmin::EventCategoryPresenter)
+      @event_categories = Optimadmin::BaseCollectionPresenter.new(collection: EventCategory.where('name ILIKE ?', "%#{params[:search]}%").page(params[:page]).per(params[:per_page] || 15), view_template: view_context, presenter: Optimadmin::EventCategoryPresenter)
     end
 
     def show

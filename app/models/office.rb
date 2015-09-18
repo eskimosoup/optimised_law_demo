@@ -11,4 +11,6 @@ class Office < ActiveRecord::Base
   validates :name, presence: true, uniqueness: { scope: :office_location_id }
   validates :postcode, presence: true
   validates :office_location, presence: true
+
+  scope :displayed, -> { joins(:office_location).where(display: true).merge(OfficeLocation.displayed) }
 end

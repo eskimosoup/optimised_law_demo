@@ -67,7 +67,7 @@
 
       <div class="row" data-equalizer="additional-content">
         <%= render 'services/content_tabs' %>
-        <%= render 'services/activity_stream' %>
+        <%= render 'services/activity_stream' if @presented_service_articles.present? %>
       </div>
 
       <%= render 'services/resources' %>
@@ -85,7 +85,7 @@
             Placeholder
           </div>
 
-          <%= render 'events/service_calendar' %>
+          <%= render 'events/service_calendar' if @presented_service_events.present? %>
         </div>
       </div>
     </div>

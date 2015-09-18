@@ -2,7 +2,7 @@ class Award < ActiveRecord::Base
   mount_uploader :image, AwardUploader
 
   scope :positioned, -> { order :position }
-  scope :displayable, -> { where display: true }
+  scope :displayed, -> { where display: true }
 
   AWARD_TYPES = %w{ award accreditation }
 

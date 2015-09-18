@@ -6,7 +6,7 @@ class Testimonial < ActiveRecord::Base
   has_many :team_members, through: :team_member_testimonials
 
   scope :positioned, -> { order :position }
-  scope :displayable, -> { where display: true }
+  scope :displayed, -> { where display: true }
 
   validates :recommendation, presence: true
 end

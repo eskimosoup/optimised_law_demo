@@ -3,4 +3,6 @@ class EventLocation < ActiveRecord::Base
 
   validates :name, :address_line_1, :town, :postcode, presence: true
   validates :name, uniqueness: true
+
+  scope :displayed, -> { where(display: true) }
 end

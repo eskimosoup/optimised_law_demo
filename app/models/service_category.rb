@@ -11,7 +11,7 @@ class ServiceCategory < ActiveRecord::Base
   validates :department, presence: true
   validates :name, presence: true
 
-  scope :displayable, -> { where(display: true) }
+  scope :displayed, -> { where(display: true) }
 
   def slug_candidates
     [

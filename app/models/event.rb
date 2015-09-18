@@ -15,6 +15,8 @@ class Event < ActiveRecord::Base
   validates :suggested_url, uniqueness: true, allow_blank: true
   validate :sensible_dates
 
+  scope :displayed, -> { joins(:event_location, :event_category).where("start_date_time >= ?", DateTime.now).merge(EventLocation.displayed).merge(EventCategory.displayed) }
+
   def sensible_dates
     errors.add(:end_date_time, 'cannot be before the start date time') if self.start_date_time.present? && self.end_date_time.present? && (self.end_date_time < self.start_date_time)
   end

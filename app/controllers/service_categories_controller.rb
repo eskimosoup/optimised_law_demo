@@ -8,7 +8,7 @@ class ServiceCategoriesController < ApplicationController
   private
 
     def check_slug
-      @service_category = ServiceCategory.displayable.find(params[:id])
+      @service_category = ServiceCategory.displayed.find(params[:id])
       redirect_to @service_category, status: :moved_permanently if request.path != service_category_path(@service_category)
     end
 end

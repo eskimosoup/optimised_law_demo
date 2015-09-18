@@ -18,6 +18,7 @@ class TeamMember < ActiveRecord::Base
   validates :forename, :surname, presence: true
   validates :email, uniqueness: true
 
+  scope :displayed, -> { joins(:team_member_role).where(display: true).merge(TeamMemberRole.displayed) }
 
   def slug_candidates
     [
