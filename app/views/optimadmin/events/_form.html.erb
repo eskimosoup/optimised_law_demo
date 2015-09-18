@@ -40,12 +40,10 @@
         <%= f.text_area :content, class: 'tinymce' %>
       </div>
             <div class="field">
-        <%= f.label :start_date_time %><br>
-        <%= f.datetime_select :start_date_time %>
+        <%= f.datetimepicker_field :start_date_time %>
       </div>
             <div class="field">
-        <%= f.label :end_date_time %><br>
-        <%= f.datetime_select :end_date_time %>
+        <%= f.datetimepicker_field :end_date_time %>
       </div>
             <div class="field">
         <%= f.label :booking_link %><br>
