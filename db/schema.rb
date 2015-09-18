@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150917094325) do
+ActiveRecord::Schema.define(version: 20150918112154) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -277,6 +277,16 @@ ActiveRecord::Schema.define(version: 20150917094325) do
   add_index "service_testimonials", ["service_id"], name: "index_service_testimonials_on_service_id", using: :btree
   add_index "service_testimonials", ["testimonial_id"], name: "index_service_testimonials_on_testimonial_id", using: :btree
 
+  create_table "service_videos", force: :cascade do |t|
+    t.integer  "service_id"
+    t.integer  "video_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "service_videos", ["service_id"], name: "index_service_videos_on_service_id", using: :btree
+  add_index "service_videos", ["video_id"], name: "index_service_videos_on_video_id", using: :btree
+
   create_table "services", force: :cascade do |t|
     t.integer  "service_category_id"
     t.integer  "parent_id"
@@ -344,6 +354,24 @@ ActiveRecord::Schema.define(version: 20150917094325) do
     t.datetime "updated_at",                    null: false
   end
 
+  create_table "video_categories", force: :cascade do |t|
+    t.string   "name",                      null: false
+    t.boolean  "display",    default: true
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  create_table "videos", force: :cascade do |t|
+    t.string   "name",                              null: false
+    t.text     "youtube_embed_code",                null: false
+    t.boolean  "display",            default: true
+    t.integer  "video_category_id"
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+  end
+
+  add_index "videos", ["video_category_id"], name: "index_videos_on_video_category_id", using: :btree
+
   add_foreign_key "articles", "article_categories"
   add_foreign_key "articles", "team_members"
   add_foreign_key "offices", "office_locations"
@@ -356,8 +384,11 @@ ActiveRecord::Schema.define(version: 20150917094325) do
   add_foreign_key "service_team_members", "team_members"
   add_foreign_key "service_testimonials", "services"
   add_foreign_key "service_testimonials", "testimonials"
+  add_foreign_key "service_videos", "services"
+  add_foreign_key "service_videos", "videos"
   add_foreign_key "services", "service_categories"
   add_foreign_key "team_member_testimonials", "team_members"
   add_foreign_key "team_member_testimonials", "testimonials"
   add_foreign_key "team_members", "team_member_roles"
+  add_foreign_key "videos", "video_categories"
 end
