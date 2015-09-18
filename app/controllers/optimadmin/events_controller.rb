@@ -2,7 +2,7 @@ module Optimadmin
   class EventsController < Optimadmin::ApplicationController
     before_action :set_event, only: [:show, :edit, :update, :destroy]
 
-    edit_images_for Event, [[:image, { index: ['fill', 316, 164], show: ['fill', 165, 135], activity_stream: ['fill', 199, 155] }]]
+    edit_images_for Event, [[:image, { index: ['fill', 316, 164], show: ['fill', 165, 135] }]]
 
     def index
       @events = Optimadmin::BaseCollectionPresenter.new(collection: Event.where('title ILIKE ?', "%#{params[:search]}%").page(params[:page]).per(params[:per_page] || 15), view_template: view_context, presenter: Optimadmin::EventPresenter)
