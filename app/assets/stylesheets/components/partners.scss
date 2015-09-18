@@ -1,6 +1,12 @@
 .partners {
   padding: 0 em(45px);
 
+  @include media('<tablet') {
+    img {
+      margin: 0 auto;
+    }
+  }
+
   .slick-dots {
     position: static;
     margin: em(5px) 0;

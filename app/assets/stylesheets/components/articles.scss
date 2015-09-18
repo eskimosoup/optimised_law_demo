@@ -9,6 +9,11 @@
 .collected-articles {
   padding: 0 em(45px);
 
+  @include media('<tablet') {
+    padding: 0 em(15px);
+  }
+
+
   .slick-dots {
     margin: em(5px) 0;
     position: static;

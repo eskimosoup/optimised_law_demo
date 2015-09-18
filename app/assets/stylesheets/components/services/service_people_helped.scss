@@ -5,8 +5,16 @@
   padding: em(73px) 0 em(50px);
   text-align: center;
 
+  @include media('<tablet') {
+    padding: em(40px) 0;
+  }
+
   p {
     font-family: $people-helped-paragraph-font;
+
+    @include media('<tablet') {
+      font-size: em(12px);
+    }
   }
 }
 
@@ -19,11 +27,19 @@
   font-family: $people-helped-paragraph-font;
   font-size: em(64px);
   font-weight: $people-helped-figure-font-weight;
+
+  @include media('<tablet') {
+    font-size: em(44px);
+  }
 }
 
 .people-helped-service-wrap {
   padding: 0 em(50px);
   text-align: left;
+
+  @include media('<tablet') {
+    padding: 0 em(15px);
+  }
 }
 
 .people-helped-service-name {
@@ -33,6 +49,10 @@
   letter-spacing: 1px;
   margin-right: em(30px, 10px);
   text-transform: uppercase;
+
+  @include media('<tablet') {
+    display: block;
+  }
 }
 
 .people-helped-service-progress {

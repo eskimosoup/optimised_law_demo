@@ -2,6 +2,10 @@
   @extend %clearfix;
   margin-bottom: em(65px);
 
+  @include media('<tablet') {
+    margin-bottom: em(15px);
+  }
+
   li {
     float: left;
     list-style: none;

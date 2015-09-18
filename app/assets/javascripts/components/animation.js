@@ -21,16 +21,18 @@ function animateOut() {
   $elem.removeClass('animated ' + animationType).addClass('visibility-hidden');
 }
 
-$(function() {
-  $('[data-animation-type]').addClass('visibility-hidden');
+if (Modernizr.mq('only screen and (min-width: 768px)')) {
+  $(function() {
+    $('[data-animation-type]').addClass('visibility-hidden');
 
-  $('[data-animation-type]').onScreen({
-    tolerance: 0,
-    toggleClass: 'onScreen',
-    doIn: animateIn,
-    doOut: animateOut
+    $('[data-animation-type]').onScreen({
+      tolerance: 0,
+      toggleClass: 'onScreen',
+      doIn: animateIn,
+      doOut: animateOut
+    });
   });
-});
+}
 
 // https://github.com/matthieua/WOW/issues/20
 /*

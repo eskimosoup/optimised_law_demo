@@ -3,7 +3,7 @@
     Content
   </div>
 
-  <div class="client-area-toggle">
+  <div class="client-area-toggle hide-for-small mobile-menu-items">
     <%= link_to 'Client Area', '#client-area-content', class: 'toggle-class right', data: { container: '.client-area-content', class: 'hide', return: 'true', animation_type: 'slideInRight' } %>
   </div>
 
@@ -12,12 +12,18 @@
       <%= image_tag 'layout/header/logo.png', alt: global_site_settings['Name'] %>
     <% end %>
 
-    <ul class="secondary navigation right" data-animation-type="slideInRight">
+    <div class="mobile-menu right show-for-small">
+      <%= link_to '#', class: 'toggle-class', data: { container: '.mobile-menu-items', class: 'hide-for-small', return: 'false' } do %>
+        <%= image_tag 'components/icons/menu-icon.png', alt: 'Menu' %>
+      <% end %>
+    </div>
+
+    <ul class="hide-for-small mobile-menu-items secondary navigation right" data-animation-type="slideInRight">
       <%= nested_menu_items(menu_items: @header_aside_menu.menu_items) %>
     </ul>
   </div>
 
-  <nav class="row">
+  <nav class="hide-for-small mobile-menu-items row">
     <div class="small-12 columns position-static">
       <ul class="primary navigation">
         <%= nested_menu_items(menu_items: @header_menu.menu_items) %>

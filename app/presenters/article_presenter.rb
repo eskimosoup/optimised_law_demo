@@ -40,10 +40,6 @@ class ArticlePresenter < BasePresenter
     image(:index)
   end
 
-  def activity_stream_image(options = {})
-    image(:activity_stream, options)
-  end
-
   def show_image
     image(:show)
   end

@@ -1,7 +1,7 @@
 .home-content-block {
   margin: 0 0 em(50px);
   overflow-x: hidden;
-  
+
   .content-block {
     height: 100%;
     padding: 0 em(10px);
@@ -10,4 +10,8 @@
 
 .content-block {
   background: $content-background-color;
+
+  @include media('<tablet') {
+    margin: 0 em(15px);
+  }
 }

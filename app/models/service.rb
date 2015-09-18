@@ -23,7 +23,7 @@ class Service < ActiveRecord::Base
   has_many :inverse_service_related_services, class_name: 'ServiceRelatedService', foreign_key: :related_service_id, dependent: :destroy
   has_many :inverse_related_services, through: :inverse_service_related_services, source: :service
   has_many :service_videos, dependent: :destroy
-  has_many :videos, through: :service_videos
+  has_many :videos, -> { displayed }, through: :service_videos
 
   validates :name, presence: true, uniqueness: { scope: :service_category_id }
 

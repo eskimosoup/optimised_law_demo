@@ -3,6 +3,10 @@
   bottom: 0;
   position: fixed;
   right: 0;
+
+  @include media('<tablet') {
+    width: 100%;
+  }
 }
 
 .call-to-action {
@@ -13,6 +17,12 @@
   padding: em(30px, 13px) em(19px, 13px) em(18px, 13px);
   text-transform: uppercase;
   width: 45%;
+
+  @include media('<tablet') {
+    font-size: em(10px, 13px);
+    padding: em(5px, 12px);
+    width: 50%;
+  }
 
   span {
     display: inline-block;
@@ -31,10 +41,18 @@
 
   &.callback {
     background: $request-a-callback-button image-url('layout/call-to-actions/phone.png') no-repeat 92% 10px;
+
+    @include media('<tablet') {
+      background-position: 100% 0;
+    }
   }
 
   &.lawyer-search {
     background: $find-a-lawyer-button image-url('layout/call-to-actions/lawyer.png') no-repeat 92% 10px;
+
+    @include media('<tablet') {
+      background-position: 100% 2px;
+    }
   }
 }
 

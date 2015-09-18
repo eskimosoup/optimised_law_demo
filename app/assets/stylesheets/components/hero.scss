@@ -19,6 +19,10 @@
 .hero-content-wrap {
   background: rgba($hero-gradient-start, .38);
   padding: em(160px) 0 em(220px);
+
+  @include media('<tablet') {
+    padding: em(20px);
+  }
 }
 
 .ie8 .hero-content-wrap,
@@ -34,6 +38,10 @@
   letter-spacing: 2px;
   line-height: 1.6;
   margin: 0;
+
+  @include media('<tablet') {
+    font-size: em(16px);
+  }
 }
 
 .hero-secondary-title {
@@ -58,6 +66,10 @@
 .hero-department-wrap {
   margin-top: em(-127px);
   padding: 0 0 em(50px);
+
+  @include media('<tablet') {
+    margin-top: 0;
+  }
 }
 
 .hero-department {
@@ -70,6 +82,11 @@
     min-height: 300px;
     padding: em(45px);
     width: 100%;
+
+    @include media('<tablet') {
+      padding: em(25px);
+      min-height: inherit;
+    }
   }
 
   .department-type {

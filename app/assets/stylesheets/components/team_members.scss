@@ -1,12 +1,20 @@
 .service-overview-content-wrap {
   .team-members-service-overview-link {
     margin: em(70px) 0 em(50px);
+
+    @include media('<tablet') {
+      margin: em(25px) em(15px);
+    }
   }
 }
 
 .service-content-wrap {
   .team-members-service-overview-link {
     margin: em(43px) 0 em(30px);
+
+    @include media('<tablet') {
+      margin: em(15px);
+    }
   }
 }
 
@@ -50,6 +58,10 @@
   border-bottom: 1px solid $team-members-service-carousel-header-border-color;
   padding: em(25px) em(27px) em(15px) em(37px);
 
+  @include media('<tablet') {
+    padding: em(15px);
+  }
+
   h5 {
     color: $team-members-service-carousel-header-color;
     display: inline-block;
@@ -69,8 +81,19 @@
 .team-members-service-carousel {
   padding: em(40px) em(100px) em(60px) em(75px);
 
+  @include media('<tablet') {
+    padding: em(15px);
+  }
+
   &.slick-slider {
     margin: 0;
+  }
+}
+
+@include media('<tablet') {
+  .team-member-carousel-location-search,
+  .team-member-carousel-name-search {
+    margin: em(5px) 0;
   }
 }
 
@@ -107,8 +130,10 @@
   }
 }
 
-.team-member-service-carousel {
-  margin: 0 em(35px);
+@include media('>=desktop') {
+  .team-member-service-carousel {
+    margin: 0 em(35px);
+  }
 }
 
 .team-members-service-carousel-name {
@@ -116,6 +141,11 @@
   font-size: em(20px);
   font-weight: $team-members-service-carousel-team-member-name-font-weight;
   margin: em(21px, 20px) 0 em(20px, 20px);
+
+  @include media('<tablet') {
+    font-size: em(16px);
+    margin: em(12px, 16px) 0;
+  }
 }
 
 .team-members-service-carousel-role {

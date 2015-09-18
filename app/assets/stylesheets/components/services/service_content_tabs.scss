@@ -43,6 +43,10 @@
   background: $content-background-color;
   padding: em(38px) em(50px);
 
+  @include media('<tablet') {
+    padding: em(15px);
+  }
+
   h2 {
     color: $service-content-tab-header-color;
     font-size: em(24px);
