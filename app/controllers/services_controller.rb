@@ -8,6 +8,7 @@ class ServicesController < ApplicationController
     @presented_service_team_members = BaseCollectionPresenter.new(collection: @service.team_members, view_template: view_context, presenter: TeamMemberPresenter)
     @presented_service_offices = BaseCollectionPresenter.new(collection: @service.offices, view_template: view_context, presenter: OfficePresenter)
     @presented_service_events = BaseCollectionPresenter.new(collection: @service.events, view_template: view_context, presenter: EventPresenter)
+    @presented_video = VideoPresenter.new(object: @service.videos.last, view_template: view_context)
   end
 
   private

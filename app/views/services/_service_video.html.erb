@@ -1,21 +1,19 @@
 <div class="medium-6 columns" data-animation-type="slideInRight">
   <div class="service-video-image" id="videos">
-    <%= image_tag 'http://placehold.it/600x300' %>
+    <%= @presented_video.activity_stream_image(alt: @presented_video.name) %>
 
     <div class="service-video-category">
       <div class="service-video-category-name">
-        Client Journey
+        <%= @presented_video.video_category_name %>
       </div>
     </div>
   </div>
 
   <div class="service-video-overview">
     <div class="service-video-title">
-      This is a headline for the video to play above
+      <%= @presented_video.name %>
     </div>
 
-    <p>
-      Lorem ipsum dolor sit amet, sapien aliqua sollicitudin, eu consequatur, libero massa. Id nisl, blandit dui. Accumsan iaculis. In felis et. In mi, at nullam bibendum. At vestibulum. Amet velit sed, suscipit nulla pede.
-    </p>
+    <%= @presented_video.summary %>
   </div>
 </div>

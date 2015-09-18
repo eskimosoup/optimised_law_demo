@@ -12,6 +12,14 @@ RSpec.describe VideoPresenter, type: :presenter do
     it "should escape the youtube embed code" do
       expect(video_presenter.youtube_embed).to eq(raw(video.youtube_embed_code))
     end
+
+    it "should show the video category name" do
+      expect(video_presenter.video_category_name).to eq(video.video_category.name)
+    end
+
+    it "should show the video summary - html escaped" do
+      expect(video_presenter.summary).to eq(raw video.summary)
+    end
   end
 
   describe "images" do

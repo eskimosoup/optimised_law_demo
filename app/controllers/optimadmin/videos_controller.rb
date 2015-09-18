@@ -48,7 +48,7 @@ module Optimadmin
     end
 
     def video_params
-      params.require(:video).permit(:name, :image, :image_cache, :remote_image_url, :remove_image, :youtube_embed_code, :display, :video_category_id, service_ids: [])
+      params.require(:video).permit(:name, :image, :image_cache, :remote_image_url, :remove_image, :youtube_embed_code, :display, :video_category_id, :summary, service_ids: [])
     end
   end
 end

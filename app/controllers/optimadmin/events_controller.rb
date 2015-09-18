@@ -48,7 +48,7 @@ module Optimadmin
     end
 
     def event_params
-      params.require(:event).permit(:title, :summary, :image, :content, :start_date_time, :end_date_time, :booking_link, :booking_information, :display, :event_location_id, :event_category_id, service_ids: [], team_member_ids: [])
+      params.require(:event).permit(:title, :summary, :image, :image_cache, :remote_image_url, :remove_image, :content, :start_date_time, :end_date_time, :booking_link, :booking_information, :display, :event_location_id, :event_category_id, service_ids: [], team_member_ids: [])
     end
   end
 end
