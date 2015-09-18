@@ -2,6 +2,10 @@
   list-style: none;
   padding: em(73px) 0 em(54px) em(54px);
 
+  @include media('<desktop') {
+    padding: em(15px);
+  }
+
   li {
     margin: em(22px) 0;
   }

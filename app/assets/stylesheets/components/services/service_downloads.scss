@@ -15,7 +15,7 @@
 .service-download-read-more {
   @extend %read-more;
 
-  @include media('>=tablet') {
+  @include media('>=desktop') {
     margin-top: 0;
   }
 }

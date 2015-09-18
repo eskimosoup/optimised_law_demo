@@ -4,7 +4,7 @@
   height: 100%;
   text-align: center;
 
-  @include media('<tablet') {
+  @include media('<desktop') {
     padding: em(15px) 0;
     margin: 0 0 em(15px);
   }
@@ -13,11 +13,11 @@
     font-size: em(18px);
     margin: 0;
 
-    @include media('>=tablet') {
+    @include media('>=desktop') {
       padding: em(124px, 18px) em(72px, 18px) em(12px, 18px);
     }
 
-    @include media('<tablet') {
+    @include media('<desktop') {
       font-size: em(14px);
       padding: em(74px, 14px) em(5px, 14px) em(12px, 14px);
     }
