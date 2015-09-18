@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :event_location, class: 'Event::Location' do
+  factory :event_location do
     name "MyString"
     address_line_1 "MyString"
     address_line_2 "MyString"

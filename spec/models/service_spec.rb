@@ -15,7 +15,7 @@ RSpec.describe Service, type: :model do
     it { should have_many(:team_members).through(:service_team_members) }
     it { should have_many(:service_offices).dependent(:destroy) }
     it { should have_many(:offices).through(:service_offices) }
-    it { should have_many(:service_events).class_name("Service::Event").dependent(:destroy) }
+    it { should have_many(:service_events).dependent(:destroy) }
     it { should have_many(:events).through(:service_events) }
     it { should have_many(:service_related_services).dependent(:destroy) }
     it { should have_many(:related_services).through(:service_related_services) }

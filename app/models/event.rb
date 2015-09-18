@@ -2,11 +2,11 @@ class Event < ActiveRecord::Base
   extend FriendlyId
   friendly_id :slug_candidates, use: [:slugged, :history]
 
-  belongs_to :event_category, class_name: "Event::Category"
-  belongs_to :event_location, class_name: "Event::Location"
-  has_many :event_team_members, class_name: 'TeamMember::Event', dependent: :nullify
-  has_many :team_members, through: :event_team_members
-  has_many :service_events, class_name: "Service::Event", dependent: :destroy
+  belongs_to :event_category
+  belongs_to :event_location
+  has_many :team_member_events, dependent: :nullify
+  has_many :team_members, through: :team_member_events
+  has_many :service_events, dependent: :destroy
   has_many :services, through: :service_events
 
   mount_uploader :image, EventUploader

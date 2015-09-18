@@ -61,7 +61,7 @@
         <ul class="content-category-list">
           <ul class="content-category-list">
             <%= module_link(model: Article, path: articles_path) %>
-            <%= module_link(content: "Article Categories", model: Article::Category, path: article_categories_path) %>
+            <%= module_link(content: "Article Categories", model: ArticleCategory, path: article_categories_path) %>
           </ul>
         </ul>
       <% end %>
@@ -74,8 +74,8 @@
         <ul class="content-category-list">
           <ul class="content-category-list">
             <%= module_link(model: Event, path: events_path) %>
-            <%= module_link(content: "Event Categories", model: Event::Category, path: event_categories_path) %>
-            <%= module_link(content: "Event Locations", model: Event::Location, path: event_locations_path) %>
+            <%= module_link(content: "Event Categories", model: EventCategory, path: event_categories_path) %>
+            <%= module_link(content: "Event Locations", model: EventLocation, path: event_locations_path) %>
           </ul>
         </ul>
       <% end %>
@@ -88,7 +88,7 @@
         <ul class="content-category-list">
           <ul class="content-category-list">
             <%= module_link(content: "Team Members", model: TeamMember, path: team_members_path) %>
-            <%= module_link(content: "Team Member Roles", model: TeamMember::Role, path: team_member_roles_path) %>
+            <%= module_link(content: "Team Member Roles", model: TeamMemberRole, path: team_member_roles_path) %>
           </ul>
         </ul>
       <% end %>
@@ -100,7 +100,7 @@
       <ul class="content-category-list">
         <ul class="content-category-list">
           <%= module_link(model: Office, path: offices_path) %>
-          <%= module_link(content: "Office Locations", model: Office::Location, path: office_locations_path) %>
+          <%= module_link(content: "Office Locations", model: OfficeLocation, path: office_locations_path) %>
         </ul>
       </ul>
     </div>

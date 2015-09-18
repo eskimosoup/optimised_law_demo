@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Event::Location, type: :model do
+RSpec.describe EventLocation, type: :model do
   describe "validations", :validation do
     it { should validate_presence_of(:name) }
     it { should validate_presence_of(:address_line_1) }

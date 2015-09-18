@@ -75,12 +75,12 @@
 
     <div class="field">
 <%= f.label :event_category_id, "Category" %><br>
-<%= f.select :event_category_id, Event::Category.pluck(:name, :id), prompt: 'Please select' %>
+<%= f.select :event_category_id, EventCategory.pluck(:name, :id), prompt: 'Please select' %>
 </div>
 
     <div class="field">
 <%= f.label :event_location_id, "Location" %><br>
-<%= f.select :event_location_id, Event::Location.pluck(:name, :id), prompt: 'Please select' %>
+<%= f.select :event_location_id, EventLocation.pluck(:name, :id), prompt: 'Please select' %>
 </div>
 
             <div class="field">

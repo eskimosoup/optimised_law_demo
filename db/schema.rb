@@ -102,26 +102,6 @@ ActiveRecord::Schema.define(version: 20150918083330) do
     t.boolean  "display",        default: true
   end
 
-  create_table "event_services", force: :cascade do |t|
-    t.integer  "event_id"
-    t.integer  "service_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "event_services", ["event_id"], name: "index_event_services_on_event_id", using: :btree
-  add_index "event_services", ["service_id"], name: "index_event_services_on_service_id", using: :btree
-
-  create_table "event_team_members", force: :cascade do |t|
-    t.integer  "event_id"
-    t.integer  "team_member_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-  end
-
-  add_index "event_team_members", ["event_id"], name: "index_event_team_members_on_event_id", using: :btree
-  add_index "event_team_members", ["team_member_id"], name: "index_event_team_members_on_team_member_id", using: :btree
-
   create_table "events", force: :cascade do |t|
     t.integer  "event_category_id"
     t.integer  "event_location_id"
@@ -289,6 +269,16 @@ ActiveRecord::Schema.define(version: 20150918083330) do
   add_index "service_categories", ["department_id"], name: "index_service_categories_on_department_id", using: :btree
   add_index "service_categories", ["slug"], name: "index_service_categories_on_slug", using: :btree
 
+  create_table "service_events", force: :cascade do |t|
+    t.integer  "event_id"
+    t.integer  "service_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "service_events", ["event_id"], name: "index_service_events_on_event_id", using: :btree
+  add_index "service_events", ["service_id"], name: "index_service_events_on_service_id", using: :btree
+
   create_table "service_hierarchies", id: false, force: :cascade do |t|
     t.integer "ancestor_id",   null: false
     t.integer "descendant_id", null: false
@@ -356,6 +346,16 @@ ActiveRecord::Schema.define(version: 20150918083330) do
   add_index "services", ["service_category_id"], name: "index_services_on_service_category_id", using: :btree
   add_index "services", ["slug"], name: "index_services_on_slug", using: :btree
 
+  create_table "team_member_events", force: :cascade do |t|
+    t.integer  "event_id"
+    t.integer  "team_member_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "team_member_events", ["event_id"], name: "index_team_member_events_on_event_id", using: :btree
+  add_index "team_member_events", ["team_member_id"], name: "index_team_member_events_on_team_member_id", using: :btree
+
   create_table "team_member_roles", force: :cascade do |t|
     t.string   "name",                      null: false
     t.integer  "position",   default: 0
@@ -408,14 +408,12 @@ ActiveRecord::Schema.define(version: 20150918083330) do
 
   add_foreign_key "articles", "article_categories"
   add_foreign_key "articles", "team_members"
-  add_foreign_key "event_services", "events"
-  add_foreign_key "event_services", "services"
-  add_foreign_key "event_team_members", "events"
-  add_foreign_key "event_team_members", "team_members"
   add_foreign_key "events", "event_categories"
   add_foreign_key "events", "event_locations"
   add_foreign_key "offices", "office_locations"
   add_foreign_key "service_categories", "departments"
+  add_foreign_key "service_events", "events"
+  add_foreign_key "service_events", "services"
   add_foreign_key "service_offices", "offices"
   add_foreign_key "service_offices", "services"
   add_foreign_key "service_related_services", "services"
@@ -425,6 +423,8 @@ ActiveRecord::Schema.define(version: 20150918083330) do
   add_foreign_key "service_testimonials", "services"
   add_foreign_key "service_testimonials", "testimonials"
   add_foreign_key "services", "service_categories"
+  add_foreign_key "team_member_events", "events"
+  add_foreign_key "team_member_events", "team_members"
   add_foreign_key "team_member_testimonials", "team_members"
   add_foreign_key "team_member_testimonials", "testimonials"
   add_foreign_key "team_members", "team_member_roles"

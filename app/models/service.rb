@@ -13,11 +13,12 @@ class Service < ActiveRecord::Base
   has_many :testimonials, through: :service_testimonials
   has_many :service_team_members, dependent: :destroy
   has_many :team_members, through: :service_team_members
-  has_many :service_events, class_name: 'Service::Event', dependent: :destroy
-  has_many :team_members, through: :service_events
+  has_many :team_members, through: :service_team_members
   has_many :articles, dependent: :destroy
   has_many :service_offices, dependent: :destroy
   has_many :offices, through: :service_offices
+  has_many :service_events, dependent: :destroy
+  has_many :events, through: :service_events
   has_many :service_related_services, dependent: :destroy
   has_many :related_services, through: :service_related_services
   has_many :inverse_service_related_services, class_name: 'ServiceRelatedService', foreign_key: :related_service_id, dependent: :destroy
