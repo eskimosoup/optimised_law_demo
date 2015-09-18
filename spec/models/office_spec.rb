@@ -12,8 +12,8 @@ RSpec.describe Office, type: :model do
   end
 
   describe "associations", :association do
-    it { should belong_to(:office_location).class_name("Office::Location") }
-    it { should have_many(:service_offices).class_name("Service::Office").dependent(:destroy) }
+    it { should belong_to(:office_location) }
+    it { should have_many(:service_offices).dependent(:destroy) }
     it { should have_many(:services).through(:service_offices) }
   end
 

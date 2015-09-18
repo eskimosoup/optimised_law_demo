@@ -9,7 +9,7 @@ RSpec.describe Article, type: :model do
   end
 
   describe "associations", :association do
-    it { should belong_to(:article_category).class_name("Article::Category") }
+    it { should belong_to(:article_category) }
     it { should belong_to(:team_member) }
   end
 

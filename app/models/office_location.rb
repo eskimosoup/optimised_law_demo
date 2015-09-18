@@ -1,9 +1,9 @@
-class Office::Location < ActiveRecord::Base
+class OfficeLocation < ActiveRecord::Base
 
   extend FriendlyId
   friendly_id :slug_candidates, use: [:slugged, :history]
 
-  has_many :offices, foreign_key: :office_location_id, dependent: :destroy
+  has_many :offices, dependent: :destroy
 
   validates :name, presence: true, uniqueness: true
 
