@@ -11,11 +11,8 @@
 
         <div class="medium-7 columns">
           <div class="activity-time-ago">
-            <%= @presented_service_articles.first.date(:long) %>
+            <%= @presented_service_articles.first.date(:short) %>
           </div>
-
-
-
 
           <%= link_to @presented_service_articles.first.link, class: 'activity-stream-featured-headline' do %>
             <%= @presented_service_articles.first.title %>

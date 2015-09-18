@@ -17,11 +17,15 @@ class ArticlePresenter < BasePresenter
   end
 
   def linked_article_category
-    "in #{h.link_to article_category.name, article_category}" unless article_category.blank?
+    # this breaks the home page link boxes
+    #h.raw "in #{h.link_to article_category.name, article_category}" if article_category.present?
+    "in #{article_category.name}" if article_category.present?
   end
 
   def linked_team_member
-    "by #{h.link_to [article.team_member.forename, article.team_member.surname].join(" "), article.team_member}" unless article.team_member.blank?
+    # this breaks the home page link boxes
+    #h.raw "by #{h.link_to [article.team_member.forename, article.team_member.surname].join(" "), article.team_member}" if article.team_member.present?
+    "by #{[article.team_member.forename, article.team_member.surname].join(" ")}" if article.team_member.present?
   end
 
   def summary
