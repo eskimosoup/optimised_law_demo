@@ -1,12 +1,12 @@
 <div class="activity-stream-activity" data-animation-type="slideInUp" data-animation-delay="500">
   <div class="row">
-    <div class="medium-3 columns">
+    <div class="large-3 columns">
       <div class="activity-time-ago">
         <%= article_presenter.date(:short) %>
       </div>
     </div>
 
-    <div class="medium-9 columns">
+    <div class="large-9 columns">
       <%= link_to article_presenter.link, class: 'activity-stream-headline' do %>
         <%= article_presenter.title %>
       <% end %>

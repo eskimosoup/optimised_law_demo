@@ -2,7 +2,7 @@
   background: transparent image-url('layout/services/header.jpg') no-repeat top center;
   padding: em(63px) 0 0;
 
-  @include media('<tablet') {
+  @include media('<desktop') {
     padding: em(10px);
   }
 }
@@ -123,7 +123,7 @@
     padding: 0;
   }
 
-  
+
   @include media('>=desktop') {
     margin: 0 em(15px) 0 0;
   }

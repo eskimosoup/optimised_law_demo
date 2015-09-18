@@ -5,14 +5,14 @@
   padding: em(73px) 0 em(50px);
   text-align: center;
 
-  @include media('<tablet') {
+  @include media('<desktop') {
     padding: em(40px) 0;
   }
 
   p {
     font-family: $people-helped-paragraph-font;
 
-    @include media('<tablet') {
+    @include media('<desktop') {
       font-size: em(12px);
     }
   }
@@ -28,7 +28,7 @@
   font-size: em(64px);
   font-weight: $people-helped-figure-font-weight;
 
-  @include media('<tablet') {
+  @include media('<desktop') {
     font-size: em(44px);
   }
 }
@@ -37,7 +37,7 @@
   padding: 0 em(50px);
   text-align: left;
 
-  @include media('<tablet') {
+  @include media('<desktop') {
     padding: 0 em(15px);
   }
 }
@@ -50,7 +50,7 @@
   margin-right: em(30px, 10px);
   text-transform: uppercase;
 
-  @include media('<tablet') {
+  @include media('<desktop') {
     display: block;
   }
 }

@@ -48,7 +48,7 @@
 .service-category-navigation {
   background: $body-background-color;
 
-  @include media('>=desktop') {
+  @include media('>=tablet') {
     padding-right: 0;
   }
 }
@@ -108,6 +108,10 @@
     @include media('<tablet') {
       padding: em(18px, 16px) em(11px, 16px) em(11px, 16px);
       border-left-width: 16px;
+    }
+
+    @include media('>767px', '<1200px') {
+      padding: em(15px, 16px);
     }
 
     &:hover {

@@ -2,7 +2,7 @@
   @extend %clearfix;
   margin-bottom: em(65px);
 
-  @include media('<tablet') {
+  @include media('<desktop') {
     margin-bottom: em(15px);
   }
 
