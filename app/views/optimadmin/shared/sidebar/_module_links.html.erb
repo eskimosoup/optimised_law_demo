@@ -24,13 +24,7 @@
       </div>
 
       <ul id="modules" class="content-category-list">
-<<<<<<< HEAD
         <%= module_link(content: "Site Navigation", model: Optimadmin::MenuItem, path: menu_items_path) %>
-=======
-<%= module_link(model: Video Category, path: video_categories_path) %>
-<%= module_link(model: Video, path: videos_path) %>
-        <li><%= module_link(content: "Site Navigation", model: Optimadmin::MenuItem, path: menu_items_path) %></li>
->>>>>>> upstream/master
       </ul>
 
       <div class="content-category-type">
@@ -82,6 +76,20 @@
             <%= module_link(model: Event, path: events_path) %>
             <%= module_link(content: "Event Categories", model: EventCategory, path: event_categories_path) %>
             <%= module_link(content: "Event Locations", model: EventLocation, path: event_locations_path) %>
+          </ul>
+        </ul>
+      <% end %>
+      <% end %>
+
+      <% if can? :manage, Video %>
+        <div class="content-category-type">
+          Manage Events
+        </div>
+
+        <ul class="content-category-list">
+          <ul class="content-category-list">
+            <%= module_link(content: "Video Categories", model: VideoCategory, path: video_categories_path) %>
+            <%= module_link(model: Video, path: videos_path) %>
           </ul>
         </ul>
       <% end %>
