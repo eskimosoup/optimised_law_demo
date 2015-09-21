@@ -21,7 +21,7 @@ function animateOut() {
   $elem.removeClass('animated ' + animationType).addClass('visibility-hidden');
 }
 
-if (Modernizr.mq('only screen and (min-width: 768px)')) {
+if (Modernizr.mq('only screen and (min-width: 768px)') && !$('html').hasClass('ie9')) {
   $(function() {
     $('[data-animation-type]').addClass('visibility-hidden');
 

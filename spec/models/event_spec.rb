@@ -7,6 +7,8 @@ RSpec.describe Event, type: :model do
     it { should validate_presence_of(:content) }
     it { should validate_presence_of(:start_date_time) }
     it { should validate_presence_of(:end_date_time) }
+    it { should validate_presence_of(:event_location_id) }
+    it { should validate_presence_of(:event_category_id) }
     it { should validate_uniqueness_of(:suggested_url).allow_blank }
   end
 

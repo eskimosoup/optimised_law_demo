@@ -14,8 +14,13 @@
 
     @include media('<desktop') {
       font-size: em(12px);
+      padding: 0 em(15px);
     }
   }
+}
+
+.ie9 .people-helped-widget p {
+  padding: 0 em(15px);
 }
 
 .people-helped-title {

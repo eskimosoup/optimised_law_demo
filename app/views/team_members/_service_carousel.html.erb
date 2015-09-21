@@ -1,28 +1,40 @@
 <%= content_for :footer do %>
   <script>
-    $('.team-members-service-carousel').slick({
-      infinte: true,
-      dots: false,
-      arrows: true,
-      slidesToShow: 4,
-      slidesToScroll: 1,
-      responsive: [
-        {
-          breakpoint: 768,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1
-          }
-        },
-        {
-          breakpoint: 1024,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 1
-          }
-        },
-      ]
+    $(document).on('change', '.team-member-carousel-location-search select', function() {
+      $(this).parent().submit();
     });
+
+    $(document).on('keyup', '.team-member-carousel-name-search input', function() {
+      $(this).parent().submit();
+    });
+
+    function slickSetup() {
+      $('.team-members-service-carousel').slick({
+        infinte: true,
+        dots: false,
+        arrows: true,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        responsive: [
+          {
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1
+            }
+          },
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 1
+            }
+          },
+        ]
+      });
+    }
+
+    slickSetup();
   </script>
 <% end %>
 
@@ -36,13 +48,13 @@
           </div>
 
           <div class="medium-3 columns">
-            <%= form_tag '', method: :get, class: 'team-member-carousel-location-search' do %>
-              <%= select_tag :office_id, options_for_select(['London', 'Hull'], params[:office_id]) %>
+            <%= form_tag team_member_location_search_service_path, method: :get, class: 'team-member-carousel-location-search', remote: true do %>
+              <%= select_tag :office_id, options_for_select(@service.team_members.map(&:offices).uniq.map{|x| [x[0].name, x[0].id] }, params[:office_id]), include_blank: 'All Offices' %>
             <% end %>
           </div>
 
           <div class="medium-3 columns">
-            <%= form_tag '', method: :get, class: 'team-member-carousel-name-search' do %>
+            <%= form_tag team_member_name_search_service_path, method: :get, class: 'team-member-carousel-name-search', remote: true do %>
               <%= search_field_tag :team_member_name, params[:team_member_name], placeholder: 'People search' %>
             <% end %>
           </div>

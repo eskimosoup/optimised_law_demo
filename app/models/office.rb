@@ -5,6 +5,8 @@ class Office < ActiveRecord::Base
   belongs_to :office_location
   has_many :service_offices, dependent: :destroy
   has_many :services, through: :service_offices
+  has_many :team_member_offices, dependent: :destroy
+  has_many :team_members, through: :team_member_offices
 
   delegate :name, to: :office_location, prefix: true
 

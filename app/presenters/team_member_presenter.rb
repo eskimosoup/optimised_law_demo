@@ -30,4 +30,12 @@ class TeamMemberPresenter < BasePresenter
   def biography
     team_member.biography
   end
+
+  def carousel_image
+    if team_member.image.present?
+      show_image
+    else
+      h.image_tag 'components/team-members-service-carousel/placeholder.png', alt: name
+    end
+  end
 end

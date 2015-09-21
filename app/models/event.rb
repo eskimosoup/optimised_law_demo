@@ -11,7 +11,7 @@ class Event < ActiveRecord::Base
 
   mount_uploader :image, EventUploader
 
-  validates :title, :summary, :content, :start_date_time, :end_date_time, presence: true
+  validates :title, :summary, :content, :start_date_time, :end_date_time, :event_category_id, :event_location_id, presence: true
   validates :suggested_url, uniqueness: true, allow_blank: true
   validate :sensible_dates
 

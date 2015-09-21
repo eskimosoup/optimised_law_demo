@@ -15,6 +15,8 @@ RSpec.describe Office, type: :model do
     it { should belong_to(:office_location) }
     it { should have_many(:service_offices).dependent(:destroy) }
     it { should have_many(:services).through(:service_offices) }
+    it { should have_many(:team_member_offices).dependent(:destroy) }
+    it { should have_many(:team_members).through(:team_member_offices) }
   end
 
   describe "delegations", :delegation do

@@ -34,4 +34,13 @@ footer {
   font-size: em(10px);
   line-height: 1.6;
   margin: em(27px, 10px) 0 0;
+
+  @include media('<desktop') {
+    pointer-events: none;
+
+    > a {
+      color: inherit;
+      text-decoration: none; 
+    }
+  }
 }

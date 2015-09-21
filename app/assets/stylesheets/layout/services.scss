@@ -138,7 +138,7 @@
   list-style: none;
   bottom: 0;
   position: fixed;
-  z-index: 100;
+  z-index: 9999;
   width: 100%;
 
   @include media('<desktop') {

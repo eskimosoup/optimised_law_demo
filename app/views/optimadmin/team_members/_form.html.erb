@@ -81,6 +81,10 @@
 
     <%= field_set_tag nil, id: 'tabs-3' do %>
     <div class="field">
+<%= f.label :office_ids, "Offices" %><br>
+<%= f.select :office_ids, Office.pluck(:name, :id), {  }, { multiple: true } %>
+</div>
+    <div class="field">
 <%= f.label :service_ids, "Services" %><br>
 <%= f.select :service_ids, Service.pluck(:name, :id), {  }, { multiple: true } %>
 </div>

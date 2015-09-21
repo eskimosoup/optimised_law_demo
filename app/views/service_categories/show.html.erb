@@ -1,5 +1,6 @@
 <section class="service-wrap">
-  <%= render 'shared/breadcrumbs' %>
+  <% navigation_add "#{@presented_service_category.name}", service_category_path(@service_category) %>
+  <%= render_navigation %>
   <%= render 'service_categories/header' %>
 </section>
 
@@ -31,8 +32,8 @@
                     </div>
 
                     <div class="hide-for-medium-down large-4 columns text-center">
-                      <%= link_to '#' do %>
-                        <%#= image_tag 'http://placehold.it/61x61', class: 'team-members-service-overview-avatar' %>
+                      <%= link_to service_path(@presented_service_category.services.first, anchor: 'team-members-carousel'), class: 'text-link' do %>
+                        <%= image_tag 'components/icons/team-members.png', class: 'team-members-service-overview-avatar' %>
                       <% end %>
                     </div>
                 </div>

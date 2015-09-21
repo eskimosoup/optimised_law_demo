@@ -48,7 +48,7 @@ module Optimadmin
     end
 
     def office_params
-      params.require(:office).permit(:name, :building_name, :building_number, :street, :town, :county, :postcode, :phone_number, :fax_number, :email, :dx_number, :image, :details, :display, :office_location_id, service_ids: [])
+      params.require(:office).permit(:name, :building_name, :building_number, :street, :town, :county, :postcode, :phone_number, :fax_number, :email, :dx_number, :image, :details, :display, :office_location_id, service_ids: [], team_member_ids: [])
     end
   end
 end
