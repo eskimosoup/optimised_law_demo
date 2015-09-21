@@ -9,6 +9,10 @@
   @include media('>tablet') {
     padding: 0 0 0 em(20px);
   }
+
+  @include media('<tablet') {
+    padding: em(5px) 0 0 0;
+  }
 }
 
 .logo {

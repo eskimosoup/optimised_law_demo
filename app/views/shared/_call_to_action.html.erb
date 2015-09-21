@@ -1,15 +1,15 @@
 
 <div class="fixed-call-to-actions">
-  <%= link_to '#', class: 'call-to-action lawyer-search slide-toggle-class', data: { container: '.modal-call-to-action.lawyer-search', return: 'false' } do %>
+  <%= link_to '#call-to-action-lawyer-search', class: 'call-to-action lawyer-search slide-toggle-class', data: { container: '.modal-call-to-action.lawyer-search', return: 'false' } do %>
     <span>Find a Lawyer</span>
   <% end %>
 
-  <%= link_to '#', class: 'call-to-action callback slide-toggle-class', data: { container: '.modal-call-to-action.callback', return: 'false' } do %>
+  <%= link_to '#call-to-action-callback', class: 'call-to-action callback slide-toggle-class', data: { container: '.modal-call-to-action.callback', return: 'false' } do %>
     <span>Request a Callback</span>
   <% end %>
 </div>
 
-<div class="modal-call-to-action hide callback">
+<div class="modal-call-to-action hide callback" id="call-to-action-callback">
   <%= link_to 'Close', '#', class: 'modal-call-to-action-button slide-toggle-class', data: { container: '.modal-call-to-action.callback', return: 'false' } %>
 
   <div class="row">
@@ -59,7 +59,7 @@
   </p>
 </div>
 
-<div class="modal-call-to-action hide lawyer-search">
+<div class="modal-call-to-action hide lawyer-search" id="call-to-action-lawyer-search">
   <%= link_to 'Close', '#', class: 'modal-call-to-action-button slide-toggle-class', data: { container: '.modal-call-to-action.lawyer-search', return: 'false' } %>
 
   <div class="row">

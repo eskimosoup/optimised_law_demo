@@ -87,6 +87,10 @@
     font-size: em(25px);
     font-style: italic;
     font-weight: $team-members-service-carousel-header-service-font-weight;
+
+    @include media('<tablet') {
+      display: block;
+    }
   }
 }
 
@@ -145,6 +149,12 @@
 @include media('>=desktop') {
   .team-member-service-carousel {
     margin: 0 em(35px);
+  }
+}
+
+@include media('<desktop') {
+  .team-member-service-carousel {
+    padding: 0 em(35px);
   }
 }
 

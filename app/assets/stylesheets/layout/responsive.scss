@@ -1,3 +1,38 @@
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  select:focus,
+  textarea:focus,
+  input:focus {
+    font-size: 12px;
+  }
+}
+
+@include media('<desktop') {
+  select {
+    -webkit-appearance: none;
+  }
+
+  .team-member-carousel-location-search {
+
+    select {
+      border: 1px solid rgba($primary-text-color, .25);
+    }
+
+    &:after {
+      top: 50%;
+    	right: 25px;
+    	border: solid transparent;
+    	content: " ";
+    	height: 0;
+    	width: 0;
+    	position: absolute;
+    	pointer-events: none;
+    	border-color: rgba(0, 0, 0, 0);
+    	border-top-color: rgba($primary-text-color, .25);
+    	border-width: 3px;
+    	margin-left: -3px;
+    }
+  }
+}
 @include media('<tablet') {
   .slick-dots {
     position: relative;

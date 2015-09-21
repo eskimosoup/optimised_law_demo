@@ -225,7 +225,8 @@
             };
 
             if (window.location.hash) {
-                throttle(checkPos, 50);
+                //throttle(checkPos, 50);
+                checkPos();
             } else {
                 checkPos();
             }

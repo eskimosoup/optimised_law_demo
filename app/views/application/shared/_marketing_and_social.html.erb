@@ -10,7 +10,7 @@
 
     $('.tweets').slick({
       autoplay: true,
-      autoplaySpeed: 2000,
+      autoplaySpeed: 3000,
       infinte: true,
       dots: true,
       arrows: false
@@ -28,7 +28,7 @@
 
         <%= image_tag 'layout/testimonials/quote-open.png', class: 'quote-open', alt: '' %>
         <div class="testimonials">
-          <%= render partial: 'testimonials/testimonial', collection: @presented_testimonials, as: :testimonial_presenter %>          
+          <%= render partial: 'testimonials/testimonial', collection: @presented_testimonials, as: :testimonial_presenter %>
         </div>
         <%= image_tag 'layout/testimonials/quote-close.png', class: 'quote-close', alt: '' %>
       </div>

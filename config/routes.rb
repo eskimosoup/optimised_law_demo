@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
-  get 'services/show'
-
   mount Optimadmin::Engine => "/admin"
 
   resources :service_categories, only: :show, path: 'service-category'
-  resources :services, only: :show
+  resources :services, only: :show do
+    member do
+      get 'team_member_name_search', path: 'team-member-name-search'
+      get 'team_member_location_search', path: 'team-member-location-search'
+    end
+  end
   resources :departments, only: :show
 
   resources :articles, only: :show
@@ -29,6 +32,8 @@ Rails.application.routes.draw do
 end
 
 Optimadmin::Engine.routes.draw do
+  get 'team_members/service_search'
+
   resources :video_categories, except: [:show] do
     collection do
       post 'order'
