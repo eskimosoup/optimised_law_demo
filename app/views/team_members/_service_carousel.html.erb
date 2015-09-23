@@ -2,10 +2,12 @@
   <script>
     $(document).on('change', '.team-member-carousel-location-search select', function() {
       $(this).parent().submit();
+      $('.team-member-carousel-name-search #office_id').val($(this).val());
     });
 
     $(document).on('keyup', '.team-member-carousel-name-search input', function() {
       $(this).parent().submit();
+      $('.team-member-carousel-location-search #team_member_name').val($(this).val());
     });
 
     function slickSetup() {
@@ -48,14 +50,16 @@
           </div>
 
           <div class="medium-3 columns">
-            <%= form_tag team_member_location_search_service_path, method: :get, class: 'team-member-carousel-location-search', remote: true do %>
-              <%= select_tag :office_id, options_for_select(@service.team_members.map(&:offices).uniq.map{|x| [x[0].name, x[0].id] }, params[:office_id]), include_blank: 'All Offices' %>
+            <%= form_tag team_member_search_service_path, method: :get, class: 'team-member-carousel-location-search', remote: true do %>
+              <%= select_tag :office_id, options_for_select(@service.team_members.map(&:offices).map{|x| [x[0].name, x[0].id] }.uniq, params[:office_id]), include_blank: 'All Offices' %>
+              <%= hidden_field_tag :team_member_name %>
             <% end %>
           </div>
 
           <div class="medium-3 columns">
-            <%= form_tag team_member_name_search_service_path, method: :get, class: 'team-member-carousel-name-search', remote: true do %>
+            <%= form_tag team_member_search_service_path, method: :get, class: 'team-member-carousel-name-search', remote: true do %>
               <%= search_field_tag :team_member_name, params[:team_member_name], placeholder: 'People search' %>
+              <%= hidden_field_tag :office_id %>
             <% end %>
           </div>
         </div>
