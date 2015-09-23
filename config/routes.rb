@@ -4,8 +4,7 @@ Rails.application.routes.draw do
   resources :service_categories, only: :show, path: 'service-category'
   resources :services, only: :show do
     member do
-      get 'team_member_name_search', path: 'team-member-name-search'
-      get 'team_member_location_search', path: 'team-member-location-search'
+      get 'team_member_search', path: 'team-member-search'
     end
   end
   resources :departments, only: :show

@@ -12,16 +12,8 @@ class ServicesController < ApplicationController
     @presented_video = VideoPresenter.new(object: @service.videos.last, view_template: view_context)
   end
 
-  def team_member_name_search
-    @presented_service_team_members = BaseCollectionPresenter.new(collection: @service.team_members.name_search(params[:team_member_name]), view_template: view_context, presenter: TeamMemberPresenter)
-
-    respond_to do |format|
-       format.js
-     end
-  end
-
-  def team_member_location_search
-    @presented_service_team_members = BaseCollectionPresenter.new(collection: @service.team_members.location_search(params[:office_id]), view_template: view_context, presenter: TeamMemberPresenter)
+  def team_member_search
+    @presented_service_team_members = BaseCollectionPresenter.new(collection: @service.team_members.location_search(params[:office_id]).name_search(params[:team_member_name]), view_template: view_context, presenter: TeamMemberPresenter)
 
     respond_to do |format|
        format.js
