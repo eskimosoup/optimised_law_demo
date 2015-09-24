@@ -2,9 +2,11 @@ require 'rails_helper'
 
 RSpec.describe Department, type: :model do
   describe "validations", :validation do
+    subject(:department) { build(:department) }
     it { should validate_presence_of(:name) }
     it { should validate_presence_of(:summary) }
     it { should validate_presence_of(:content) }
+    it { should validate_uniqueness_of(:suggested_url).allow_blank.case_insensitive }
   end
 
   describe "associations", :association do

@@ -1,0 +1,53 @@
+.service-awards-wrap {
+  background: $content-background-color;
+  color: $service-awards-color;
+  text-align: center;
+  padding: em(50px) em(15px);
+  height: 100%;
+
+  @include media('<1025px') {
+    padding: em(30px) em(15px);
+    margin: 0 0 em(15px);
+  }
+
+  h6 {
+    border-bottom: 1px solid $service-calendar-border-color;
+    color: $service-awards-color;
+    font-family: $service-calendar-font;
+    font-size: em(16px);
+    font-weight: $service-calendar-header-font-weight;
+    letter-spacing: 2px;
+    line-height: 1.25;
+    text-transform: uppercase;
+    padding: 0 0 em(30px, 16px);
+  }
+}
+
+.service-awards {
+  margin: em(30px) 0;
+
+  img {
+    margin: 0 auto;
+  }
+
+  .slick-dots {
+    position: static;
+    margin: em(60px, 16px) 0 0;
+  }
+
+  li:hover button:before,
+  li.slick-active button:before {
+    color: $service-awards-active-color;
+  }
+}
+
+.service-awards-service-name {
+  color: $service-awards-service-name-color;
+  font-size: em(22px);
+  font-style: italic;
+  font-weight: $service-awards-service-name-font-weight;
+
+  @include media('>=tablet', '<desktop') {
+    font-size: em(18px);
+  }
+}

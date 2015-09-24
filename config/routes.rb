@@ -12,10 +12,14 @@ Rails.application.routes.draw do
   resources :articles, only: :show
   resources :article_categories, only: :show, path: 'article-category'
 
+  resources :case_studies, only: :show, path: 'case-study'
+  resources :case_study_categories, only: :show, path: 'case-study-category'
+
   resources :events, only: :show
   resources :event_categories, only: :show, path: 'event-category'
   resources :event_locations, only: :show, path: 'event-location'
 
+  resources :downloads, only: :show
 
   resources :videos, only: :show
   resources :video_categories, only: :show, path: 'video-category'
@@ -24,14 +28,42 @@ Rails.application.routes.draw do
   resources :offices, only: :show
   resources :office_locations, only: :show, path: 'office-locations'
 
-  get 'service-page', to: 'application#service_page'
-  get 'service-page-detailed', to: 'application#service_page_detailed'
-
   root to: "application#index"
 end
 
 Optimadmin::Engine.routes.draw do
-  get 'team_members/service_search'
+  resources :case_studies, except: [:show] do
+    collection do
+      post 'order'
+    end
+    member do
+      get 'toggle'
+      get 'edit_images'
+      post 'update_image_default'
+      post 'update_image_fill'
+      post 'update_image_fit'
+    end
+  end
+  resources :case_study_categories, except: [:show] do
+    collection do
+      post 'order'
+    end
+    member do
+      get 'toggle'
+    end
+  end
+  resources :downloads, except: [:show] do
+    collection do
+      post 'order'
+    end
+    member do
+      get 'toggle'
+      get 'edit_images'
+      post 'update_image_default'
+      post 'update_image_fill'
+      post 'update_image_fit'
+    end
+  end
 
   resources :video_categories, except: [:show] do
     collection do

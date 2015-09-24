@@ -6,6 +6,7 @@ class OfficeLocation < ActiveRecord::Base
   has_many :offices, dependent: :destroy
 
   validates :name, presence: true, uniqueness: true
+  validates :suggested_url, uniqueness: true, allow_blank: true, case_sensitive: false
 
   scope :displayed, -> { where(display: true) }
 

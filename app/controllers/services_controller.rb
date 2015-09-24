@@ -10,6 +10,9 @@ class ServicesController < ApplicationController
     @presented_offices = BaseCollectionPresenter.new(collection: @service.offices, view_template: view_context, presenter: OfficePresenter)
     @presented_service_events = BaseCollectionPresenter.new(collection: @service.events, view_template: view_context, presenter: EventPresenter)
     @presented_video = VideoPresenter.new(object: @service.videos.last, view_template: view_context)
+    @presented_download = DownloadPresenter.new(object: @service.downloads.last, view_template: view_context)
+    @presented_case_studies = BaseCollectionPresenter.new(collection: @service.case_studies.limit(3), view_template: view_context, presenter: CaseStudyPresenter)
+    @presented_awards = BaseCollectionPresenter.new(collection: @service.awards, view_template: view_context, presenter: AwardPresenter)
   end
 
   def team_member_search

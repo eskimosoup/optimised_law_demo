@@ -6,6 +6,7 @@
   background: $content-background-color;
   color: $service-calendar-color;
   padding: em(50px) em(79px);
+  height: 100%;
 
   @include media('<tablet') {
     padding: em(15px);

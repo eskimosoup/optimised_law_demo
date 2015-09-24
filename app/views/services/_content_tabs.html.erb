@@ -1,31 +1,11 @@
 <div class="medium-6 columns" data-equalizer-watch="additional-content">
   <div data-animation-type="slideInLeft" id="case-studies">
     <ul class="service-content-tab-controls">
-      <li>
-        <%= link_to 'First', '#tab-1', class: 'tab-toggle active' %>
-      </li>
-
-      <li>
-        <%= link_to 'Second', '#tab-2', class: 'tab-toggle' %>
-      </li>
-
-      <li>
-        <%= link_to 'Third', '#-tab2', class: 'tab-toggle' %>
-      </li>
+      <%= render partial: 'case_studies/service_case_study_navigation_link', collection: @presented_case_studies, as: :case_study_presenter %>
     </ul>
 
     <div class="service-content-tab-wrap">
-      <div class="service-content-tab-content" id="tab-1">
-        <%= render 'case_studies/service_case_study' %>
-      </div>
-
-      <div class="service-content-tab-content hide" id="tab-2">
-        <%= render 'case_studies/service_case_study' %>
-      </div>
-
-      <div class="service-content-tab-content hide" id="tab-3">
-        <%= render 'case_studies/service_case_study' %>
-      </div>
+      <%= render partial: 'case_studies/service_case_study', collection: @presented_case_studies, as: :case_study_presenter %>
     </div>
   </div>
 </div>

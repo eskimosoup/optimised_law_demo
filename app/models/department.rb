@@ -8,6 +8,7 @@ class Department < ActiveRecord::Base
   has_many :service_categories, dependent: :destroy
 
   validates :name, :summary, :content, presence: true
+  validates :suggested_url, uniqueness: true, allow_blank: true, case_sensitive: false
 
   scope :positioned, -> { order(:position) }
   scope :displayed, -> { where(display: true) }

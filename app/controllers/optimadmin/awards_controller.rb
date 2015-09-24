@@ -48,7 +48,7 @@ module Optimadmin
     end
 
     def award_params
-      params.require(:award).permit(:position, :name, :link, :image, :award_type, :display)
+      params.require(:award).permit(:position, :name, :link, :image, :award_type, :display, :in_footer, service_ids: [])
     end
   end
 end

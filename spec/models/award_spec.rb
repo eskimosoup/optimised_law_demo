@@ -8,6 +8,11 @@ RSpec.describe Award, type: :model do
     it { should validate_inclusion_of(:award_type).in_array(%w( award accreditation )) }
   end
 
+  describe "associations", :association do
+    it { should have_many(:service_awards) }
+    it { should have_many(:services).through(:service_awards) }
+  end
+
   # may be best not to do this for everything, but thought I'd test
   describe "scopes", :scope do
     let(:award) { create(:award) }

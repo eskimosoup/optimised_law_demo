@@ -52,4 +52,8 @@ class ServicePresenter < BasePresenter
   def has_related_services?
     true if service.related_services.present?
   end
+
+  def leaflet_download
+    h.link_to 'Download a Leaflet', service.leaflet.url if service.leaflet?
+  end
 end

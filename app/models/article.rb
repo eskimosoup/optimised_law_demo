@@ -9,8 +9,9 @@ class Article < ActiveRecord::Base
   mount_uploader :image, ArticleUploader
 
   validates :title, :content, :date, :article_category_id, presence: true
+  validates :suggested_url, uniqueness: true, allow_blank: true, case_sensitive: false
 
-  scope :displayed, -> { joins(:article_category).where("articles.display = ? AND date <= ?", true, Date.today).merge(ArticleCategory.displayed) }
+  scope :displayed, -> { joins(:article_category).where("articles.display = ? AND date <= ?", true, Date.today).merge(ArticleCategory.displayed).order(:date) }
 
   def slug_candidates
     [

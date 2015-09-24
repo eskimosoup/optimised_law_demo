@@ -36,6 +36,7 @@
           <%= module_link(model: Award, path: awards_path) %>
           <%= module_link(content: "Business Partners", model: BusinessPartner, path: business_partners_path) %>
           <%= module_link(model: Testimonial, path: testimonials_path) %>
+          <%= module_link(model: Download, path: downloads_path) %>
         </ul>
       </ul>
 
@@ -62,6 +63,19 @@
           <ul class="content-category-list">
             <%= module_link(model: Article, path: articles_path) %>
             <%= module_link(content: "Article Categories", model: ArticleCategory, path: article_categories_path) %>
+          </ul>
+        </ul>
+      <% end %>
+
+      <% if can? :manage, CaseStudy %>
+        <div class="content-category-type">
+          Manage Case Studies
+        </div>
+
+        <ul class="content-category-list">
+          <ul class="content-category-list">
+            <%= module_link(content: "Case Studies", model: CaseStudy, path: case_studies_path) %>
+            <%= module_link(content: "Case Study Categories", model: CaseStudyCategory, path: case_study_categories_path) %>
           </ul>
         </ul>
       <% end %>

@@ -12,4 +12,8 @@ class OfficePresenter < BasePresenter
     h.raw office.details if office.details
   end
 
+  def address
+    [building_name, building_number, street, town, county, postcode].reject{|x| x.blank?}.join(' ')
+  end
+
 end

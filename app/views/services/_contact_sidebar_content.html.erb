@@ -4,7 +4,7 @@
   <% end %>
 
   <div class="call-to-action-1-content call-to-action-content-wrap hide">
-    <%= render partial: 'offices/call_to_action', collection: @presented_offices, as: :office_presenter %>
+    <%= render partial: 'offices/telephone_list', collection: @presented_offices, as: :office_presenter %>
   </div>
 </li>
 
@@ -21,13 +21,16 @@
 </li>
 
 <li class="call-to-action-4">
-  <%= link_to '#' do %>
+  <%= link_to '#', class: 'slide-toggle-class', data: { container: '.call-to-action-4-content', return: 'false' } do %>
     Our Offices
   <% end %>
+
+  <div class="call-to-action-4-content call-to-action-content-wrap hide">
+    <%= render partial: 'offices/address_list', collection: @presented_offices, as: :office_presenter %>
+  </div>
 </li>
 
 <li class="call-to-action-5">
-  <%= link_to '#' do %>
-    Download a leaflet
-  <% end %>
+  <%= @presented_service_category.leaflet_download if @presented_service_category.present? %>
+  <%= @presented_service.leaflet_download if @presented_service.present? %>
 </li>

@@ -6,6 +6,7 @@ class Service < ActiveRecord::Base
   has_closure_tree
 
   mount_uploader :image, ServiceUploader
+  mount_uploader :leaflet, Optimadmin::DocumentUploader
 
   belongs_to :service_category
   has_one :department, through: :service_category
@@ -24,8 +25,15 @@ class Service < ActiveRecord::Base
   has_many :inverse_related_services, through: :inverse_service_related_services, source: :service
   has_many :service_videos, dependent: :destroy
   has_many :videos, -> { displayed }, through: :service_videos
+  has_many :service_downloads, dependent: :destroy
+  has_many :downloads, -> { displayed }, through: :service_downloads
+  has_many :service_case_studies, dependent: :destroy
+  has_many :case_studies, -> { displayed }, through: :service_case_studies
+  has_many :service_awards, dependent: :nullify
+  has_many :awards, -> { displayed }, through: :service_awards
 
   validates :name, presence: true, uniqueness: { scope: :service_category_id }
+  validates :suggested_url, uniqueness: true, allow_blank: true, case_sensitive: false
 
   scope :displayed, -> { joins(:service_category).where(display: true).merge(ServiceCategory.displayed) }
 
