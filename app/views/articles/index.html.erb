@@ -1,0 +1,20 @@
+<section class="article-wrap">
+  <div class="row">
+    <div class="small-3 columns">
+      <% unless @presented_article_categories.blank? %>
+        <ul>
+          <% @presented_article_categories.each do |presented_article_category| %>
+            <li>
+              <%= presented_article_category.filter_link %>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+    <div class="small-9 columns">
+      <%= render partial: "articles/home_article", colleciton: @presented_articles, as: :article_presenter %>
+
+      <%= paginate @presented_articles %>
+    </div>
+  </div>
+</section>

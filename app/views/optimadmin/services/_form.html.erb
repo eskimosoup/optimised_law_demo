@@ -1,10 +1,10 @@
-<%= form_for(service) do |f| %>
-<% if service.errors.any? %>
+<%= form_for(@service) do |f| %>
+<% if @service.errors.any? %>
   <div id="error_explanation">
-    <h2><%= pluralize(service.errors.count, "error") %> prohibited this service from being saved:</h2>
+    <h2><%= pluralize(@service.errors.count, "error") %> prohibited this service from being saved:</h2>
 
     <ul>
-      <% service.errors.full_messages.each do |message| %>
+      <% @service.errors.full_messages.each do |message| %>
       <li><%= message %></li>
       <% end %>
     </ul>
@@ -32,7 +32,7 @@
       </div>
             <div class="field">
         <%= f.label :parent_id %><br>
-        <%= f.select :parent_id, Service.roots.all.pluck(:name, :id).reject{|x| x[1] == service.id unless service.new_record?}, include_blank: 'No parent' %>
+        <%= f.select :parent_id, Service.roots.where.not(id: @service).pluck(:name, :id), include_blank: 'No parent' %>
       </div>
             <div class="field">
         <%= f.label :name %><br>
@@ -43,31 +43,31 @@
         <%= f.text_area :summary, class: 'tinymce' %>
       </div>
       <div class="field">
-  <%= f.label :content %><br>
-  <%= f.text_area :content, class: 'tinymce' %>
-</div>
+        <%= f.label :content %><br>
+        <%= f.text_area :content, class: 'tinymce' %>
+      </div>
 
-          <% end %>
+    <% end %>
 
     <%= field_set_tag nil, id: 'tabs-2' do %>
-            <%= f.image_field :image %>
+      <%= f.image_field :image %>
 
-          <% end %>
+    <% end %>
 
     <%= field_set_tag nil, id: 'tabs-3' do %>
-    <div class="field">
-<%= f.label :related_service_ids, "Related services" %><br>
-<%= f.select :related_service_ids, Service.pluck(:name, :id).reject{|x| x[1] == service.id unless service.new_record?}, {  }, { multiple: true } %>
-</div>
-          <div class="field">
-      <%= f.label :suggested_url %><br>
-      <%= f.text_field :suggested_url %>
-    </div>
-          <div class="field">
-      <%= f.label :display %><br>
-      <%= f.check_box :display %>
-    </div>
-          <% end %>
+      <div class="field">
+        <%= f.label :related_service_ids, "Related services" %><br>
+        <%= f.select :related_service_ids, Service.where.not(id: @service).pluck(:name, :id), { }, { multiple: true } %>
+      </div>
+      <div class="field">
+        <%= f.label :suggested_url %><br>
+        <%= f.text_field :suggested_url %>
+      </div>
+      <div class="field">
+        <%= f.label :display %><br>
+        <%= f.check_box :display %>
+      </div>
+    <% end %>
   </div>
 
   <div class="actions">
