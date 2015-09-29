@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150921085134) do
+ActiveRecord::Schema.define(version: 20150929153519) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -253,6 +253,22 @@ ActiveRecord::Schema.define(version: 20150921085134) do
     t.string "environment"
   end
 
+  create_table "pages", force: :cascade do |t|
+    t.string   "title",                        null: false
+    t.string   "slug"
+    t.string   "suggested_url"
+    t.string   "image"
+    t.string   "style",                        null: false
+    t.string   "layout",                       null: false
+    t.boolean  "display",       default: true
+    t.text     "content",                      null: false
+    t.integer  "service_id"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  add_index "pages", ["service_id"], name: "index_pages_on_service_id", using: :btree
+
   create_table "service_categories", force: :cascade do |t|
     t.integer  "department_id"
     t.string   "name",                         null: false
@@ -451,6 +467,7 @@ ActiveRecord::Schema.define(version: 20150921085134) do
   add_foreign_key "events", "event_categories"
   add_foreign_key "events", "event_locations"
   add_foreign_key "offices", "office_locations"
+  add_foreign_key "pages", "services"
   add_foreign_key "service_categories", "departments"
   add_foreign_key "service_events", "events"
   add_foreign_key "service_events", "services"
