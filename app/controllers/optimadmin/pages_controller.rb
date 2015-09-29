@@ -48,7 +48,8 @@ module Optimadmin
     end
 
     def page_params
-      params.require(:page).permit(:title, :suggested_url, :image, :image_cache, :remove_image, :remote_image_url, :display, :content, :style, :layout)
+      params.require(:page).permit(:title, :suggested_url, :image, :image_cache, :remove_image, :remote_image_url,
+                                   :display, :content, :style, :layout, :service_id)
     end
   end
 end
