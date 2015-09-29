@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  resources :pages, only: :show
+
   mount Optimadmin::Engine => "/admin"
 
   resources :service_categories, only: :show, path: 'service-category'
@@ -31,6 +34,21 @@ Rails.application.routes.draw do
 end
 
 Optimadmin::Engine.routes.draw do
+
+
+  resources :pages, except: :show do
+    collection do
+      post 'order'
+    end
+    member do
+      get 'edit_images'
+      get 'toggle'
+      get 'edit_images'
+      post 'update_image_default'
+      post 'update_image_fill'
+      post 'update_image_fit'
+    end
+  end
   get 'team_members/service_search'
 
   resources :video_categories, except: [:show] do

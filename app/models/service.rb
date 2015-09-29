@@ -25,6 +25,7 @@ class Service < ActiveRecord::Base
   has_many :inverse_related_services, through: :inverse_service_related_services, source: :service
   has_many :service_videos, dependent: :destroy
   has_many :videos, -> { displayed }, through: :service_videos
+  has_many :pages, dependent: :nullify
 
   validates :name, presence: true, uniqueness: { scope: :service_category_id }
 
