@@ -7,7 +7,7 @@ GIT
 PATH
   remote: ../optimadmin
   specs:
-    optimadmin (0.0.8)
+    optimadmin (0.0.7)
       bcrypt
       cancancan
       carrierwave
@@ -388,3 +388,6 @@ DEPENDENCIES
   twitter
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
+
+BUNDLED WITH
+   1.10.6
