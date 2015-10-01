@@ -12,17 +12,11 @@ class ApplicationController < ActionController::Base
     @presented_testimonials = BaseCollectionPresenter.new(collection: Testimonial.positioned.displayed, view_template: view_context, presenter: TestimonialPresenter)
   end
 
-  def service_page
-  end
-
-  def service_page_detailed
-  end
-
   private
 
   def objects
     @presented_offices = BaseCollectionPresenter.new(collection: Office.displayed, view_template: view_context, presenter: OfficePresenter)
-    @presented_awards = BaseCollectionPresenter.new(collection: Award.positioned.displayed, view_template: view_context, presenter: AwardPresenter)
+    @presented_awards = BaseCollectionPresenter.new(collection: Award.in_footer, view_template: view_context, presenter: AwardPresenter)
     @header_menu = Optimadmin::Menu.new(name: "header")
     @header_aside_menu = Optimadmin::Menu.new(name: "header_aside")
     @footer_menu = Optimadmin::Menu.new(name: "footer")

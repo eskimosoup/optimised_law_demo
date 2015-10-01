@@ -2,7 +2,9 @@ require 'rails_helper'
 
 RSpec.describe Service, type: :model do
   describe "validations", :validation do
+    subject(:service) { build(:service) }
     it { should validate_presence_of(:name) }
+    it { should validate_uniqueness_of(:suggested_url).allow_blank.case_insensitive }
   end
 
   describe "associations", :association do
@@ -23,6 +25,13 @@ RSpec.describe Service, type: :model do
     it { should have_many(:inverse_related_services).through(:inverse_service_related_services).source(:service) }
     it { should have_many(:service_videos).dependent(:destroy) }
     it { should have_many(:videos).through(:service_videos) }
+    it { should have_many(:service_downloads).dependent(:destroy) }
+    it { should have_many(:downloads).through(:service_downloads) }
+    it { should have_many(:videos).through(:service_videos) }
+    it { should have_many(:service_case_studies).dependent(:destroy) }
+    it { should have_many(:case_studies).through(:service_case_studies) }
+    it { should have_many(:service_awards).dependent(:nullify) }
+    it { should have_many(:awards).through(:service_awards) }
   end
 
   describe "friendly_id" do

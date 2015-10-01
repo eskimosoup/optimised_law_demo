@@ -4,6 +4,7 @@ class ServiceCategory < ActiveRecord::Base
   friendly_id :slug_candidates, use: [:slugged, :history]
 
   mount_uploader :image, ServiceCategoryUploader
+  mount_uploader :leaflet, Optimadmin::DocumentUploader
 
   belongs_to :department
   has_many :services, dependent: :destroy

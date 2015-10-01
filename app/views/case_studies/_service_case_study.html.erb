@@ -1,25 +1,23 @@
-<div class="row">
-  <div class="medium-12 columns">
-    <div class="service-content-tab-content-type case-study">
-      Case Study
+<div class="service-content-tab-content <%= 'hide' if case_study_presenter_counter > 0 %>" id="tab-<%= case_study_presenter_counter %>">
+  <div class="row">
+    <div class="medium-12 columns">
+      <div class="service-content-tab-content-type case-study">
+        Case Study
+      </div>
     </div>
   </div>
-</div>
 
-<div class="row">
-  <div class="medium-12 large-8 columns">
-    <h2>Waiting for the Sun</h2>
+  <div class="row">
+    <div class="medium-12 large-8 columns">
+      <h2><%= case_study_presenter.title %></h2>
 
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Ut enim ad minim veniam, quis nostrud exercitation ullamco
-    </p>
+      <%= case_study_presenter.summary %>
 
-    <%= link_to 'Read more', '#', class: 'service-content-tab-read-more' %>
-  </div>
+      <%= case_study_presenter.read_more_link %>
+    </div>
 
-  <div class="hide-for-medium-down large-4 columns">
-    <%= link_to (image_tag 'http://placehold.it/203x202', class: 'service-content-tab-content-item'), '#' %>
+    <div class="hide-for-medium-down large-4 columns">
+      <%= case_study_presenter.linked_index_image %>
+    </div>
   </div>
 </div>

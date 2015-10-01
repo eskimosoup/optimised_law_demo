@@ -31,30 +31,7 @@
     </div>
 
     <div class="medium-4 columns"  data-animation-type="slideInLeft" data-equalizer-watch="service-resources">
-      <div class="service-download" id="downloads">
-        <div class="service-download-image">
-          <%= image_tag 'http://placehold.it/600x200' %>
-        </div>
-
-        <div class="service-download-content">
-          <div class="service-download-title">
-            Download our Step by Step Guide to Relationship Breakdown
-          </div>
-
-          <div class="row">
-            <div class="medium-12 large-8 columns">
-              <p class="service-download-overview">
-                Lorem ipsum dolor sit amet, sapien aliqua sollicitudin, eu
-                consequatur, libero massa. Id nisl, blandit dui.
-              </p>
-            </div>
-
-            <div class="medium-12 large-4 columns">
-              <%= link_to 'Download', '#', class: 'service-download-read-more' %>
-            </div>
-          </div>
-        </div>
-      </div>
+      <%= render partial: 'downloads/service_download' %>
     </div>
   </div>
 </div>

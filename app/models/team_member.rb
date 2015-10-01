@@ -20,6 +20,7 @@ class TeamMember < ActiveRecord::Base
 
   validates :forename, :surname, presence: true
   validates :email, uniqueness: true
+  validates :suggested_url, uniqueness: true, allow_blank: true, case_sensitive: false
 
   scope :displayed, -> { joins(:team_member_role).where(display: true).merge(TeamMemberRole.displayed) }
 

@@ -23,6 +23,10 @@ class ServiceCategoryPresenter < BasePresenter
     service_category.services
   end
 
+  def leaflet_download
+    h.link_to 'Download a Leaflet', service_category.leaflet.url if service_category.leaflet?
+  end
+
   private
 
   def image(version)

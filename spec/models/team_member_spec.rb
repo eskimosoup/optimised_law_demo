@@ -6,6 +6,7 @@ RSpec.describe TeamMember, type: :model do
     it { should validate_presence_of(:forename) }
     it { should validate_presence_of(:surname) }
     it { should validate_uniqueness_of(:email) }
+    it { should validate_uniqueness_of(:suggested_url).allow_blank.case_insensitive }
   end
 
   describe "associations", :association do
@@ -39,7 +40,7 @@ RSpec.describe TeamMember, type: :model do
     end
 
     it "creates a slug if suggested_url changed" do
-      team_member.suggested_url = "my-new-titled-team_member"
+      team_member.suggested_url = "my-new-titled-team-member"
       expect(team_member.should_generate_new_friendly_id?).to be true
     end
 

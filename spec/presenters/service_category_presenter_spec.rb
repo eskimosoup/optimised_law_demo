@@ -25,6 +25,26 @@ RSpec.describe ServiceCategoryPresenter, type: :presenter do
 
   end
 
+  describe "leaflet testing" do
+    describe "no leaflet" do
+      let(:service_category) { build(:service_category) }
+      subject(:service_category_presenter) { ServiceCategoryPresenter.new(object: service_category, view_template: view)}
+
+      it "leaflet should return nil" do
+        expect(service_category_presenter.leaflet_download).to eq(nil)
+      end
+    end
+
+    describe "has leaflet" do
+      let(:service_category) { build(:service_category_with_leaflet) }
+      subject(:service_category_presenter) { ServiceCategoryPresenter.new(object: service_category, view_template: view)}
+
+      it "leaflet should return nil" do
+        expect(service_category_presenter.leaflet_download).to eq(link_to 'Download a Leaflet', service_category.leaflet.url)
+      end
+    end
+  end
+
   describe "image testing" do
     describe "no image" do
       let(:service_category) { build(:service_category) }

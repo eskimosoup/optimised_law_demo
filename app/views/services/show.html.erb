@@ -1,3 +1,31 @@
+<%= content_for :footer do %>
+  <script>
+    $('.service-awards').slick({
+      infinte: true,
+      dots: true,
+      arrows: false,
+      autoplay: true,
+      autoplaySpeed: 4000,
+      responsive: [
+        {
+          breakpoint: 1025,
+          settings: {
+            slidesToShow: 4,
+            slidesToScroll: 1
+          }
+        },
+        {
+          breakpoint: 767,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        },
+      ]
+    });
+  </script>
+<% end %>
+
 <section class="service-wrap">
   <% navigation_add "#{@presented_service.service_category_name}", service_category_path(@presented_service.service_category) %>
   <% navigation_add "#{@presented_service.name}", service_path(@service) %>
@@ -68,7 +96,7 @@
 
 
       <div class="row" data-equalizer="additional-content">
-        <%= render 'services/content_tabs' %>
+        <%= render 'services/content_tabs' if @presented_case_studies.present? %>
         <%= render 'services/activity_stream' if @presented_service_articles.present? %>
       </div>
 
@@ -83,8 +111,18 @@
 
       <div class="service-event-focus-wrap">
         <div class="row" data-equalizer="event-focus">
-          <div class="medium-4 columns" data-equalizer-watch="event-focus">
-            Placeholder
+          <div class="large-4 columns" data-equalizer-watch="event-focus">
+            <div class="service-awards-wrap">
+              <div class="service-awards-service-name">
+                <%= @presented_service.name %>
+              </div>
+
+              <h6>Awards & Accreditations</h6>
+
+              <ul class="service-awards">
+                <%= render partial: 'awards/award', collection: @presented_awards, as: :award_presenter %>
+              </ul>
+            </div>
           </div>
 
           <%= render 'events/service_calendar' if @presented_service_events.present? %>

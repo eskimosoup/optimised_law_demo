@@ -77,6 +77,26 @@ RSpec.describe ServicePresenter, type: :presenter do
     end
   end
 
+  describe "leaflet testing" do
+    describe "no leaflet" do
+      let(:service) { build(:service) }
+      subject(:service_presenter) { ServicePresenter.new(object: service, view_template: view)}
+
+      it "leaflet should return nil" do
+        expect(service_presenter.leaflet_download).to eq(nil)
+      end
+    end
+
+    describe "has leaflet" do
+      let(:service) { build(:service_with_leaflet) }
+      subject(:service_presenter) { ServicePresenter.new(object: service, view_template: view)}
+
+      it "leaflet should return nil" do
+        expect(service_presenter.leaflet_download).to eq(link_to 'Download a Leaflet', service.leaflet.url)
+      end
+    end
+  end
+
   describe "image testing" do
     describe "no image" do
       let(:service) { build(:service) }

@@ -17,6 +17,12 @@ RSpec.describe OfficePresenter, type: :presenter do
     it { should delegate_method(:office_location_name).to(:office) }
   end
 
+  describe "address" do
+    it "joins address" do
+      expect(office_presenter.address).to eq([office.building_name, office.building_number, office.street, office.town, office.county, office.postcode].reject{|x| x.blank?}.join(' '))
+    end
+  end
+
   describe "escaping html" do
     describe "details present" do
       it "should escape the html when accessing details" do
