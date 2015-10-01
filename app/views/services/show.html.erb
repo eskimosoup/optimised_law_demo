@@ -27,7 +27,7 @@
 <% end %>
 
 <section class="service-wrap">
-  <% navigation_add "#{@presented_service.service_category_name}", service_category_path(@presented_service.service_category) %>
+  <% navigation_add "#{@presented_service.department_name}", department_path(@presented_service.department) %>
   <% navigation_add "#{@presented_service.name}", service_path(@service) %>
   <%= render_navigation %>
 
@@ -74,7 +74,7 @@
                           </div>
 
                           <div class="team-members-service-overview-name">
-                            <%= @presented_service.service_category_name %> team
+                            <%= @presented_service.department_name %> team
                           </div>
                         <% end %>
                       </div>

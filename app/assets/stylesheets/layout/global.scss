@@ -1,46 +1,7 @@
-html,
-body {
-  font-size: 14px;
+.position-static {
+  position: static;
 }
 
 body {
   background: $body-background-color;
-  color: $primary-text-color;
-  font-family: $body-font;
-}
-
-h6 {
-  color:  rgba($header-color, .74);
-  font-family: $header-font;
-  font-size: em(14px);
-  font-weight: $header-font-weight;
-  line-height: 2.2;
-  margin: 0;
-  padding: em(15px) em(20px) em(10px);
-}
-
-a {
-  color: $primary-text-color;
-  text-decoration: none;
-
-  &:link {
-    color: $primary-text-color;
-  }
-
-  &:visited {
-    color: $primary-text-color;
-  }
-
-  &:hover {
-    color: $primary-text-color;
-    text-decoration: underline;
-  }
-
-  &:active {
-    color: $primary-text-color;
-  }
-}
-
-.position-static {
-  position: static;
 }

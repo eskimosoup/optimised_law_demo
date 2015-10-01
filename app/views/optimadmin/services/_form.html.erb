@@ -27,8 +27,8 @@
 
     <%= field_set_tag nil, id: 'tabs-1' do %>
             <div class="field">
-        <%= f.label :service_category_id %><br>
-        <%= f.select :service_category_id, ServiceCategory.pluck(:name, :id), prompt: 'Please select a service category' %>
+        <%= f.label :department_id %><br>
+        <%= f.select :department_id, Department.pluck(:name, :id), prompt: 'Please select a department' %>
       </div>
             <div class="field">
         <%= f.label :parent_id %><br>
@@ -58,10 +58,10 @@
     <%= field_set_tag nil, id: 'tabs-3' do %>
       <div class="field">
         <%= f.label :related_service_ids, "Related services" %><br>
-        <%= f.select :related_service_ids, Service.where.not(id: @service).pluck(:name, :id), { }, { multiple: true } %>
+        <%= f.select :related_service_ids, Service.where.not(id: @service).pluck(:name, :id), { }, { multiple: true, class: 'multiple-select' } %>
       </div>
       <div class="field">
-        <%= f.label :suggested_url %><br>
+        <%= f.label :suggested_url %> <%= render 'optimadmin/shared/suggested_url_field' %><br>
         <%= f.text_field :suggested_url %>
       </div>
       <div class="field">

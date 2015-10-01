@@ -4,12 +4,13 @@ RSpec.describe Service, type: :model do
   describe "validations", :validation do
     subject(:service) { build(:service) }
     it { should validate_presence_of(:name) }
+    it { should validate_presence_of(:department_id) }
     it { should validate_uniqueness_of(:suggested_url).allow_blank.case_insensitive }
   end
 
   describe "associations", :association do
-    it { should belong_to(:service_category) }
-    it { should have_one(:department).through(:service_category) }
+    it { should belong_to(:department) }
+    it { should have_one(:audience).through(:department) }
     it { should have_many(:service_testimonials).dependent(:destroy) }
     it { should have_many(:testimonials).through(:service_testimonials) }
     it { should have_many(:pages).dependent(:nullify) }
@@ -32,6 +33,8 @@ RSpec.describe Service, type: :model do
     it { should have_many(:case_studies).through(:service_case_studies) }
     it { should have_many(:service_awards).dependent(:nullify) }
     it { should have_many(:awards).through(:service_awards) }
+    it { should have_many(:service_articles).dependent(:destroy) }
+    it { should have_many(:articles).through(:service_articles) }
   end
 
   describe "friendly_id" do

@@ -14,7 +14,7 @@
 //= require jquery_ujs
 //= require slick.js.js
 //= require components/dropdown_navigation
-//= require components/hero_department
+//= require components/hero_audience
 //= require components/toggle_class
 //= require components/animation
 //= require components/call_to_actions

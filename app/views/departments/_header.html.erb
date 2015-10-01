@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="small-12 columns">
+      <div class="service-category-overview-content-wrap">
+        <div class="row collapse">
+          <div class="small-12 medium-8 columns" data-animation-type='fadeIn' data-animation-delay='250'>
+            <div class="service-category-inner-content">
+              <h2 class="service-category-overview-header">About <%= @presented_department.name %></h2>
+
+              <div class="row">
+                <div class="small-12 medium-4 columns">
+                  <p class="service-category-overview-paragraph"><%= @presented_department.sub_heading %></p>
+                </div>
+
+                <div class="small-12 medium-8 columns">
+                  <div class="service-category-overview-content">
+                    <%= @presented_department.summary %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="small-12 medium-4 columns" data-animation-type='fadeInRight' data-animation-delay='500'>
+            <%= @presented_department.show_image %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

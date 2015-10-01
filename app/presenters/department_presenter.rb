@@ -1,14 +1,14 @@
 class DepartmentPresenter < BasePresenter
   presents :department
 
-  delegate :name, :sub_heading, :layout, to: :department
+  delegate :name, to: :department
 
-  def summary
-    h.simple_format department.summary
+  def sub_heading
+    department.sub_heading
   end
 
-  def content
-    h.raw department.content
+  def summary
+    h.raw department.summary
   end
 
   def index_image
@@ -19,8 +19,12 @@ class DepartmentPresenter < BasePresenter
     image(:show)
   end
 
-  def service_categories
-    department.service_categories
+  def services
+    department.services
+  end
+
+  def leaflet_download
+    h.link_to 'Download a Leaflet', department.leaflet.url if department.leaflet?
   end
 
   private

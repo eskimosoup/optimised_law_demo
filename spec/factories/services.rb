@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :service do
-    service_category
+    department
     parent_id nil
     sequence(:name) {|n| "Service #{ n }" }
     summary "MyString"

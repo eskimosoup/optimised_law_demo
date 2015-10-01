@@ -5,7 +5,7 @@ module Optimadmin
     edit_images_for Article, [[:image, { index: ['fill', 316, 164], show: ['fill', 165, 135], activity_stream: ['fill', 199, 155] }]]
 
     def index
-      @articles = Optimadmin::BaseCollectionPresenter.new(collection: Article.where('title ILIKE ?', "%#{params[:search]}%").page(params[:page]).per(params[:per_page] || 15), view_template: view_context, presenter: Optimadmin::ArticlePresenter)
+      @articles = Optimadmin::BaseCollectionPresenter.new(collection: Article.where('title ILIKE ?', "%#{params[:search]}%").page(params[:page]).per(params[:per_page] || 15).order(date: :desc), view_template: view_context, presenter: Optimadmin::ArticlePresenter)
     end
 
     def show
@@ -49,7 +49,7 @@ module Optimadmin
 
     def article_params
       params.require(:article).permit(:title, :summary, :image, :content, :date, :slug, :suggested_url, :display,
-                                      :team_member_id, :service_id, :article_category_id)
+                                      :team_member_id, :article_category_id, service_ids: [])
     end
   end
 end

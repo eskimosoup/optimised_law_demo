@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
 
   def index
     articles = Article.displayed.for_category(params[:category]).page(params[:page]).per(10)
-    @presented_articles = BaseCollectionPresenter.new(collection: , view_template: view_context,
+    @presented_articles = BaseCollectionPresenter.new(collection: articles, view_template: view_context,
                                                       presenter: ArticlePresenter)
     @presented_article_categories = BaseCollectionPresenter.new(collection: ArticleCategory.displayed, view_template: view_context,
                                                                 presenter: ArticleCategoryPresenter)

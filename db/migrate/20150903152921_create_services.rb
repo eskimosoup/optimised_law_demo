@@ -1,7 +1,7 @@
 class CreateServices < ActiveRecord::Migration
   def change
     create_table :services do |t|
-      t.belongs_to :service_category, index: true, foreign_key: true
+      t.belongs_to :department, index: true, foreign_key: true
       t.integer :parent_id
       t.string :name, null: false
       t.string :image

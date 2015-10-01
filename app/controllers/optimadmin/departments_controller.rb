@@ -2,8 +2,10 @@ module Optimadmin
   class DepartmentsController < Optimadmin::ApplicationController
     before_action :set_department, only: [:show, :edit, :update, :destroy]
 
+    edit_images_for Department, [[:image, { show: ['fill', 438, 499] }]]
+
     def index
-      @departments = Optimadmin::BaseCollectionPresenter.new(collection: Department.positioned.where('name LIKE ?', "%#{params[:search]}%").page(params[:page]).per(params[:per_page] || 15), view_template: view_context, presenter: Optimadmin::DepartmentPresenter)
+      @departments = Optimadmin::BaseCollectionPresenter.new(collection: Department.where('name ILIKE ?', "%#{params[:search]}%").page(params[:page]).per(params[:per_page] || 15), view_template: view_context, presenter: Optimadmin::DepartmentPresenter)
     end
 
     def show
@@ -42,11 +44,11 @@ module Optimadmin
 
 
     def set_department
-      @department = Department.friendly.find(params[:id])
+      @department = Department.find(params[:id])
     end
 
     def department_params
-      params.require(:department).permit(:name, :sub_heading, :image, :remote_image_url, :image_cache, :summary, :content, :layout, :display, :suggested_url)
+      params.require(:department).permit(:audience_id, :name, :sub_heading, :summary, :image, :suggested_url, :display, :leaflet, :remote_leaflet_url, :leaflet_cache, :remove_leaflet)
     end
   end
 end

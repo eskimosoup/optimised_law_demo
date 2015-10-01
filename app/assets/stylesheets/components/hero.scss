@@ -63,7 +63,7 @@
   }
 }
 
-.hero-department-wrap {
+.hero-audience-wrap {
   margin-top: em(-127px);
   padding: 0 0 em(50px);
 
@@ -72,7 +72,7 @@
   }
 }
 
-.hero-department {
+.hero-audience {
   position: relative;
   cursor: pointer;  
 
@@ -90,49 +90,49 @@
     }
   }
 
-  .department-type {
-    border-bottom: 2px solid $hero-department-title-border-color;
-    color: $hero-department-title-color;
-    font-family: $hero-department-font;
+  .audience-type {
+    border-bottom: 2px solid $hero-audience-title-border-color;
+    color: $hero-audience-title-color;
+    font-family: $hero-audience-font;
     font-size: em(13px);
-    font-weight: $hero-department-font-weight;
+    font-weight: $hero-audience-font-weight;
     margin-bottom: em(15px, 13px);
   }
 
   h3 {
-    color: $hero-department-service-title-color;
-    font-family: $hero-department-service-title-font;
+    color: $hero-audience-service-title-color;
+    font-family: $hero-audience-service-title-font;
     font-size: em(19px);
-    font-weight: $hero-department-service-title-font-weight;
+    font-weight: $hero-audience-service-title-font-weight;
     letter-spacing: 1px;
     margin: 0 0 em(18px, 19px);
     text-transform: uppercase;
   }
 
   p {
-    color: $hero-department-service-title-color;
+    color: $hero-audience-service-title-color;
     font-size: em(13px);
     margin: 0 0 em(20px, 13px);
     line-height: 1.7;
   }
 
   &.first {
-    background: $hero-first-department;
+    background: $hero-first-audience;
   }
 
   &.second {
-    background: $hero-second-department;
+    background: $hero-second-audience;
   }
 
   &.third {
-    background: $hero-third-department;
+    background: $hero-third-audience;
   }
 }
 
-.hero-department .state-hover {
-  background: $hero-department-hover-background-color;
-  border-bottom: 12px solid $hero-department-hover-border-color;
-  border-top: 12px solid $hero-department-hover-border-color;
+.hero-audience .state-hover {
+  background: $hero-audience-hover-background-color;
+  border-bottom: 12px solid $hero-audience-hover-border-color;
+  border-top: 12px solid $hero-audience-hover-border-color;
   height: 100%;
   left: 0;
   padding: em(45px);
@@ -140,8 +140,8 @@
   top: 0;
   width: 100%;
 
-  .department-type {
-    color: $hero-department-service-title-hover-color;
+  .audience-type {
+    color: $hero-audience-service-title-hover-color;
   }
 
   ul {
@@ -151,16 +151,16 @@
   a {
     &:link,
     &:visited {
-      color: $hero-department-hover-link-color;
+      color: $hero-audience-hover-link-color;
       display: block;
-      font-family: $hero-department-service-title-font;
+      font-family: $hero-audience-service-title-font;
       font-size: em(12px);
       margin: em(5px, 12px) 0;
     }
 
     &:hover,
     &:active {
-      border-left: 6px solid $hero-department-link-hover-border-color;
+      border-left: 6px solid $hero-audience-link-hover-border-color;
       padding-left: em(10px, 12px);
       text-decoration: none;
     }

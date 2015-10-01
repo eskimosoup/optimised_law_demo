@@ -7,12 +7,12 @@
   }
 }
 
-.department {
-  background: $department-header;
-  color: $department-header-text-color;
+.audience {
+  background: $audience-header;
+  color: $audience-header-text-color;
   display: inline-block;
   font-size: em(16px);
-  font-weight: $department-header-font-weight;
+  font-weight: $audience-header-font-weight;
   letter-spacing: 1px;
   line-height: 1;
   margin: 0 0 0 em(30px, 16px);
@@ -24,7 +24,7 @@
 .service-overview-content-wrap,
 .service-content-wrap {
   background: $service-category-overview-background-color;
-  border-top: 14px solid $department-header;
+  border-top: 14px solid $audience-header;
   margin: 0 0 em(38px);
 
   p {
@@ -171,6 +171,6 @@
 }
 
 .service-navigation {
-  background: $department-header;
+  background: $audience-header;
   height: 100%;
 }
