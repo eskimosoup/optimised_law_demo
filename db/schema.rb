@@ -287,8 +287,7 @@ ActiveRecord::Schema.define(version: 20150929153519) do
     t.string "value"
     t.string "environment"
   end
-
-<<<<<<< HEAD
+  
   create_table "service_awards", force: :cascade do |t|
     t.integer  "award_id"
     t.integer  "service_id"
@@ -308,7 +307,6 @@ ActiveRecord::Schema.define(version: 20150929153519) do
 
   add_index "service_case_studies", ["case_study_id"], name: "index_service_case_studies_on_case_study_id", using: :btree
   add_index "service_case_studies", ["service_id"], name: "index_service_case_studies_on_service_id", using: :btree
-=======
   create_table "pages", force: :cascade do |t|
     t.string   "title",                        null: false
     t.string   "slug"
@@ -324,7 +322,6 @@ ActiveRecord::Schema.define(version: 20150929153519) do
   end
 
   add_index "pages", ["service_id"], name: "index_pages_on_service_id", using: :btree
->>>>>>> upstream/master
 
   create_table "service_categories", force: :cascade do |t|
     t.integer  "department_id"
@@ -537,14 +534,11 @@ ActiveRecord::Schema.define(version: 20150929153519) do
   add_foreign_key "events", "event_categories"
   add_foreign_key "events", "event_locations"
   add_foreign_key "offices", "office_locations"
-<<<<<<< HEAD
   add_foreign_key "service_awards", "awards"
   add_foreign_key "service_awards", "services"
   add_foreign_key "service_case_studies", "case_studies"
   add_foreign_key "service_case_studies", "services"
-=======
   add_foreign_key "pages", "services"
->>>>>>> upstream/master
   add_foreign_key "service_categories", "departments"
   add_foreign_key "service_downloads", "downloads"
   add_foreign_key "service_downloads", "services"
