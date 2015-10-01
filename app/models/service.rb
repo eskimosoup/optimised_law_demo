@@ -20,7 +20,8 @@ class Service < ActiveRecord::Base
   has_many :service_events, dependent: :destroy
   has_many :events, -> { displayed }, through: :service_events
   has_many :service_related_services, dependent: :destroy
-  has_many :related_services, -> { displayed }, through: :service_related_services
+  has_many :related_services, through: :service_related_services
+  has_many :displayed_related_services, -> { displayed }, through: :service_related_services
   has_many :inverse_service_related_services, class_name: 'ServiceRelatedService', foreign_key: :related_service_id, dependent: :destroy
   has_many :inverse_related_services, through: :inverse_service_related_services, source: :service
   has_many :service_videos, dependent: :destroy
@@ -31,6 +32,7 @@ class Service < ActiveRecord::Base
   has_many :case_studies, -> { displayed }, through: :service_case_studies
   has_many :service_awards, dependent: :nullify
   has_many :awards, -> { displayed }, through: :service_awards
+  has_many :pages, dependent: :nullify
 
   validates :name, presence: true, uniqueness: { scope: :service_category_id }
   validates :suggested_url, uniqueness: true, allow_blank: true, case_sensitive: false

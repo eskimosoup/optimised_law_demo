@@ -1,13 +1,13 @@
 GIT
   remote: git@github.com:eskimosoup/optimadmin_generators.git
-  revision: 238a9b9b6e1a8104a88aef7f41ddaddea4f28a5b
+  revision: b635479f1bdf02e229d9910e9230548528a92f09
   specs:
-    optimadmin_generators (0.4.0)
+    optimadmin_generators (0.4.1)
 
 PATH
   remote: ../optimadmin
   specs:
-    optimadmin (0.0.8)
+    optimadmin (0.0.7)
       bcrypt
       cancancan
       carrierwave
@@ -158,7 +158,7 @@ GEM
       guard (~> 2.1)
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
-    http (0.9.6)
+    http (0.9.7)
       addressable (~> 2.3)
       http-cookie (~> 1.0)
       http-form_data (~> 1.0.1)
@@ -204,7 +204,7 @@ GEM
     mime-types (2.6.2)
     mini_magick (4.3.3)
     mini_portile (0.6.2)
-    minitest (5.8.0)
+    minitest (5.8.1)
     multi_json (1.11.2)
     multipart-post (2.0.0)
     naught (1.1.0)
@@ -222,7 +222,7 @@ GEM
       cliver (~> 0.3.1)
       multi_json (~> 1.0)
       websocket-driver (>= 0.2.0)
-    pry (0.10.1)
+    pry (0.10.2)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
@@ -309,8 +309,8 @@ GEM
       multi_json (~> 1.10)
     simple_oauth (0.3.1)
     slop (3.6.0)
-    sprockets (3.3.4)
-      rack (~> 1.0)
+    sprockets (3.3.5)
+      rack (> 1, < 3)
     sprockets-rails (2.3.3)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
@@ -388,3 +388,6 @@ DEPENDENCIES
   twitter
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
+
+BUNDLED WITH
+   1.10.6

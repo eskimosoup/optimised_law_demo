@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  resources :pages, only: :show
+
   mount Optimadmin::Engine => "/admin"
 
   resources :service_categories, only: :show, path: 'service-category'
@@ -9,7 +12,7 @@ Rails.application.routes.draw do
   end
   resources :departments, only: :show
 
-  resources :articles, only: :show
+  resources :articles, only: [:index, :show]
   resources :article_categories, only: :show, path: 'article-category'
 
   resources :case_studies, only: :show, path: 'case-study'
@@ -32,7 +35,21 @@ Rails.application.routes.draw do
 end
 
 Optimadmin::Engine.routes.draw do
-  resources :case_studies, except: [:show] do
+  resources :case_studies, except: :show do
+    collection do
+      post 'order'
+    end
+    member do
+      get 'toggle'
+      get 'edit_images'
+      post 'update_image_default'
+      post 'update_image_fill'
+      post 'update_image_fit'
+    end
+  end
+
+
+  resources :pages, except: :show do
     collection do
       post 'order'
     end
@@ -219,6 +236,7 @@ Optimadmin::Engine.routes.draw do
     end
   end
   resources :services, except: [:show] do
+    resources :related_services, only: [:index, :destroy]
     collection do
       post 'order'
     end

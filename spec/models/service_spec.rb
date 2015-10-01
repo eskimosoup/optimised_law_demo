@@ -12,7 +12,7 @@ RSpec.describe Service, type: :model do
     it { should have_one(:department).through(:service_category) }
     it { should have_many(:service_testimonials).dependent(:destroy) }
     it { should have_many(:testimonials).through(:service_testimonials) }
-    it "should have_many(:service_pages)"
+    it { should have_many(:pages).dependent(:nullify) }
     it { should have_many(:service_team_members).dependent(:destroy) }
     it { should have_many(:team_members).through(:service_team_members) }
     it { should have_many(:service_offices).dependent(:destroy) }
