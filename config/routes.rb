@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   mount Optimadmin::Engine => "/admin"
 
-  resources :departments, only: :show, path: 'service-category'
+  resources :departments, only: :show, path: 'department'
   resources :services, only: :show do
     member do
       get 'team_member_search', path: 'team-member-search'
@@ -12,24 +12,24 @@ Rails.application.routes.draw do
   end
   resources :audiences, only: :show
 
-  resources :articles, only: [:index, :show]
-  resources :article_categories, only: [:index, :show], path: 'article-category'
+  #resources :articles, only: [:index, :show]
+  #resources :article_categories, only: [:index, :show], path: 'article-category'
 
-  resources :case_studies, only: :show, path: 'case-study'
-  resources :case_study_categories, only: :show, path: 'case-study-category'
+  #resources :case_studies, only: :show, path: 'case-study'
+  #resources :case_study_categories, only: :show, path: 'case-study-category'
 
-  resources :events, only: :show
-  resources :event_categories, only: :show, path: 'event-category'
-  resources :event_locations, only: :show, path: 'event-location'
+  #resources :events, only: :show
+  #resources :event_categories, only: :show, path: 'event-category'
+  #resources :event_locations, only: :show, path: 'event-location'
 
-  resources :downloads, only: :show
+  #resources :downloads, only: :show
 
-  resources :videos, only: :show
-  resources :video_categories, only: :show, path: 'video-category'
+  #resources :videos, only: :show
+  #resources :video_categories, only: :show, path: 'video-category'
 
-  resources :team_members, only: [:index, :show], path: 'team-members'
-  resources :offices, only: :show
-  resources :office_locations, only: :show, path: 'office-locations'
+  #resources :team_members, only: [:index, :show], path: 'team-members'
+  #resources :offices, only: :show
+  #resources :office_locations, only: :show, path: 'office-locations'
 
   root to: "application#index"
 end

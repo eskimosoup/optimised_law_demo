@@ -27,10 +27,18 @@ class CaseStudyPresenter < BasePresenter
   end
 
   def read_more_link
-    h.link_to 'Read more', case_study, class: 'service-content-tab-read-more'
+    begin
+      h.link_to 'Read more', case_study, class: 'service-content-tab-read-more'
+    rescue
+      h.content_tag :span, 'Read more', class: 'service-content-tab-read-more invalid-link'
+    end
   end
 
   def linked_index_image
-    h.link_to index_image(alt: title), case_study, class: 'service-content-tab-content-item' if case_study.image?
+    begin
+      h.link_to index_image(alt: title), case_study, class: 'service-content-tab-content-item' if case_study.image?
+    rescue
+      h.content_tag :span, index_image(alt: title), class: 'service-content-tab-content-item invalid-link' if case_study.image?
+    end
   end
 end
