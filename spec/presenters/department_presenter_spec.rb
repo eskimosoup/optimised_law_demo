@@ -6,22 +6,42 @@ RSpec.describe DepartmentPresenter, type: :presenter do
     let(:department) { build(:department) }
     subject(:department_presenter) { DepartmentPresenter.new(object: department, view_template: view)}
 
+    it "returns the sub heading" do
+      expect(department_presenter.sub_heading).to eq(department.sub_heading)
+    end
+
     it "returns the name" do
       expect(department_presenter.name).to eq(department.name)
     end
 
-    it "returns the layout" do
-      expect(department_presenter.layout).to eq(department.layout)
-    end
-
     it "returns the summary - html escaped" do
-      content = simple_format(department.summary)
+      content = raw(department.summary)
       expect(department_presenter.summary).to eq(content)
     end
 
-    it "returns the content - html escaped" do
-      content = raw(department.content)
-      expect(department_presenter.content).to eq(content)
+    it "returns the services" do
+      expect(department_presenter.services).to eq(department.services)
+    end
+
+  end
+
+  describe "leaflet testing" do
+    describe "no leaflet" do
+      let(:department) { build(:department) }
+      subject(:department_presenter) { DepartmentPresenter.new(object: department, view_template: view)}
+
+      it "leaflet should return nil" do
+        expect(department_presenter.leaflet_download).to eq(nil)
+      end
+    end
+
+    describe "has leaflet" do
+      let(:department) { build(:department_with_leaflet) }
+      subject(:department_presenter) { DepartmentPresenter.new(object: department, view_template: view)}
+
+      it "leaflet should return nil" do
+        expect(department_presenter.leaflet_download).to eq(link_to 'Download a Leaflet', department.leaflet.url)
+      end
     end
   end
 

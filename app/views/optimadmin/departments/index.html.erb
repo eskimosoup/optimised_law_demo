@@ -12,13 +12,20 @@
   </div>
 
   <div class="row collapse module-list-index header">
-    <%= list_item 'large-1 hide-for-medium-down' do %>
-      <%= link_to octicon('settings') %>
-    <% end %>
+    
 
-    <%= list_item 'large-5 small-8' do 'Title' end %>
+    
 
+    
+      <%= list_item 'large-6 small-8' do %>
+        <%= link_to octicon('chevron-down'), '#', class: 'helper-link index-list-expand-all', data: { this_class: 'octicon-chevron-up octicon-chevron-down' } %>
+        Title
+      <% end %>
+    
+
+    
     <%= list_item 'large-2 hide-for-medium-down' do 'Image' end %>
+    
 
     <%= list_item { 'Display' } %>
     <%= list_item { 'View' } %>
@@ -27,9 +34,8 @@
     <%= list_item 'large-1 hide-for-medium-down text-center last' do 'Delete' end %>
   </div>
 
-  <div class='module-sortable' data-module="Department">
-    <%= render partial: 'department', collection: @departments, as: :department_presenter %>
-  </div>
-
+  <!-- <div class='module-sortable' data-module="Department"> -->
+  <%= render partial: 'department', collection: @departments, as: :department_presenter %>
+  <!-- </div> -->
   <%= paginate @departments %>
 </div>

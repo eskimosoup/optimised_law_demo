@@ -4,18 +4,15 @@ class Department < ActiveRecord::Base
   friendly_id :slug_candidates, use: [:slugged, :history]
 
   mount_uploader :image, DepartmentUploader
+  mount_uploader :leaflet, Optimadmin::DocumentUploader
 
-  has_many :service_categories, dependent: :destroy
+  belongs_to :audience
+  has_many :services, dependent: :destroy
 
-  validates :name, :summary, :content, presence: true
-  validates :suggested_url, uniqueness: true, allow_blank: true, case_sensitive: false
+  validates :audience, presence: true
+  validates :name, presence: true
 
-  scope :positioned, -> { order(:position) }
   scope :displayed, -> { where(display: true) }
-
-  def self.layouts
-    %w( basic )
-  end
 
   def slug_candidates
     [

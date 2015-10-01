@@ -3,7 +3,7 @@
     <div class="medium-12 columns">
       <div class="service-related-services-tab right" data-animation-type="slideInRight">
         <%= link_to '#related-services', class: 'expand toggle-class', data: { container: '.service-related-services-list', class: 'hide', return: 'false' } do %>
-          <%= @presented_service.service_category_name %>:
+          <%= @presented_service.department_name %>:
           <strong>Related Services</strong>
         <% end %>
       </div>

@@ -1,0 +1,55 @@
+<section class="service-wrap">
+  <% navigation_add "#{@presented_department.name}", department_path(@department) %>
+  <%= render_navigation %>
+  <%= render 'departments/header' %>
+</section>
+
+<div class="row">
+  <div class="small-12 columns">
+    <div class="service-overview-content-wrap" data-animation-type="slideInLeft">
+      <div class="row" data-equalizer>
+        <%= render 'services/tabbed_sidebar' %>
+
+        <div class="small-12 medium-9 columns" data-equalizer-watch>
+          <div class="row">
+            <div class="small-12 medium-8 columns">
+              <%= render partial: 'services/overview', collection: BaseCollectionPresenter.new(collection: @presented_department.services, view_template: self, presenter: ServicePresenter), as: :service_presenter %>
+            </div>
+
+            <div class="small-12 medium-4 columns">
+              <div class="team-members-service-overview-link">
+                <div class="row collapse">
+                    <div class="small-12 medium-12 large-8 columns">
+                      <%= link_to service_path(@presented_department.services.first, anchor: 'team-members-carousel'), class: 'text-link' do %>
+                        <div class="team-members-service-overview-title">
+                          Talk to our
+                        </div>
+
+                        <div class="team-members-service-overview-name">
+                          <%= @presented_department.name %> team
+                        </div>
+                      <% end %>
+                    </div>
+
+                    <div class="hide-for-medium-down large-4 columns text-center">
+                      <%= link_to service_path(@presented_department.services.first, anchor: 'team-members-carousel') do %>
+                        <%= image_tag 'components/icons/team-members.png', class: 'team-members-service-overview-avatar' %>
+                      <% end %>
+                    </div>
+                </div>
+              </div>
+
+              <%= render 'services/contact_sidebar' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% content_for :call_to_action do %>
+  <ul class="service-overview-fixed-contact-methods hide" data-animation-type='slideInLeft' data-animation-delay='500'>
+    <%= render 'services/contact_sidebar_content' %>
+  </ul>
+<% end %>

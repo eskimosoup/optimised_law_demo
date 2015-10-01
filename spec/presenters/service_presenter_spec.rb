@@ -4,19 +4,19 @@ RSpec.describe ServicePresenter, type: :presenter do
 
   describe "standard service" do
     let(:service) { build(:service) }
-    let(:service_category) { build(:service_category) }
+    let(:department) { build(:department) }
     subject(:service_presenter) { ServicePresenter.new(object: service, view_template: view)}
 
     it "returns the name" do
       expect(service_presenter.name).to eq(service.name)
     end
 
-    it "returns the service category" do
-      expect(service_presenter.service_category).to eq(service.service_category)
+    it "returns the department" do
+      expect(service_presenter.department).to eq(service.department)
     end
 
-    it "returns the service category name" do
-      expect(service_presenter.service_category_name).to eq(service.service_category.name)
+    it "returns the department name" do
+      expect(service_presenter.department_name).to eq(service.department.name)
     end
 
     it "returns the slug" do

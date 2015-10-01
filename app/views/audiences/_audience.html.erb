@@ -1,0 +1,19 @@
+<div class="small-12 medium-4 columns">
+  <div class="hero-audience <%= cycle 'first', 'second', 'third' %>" data-equalizer-watch="hero-departmens" data-animation-type="slideInDown" data-animation-delay="1250">
+    <div class="state-normal">
+      <div class="audience-type">For <%= audience_presenter.name %></div>
+
+      <h3><%= audience_presenter.sub_heading %></h3>
+
+      <%= audience_presenter.summary %>
+  </div>
+
+    <div class="state-hover hide">
+      <div class="audience-type">For <%= audience_presenter.name %></div>
+
+      <ul>
+        <%= render partial: 'departments/department', collection: audience_presenter.departments, as: :department_presenter %>
+      </ul>
+    </div>
+  </div>
+</div>

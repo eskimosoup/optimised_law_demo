@@ -63,22 +63,22 @@ $hero-title-font: $primary-serif-font;
 $hero-title-font-weight: 400;
 $hero-accent-title: #c8e5e6;
 
-$hero-first-department: #45575e;
-$hero-second-department: #8fabb8;
-$hero-third-department: #222a33;
-$hero-department-title-border-color: #548782;
-$hero-department-title-color: #f0eee8;
-$hero-department-font: $secondary-serif-font;
-$hero-department-font-weight: 400;
-$hero-department-color: $white;
-$hero-department-hover-background-color: $white;
-$hero-department-hover-border-color: #85817a;
-$hero-department-hover-link-color: #284654;
-$hero-department-link-hover-border-color: #548782;
-$hero-department-service-title-font: $primary-sans-serif-font;
-$hero-department-service-title-font-weight: 700;
-$hero-department-service-title-color: $white;
-$hero-department-service-title-hover-color: #444a59;
+$hero-first-audience: #45575e;
+$hero-second-audience: #8fabb8;
+$hero-third-audience: #222a33;
+$hero-audience-title-border-color: #548782;
+$hero-audience-title-color: #f0eee8;
+$hero-audience-font: $secondary-serif-font;
+$hero-audience-font-weight: 400;
+$hero-audience-color: $white;
+$hero-audience-hover-background-color: $white;
+$hero-audience-hover-border-color: #85817a;
+$hero-audience-hover-link-color: #284654;
+$hero-audience-link-hover-border-color: #548782;
+$hero-audience-service-title-font: $primary-sans-serif-font;
+$hero-audience-service-title-font-weight: 700;
+$hero-audience-service-title-color: $white;
+$hero-audience-service-title-hover-color: #444a59;
 
 $module-section-background: $white;
 
@@ -107,10 +107,10 @@ $footer-text-color: #fff;
 $footer-title-color: $footer-text-color;
 $footer-link-color: $footer-text-color;
 
-$department-header: #8fabb8;
-$department-header-text-color: $white;
-$department-header-font: $primary-sans-serif-font;
-$department-header-font-weight: 700;
+$audience-header: #8fabb8;
+$audience-header-text-color: $white;
+$audience-header-font: $primary-sans-serif-font;
+$audience-header-font-weight: 700;
 
 $service-category-title-text-color: #6a6f7b;
 $service-category-title-font-weight: 300;
@@ -146,8 +146,8 @@ $call-to-action-link-5-color: $white;
 $call-to-action-content-font: $primary-serif-font;
 $call-to-action-content-font-weight: 700;
 
-$service-overview-header-background: $department-header;
-$service-overview-header-text-color: $department-header-text-color;
+$service-overview-header-background: $audience-header;
+$service-overview-header-text-color: $audience-header-text-color;
 $service-overview-header-font-weight: 700;
 
 $service-overview-content-text-color: $service-category-overview-paragraph-text-color;
@@ -245,8 +245,8 @@ $service-calendar-event-date-background: #cfdfe2;
 $service-calendar-event-date-color: #3b3d40;
 
 
-$service-related-services-background: $department-header;
-$service-related-services-text-color: $department-header-text-color;
+$service-related-services-background: $audience-header;
+$service-related-services-text-color: $audience-header-text-color;
 
 $service-awards-color: $service-calendar-color;
 $service-awards-service-name-color: $team-members-service-overview-name-color;

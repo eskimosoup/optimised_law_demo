@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   before_action :global_site_settings, :objects
 
   def index
-    @presented_departments = BaseCollectionPresenter.new(collection: Department.positioned.displayed, view_template: view_context, presenter: DepartmentPresenter)
+    @presented_audiences = BaseCollectionPresenter.new(collection: Audience.positioned.displayed, view_template: view_context, presenter: AudiencePresenter)
     @presented_articles = BaseCollectionPresenter.new(collection: Article.displayed, view_template: view_context, presenter: ArticlePresenter)
     @presented_business_partners = BaseCollectionPresenter.new(collection: BusinessPartner.positioned.displayed, view_template: view_context, presenter: BusinessPartnerPresenter)
     @presented_testimonials = BaseCollectionPresenter.new(collection: Testimonial.positioned.displayed, view_template: view_context, presenter: TestimonialPresenter)

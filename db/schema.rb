@@ -11,7 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150929153519) do
+ActiveRecord::Schema.define(version: 20151001122418) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -37,12 +38,25 @@ ActiveRecord::Schema.define(version: 20150929153519) do
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
     t.integer  "team_member_id"
-    t.integer  "service_id"
   end
 
   add_index "articles", ["article_category_id"], name: "index_articles_on_article_category_id", using: :btree
-  add_index "articles", ["service_id"], name: "index_articles_on_service_id", using: :btree
   add_index "articles", ["team_member_id"], name: "index_articles_on_team_member_id", using: :btree
+
+  create_table "audiences", force: :cascade do |t|
+    t.string   "name",                         null: false
+    t.string   "image"
+    t.text     "summary"
+    t.text     "content"
+    t.string   "layout"
+    t.string   "slug"
+    t.string   "suggested_url"
+    t.boolean  "display",       default: true
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.string   "sub_heading"
+    t.integer  "position"
+  end
 
   create_table "awards", force: :cascade do |t|
     t.integer  "position"
@@ -92,19 +106,21 @@ ActiveRecord::Schema.define(version: 20150929153519) do
   end
 
   create_table "departments", force: :cascade do |t|
+    t.integer  "audience_id"
     t.string   "name",                         null: false
-    t.string   "image"
     t.text     "summary"
-    t.text     "content"
-    t.string   "layout"
+    t.string   "image"
     t.string   "slug"
     t.string   "suggested_url"
     t.boolean  "display",       default: true
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
-    t.string   "sub_heading"
-    t.integer  "position"
+    t.text     "sub_heading"
+    t.string   "leaflet"
   end
+
+  add_index "departments", ["audience_id"], name: "index_departments_on_audience_id", using: :btree
+  add_index "departments", ["slug"], name: "index_departments_on_slug", using: :btree
 
   create_table "downloads", force: :cascade do |t|
     t.string   "title",                     null: false
@@ -287,7 +303,33 @@ ActiveRecord::Schema.define(version: 20150929153519) do
     t.string "value"
     t.string "environment"
   end
-  
+
+  create_table "pages", force: :cascade do |t|
+    t.string   "title",                        null: false
+    t.string   "slug"
+    t.string   "suggested_url"
+    t.string   "image"
+    t.string   "style",                        null: false
+    t.string   "layout",                       null: false
+    t.boolean  "display",       default: true
+    t.text     "content",                      null: false
+    t.integer  "service_id"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  add_index "pages", ["service_id"], name: "index_pages_on_service_id", using: :btree
+
+  create_table "service_articles", force: :cascade do |t|
+    t.integer  "article_id"
+    t.integer  "service_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "service_articles", ["article_id"], name: "index_service_articles_on_article_id", using: :btree
+  add_index "service_articles", ["service_id"], name: "index_service_articles_on_service_id", using: :btree
+
   create_table "service_awards", force: :cascade do |t|
     t.integer  "award_id"
     t.integer  "service_id"
@@ -307,38 +349,6 @@ ActiveRecord::Schema.define(version: 20150929153519) do
 
   add_index "service_case_studies", ["case_study_id"], name: "index_service_case_studies_on_case_study_id", using: :btree
   add_index "service_case_studies", ["service_id"], name: "index_service_case_studies_on_service_id", using: :btree
-  create_table "pages", force: :cascade do |t|
-    t.string   "title",                        null: false
-    t.string   "slug"
-    t.string   "suggested_url"
-    t.string   "image"
-    t.string   "style",                        null: false
-    t.string   "layout",                       null: false
-    t.boolean  "display",       default: true
-    t.text     "content",                      null: false
-    t.integer  "service_id"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
-  end
-
-  add_index "pages", ["service_id"], name: "index_pages_on_service_id", using: :btree
-
-  create_table "service_categories", force: :cascade do |t|
-    t.integer  "department_id"
-    t.string   "name",                         null: false
-    t.text     "summary"
-    t.string   "image"
-    t.string   "slug"
-    t.string   "suggested_url"
-    t.boolean  "display",       default: true
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
-    t.text     "sub_heading"
-    t.string   "leaflet"
-  end
-
-  add_index "service_categories", ["department_id"], name: "index_service_categories_on_department_id", using: :btree
-  add_index "service_categories", ["slug"], name: "index_service_categories_on_slug", using: :btree
 
   create_table "service_downloads", force: :cascade do |t|
     t.integer  "service_id"
@@ -421,21 +431,21 @@ ActiveRecord::Schema.define(version: 20150929153519) do
   add_index "service_videos", ["video_id"], name: "index_service_videos_on_video_id", using: :btree
 
   create_table "services", force: :cascade do |t|
-    t.integer  "service_category_id"
+    t.integer  "department_id"
     t.integer  "parent_id"
-    t.string   "name",                               null: false
+    t.string   "name",                         null: false
     t.string   "image"
     t.text     "summary"
     t.string   "slug"
     t.string   "suggested_url"
-    t.boolean  "display",             default: true
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.boolean  "display",       default: true
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.text     "content"
     t.string   "leaflet"
   end
 
-  add_index "services", ["service_category_id"], name: "index_services_on_service_category_id", using: :btree
+  add_index "services", ["department_id"], name: "index_services_on_department_id", using: :btree
   add_index "services", ["slug"], name: "index_services_on_slug", using: :btree
 
   create_table "team_member_events", force: :cascade do |t|
@@ -531,15 +541,17 @@ ActiveRecord::Schema.define(version: 20150929153519) do
   add_foreign_key "articles", "article_categories"
   add_foreign_key "articles", "team_members"
   add_foreign_key "case_studies", "case_study_categories"
+  add_foreign_key "departments", "audiences"
   add_foreign_key "events", "event_categories"
   add_foreign_key "events", "event_locations"
   add_foreign_key "offices", "office_locations"
+  add_foreign_key "pages", "services"
+  add_foreign_key "service_articles", "articles"
+  add_foreign_key "service_articles", "services"
   add_foreign_key "service_awards", "awards"
   add_foreign_key "service_awards", "services"
   add_foreign_key "service_case_studies", "case_studies"
   add_foreign_key "service_case_studies", "services"
-  add_foreign_key "pages", "services"
-  add_foreign_key "service_categories", "departments"
   add_foreign_key "service_downloads", "downloads"
   add_foreign_key "service_downloads", "services"
   add_foreign_key "service_events", "events"
@@ -554,7 +566,7 @@ ActiveRecord::Schema.define(version: 20150929153519) do
   add_foreign_key "service_testimonials", "testimonials"
   add_foreign_key "service_videos", "services"
   add_foreign_key "service_videos", "videos"
-  add_foreign_key "services", "service_categories"
+  add_foreign_key "services", "departments"
   add_foreign_key "team_member_events", "events"
   add_foreign_key "team_member_events", "team_members"
   add_foreign_key "team_member_offices", "offices"

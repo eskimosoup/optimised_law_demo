@@ -8,13 +8,14 @@ class Service < ActiveRecord::Base
   mount_uploader :image, ServiceUploader
   mount_uploader :leaflet, Optimadmin::DocumentUploader
 
-  belongs_to :service_category
-  has_one :department, through: :service_category
+  belongs_to :department
+  has_one :audience, through: :department
   has_many :service_testimonials, dependent: :destroy
   has_many :testimonials, -> { displayed }, through: :service_testimonials
   has_many :service_team_members, dependent: :destroy
   has_many :team_members, -> { displayed }, through: :service_team_members
-  has_many :articles, -> { displayed }, dependent: :destroy
+  has_many :service_articles, dependent: :destroy
+  has_many :articles, -> { displayed }, through: :service_articles
   has_many :service_offices, dependent: :destroy
   has_many :offices, -> { displayed }, through: :service_offices
   has_many :service_events, dependent: :destroy
@@ -34,10 +35,11 @@ class Service < ActiveRecord::Base
   has_many :awards, -> { displayed }, through: :service_awards
   has_many :pages, dependent: :nullify
 
-  validates :name, presence: true, uniqueness: { scope: :service_category_id }
+  validates :name, presence: true, uniqueness: { scope: :department_id }
+  validates :department_id, presence: true
   validates :suggested_url, uniqueness: true, allow_blank: true, case_sensitive: false
 
-  scope :displayed, -> { joins(:service_category).where(display: true).merge(ServiceCategory.displayed) }
+  scope :displayed, -> { joins(:department).where(display: true).merge(Department.displayed) }
 
   def slug_candidates
     [

@@ -33,7 +33,7 @@
     <%= field_set_tag nil, id: 'tabs-3' do %>
 
         <div class="field">
-    <%= f.label :suggested_url %><br>
+    <%= f.label :suggested_url %> <%= render 'optimadmin/shared/suggested_url_field' %><br>
     <%= f.text_field :suggested_url %>
   </div>
 

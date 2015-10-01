@@ -88,11 +88,11 @@
     <%= field_set_tag nil, id: 'tabs-3' do %>
     <div class="field">
 <%= f.label :team_member_ids, "Team Members" %><br>
-<%= f.select :team_member_ids, TeamMember.all.map{|x| ["#{x.forename} #{x.surname}", x.id]}, {  }, { multiple: true } %>
+<%= f.select :team_member_ids, TeamMember.all.map{|x| ["#{x.forename} #{x.surname}", x.id]}, {  }, { multiple: true, class: 'multiple-select' } %>
 </div>
     <div class="field">
 <%= f.label :service_ids, "Services" %><br>
-<%= f.select :service_ids, Service.pluck(:name, :id), {  }, { multiple: true } %>
+<%= f.select :service_ids, grouped_options_for_select(Service.includes(:department).group_by(&:department).map{|x| ["#{x[0].name}", x[1].map{|y| [y.name, y.id]}]}, selected: f.object.services.pluck(:id)), {  }, { multiple: true, class: 'multiple-select' } %>
 </div>
             <div class="field">
         <%= f.label :display %><br>

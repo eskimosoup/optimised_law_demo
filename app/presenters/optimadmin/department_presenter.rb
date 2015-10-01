@@ -2,6 +2,10 @@ module Optimadmin
   class DepartmentPresenter < Optimadmin::BasePresenter
     presents :department
 
+    def id
+      department.id
+    end
+
     def name
       department.name
     end
@@ -11,7 +15,7 @@ module Optimadmin
     end
 
     def optimadmin_summary
-      h.raw department.summary
+      h.simple_format department.summary
     end
   end
 end

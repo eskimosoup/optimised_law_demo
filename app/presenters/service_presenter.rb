@@ -1,16 +1,16 @@
 class ServicePresenter < BasePresenter
   presents :service
 
-  def service_category
-    service.service_category
-  end
-
-  def service_category_name
-    service_category.name
-  end
-
   def department
-    service.department.name
+    service.department
+  end
+
+  def department_name
+    department.name
+  end
+
+  def audience
+    service.audience.name
   end
 
   def name
@@ -42,7 +42,7 @@ class ServicePresenter < BasePresenter
   end
 
   def first_service?
-    service == service.service_category.services.first
+    service == service.department.services.first
   end
 
   def related_services

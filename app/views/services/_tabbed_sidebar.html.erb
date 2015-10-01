@@ -1,6 +1,6 @@
 <div class="medium-3 columns service-category-navigation" data-equalizer-watch>
-  <%= link_to "View All #{@presented_service_category.name} Services", '#', class: 'service-category-services-sidebar-toggle toggle-class show-for-small', data: { container: '.service-category-services-sidebar', class: 'hide-for-small', return: 'false' } %>
+  <%= link_to "View All #{@presented_department.name} Services", '#', class: 'service-category-services-sidebar-toggle toggle-class show-for-small', data: { container: '.service-category-services-sidebar', class: 'hide-for-small', return: 'false' } %>
   <ul class="service-category-services-sidebar hide-for-small">
-    <%= render partial: 'service_categories/service_navigation', collection: BaseCollectionPresenter.new(collection: @presented_service_category.services, view_template: self, presenter: ServicePresenter), as: :service_presenter %>
+    <%= render partial: 'departments/service_navigation', collection: BaseCollectionPresenter.new(collection: @presented_department.services, view_template: self, presenter: ServicePresenter), as: :service_presenter %>
   </ul>
 </div>
