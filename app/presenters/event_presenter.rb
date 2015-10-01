@@ -5,7 +5,11 @@ class EventPresenter < BasePresenter
   delegate :title, to: :event
 
   def linked_title
-    h.link_to title, event, title: event.title
+    begin
+      h.link_to title, event, title: event.title, class: 'service-event-title'
+    rescue
+      h.content_tag :span, title, class: 'service-event-title invalid-link'
+    end
   end
 
   def summary

@@ -31,7 +31,7 @@
     </div>
 
     <div class="medium-4 columns"  data-animation-type="slideInLeft" data-equalizer-watch="service-resources">
-      <%= render partial: 'downloads/service_download' %>
+      <%= render partial: 'downloads/service_download' if @service.downloads.present? %>
     </div>
   </div>
 </div>

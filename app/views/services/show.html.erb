@@ -104,7 +104,7 @@
 
       <div class="row">
         <%= render 'services/people_helped' %>
-        <%= render 'services/service_video' %>
+        <%= render 'services/service_video' if @presented_video.present? %>
       </div>
 
       <%= render 'team_members/service_carousel' %>
