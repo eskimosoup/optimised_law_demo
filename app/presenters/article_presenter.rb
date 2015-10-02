@@ -5,8 +5,23 @@ class ArticlePresenter < BasePresenter
   delegate :title, to: :article
 
   def link
-    #h.article_path(article) ? article : '#'
-    '#'
+    begin
+      h.link_to title, article
+      result = article
+    rescue
+      result = '#'
+    end
+
+    result
+  end
+
+  def link_validity_check
+    begin
+      h.link_to title, article
+      ''
+    rescue
+      'invalid-link'
+    end
   end
 
   def article_category

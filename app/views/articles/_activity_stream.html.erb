@@ -7,7 +7,7 @@
     </div>
 
     <div class="large-9 columns">
-      <%= link_to article_presenter.link, class: 'activity-stream-headline invalid-link' do %>
+      <%= link_to article_presenter.link, class: "activity-stream-headline #{article_presenter.link_validity_check}" do %>
         <%= article_presenter.title %>
       <% end %>
     </div>

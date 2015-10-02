@@ -21,3 +21,10 @@
 //= require components/tabs
 //= require vendor/foundation/foundation.js
 //= require vendor/onscreen
+$(document).ready(function() {
+  $('.invalid-link').attr('style', 'cursor: not-allowed !important;');
+});
+
+$(document).on('click', '.invalid-link', function() {
+  return false;
+});
