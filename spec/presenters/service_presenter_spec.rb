@@ -63,7 +63,7 @@ RSpec.describe ServicePresenter, type: :presenter do
       end
 
       it "returns the tab link with active for first service" do
-        link = link_to service.name, "##{service.slug}", class: 'tab-toggle active'
+        link = link_to service.name, "##{service.slug}", class: 'service-tab tab-toggle active'
         expect(service_presenter.tab_link).to eq(link)
       end
 
@@ -71,7 +71,7 @@ RSpec.describe ServicePresenter, type: :presenter do
         # digging deeper to remove deprecation warnings
         #service_presenter.stub(:first_service?) { false }
         allow(service_presenter).to receive_messages(first_service?: false)
-        link = link_to service.name, "##{service.slug}", class: 'tab-toggle'
+        link = link_to service.name, "##{service.slug}", class: 'service-tab tab-toggle'
         expect(service_presenter.tab_link).to eq(link)
       end
     end
