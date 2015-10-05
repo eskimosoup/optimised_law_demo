@@ -13,7 +13,7 @@
         <div class="small-12 medium-9 columns" data-equalizer-watch>
           <div class="row">
             <div class="small-12 medium-8 columns">
-              <%= render partial: 'services/overview', collection: BaseCollectionPresenter.new(collection: @presented_department.services.order(:name), view_template: self, presenter: ServicePresenter), as: :service_presenter %>
+              <%= render partial: 'services/overview', collection: BaseCollectionPresenter.new(collection: @presented_department.services, view_template: self, presenter: ServicePresenter), as: :service_presenter %>
             </div>
 
             <div class="small-12 medium-4 columns">

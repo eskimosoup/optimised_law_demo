@@ -20,7 +20,7 @@ class DepartmentPresenter < BasePresenter
   end
 
   def services
-    department.services
+    department.services.order(:name)
   end
 
   def leaflet_download
