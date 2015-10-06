@@ -10,14 +10,14 @@ module Optimadmin
     end
 
     def new
-      @event_category = Event::Category.new
+      @event_category = EventCategory.new
     end
 
     def edit
     end
 
     def create
-      @event_category = Event::Category.new(event_category_params)
+      @event_category = EventCategory.new(event_category_params)
       if @event_category.save
         redirect_to event_categories_url, notice: 'Event category was successfully created.'
       else
@@ -42,7 +42,7 @@ module Optimadmin
 
 
     def set_event_category
-      @event_category = Event::Category.find(params[:id])
+      @event_category = EventCategory.find(params[:id])
     end
 
     def event_category_params
