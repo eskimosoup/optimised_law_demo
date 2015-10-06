@@ -6,7 +6,7 @@ class BasePresenter
   def initialize(object:, view_template:)
     @object = object
     @view_template = view_template
-    create_image_methods if @object
+    create_image_methods if @object.present?
   end
 
   def self.presents(name)
