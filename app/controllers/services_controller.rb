@@ -12,7 +12,7 @@ class ServicesController < ApplicationController
     @presented_video = VideoPresenter.new(object: @service.videos.last, view_template: view_context) if @service.videos.present?
     @presented_download = DownloadPresenter.new(object: @service.downloads.last, view_template: view_context) if @service.downloads.present?
     @presented_case_studies = BaseCollectionPresenter.new(collection: @service.case_studies.limit(3), view_template: view_context, presenter: CaseStudyPresenter) if @service.case_studies.present?
-    @presented_awards = BaseCollectionPresenter.new(collection: @service.awards, view_template: view_context, presenter: AwardPresenter) if @service.awards.present?
+    @presented_service_awards = BaseCollectionPresenter.new(collection: @service.awards, view_template: view_context, presenter: AwardPresenter) if @service.awards.present?
   end
 
   def team_member_search
