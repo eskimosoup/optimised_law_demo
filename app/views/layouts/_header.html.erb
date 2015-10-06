@@ -1,11 +1,13 @@
 <div class="top">
-  <div class="client-area-content hide" id="client-area-content">
-    Content
-  </div>
+  <% if @client_area.present? %>
+    <div class="client-area-content hide" id="client-area-content">
+      <%= @presented_client_area.content %>
+    </div>
 
-  <div class="client-area-toggle hide-for-small mobile-menu-items">
-    <%= link_to 'Client Area', '#client-area-content', class: 'toggle-class right', data: { container: '.client-area-content', class: 'hide', return: 'true', animation_type: 'slideInRight' } %>
-  </div>
+    <div class="client-area-toggle hide-for-small mobile-menu-items">
+      <%= link_to @presented_client_area.title, '#client-area-content', class: 'toggle-class right', data: { container: '.client-area-content', class: 'hide', return: 'true', animation_type: 'slideInRight' } %>
+    </div>
+  <% end %>
 
   <div class="header">
     <%= link_to root_url, title: global_site_settings['Name'], class: 'logo left' do %>

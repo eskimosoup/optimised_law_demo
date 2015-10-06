@@ -7,6 +7,7 @@
   @extend %clearfix;
 
   @include media('>tablet') {
+    margin: em(34px) 0 0;    
     padding: 0 0 0 em(20px);
   }
 
