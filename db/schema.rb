@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151006070106) do
+ActiveRecord::Schema.define(version: 20151008125257) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -525,6 +525,19 @@ ActiveRecord::Schema.define(version: 20151006070106) do
     t.boolean  "display",        default: true
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
+  end
+
+  create_table "tour_entries", force: :cascade do |t|
+    t.integer  "position"
+    t.string   "page",                           null: false
+    t.string   "page_area",                      null: false
+    t.string   "title",                          null: false
+    t.text     "content",                        null: false
+    t.string   "joyride_options"
+    t.boolean  "display",         default: true
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.string   "next_page"
   end
 
   create_table "video_categories", force: :cascade do |t|

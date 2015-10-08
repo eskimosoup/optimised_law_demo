@@ -14,13 +14,13 @@
 <div class="service-resources-wrap">
   <div class="row" data-equalizer="service-resources">
     <div class="medium-4 columns" id="testimonials" data-animation-type="slideInLeft" data-animation-delay="750" data-equalizer-watch="service-resources">
-      <div class="service-testimonial">
+      <div class="service-testimonial" id="testimonials">
         <%= render partial: 'testimonials/service_testimonial', collection: @presented_service_testimonials, as: :testimonial_presenter %>
       </div>
     </div>
 
     <div class="medium-4 columns" id="tweets" data-animation-type="slideInLeft" data-animation-delay="500" data-equalizer-watch="service-resources">
-      <div class="service-twitter">
+      <div class="service-twitter" id="twitter">
         <p>
           A whole lot of inspiration you can get from the vast variety of
           combinations
@@ -30,7 +30,7 @@
       </div>
     </div>
 
-    <div class="medium-4 columns"  data-animation-type="slideInLeft" data-equalizer-watch="service-resources">
+    <div class="medium-4 columns"  data-animation-type="slideInLeft" data-equalizer-watch="service-resources" id="downloads">
       <%= render partial: 'downloads/service_download' if @service.downloads.present? %>
     </div>
   </div>

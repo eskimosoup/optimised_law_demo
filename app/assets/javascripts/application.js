@@ -20,11 +20,8 @@
 //= require components/call_to_actions
 //= require components/tabs
 //= require vendor/foundation/foundation.js
+//= require vendor/foundation/foundation.joyride
 //= require vendor/onscreen
-$(document).ready(function() {
-  $('.invalid-link').attr('style', 'cursor: not-allowed !important;');
-});
-
 $(document).on('click', '.invalid-link', function() {
   return false;
 });

@@ -32,6 +32,12 @@
   li {
     display: inline-block;
 
+    &:hover {
+      .dropdown {
+        display: block;
+      }
+    }
+
     @include media('<tablet') {
       width: 47%;
     }
@@ -89,7 +95,7 @@
 .primary .dropdown {
   background: $header-primary-dropdown-background-color;
   left: 0;
-  margin: em(4px) 0 0;
+  //margin: em(4px) 0 0;
   padding: em(100px) 0;
   position: absolute;
   width: 100%;

@@ -15,7 +15,7 @@
     <% end %>
 
     <div class="mobile-menu right show-for-small">
-      <%= link_to '#', class: 'toggle-class', data: { container: '.mobile-menu-items', class: 'hide-for-small', return: 'false' } do %>
+      <%= link_to '#menu', class: 'toggle-class', data: { container: '.mobile-menu-items', class: 'hide-for-small', return: 'false' } do %>
         <%= image_tag 'components/icons/menu-icon.png', alt: 'Menu' %>
       <% end %>
     </div>
@@ -27,11 +27,11 @@
 
   <nav class="hide-for-small mobile-menu-items row">
     <div class="small-12 columns position-static">
-      <ul class="primary navigation">
+      <ul class="primary navigation" id="navigation">
         <%= nested_menu_items(menu_items: @header_menu.menu_items) %>
 
         <li>
-          <%= link_to '#', class: 'icon-based reveal-dropdown', title: 'Offices' do %>
+          <%= link_to '#pin', class: 'icon-based reveal-dropdown', title: 'Offices' do %>
             <%= image_tag 'components/navigation/pin.png', alt: 'Offices' %>
           <% end %>
           <div class="dropdown">
@@ -42,7 +42,7 @@
         </li>
 
         <li>
-          <%= link_to '#', class: 'icon-based reveal-dropdown', title: 'Search' do %>
+          <%= link_to '#search', class: 'icon-based reveal-dropdown', title: 'Search' do %>
             <%= image_tag 'components/navigation/search.png', alt: 'Search' %>
           <% end %>
           <div class="dropdown">

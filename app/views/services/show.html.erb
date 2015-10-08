@@ -41,7 +41,7 @@
             <div class="service-navigation">
               <%= @presented_service.index_image %>
 
-              <ul class="service-navigation-page-links">
+              <ul class="service-navigation-page-links" id="sidebar-links">
                 <li><%= link_to 'Case Studies', '#case-studies' %></li>
                 <li><%= link_to 'Testimonials', '#testimonials' %></li>
                 <li><%= link_to 'Tweets', '#tweets' %></li>
@@ -119,7 +119,7 @@
 
               <h6>Awards & Accreditations</h6>
 
-              <ul class="service-awards">
+              <ul class="service-awards" id="awards">
                 <%= render partial: 'awards/award', collection: @presented_service_awards, as: :award_presenter %>
               </ul>
             </div>

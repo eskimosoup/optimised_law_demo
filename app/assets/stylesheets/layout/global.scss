@@ -5,3 +5,8 @@
 body {
   background: $body-background-color;
 }
+
+.invalid-link {
+  opacity: 0.75;
+  cursor: not-allowed !important;
+}

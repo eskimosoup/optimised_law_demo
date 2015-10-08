@@ -34,3 +34,9 @@
 <% end %>
 
 <%= yield :footer %>
+
+<% if @presented_tour_entries.present? %>
+  <ol class="joyride-list" data-joyride>
+    <%= render partial: 'tour_entries/tour_entry', collection: @presented_tour_entries, as: :tour_entry_presenter %>
+  </ol>
+<% end %>
