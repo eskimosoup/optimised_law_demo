@@ -3,6 +3,7 @@ class DepartmentsController < ApplicationController
 
   def show
     @presented_department = DepartmentPresenter.new(object: @department, view_template: view_context)
+    @presented_tour_entries = BaseCollectionPresenter.new(collection: TourEntry.where(page: "#{controller_name.classify}_#{@department.id}").positioned.displayed, view_template: view_context, presenter: TourEntryPresenter)
   end
 
   private

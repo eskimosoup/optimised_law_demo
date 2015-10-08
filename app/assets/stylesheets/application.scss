@@ -5,6 +5,7 @@
 */
 
 @import 'vendor/foundation',
+'vendor/foundation.joyride',
 'vendor/normalize',
 'lib/variables',
 'lib/mixins',
@@ -41,6 +42,7 @@
 'components/articles',
 'components/partners',
 'components/forms',
+'components/tour_entries',
 'layout/responsive',
 'vendor/animate',
 'components/animation',

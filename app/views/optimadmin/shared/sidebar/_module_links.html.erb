@@ -24,7 +24,8 @@
       </div>
 
       <ul id="modules" class="content-category-list">
-<%= module_link(model: Page, path: pages_path) %>
+        <%= module_link(content: "Tour Entries", model: TourEntry, path: tour_entries_path) %>
+        <%= module_link(model: Page, path: pages_path) %>
         <%= module_link(content: "Site Navigation", model: Optimadmin::MenuItem, path: menu_items_path) %>
       </ul>
 

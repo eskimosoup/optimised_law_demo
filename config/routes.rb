@@ -35,6 +35,14 @@ Rails.application.routes.draw do
 end
 
 Optimadmin::Engine.routes.draw do
+  resources :tour_entries, except: [:show] do
+    collection do
+      post 'order'
+    end
+    member do
+      get 'toggle'
+    end
+  end
   resources :additional_contents, except: [:show] do
     collection do
       post 'order'
