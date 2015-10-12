@@ -78,6 +78,10 @@
     width: 95%;
   }
 
+  @include media('<1200px') {
+    height: 100%;
+  }
+
   @include media('>=desktop') {
     left: 0;
     margin: 10% auto;
@@ -90,7 +94,7 @@
 
   .row {
     max-width: 940px;
-    width: 100%;
+    width: 90%;
   }
 
   &.callback {

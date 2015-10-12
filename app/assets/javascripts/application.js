@@ -19,6 +19,7 @@
 //= require components/animation
 //= require components/call_to_actions
 //= require components/tabs
+//= require vendor/foundation/libraries/jquery.cookie.js
 //= require vendor/foundation/foundation.js
 //= require vendor/foundation/foundation.joyride
 //= require vendor/onscreen

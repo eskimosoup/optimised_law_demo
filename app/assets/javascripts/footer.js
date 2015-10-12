@@ -24,10 +24,30 @@ $(function() {
   });
 });
 
-$(window).load(function() {
-  var field = 'tour';
-  var url = window.location.href;
-  if ((url.indexOf('?' + field + '=') != -1) || (url.indexOf('&' + field + '=') != -1)) {
-    setTimeout(function() { $(document).foundation('joyride', 'start'); }, 750);
-  }
-});
+function dismissTourPopup() {
+  $('.lightbox').fadeOut();
+  $.cookie('law-tour', '1', { expires: 21, path: '/' });
+}
+
+if (Modernizr.mq('only screen and (min-width: 1024px)')) {
+  $(window).load(function() {
+    if($.cookie('law-tour') === undefined) {
+      $('.lightbox').removeClass('hide');
+    }
+
+    var field = 'tour';
+    var url = window.location.href;
+    if ((url.indexOf('?' + field + '=') != -1) || (url.indexOf('&' + field + '=') != -1)) {
+      setTimeout(function() { $(document).foundation('joyride', 'start'); }, 750);
+    }
+  });
+
+  $(document).on('click', '.dismiss-tour', function() {
+    dismissTourPopup();
+  });
+
+  $(document).on('click', '.tour-button', function() {
+    $(document).foundation('joyride', 'start');
+    dismissTourPopup();
+  });
+}

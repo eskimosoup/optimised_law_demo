@@ -5,5 +5,5 @@ class AdditionalContent < ActiveRecord::Base
   scope :displayed, -> { where(display: true) }
   scope :area, -> (area) { displayed.find_by(area: area) }
 
-  AREAS = ['Client Area']
+  AREAS = ['Client Area', 'Tour Popup']
 end
