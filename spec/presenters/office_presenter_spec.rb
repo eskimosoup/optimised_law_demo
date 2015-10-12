@@ -39,7 +39,7 @@ RSpec.describe OfficePresenter, type: :presenter do
     end
   end
 
-  describe "email links" do
+  describe "links" do
     describe "office email is nil" do
       let(:office) { build(:office, email: nil) }
       subject(:office_presenter) { OfficePresenter.new(object: office, view_template: view) }
@@ -52,6 +52,12 @@ RSpec.describe OfficePresenter, type: :presenter do
     describe "office has email" do
       it "should return a mailto link" do
         expect(office_presenter.email).to eq(mail_to(office.email))
+      end
+    end
+
+    describe "office show" do
+      it "should return a link" do
+        expect(office_presenter.linked_name).to eq(link_to office.name, office, title: office.name)
       end
     end
   end
