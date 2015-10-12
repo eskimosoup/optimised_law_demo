@@ -36,7 +36,7 @@
           <% end %>
           <div class="dropdown">
             <ul data-animation-type="slideInLeft">
-              <%= render 'locations/navigation_location' %>
+              <%= render partial: 'locations/navigation_location', collection: @presented_offices, as: :office_presenter %>
             </ul>
           </div>
         </li>

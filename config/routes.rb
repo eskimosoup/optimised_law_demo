@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   resources :pages, only: :show
 
   mount Optimadmin::Engine => "/admin"
@@ -12,24 +11,26 @@ Rails.application.routes.draw do
   end
   resources :audiences, only: :show
 
-  #resources :articles, only: [:index, :show]
-  #resources :article_categories, only: [:index, :show], path: 'article-category'
+  unless Rails.env.production?
+    resources :articles, only: [:index, :show]
+    resources :article_categories, only: [:index, :show], path: 'article-category'
 
-  #resources :case_studies, only: :show, path: 'case-study'
-  #resources :case_study_categories, only: :show, path: 'case-study-category'
+    resources :case_studies, only: :show, path: 'case-study'
+    resources :case_study_categories, only: :show, path: 'case-study-category'
 
-  #resources :events, only: :show
-  #resources :event_categories, only: :show, path: 'event-category'
-  #resources :event_locations, only: :show, path: 'event-location'
+    resources :events, only: :show
+    resources :event_categories, only: :show, path: 'event-category'
+    resources :event_locations, only: :show, path: 'event-location'
 
-  #resources :downloads, only: :show
+    resources :downloads, only: :show
 
-  #resources :videos, only: :show
-  #resources :video_categories, only: :show, path: 'video-category'
+    resources :videos, only: :show
+    resources :video_categories, only: :show, path: 'video-category'
 
-  #resources :team_members, only: [:index, :show], path: 'team-members'
-  #resources :offices, only: :show
-  #resources :office_locations, only: :show, path: 'office-locations'
+    resources :team_members, only: [:index, :show], path: 'team-members'
+    resources :offices
+    resources :office_locations, only: :show, path: 'office-locations'
+  end
 
   root to: "application#index"
 end
