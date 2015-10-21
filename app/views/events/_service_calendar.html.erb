@@ -1,21 +1,23 @@
-<div class="large-8 columns" data-equalizer-watch="event-focus">
+<div class="large-12 columns">
   <div class="service-calendar-wrap" id="events">
     <h6>Events</h6>
 
     <div class="row collapse">
       <div class="medium-6 columns">
         <div class="service-event-focus" data-animation-type="slideInLeft">
-          <div class="service-event-date focus">
-            <strong><%= @presented_service_events.first.start_day %></strong>/<%= @presented_service_events.first.start_month %>
-          </div>
+          <%= link_to @presented_service_events.first.link, class: 'service-event-link' do %>
+            <div class="service-event-date focus">
+              <strong><%= @presented_service_events.first.start_day %></strong>/<%= @presented_service_events.first.start_month %>
+            </div>
 
-          <div class="service-event-focus-title">
-            <%= @presented_service_events.first.linked_title %>
-          </div>
+            <div class="service-event-focus-title">
+              <%= @presented_service_events.first.title %>
+            </div>
 
-          <div class="service-event-overview">
-            <%= @presented_service_events.first.summary %>
-          </div>
+            <div class="service-event-overview">
+              <%= @presented_service_events.first.summary %>
+            </div>
+          <% end %>
         </div>
       </div>
 

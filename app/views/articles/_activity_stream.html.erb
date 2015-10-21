@@ -1,5 +1,5 @@
 <div class="activity-stream-activity" data-animation-type="slideInUp" data-animation-delay="500">
-  <div class="row">
+  <div class="row activity-stream-item-collapsed">
     <div class="large-3 columns">
       <div class="activity-time-ago">
         <%= article_presenter.date(:short) %>
@@ -7,9 +7,31 @@
     </div>
 
     <div class="large-9 columns">
-      <%= link_to article_presenter.link, class: "activity-stream-headline #{article_presenter.link_validity_check}" do %>
+      <%= link_to "#activity-stream-#{article_presenter.id}", class: "activity-stream-headline #{article_presenter.link_validity_check}", data: { container: "#activity-stream-#{article_presenter.id}", class: 'hide', return: 'false' } do %>
         <%= article_presenter.title %>
       <% end %>
+    </div>
+  </div>
+
+  <div class="activity-stream-item-expanded hide" id="activity-stream-<%= article_presenter.id %>">
+    <div class="row">
+      <div class="medium-5 columns">
+        <%= article_presenter.activity_stream_image(class: 'activity-stream-featured-image') %>
+      </div>
+
+      <div class="medium-7 columns">
+        <div class="activity-time-ago">
+          <%= article_presenter.date(:short) %>
+        </div>
+
+        <%= link_to article_presenter.link, class: 'activity-stream-featured-headline' do %>
+          <%= article_presenter.title %>
+        <% end %>
+
+        <div class="activity-stream-featured-summary">
+          <%= article_presenter.summary %>
+        </div>
+      </div>
     </div>
   </div>
 </div>

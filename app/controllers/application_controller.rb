@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   before_action :global_site_settings, :objects
 
   def index
-    @presented_tour_entries = BaseCollectionPresenter.new(collection: TourEntry.where(page: 'Home').positioned.displayed, view_template: view_context, presenter: TourEntryPresenter)    
+    @presented_tour_entries = BaseCollectionPresenter.new(collection: TourEntry.where(page: 'Home').positioned.displayed, view_template: view_context, presenter: TourEntryPresenter)
     @presented_audiences = BaseCollectionPresenter.new(collection: Audience.positioned.displayed, view_template: view_context, presenter: AudiencePresenter)
     @presented_articles = BaseCollectionPresenter.new(collection: Article.displayed, view_template: view_context, presenter: ArticlePresenter)
     @presented_business_partners = BaseCollectionPresenter.new(collection: BusinessPartner.positioned.displayed, view_template: view_context, presenter: BusinessPartnerPresenter)
@@ -16,6 +16,7 @@ class ApplicationController < ActionController::Base
   private
 
   def objects
+    @presented_tour_content = AdditionalContentPresenter.new(object: AdditionalContent.displayed.find_by(area: 'Tour Popup'), view_template: view_context)
     @presented_offices = BaseCollectionPresenter.new(collection: Office.displayed, view_template: view_context, presenter: OfficePresenter)
     @presented_awards = BaseCollectionPresenter.new(collection: Award.in_footer, view_template: view_context, presenter: AwardPresenter)
     @client_area = AdditionalContent.area('Client Area')

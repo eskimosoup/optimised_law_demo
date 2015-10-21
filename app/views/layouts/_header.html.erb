@@ -21,6 +21,7 @@
     </div>
 
     <ul class="hide-for-small mobile-menu-items secondary navigation right" data-animation-type="slideInRight">
+      <li><%= link_to 'Take a tour', '#', class: 'tour-button' %></li>
       <%= nested_menu_items(menu_items: @header_aside_menu.menu_items) %>
     </ul>
   </div>

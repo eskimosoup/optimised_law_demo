@@ -39,4 +39,14 @@
   <ol class="joyride-list" data-joyride>
     <%= render partial: 'tour_entries/tour_entry', collection: @presented_tour_entries, as: :tour_entry_presenter %>
   </ol>
+
+  <div class="lightbox hide">
+    <div class="inner">
+      <div class="title"><%= @presented_tour_content.title %></div>
+      <%= @presented_tour_content.content %>
+
+      <%= link_to 'Take a tour now', '#', class: 'tour-button' %><br />
+      <%= link_to 'Close', '#', class: 'dismiss-tour right' %>
+    </div>
+  </div>
 <% end %>

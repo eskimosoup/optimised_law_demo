@@ -18,11 +18,19 @@ module TwitterHelper
   end
 
   def twitter_timeline_text(i, twitter)
-    scan_for_links twitter_timeline(twitter)[i].text
+    begin
+      scan_for_links twitter_timeline(twitter)[i].text
+    rescue
+      ''
+    end
   end
 
   def twitter_timeline_ago(i, twitter)
-    "#{time_ago_in_words twitter_timeline(twitter)[i].created_at} ago"
+    begin
+      "#{time_ago_in_words twitter_timeline(twitter)[i].created_at} ago"
+    rescue
+      ''
+    end
   end
 
   def scan_for_links(text)

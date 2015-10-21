@@ -6,14 +6,9 @@
       arrows: false,
       autoplay: true,
       autoplaySpeed: 4000,
+      slidesToShow: 4,
+      slidesToScroll: 1,
       responsive: [
-        {
-          breakpoint: 1025,
-          settings: {
-            slidesToShow: 4,
-            slidesToScroll: 1
-          }
-        },
         {
           breakpoint: 767,
           settings: {
@@ -22,6 +17,14 @@
           }
         },
       ]
+    });
+    $('.service-case-studies').slick({
+      infinte: true,
+      dots: true,
+      arrows: false,
+      autoplay: false,
+      autoplaySpeed: 4000,
+      slidesToShow: 1
     });
   </script>
 <% end %>
@@ -103,15 +106,16 @@
       <%= render 'services/resources' %>
 
       <div class="row">
-        <%= render 'services/people_helped' %>
-        <%= render 'services/service_video' if @presented_video.present? %>
+        <%= render 'services/people_helped' if @presented_service.has_people_helped_widget.present? %>
+        <%= render 'services/service_video' if @presented_video.present? && @presented_service.has_people_helped_widget.present? %>
+        <%= render 'services/service_video_full' if @presented_video.present? && @presented_service.has_people_helped_widget.blank? %>
       </div>
 
       <%= render 'team_members/service_carousel' %>
 
       <div class="service-event-focus-wrap">
-        <div class="row" data-equalizer="event-focus">
-          <div class="large-4 columns" data-equalizer-watch="event-focus">
+        <div class="row">
+          <div class="large-12 columns">
             <div class="service-awards-wrap">
               <div class="service-awards-service-name">
                 <%= @presented_service.name %>
@@ -124,7 +128,9 @@
               </ul>
             </div>
           </div>
+        </div>
 
+        <div class="row">
           <%= render 'events/service_calendar' if @presented_service_events.present? %>
         </div>
       </div>

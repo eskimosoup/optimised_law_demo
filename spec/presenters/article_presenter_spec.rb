@@ -6,6 +6,10 @@ RSpec.describe ArticlePresenter, type: :presenter do
     let(:team_member) { build(:team_member) }
     subject(:article_presenter) { ArticlePresenter.new(object: article, view_template: view)}
 
+    describe "delegations", :delegation do
+      it { should delegate_method(:id).to(:article) }
+    end
+
     it "returns the name" do
       expect(article_presenter.title).to eq(article.title)
     end

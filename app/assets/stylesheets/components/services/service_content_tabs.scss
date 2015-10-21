@@ -1,47 +1,8 @@
-.service-content-tab-controls {
-  @extend %clearfix;
-  list-style: none;
-  margin: 0;
-
-  li {
-    display: block;
-    float: left;
-    width: 33%;
-  }
-
-  a {
-    background: $service-category-services-sidebar-background;
-    border-top: 10px solid $service-category-services-sidebar-background;
-    border-right: 1px solid $service-category-services-sidebar-active-background;
-    color: $service-category-services-sidebar-color;
-    display: block;
-    font-size: em(15px);
-    font-weight: $service-category-services-sidebar-font-weight;
-    letter-spacing: 1px;
-    padding: em(34px, 15px) em(12px, 15px);
-    text-align: center;
-    text-transform: uppercase;
-
-    &:hover {
-      background: $service-category-services-sidebar-active-background;
-      border-top: 10px solid $service-category-services-sidebar-active-background;
-      color: $service-category-services-sidebar-active-color;
-      text-decoration: none;
-    }
-
-    &:active,
-    &.active {
-      background: $service-category-services-sidebar-active-background;
-      border-top: 10px solid $service-category-services-sidebar-active-border;
-      color: $service-content-tab-active-color;
-      font-weight: $service-content-tab-active-font-weight;
-    }
-  }
-}
-
-.service-content-tab-content {
+.service-case-studies {
   background: $content-background-color;
   padding: em(38px) em(50px);
+  margin: 0;
+  height: 100%;
 
   @include media('<tablet') {
     padding: em(15px);
@@ -58,6 +19,10 @@
     color: $service-content-tab-body-color;
     line-height: 2;
     margin: em(10px) 0;
+  }
+
+  .slick-dots {
+    position: static;
   }
 }
 

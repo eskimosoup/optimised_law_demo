@@ -1,11 +1,13 @@
 <div class="large-6 columns <%= cycle '', 'no-right-border' %>">
   <div class="service-event-list-inner" data-animation-type="slideInDown" data-animation-delay="500">
-    <div class="service-event-date">
-      <div class="service-event-date-inner">
-        <%= event_presenter.start_date %>
+    <%= link_to event_presenter.link, class: 'service-event-link' do %>
+      <div class="service-event-date">
+        <div class="service-event-date-inner">
+          <%= event_presenter.start_date %>
+        </div>
       </div>
-    </div>
 
-    <%= event_presenter.linked_title %>
+      <%= event_presenter.title %>
+    <% end %>
   </div>
 </div>

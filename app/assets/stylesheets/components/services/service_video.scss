@@ -1,5 +1,6 @@
 .service-video-image {
   position: relative;
+  background: $content-background-color;
 }
 
 .service-video-category {
@@ -11,6 +12,12 @@
   letter-spacing: 2px;
   position: absolute;
   text-transform: uppercase;
+
+  &.full-widget {
+    left: 0;
+    top: 0;
+    bottom: initial;
+  }
 }
 
 .service-video-category-name {
@@ -22,6 +29,7 @@
 .service-video-overview {
   background: $content-background-color;
   padding: em(28px);
+  margin: 0 0 em(38px);
 
   @include media('<tablet') {
     margin: 0 0 em(15px);

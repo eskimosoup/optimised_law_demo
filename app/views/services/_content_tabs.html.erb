@@ -1,11 +1,5 @@
 <div class="medium-6 columns" data-equalizer-watch="additional-content">
-  <div data-animation-type="slideInLeft" id="case-studies">
-    <ul class="service-content-tab-controls">
-      <%= render partial: 'case_studies/service_case_study_navigation_link', collection: @presented_case_studies, as: :case_study_presenter %>
-    </ul>
-
-    <div class="service-content-tab-wrap">
-      <%= render partial: 'case_studies/service_case_study', collection: @presented_case_studies, as: :case_study_presenter %>
-    </div>
+  <div data-animation-type="slideInLeft" id="case-studies" class="service-case-studies">
+    <%= render partial: 'case_studies/service_case_study', collection: @presented_case_studies, as: :case_study_presenter %>
   </div>
 </div>

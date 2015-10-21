@@ -2,7 +2,7 @@ class ArticlePresenter < BasePresenter
 
   presents :article
 
-  delegate :title, to: :article
+  delegate :title, :id, to: :article
 
   def link
     begin

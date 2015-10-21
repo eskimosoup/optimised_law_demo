@@ -63,7 +63,7 @@
 .service-event-overview {
   color: $service-calendar-overview-color;
   font-family: $service-calendar-overview-font;
-  font-size: em(20px);
+  font-size: em(16px);
 }
 
 .service-events-list  .columns {
@@ -82,11 +82,19 @@
   font-family: $service-calendar-overview-font;
   font-size: em(16px);
   padding: em(28px, 16px);
+}
 
-  a:link,
-  a:visited,
-  a:hover,
-  a:active {
-    color: $service-calendar-overview-color;
+.service-event-link {
+  display: block;
+  padding: em(10px);
+
+  &:hover {
+    background: $service-calendar-event-hover-background;
+    color: $service-calendar-event-hover;
+    text-decoration: none;
+
+    .service-event-overview {
+      color: $service-calendar-event-hover;
+    }
   }
 }

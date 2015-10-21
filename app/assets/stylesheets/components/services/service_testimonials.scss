@@ -14,7 +14,7 @@
     margin: 0;
 
     @include media('>=desktop') {
-      padding: em(124px, 18px) em(72px, 18px) em(12px, 18px);
+      padding: em(124px, 18px) em(24px, 18px) em(12px, 18px);
     }
 
     @include media('<desktop') {

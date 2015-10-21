@@ -2,7 +2,7 @@ module Optimadmin
   class VideosController < Optimadmin::ApplicationController
     before_action :set_video, only: [:show, :edit, :update, :destroy]
 
-    edit_images_for Video, [[:image, { index: ['fill', 316, 164], show: ['fill', 165, 135], activity_stream: ['fill', 592, 296] }]]
+    edit_images_for Video, [[:image, { index: ['fill', 316, 164], show: ['fill', 165, 135], full_widget: ['fill', 386, 193], activity_stream: ['fill', 592, 296] }]]
 
     def index
       @videos = Optimadmin::BaseCollectionPresenter.new(collection: Video.where('name ILIKE ?', "%#{params[:search]}%").page(params[:page]).per(params[:per_page] || 15), view_template: view_context, presenter: Optimadmin::VideoPresenter)

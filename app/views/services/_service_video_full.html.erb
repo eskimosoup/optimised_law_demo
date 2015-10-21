@@ -1,0 +1,25 @@
+<div class="medium-12 columns" data-animation-type="slideInRight">
+  <div class="row collapse" data-equalizer="service-video">
+    <div class="medium-4 columns">
+      <div class="service-video-image" id="videos" data-equalizer-watch="service-video">
+        <%= @presented_video.full_widget_image(alt: @presented_video.name) %>
+
+        <div class="service-video-category full-widget">
+          <div class="service-video-category-name">
+            <%= @presented_video.video_category_name %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="medium-8 columns">
+      <div class="service-video-overview" data-equalizer-watch="service-video">
+        <div class="service-video-title">
+          <%= @presented_video.name %>
+        </div>
+
+        <%= @presented_video.summary %>
+      </div>
+    </div>
+  </div>
+</div>
