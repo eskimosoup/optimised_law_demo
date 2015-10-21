@@ -1,5 +1,6 @@
 class ServicePresenter < BasePresenter
   presents :service
+  delegate :has_people_helped_widget, to: :service
 
   def department
     service.department

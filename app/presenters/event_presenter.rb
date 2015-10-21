@@ -12,6 +12,17 @@ class EventPresenter < BasePresenter
     end
   end
 
+  def link
+    begin
+      h.link_to title, event
+      result = event
+    rescue
+      result = '#'
+    end
+
+    result
+  end
+
   def summary
     h.raw event.summary
   end

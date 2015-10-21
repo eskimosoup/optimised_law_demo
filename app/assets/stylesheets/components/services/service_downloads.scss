@@ -2,6 +2,14 @@
   background: $content-background-color;
 }
 
+@include media('>=1024px') {
+  .service-downloads-wrap {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+}
+
 .service-download-title {
   font-weight: $service-download-title-font-weight;
   line-height: 1.1;
@@ -17,6 +25,12 @@
 
   @include media('>=desktop') {
     margin-top: 0;
+  }
+
+  &:hover {
+    background: $service-download-read-more-hover;
+    color: $white;
+    text-decoration: none;
   }
 }
 

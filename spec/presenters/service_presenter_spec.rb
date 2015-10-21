@@ -7,6 +7,10 @@ RSpec.describe ServicePresenter, type: :presenter do
     let(:department) { build(:department) }
     subject(:service_presenter) { ServicePresenter.new(object: service, view_template: view)}
 
+    describe "delegations", :delegation do
+      it { should delegate_method(:has_people_helped_widget).to(:service) }
+    end
+
     it "returns the name" do
       expect(service_presenter.name).to eq(service.name)
     end

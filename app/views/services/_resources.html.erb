@@ -19,19 +19,21 @@
       </div>
     </div>
 
-    <div class="medium-4 columns" id="tweets" data-animation-type="slideInLeft" data-animation-delay="500" data-equalizer-watch="service-resources">
-      <div class="service-twitter" id="twitter">
-        <p>
-          A whole lot of inspiration you can get from the vast variety of
-          combinations
-        </p>
+    <div class="medium-8 columns" data-equalizer-watch="service-resources">
+      <div  id="tweets" data-animation-type="slideInLeft" data-animation-delay="500">
+        <div class="service-twitter" id="twitter">
+          <p>
+            A whole lot of inspiration you can get from the vast variety of
+            combinations
+          </p>
 
-        <span class="service-twitter-username">Twitter User</span>
+          <span class="service-twitter-username">Twitter User</span>
+        </div>
       </div>
-    </div>
 
-    <div class="medium-4 columns"  data-animation-type="slideInLeft" data-equalizer-watch="service-resources" id="downloads">
-      <%= render partial: 'downloads/service_download' if @service.downloads.present? %>
+      <div  data-animation-type="slideInLeft" id="downloads" class="service-downloads-wrap">
+        <%= render partial: 'downloads/service_download' if @service.downloads.present? %>
+      </div>
     </div>
   </div>
 </div>

@@ -307,3 +307,14 @@
   font-weight: $call-to-action-content-font-weight;
   margin: 0 0 em(22px, 18px);
 }
+
+.call-to-action-address-title {
+  font-family: $call-to-action-content-font;
+  font-size: em(18px);
+  font-weight: $call-to-action-content-font-weight;
+  margin: em(22px, 18px) 0 0;
+
+  &:first-of-type {
+    margin-top: 0;
+  }
+}
