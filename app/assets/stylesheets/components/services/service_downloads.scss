@@ -4,9 +4,7 @@
 
 @include media('>=1024px') {
   .service-downloads-wrap {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+    margin: em(10px) 0 0;
   }
 }
 
