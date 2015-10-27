@@ -23,7 +23,3 @@ $(document).on({
       //$dropdownElem.slideToggle(250);
     }
 }, '.reveal-dropdown');
-
-$(function(){
-  $('.primary a[href=#]').addClass('invalid-link');
-});

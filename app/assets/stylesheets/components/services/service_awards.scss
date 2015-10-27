@@ -39,6 +39,10 @@
   li.slick-active button:before {
     color: $service-awards-active-color;
   }
+
+  .slick-track {
+    margin: 0 auto;
+  }
 }
 
 .service-awards-service-name {

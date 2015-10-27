@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :audiences, only: :show
 
   unless Rails.env.production?
-    resources :articles, only: [:index, :show]
+    #resources :articles, only: [:index, :show]
     resources :article_categories, only: [:index, :show], path: 'article-category'
 
     resources :case_studies, only: :show, path: 'case-study'

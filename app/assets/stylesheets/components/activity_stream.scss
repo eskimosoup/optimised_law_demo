@@ -24,7 +24,7 @@
 .activity-stream-featured-headline {
   color: $activity-stream-color;
   display: block;
-  font-size: em(21px);
+  font-size: em(18px);
   font-weight: $activity-stream-activity-featured-headline-font-weight;
   line-height: 1.1;
   margin: em(23px, 21px) 0;
@@ -65,7 +65,7 @@
   color: $activity-stream-activity-headline-color;
   display: block;
   font-family: $activity-stream-activity-headline-font;
-  font-size: em(17px);
+  font-size: em(14px);
   font-weight: $activity-stream-activity-headline-font-weight;
 
   @include media('<tablet') {
