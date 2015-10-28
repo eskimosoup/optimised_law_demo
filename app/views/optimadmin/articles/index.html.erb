@@ -15,7 +15,7 @@
 
 
 
-      <%= list_item 'large-6 small-8' do %>
+      <%= list_item 'large-4 small-8' do %>
         <%= link_to octicon('chevron-down'), '#', class: 'helper-link index-list-expand-all', data: { this_class: 'octicon-chevron-up octicon-chevron-down' } %>
         Title
       <% end %>
@@ -24,6 +24,9 @@
 
 
     <%= list_item { 'Display' } %>
+    <%= list_item 'large-2 small-4 columns' do %>
+     Homepage highlight
+    <% end %>
     <%= list_item { 'View' } %>
     <%= list_item { 'Edit' } %>
 

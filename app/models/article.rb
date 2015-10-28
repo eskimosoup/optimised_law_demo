@@ -15,6 +15,7 @@ class Article < ActiveRecord::Base
   validates :suggested_url, uniqueness: true, allow_blank: true, case_sensitive: false
 
   scope :displayed, -> { joins(:article_category).where("articles.display = ? AND date <= ?", true, Date.today).merge(ArticleCategory.displayed).order(date: :desc) }
+  scope :home_page_highlight, -> { where(home_page_highlight: true) }
   scope :for_category, ->(category) { joins(:article_categories).where(article_category_id: category) if category.present? }
 
   def slug_candidates
