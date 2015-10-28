@@ -1,0 +1,9 @@
+.tooltip {
+  background: $alert;
+  border: 1px solid darken($alert, 5%);
+  color: $white;
+  font-size: em(16px);
+  padding: em(5px, 16px);
+  position: absolute;
+  z-index: 9999;
+}
