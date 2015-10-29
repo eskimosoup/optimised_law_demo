@@ -7,16 +7,15 @@ function changeTooltipPosition(event) {
   $('.tooltip').css({
     top: tooltipY,
     left: tooltipX
-  }).fadeIn(250);
+  }).show();
 }
 
 function showTooltip(event, elem) {
-  $('.tooltip').hide();
   changeTooltipPosition(event);
 }
 
 function hideTooltip() {
-  $('.tooltip').fadeOut(250);
+  $('.tooltip').hide();
 }
 
 $(function() {
