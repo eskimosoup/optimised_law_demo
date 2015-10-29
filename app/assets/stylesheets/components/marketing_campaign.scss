@@ -5,6 +5,10 @@
   @include media('<tablet') {
     margin: 0 em(15px);
   }
+
+  .columns {
+    height: 100%;
+  }
 }
 
 .marketing-campaign-content {
