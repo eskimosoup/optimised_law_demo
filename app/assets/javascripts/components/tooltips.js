@@ -7,7 +7,7 @@ function changeTooltipPosition(event) {
   $('.tooltip').css({
     top: tooltipY,
     left: tooltipX
-  }).show();
+  }).removeClass('hide');
 }
 
 function showTooltip(event, elem) {
@@ -15,13 +15,13 @@ function showTooltip(event, elem) {
 }
 
 function hideTooltip() {
-  $('.tooltip').hide();
+  $('.tooltip').addClass('hide');
 }
 
 $(function() {
   $('a[href="#no-link"]').addClass('invalid-link');
   $('.modal-call-to-action input[type=submit]').addClass('invalid-link').attr('disabled');
-  $('<div class="tooltip">This is not active because this website is a demo.</div>').appendTo('body');
+  $('<div class="tooltip hide">This is not active because this website is a demo.</div>').appendTo('body');
 });
 
 $(document).on({
