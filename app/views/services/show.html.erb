@@ -84,7 +84,7 @@
 
                       <div class="hide-for-medium-down large-4 columns text-center">
                         <%= link_to '#team-members-carousel' do %>
-                          <%= image_tag 'components/icons/team-members.png', class: 'team-members-service-overview-avatar' %>
+                          <%= image_tag @service.team_members.first.image.small, class: 'team-members-service-overview-avatar' %>
                         <% end %>
                       </div>
                   </div>
