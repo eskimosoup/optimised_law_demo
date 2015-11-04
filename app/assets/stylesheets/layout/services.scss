@@ -23,9 +23,12 @@
 
 .service-overview-content-wrap,
 .service-content-wrap {
-  background: $service-category-overview-background-color;
   border-top: 14px solid $audience-header;
   margin: 0 0 em(38px);
+
+  &.background {
+    background: $service-category-overview-background-color;
+  }
 
   p {
     @extend %service-category-paragraph;
@@ -112,7 +115,24 @@
 }
 
 .service-overview-read-more {
-  @extend %read-more;
+  @include border-radius(30px);
+  background: $service-overview-read-more-background-color;
+  border: 1px solid $service-overview-read-more-border-color;
+  color: $service-overview-read-more-color;
+  display: block;
+  font-size: em(10px);
+  font-weight: $service-overview-read-more-font-weight;
+  margin: em(51px, 10px) 0 0;
+  padding: em(11px, 10px);
+  text-align: center;
+  text-transform: uppercase;
+
+  &:link,
+  &:visited,
+  &:active,
+  &:hover {
+    color: $service-overview-read-more-color;
+  }
 }
 
 .service-overview-contact-methods {

@@ -1,6 +1,6 @@
 .breadcrumbs {
   @extend %clearfix;
-  margin-bottom: em(65px);
+  margin-bottom: em(35px);
 
   @include media('<desktop') {
     margin-bottom: em(15px);

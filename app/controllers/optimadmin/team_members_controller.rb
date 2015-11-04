@@ -2,7 +2,7 @@ module Optimadmin
   class TeamMembersController < Optimadmin::ApplicationController
     before_action :set_team_member, only: [:show, :edit, :update, :destroy]
 
-    edit_images_for TeamMember, [[:image, { index: ['fill', 283, 145], show: ['fill', 165, 135] }]]
+    edit_images_for TeamMember, [[:image, { small: ['fill', 61, 61], index: ['fill', 283, 145], show: ['fill', 165, 135] }]]
 
     def index
       @team_members = Optimadmin::BaseCollectionPresenter.new(collection: TeamMember.where('forename ILIKE :search OR surname ILIKE :search', search: "%#{params[:search]}%").page(params[:page]).per(params[:per_page] || 15), view_template: view_context, presenter: Optimadmin::TeamMemberPresenter)

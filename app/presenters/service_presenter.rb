@@ -39,7 +39,7 @@ class ServicePresenter < BasePresenter
   end
 
   def tab_link
-    h.link_to service.name, "##{slug}", class: "service-tab tab-toggle#{" active" if first_service?}"
+    h.link_to service.name, "##{slug}", class: "service-tab tab-toggle"
   end
 
   def first_service?
