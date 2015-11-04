@@ -3,9 +3,9 @@ class ServicesController < ApplicationController
 
   def show
     return redirect_to @service, status: :moved_permanently if request.path != service_path(@service)
-    @presented_tour_entries = BaseCollectionPresenter.new(collection: TourEntry.where(page: "#{controller_name.classify}_#{@service.id}").positioned.displayed, view_template: view_context, presenter: TourEntryPresenter)    
+    @presented_tour_entries = BaseCollectionPresenter.new(collection: TourEntry.where(page: "#{controller_name.classify}_#{@service.id}").positioned.displayed, view_template: view_context, presenter: TourEntryPresenter)
     @presented_service = ServicePresenter.new(object: @service, view_template: view_context)
-    @presented_service_articles = BaseCollectionPresenter.new(collection: @service.articles, view_template: view_context, presenter: ArticlePresenter) if @service.articles.present?
+    @presented_service_articles = BaseCollectionPresenter.new(collection: @service.articles.limit(3), view_template: view_context, presenter: ArticlePresenter) if @service.articles.present?
     @presented_service_testimonials = BaseCollectionPresenter.new(collection: @service.testimonials, view_template: view_context, presenter: TestimonialPresenter) if @service.testimonials.present?
     @presented_service_team_members = BaseCollectionPresenter.new(collection: @service.team_members, view_template: view_context, presenter: TeamMemberPresenter) if @service.team_members.present?
     @presented_offices = BaseCollectionPresenter.new(collection: @service.offices, view_template: view_context, presenter: OfficePresenter) if @service.offices.present?

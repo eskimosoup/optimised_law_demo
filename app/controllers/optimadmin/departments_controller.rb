@@ -2,8 +2,8 @@ module Optimadmin
   class DepartmentsController < Optimadmin::ApplicationController
     before_action :set_department, only: [:show, :edit, :update, :destroy]
 
-    edit_images_for Department, [[:image, { show: ['fill', 438, 499] }]]
-
+    edit_images_for Department, [[:image, { show: ['fill', 165, 135] }]]
+    
     def index
       @departments = Optimadmin::BaseCollectionPresenter.new(collection: Department.where('name ILIKE ?', "%#{params[:search]}%").page(params[:page]).per(params[:per_page] || 15), view_template: view_context, presenter: Optimadmin::DepartmentPresenter)
     end

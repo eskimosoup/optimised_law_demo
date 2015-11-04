@@ -5,7 +5,7 @@ class DepartmentUploader < Optimadmin::ImageUploader
   end
 
   version :show do
-    process resize_to_fill: [438, 499]
+    process resize_to_fill: [165, 135]
   end
 
 end

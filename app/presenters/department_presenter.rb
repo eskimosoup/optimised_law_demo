@@ -1,7 +1,7 @@
 class DepartmentPresenter < BasePresenter
   presents :department
 
-  delegate :name, to: :department
+  delegate :name, :slug, to: :department
 
   def sub_heading
     department.sub_heading
@@ -15,10 +15,6 @@ class DepartmentPresenter < BasePresenter
     image(:index)
   end
 
-  def show_image
-    image(:show)
-  end
-
   def services
     department.services.order(:name)
   end
@@ -27,9 +23,19 @@ class DepartmentPresenter < BasePresenter
     h.link_to 'Download a Leaflet', department.leaflet.url if department.leaflet?
   end
 
-  private
+  # TODO: Add in tests for these three methods
+  def overview_image
+    image(:show, alt: name, class: 'hide-for-medium-down')
+  end
 
-  def image(version)
-    h.image_tag department.image.url(version), title: name, alt: name if department.image?
+  def tab_link
+    h.link_to department.name, "##{slug}", class: "service-tab tab-toggle active"
+  end
+
+  def department_head
+    return nil if department.services.blank? || department.services.first.team_members.blank?
+    h.link_to h.service_path(department.services.first, anchor: 'team-members-carousel'), class: 'team-members-link', id: 'team-members' do
+      h.image_tag department.services.first.team_members.first.image.small, class: 'team-members-service-overview-avatar'
+    end
   end
 end

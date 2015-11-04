@@ -20,6 +20,14 @@
 
 <div class="row">
   <div class="small-12 columns">
+    <div class="department-title">
+      <%= @presented_department.tab_link %>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="small-12 columns">
     <div class="service-overview-content-wrap" data-animation-type="slideInLeft">
       <div class="row" data-equalizer>
         <%= render 'services/tabbed_sidebar' %>
@@ -27,6 +35,20 @@
         <div class="small-12 medium-9 columns" data-equalizer-watch>
           <div class="row">
             <div class="small-12 medium-8 columns">
+              <div class="service-overview-content" id="<%= @presented_department.slug %>">
+                <div class="service-overview-header">
+                  <h1>
+                    <%= @presented_department.name %>
+                  </h1>
+
+                  <%= @presented_department.overview_image %>
+                </div>
+
+                <p><%= @presented_department.sub_heading %></p>
+
+                <%= @presented_department.summary %>
+              </div>
+
               <%= render partial: 'services/overview', collection: BaseCollectionPresenter.new(collection: @presented_department.services, view_template: self, presenter: ServicePresenter), as: :service_presenter %>
             </div>
 
@@ -49,9 +71,7 @@
 
                     <div class="hide-for-medium-down large-4 columns text-center">
                       <% if @presented_department.services.present? %>
-                        <%= link_to service_path(@presented_department.services.first, anchor: 'team-members-carousel'), class: 'team-members-link', id: 'team-members' do %>
-                          <%= image_tag 'components/icons/team-members.png', class: 'team-members-service-overview-avatar' %>
-                        <% end %>
+                        <%= @presented_department.department_head %>
                       <% end %>
                     </div>
                 </div>
