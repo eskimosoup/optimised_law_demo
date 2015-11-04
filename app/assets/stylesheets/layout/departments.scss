@@ -9,6 +9,26 @@
   }
 }
 
+
+.service-overview-title-block {
+  background: $audience-header;
+  color: $audience-header-text-color;
+  display: inline-block;
+  font-size: em(16px);
+  font-weight: $service-category-services-sidebar-font-weight;
+  padding: em(18px, 16px) em(22px, 16px) em(11px, 16px);
+  margin-left: em(20px, 16px);
+  text-transform: uppercase;
+  text-align: center;
+
+  &:link,
+  &:visited,
+  &:hover,
+  &:active {
+    color: $audience-header-text-color;
+  }
+}
+
 .service-category-overview-content-wrap {
   background: $service-category-overview-background-color;
   margin: 0 0 em(20px);
@@ -46,8 +66,6 @@
 }
 
 .service-category-navigation {
-  background: $body-background-color;
-
   @include media('>=tablet') {
     padding-right: 0;
   }
@@ -66,7 +84,6 @@
 }
 
 .service-category-services-sidebar-toggle {
-  background: $service-category-services-sidebar-color;
   display: block;
   color: $service-category-services-sidebar-active-color;
   font-size: em(16px);
@@ -85,6 +102,10 @@
   }
 }
 
+.department-overview-wrap {
+  background: $service-category-services-sidebar-color;
+}
+
 .service-category-services-sidebar {
   list-style: none;
   margin: 0;
@@ -96,14 +117,12 @@
 
   a {
     background: $service-category-services-sidebar-background;
-    border-left-color: $body-background-color;
-    border-left-style: solid;
     border-width: 0 0 4px 20px;
     color: $service-category-services-sidebar-color;
     font-size: em(16px);
     font-weight: $service-category-services-sidebar-font-weight;
-    margin: 0 0 em(4px, 16px);
-    padding: em(36px, 16px) em(22px, 16px) em(22px, 16px);
+    margin: 0 0 em(4px, 16px) em(20px, 16px);
+    padding: em(18px, 16px) em(22px, 16px) em(11px, 16px);
 
     @include media('<tablet') {
       padding: em(18px, 16px) em(11px, 16px) em(11px, 16px);
@@ -124,6 +143,7 @@
     &.active {
       background: $service-category-services-sidebar-active-background;
       border-left-color: $service-category-services-sidebar-active-border;
+      border-left-style: solid;
       color: $service-category-services-sidebar-active-color;
       margin: 0 0 em(8px, 16px);
     }

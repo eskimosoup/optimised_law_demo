@@ -29,7 +29,7 @@ class DepartmentPresenter < BasePresenter
   end
 
   def tab_link
-    h.link_to department.name, "##{slug}", class: "service-tab tab-toggle active"
+    h.link_to department.name, "##{slug}", class: "service-overview-title-block"
   end
 
   def department_head
