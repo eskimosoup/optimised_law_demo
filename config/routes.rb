@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   end
   resources :audiences, only: :show
 
-  if Rails.env.development?
+  if Rails.env.test?
     resources :articles, only: [:index, :show]
     resources :article_categories, only: [:index, :show], path: 'article-category'
 

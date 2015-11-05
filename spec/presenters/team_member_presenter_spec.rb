@@ -17,7 +17,7 @@ RSpec.describe TeamMemberPresenter, type: :presenter do
     end
 
     it "returns the linked article category name" do
-      expect(article_presenter.link).to eq(view.team_member_path(team_member))
+      expect(team_member_presenter.link).to eq(team_member)
     end
 
     it "should return surname" do
