@@ -1,15 +1,8 @@
 <%= content_for :head do %>
   <script>
-  $(function() {
-    var active = $('.service-tab.active').attr('href');
-    var href = $(active + ' .service-overview-read-more').attr('href');
-
-    if(href !== undefined) {
-      $('.team-members-link').attr('style', '').attr('href', href + '#team-members-carousel');
-    } else {
-      $('.team-members-link').attr('style', 'display:none;');
-    }
-  })
+    $(function() {
+      $('.team-members-link').addClass('invalid-link');
+    })
   </script>
 <% end %>
 <section class="service-wrap">
@@ -30,7 +23,7 @@
           <div class="small-12 medium-9 columns" data-equalizer-watch>
             <div class="row">
               <div class="small-12 medium-8 columns">
-                <div class="service-overview-content department-overview " id="<%= @presented_department.slug %>">
+                <div class="service-overview-content department-overview " id="<%= @presented_department.slug %>" data-service-name="<%= @presented_department.name %>">
                   <div class="service-overview-header">
                     <h1>
                       <%= @presented_department.name %>
