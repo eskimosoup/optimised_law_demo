@@ -14,6 +14,10 @@ RSpec.describe ArticlePresenter, type: :presenter do
       expect(article_presenter.title).to eq(article.title)
     end
 
+    it "returns the red more link" do
+      expect(article_presenter.read_more).to eq(link_to 'Read more', article, class: 'activity-stream-read-more ', title: 'Read more')
+    end
+
     it "returns the linked team member name" do
       #link = "by #{link_to [article.team_member.forename, article.team_member.surname].join(' '), article.team_member}"
       link = "by " + [article.team_member.forename, article.team_member.surname].join(' ')

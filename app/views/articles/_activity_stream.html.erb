@@ -24,13 +24,11 @@
           <%= article_presenter.date(:short) %>
         </div>
 
-        <%= link_to article_presenter.link, class: 'activity-stream-featured-headline' do %>
-          <%= article_presenter.title %>
-        <% end %>
-
         <div class="activity-stream-featured-summary">
           <%= article_presenter.summary %>
         </div>
+
+        <%= article_presenter.read_more %>
       </div>
     </div>
   </div>
