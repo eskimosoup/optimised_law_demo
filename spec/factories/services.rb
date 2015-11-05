@@ -15,3 +15,8 @@ FactoryGirl.define do
     factory :service_with_leaflet, traits: [:with_leaflet]
   end
 end
+FactoryGirl.define do
+  factory :service_with_team_members, parent: :service do |listing|
+    team_members { build_list :team_member, 3 }
+  end
+end

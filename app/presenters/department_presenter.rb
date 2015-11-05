@@ -23,7 +23,6 @@ class DepartmentPresenter < BasePresenter
     h.link_to 'Download a Leaflet', department.leaflet.url if department.leaflet?
   end
 
-  # TODO: Add in tests for these three methods
   def overview_image
     image(:show, alt: name, class: 'hide-for-medium-down')
   end

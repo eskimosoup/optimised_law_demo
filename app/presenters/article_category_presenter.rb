@@ -7,7 +7,7 @@ class ArticleCategoryPresenter < BasePresenter
     begin
       h.link_to name, h.articles_path(category: name)
     rescue
-      h.content_tag :span, title, class: 'invalid-link'
+      h.content_tag :span, name, class: 'invalid-link'
     end
   end
 end
