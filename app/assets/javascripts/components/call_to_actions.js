@@ -17,7 +17,8 @@ function showStickyCTA() {
   var animationDelay = $elem.attr('data-animation-delay');
 
   $elem.removeClass('hide');
-  
+  $elem.find('.call-to-action-content-wrap').removeAttr('style');
+
   if( animationDelay !== undefined )  {
     setTimeout(function() {
       $elem.removeClass('visibility-hidden').addClass('animated ' + animationType);

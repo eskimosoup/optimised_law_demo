@@ -9,8 +9,7 @@
   }
 }
 
-
-.service-overview-title-block {
+%service-overview-title-block {
   background: $audience-header;
   color: $audience-header-text-color;
   display: inline-block;
@@ -20,6 +19,23 @@
   margin-left: em(20px, 16px);
   text-transform: uppercase;
   text-align: center;
+
+  @media screen and (min-width: 768px) {
+    position: absolute;
+    bottom: 0;
+  }
+}
+
+.service-overview-title-block-name {
+  @extend %service-overview-title-block;
+
+  a {
+    color: $audience-header-text-color;
+  }
+}
+
+.service-overview-title-block {
+  @extend %service-overview-title-block;
 
   &:link,
   &:visited,
