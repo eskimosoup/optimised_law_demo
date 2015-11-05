@@ -13,10 +13,6 @@
   </script>
 <% end %>
 <section class="service-wrap">
-  <% navigation_add "#{@presented_department.name}", department_path(@department) %>
-
-  <%= render_navigation %>
-
   <div class="row">
     <div class="small-12 columns">
       <div class="department-title">
@@ -27,11 +23,11 @@
 
   <div class="row">
     <div class="small-12 columns">
-      <div class="service-overview-content-wrap" data-animation-type="slideInLeft">
+      <div class="service-overview-content-wrap department-overview-wrap " data-animation-type="slideInLeft">
         <div class="row collapse" data-equalizer>
           <%= render 'services/tabbed_sidebar' %>
 
-          <div class="small-12 medium-9 department-overview-wrap columns" data-equalizer-watch>
+          <div class="small-12 medium-9 columns" data-equalizer-watch>
             <div class="row">
               <div class="small-12 medium-8 columns">
                 <div class="service-overview-content department-overview " id="<%= @presented_department.slug %>">

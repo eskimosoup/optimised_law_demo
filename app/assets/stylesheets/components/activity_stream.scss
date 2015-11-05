@@ -86,3 +86,8 @@
 .activity-stream-item-expanded {
   margin: em(10px) auto 0;
 }
+
+.activity-stream-read-more {
+  font-size: em(12px);
+  font-weight: $activity-stream-read-more-font-weight;
+}

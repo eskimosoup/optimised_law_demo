@@ -7,7 +7,7 @@
     </div>
 
     <div class="large-9 columns">
-      <%= link_to "#activity-stream-#{article_presenter.id}", class: "activity-stream-headline #{article_presenter.link_validity_check}", data: { container: "#activity-stream-#{article_presenter.id}", class: 'hide', return: 'false' } do %>
+      <%= link_to "#activity-stream-#{article_presenter.id}", class: "activity-stream-headline", data: { container: "#activity-stream-#{article_presenter.id}", class: 'hide', return: 'false' } do %>
         <%= article_presenter.title %>
       <% end %>
     </div>
@@ -24,13 +24,11 @@
           <%= article_presenter.date(:short) %>
         </div>
 
-        <%= link_to article_presenter.link, class: 'activity-stream-featured-headline' do %>
-          <%= article_presenter.title %>
-        <% end %>
-
         <div class="activity-stream-featured-summary">
           <%= article_presenter.summary %>
         </div>
+
+        <%= article_presenter.read_more %>
       </div>
     </div>
   </div>

@@ -64,6 +64,10 @@ class ArticlePresenter < BasePresenter
     h.l article.date, format: format
   end
 
+  def read_more
+    h.link_to 'Read more', link, class: "activity-stream-read-more #{link_validity_check}", title: 'Read more'
+  end
+
   private
 
   def image(version, options = {})

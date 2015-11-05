@@ -36,10 +36,8 @@
   li {
     display: inline-block;
 
-    &:hover {
-      .dropdown {
-        display: block;
-      }
+    &:hover .dropdown {
+      display: block;
     }
 
     @include media('<tablet') {

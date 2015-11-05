@@ -23,3 +23,19 @@ $(document).on({
       //$dropdownElem.slideToggle(250);
     }
 }, '.reveal-dropdown');
+
+
+$(document).on({
+    mouseenter: function () {
+      var $elem = $(this);
+      var $dropdownElem = $elem.closest('.dropdown');
+      $dropdownElem.css('display', 'block');
+
+      return false;
+    },
+    mouseleave: function () {
+      var $elem = $(this);
+      var $dropdownElem = $elem.closest('.dropdown');
+      $dropdownElem.removeAttr('style');
+    }
+}, '.dropdown select');

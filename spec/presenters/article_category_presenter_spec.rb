@@ -14,7 +14,7 @@ RSpec.describe ArticleCategoryPresenter, type: :presenter do
     end
 
     it "should return a filter link for articles index" do
-      expect(article_category_presenter.filter_link).to eq(link_to(article_category.name, view.articles_path(category: article_category.id)))
+      expect(article_category_presenter.filter_link).to eq(link_to(article_category.name, view.articles_path(category: article_category.name)))
     end
   end
 end

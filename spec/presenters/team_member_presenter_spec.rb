@@ -16,6 +16,10 @@ RSpec.describe TeamMemberPresenter, type: :presenter do
       expect(team_member_presenter.forename).to eq(team_member.forename)
     end
 
+    it "returns the linked article category name" do
+      expect(team_member_presenter.link).to eq(team_member)
+    end
+
     it "should return surname" do
       expect(team_member_presenter.surname).to eq(team_member.surname)
     end

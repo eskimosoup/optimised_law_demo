@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 
@@ -40,15 +39,16 @@ group :development, :test do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
   gem 'rspec-rails', '~> 3.0'
-  gem "factory_girl_rails"
+  gem 'factory_girl_rails'
   gem 'shoulda-matchers'
 end
 
 group :test do
   gem 'database_cleaner', '~> 1.4.1'
-  gem "capybara"
+  gem 'capybara'
   gem 'launchy', '~> 2.4.3'
   gem 'poltergeist'
+  gem 'simplecov', require: false
 end
 
 group :development do
@@ -63,7 +63,7 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-slick.js'
 end
 
-#gem 'optimadmin', git: 'git@github.com:eskimosoup/Optimadmin.git'
+# gem 'optimadmin', git: 'git@github.com:eskimosoup/Optimadmin.git'
 gem 'optimadmin', path: '../optimadmin'
 gem 'friendly_id', '~> 5.1.0'
 gem 'octicons-rails'

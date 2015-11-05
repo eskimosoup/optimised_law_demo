@@ -4,7 +4,7 @@ class AwardPresenter < BasePresenter
   delegate :name, to: :award
 
   def show
-    if award.link
+    if award.link.present?
       h.link_to show_image(alt: name), award.link, title: name
     else
       show_image(alt: name)

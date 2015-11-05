@@ -1,11 +1,13 @@
-<div class="team-member-service-carousel">
-  <%= team_member_presenter.carousel_image %>
+<%= link_to team_member_presenter.link do %>
+  <div class="team-member-service-carousel">
+    <%= team_member_presenter.carousel_image %>
 
-  <div class="team-members-service-carousel-name">
-    <%= team_member_presenter.name %>
-  </div>
+    <div class="team-members-service-carousel-name">
+      <%= team_member_presenter.name %>
+    </div>
 
-  <div class="team-members-service-carousel-role">
-    <%= team_member_presenter.role %>
+    <div class="team-members-service-carousel-role">
+      <%= team_member_presenter.role %>
+    </div>
   </div>
-</div>
+<% end %>

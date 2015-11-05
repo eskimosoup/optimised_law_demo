@@ -3,6 +3,17 @@ class TeamMemberPresenter < BasePresenter
 
   delegate :forename, :surname, :primary_phone_number, :secondary_phone_number, :mobile_phone_number, to: :team_member
 
+  def link
+    begin
+      h.link_to 'Team Member', team_member
+      result = team_member
+    rescue
+      result = '#invalid-link'
+    end
+
+    result
+  end
+
   def name
     [forename, surname].join(" ")
   end

@@ -14,5 +14,9 @@ FactoryGirl.define do
     factory :department_with_image, traits: [:with_image]
     factory :department_with_leaflet, traits: [:with_leaflet]
   end
-
+end
+FactoryGirl.define do
+  factory :department_with_service, parent: :department do |listing|
+    services { build_list :service_with_team_members, 3 }
+  end
 end

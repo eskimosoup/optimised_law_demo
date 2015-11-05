@@ -30,11 +30,19 @@
 <% end %>
 
 <section class="service-wrap">
-  <% navigation_add "#{@presented_service.department_name}", department_path(@presented_service.department) %>
-  <% navigation_add "#{@presented_service.name}", service_path(@service) %>
-  <%= render_navigation %>
+  <div class="row" data-equalizer="service-overview-top">
+    <div class="small-6 columns" data-equalizer-watch>
+      <div class="service-overview-title-block-name">
+        <%= @presented_department.linked_name %>
+        /
+        <%= @presented_service.name %>
+      </div>
+    </div>
 
-  <%= render 'services/related_services' %>
+    <div class="small-6 columns" data-equalizer-watch>
+      <%= render 'services/related_services' %>
+    </div>
+  </div>
 
   <div class="row">
     <div class="small-12 columns">
@@ -52,7 +60,7 @@
                 <li><%= link_to 'Downloads', '#downloads' %></li>
                 <li><%= link_to 'Client Journey', '#videos' %></li>
                 <li><%= link_to 'Meet your Specialists', '#team-members-carousel' %></li>
-                <li><%= link_to 'Latest Events', '#events' %></li>
+                <!-- <li><%#= link_to 'Latest Events', '#events' %></li> -->
               </ul>
             </div>
           </div>
@@ -77,7 +85,7 @@
                           </div>
 
                           <div class="team-members-service-overview-name">
-                            <%= @presented_service.department_name %> team
+                            <%= @presented_service.name %> team
                           </div>
                         <% end %>
                       </div>
