@@ -20,16 +20,7 @@
     </div>
 
     <div class="medium-8 columns" data-equalizer-watch="service-resources">
-      <div  id="tweets" data-animation-type="slideInLeft" data-animation-delay="500">
-        <div class="service-twitter" id="twitter">
-          <p>
-            A whole lot of inspiration you can get from the vast variety of
-            combinations
-          </p>
-
-          <span class="service-twitter-username">Twitter User</span>
-        </div>
-      </div>
+      <%= render 'services/twitter' %>
 
       <div  data-animation-type="slideInLeft" id="downloads" class="service-downloads-wrap">
         <%= render partial: 'downloads/service_download' if @service.downloads.present? %>

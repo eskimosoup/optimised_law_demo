@@ -1,9 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe Service, type: :model do
+RSpec.describe Service, type: :model, service: true do
   describe "validations", :validation do
     subject(:service) { build(:service) }
     it { should validate_presence_of(:name) }
+    it { should validate_inclusion_of(:layout).in_array(Service::LAYOUTS).allow_blank }
     it { should validate_presence_of(:department_id) }
     it { should validate_uniqueness_of(:suggested_url).allow_blank.case_insensitive }
   end
@@ -35,6 +36,8 @@ RSpec.describe Service, type: :model do
     it { should have_many(:awards).through(:service_awards) }
     it { should have_many(:service_articles).dependent(:destroy) }
     it { should have_many(:articles).through(:service_articles) }
+    it { should have_many(:service_faqs).dependent(:destroy) }
+    it { should have_many(:frequently_asked_questions).through(:service_faqs) }
   end
 
   describe "friendly_id" do

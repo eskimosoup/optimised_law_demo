@@ -1,4 +1,17 @@
 <div class="medium-6 columns" data-equalizer-watch="additional-content">
+  <%= content_for :footer do %>
+    <script>
+      $('.service-case-studies').slick({
+        infinte: true,
+        dots: true,
+        arrows: false,
+        autoplay: false,
+        autoplaySpeed: 4000,
+        slidesToShow: 1
+      });
+    </script>
+  <% end %>
+  
   <div data-animation-type="slideInLeft" id="case-studies" class="service-case-studies">
     <%= render partial: 'case_studies/service_case_study', collection: @presented_case_studies, as: :case_study_presenter %>
   </div>

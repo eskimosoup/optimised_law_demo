@@ -15,6 +15,10 @@ RSpec.describe ServicePresenter, type: :presenter do
       expect(service_presenter.name).to eq(service.name)
     end
 
+    it "returns the layout" do
+      expect(service_presenter.layout).to eq('default')
+    end
+
     it "returns the department" do
       expect(service_presenter.department).to eq(service.department)
     end
@@ -52,6 +56,13 @@ RSpec.describe ServicePresenter, type: :presenter do
     #    expect(service_presenter.has_related_services?).to eq(true)
     #  end
     #end
+
+    describe "service with layout" do
+      it "returns the layout" do
+        allow(service).to receive_messages(layout: 'divorce')
+        expect(service_presenter.layout).to eq('divorce')
+      end
+    end
 
     describe "links" do
       let(:service) { create(:service) }

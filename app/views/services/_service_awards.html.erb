@@ -1,0 +1,34 @@
+<%= content_for :footer do %>
+  <script>
+    $('.service-awards').slick({
+      infinte: true,
+      dots: true,
+      arrows: false,
+      autoplay: true,
+      autoplaySpeed: 4000,
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      responsive: [
+        {
+          breakpoint: 767,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        },
+      ]
+    });
+  </script>
+<% end %>
+
+<div class="service-awards-wrap">
+  <div class="service-awards-service-name">
+    <%= @presented_service.name %>
+  </div>
+
+  <h6>Awards & Accreditations</h6>
+
+  <ul class="service-awards" id="awards">
+    <%= render partial: 'awards/award', collection: @presented_service_awards, as: :award_presenter %>
+  </ul>
+</div>

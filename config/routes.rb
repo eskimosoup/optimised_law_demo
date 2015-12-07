@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :pages, only: :show
 
-  mount Optimadmin::Engine => "/admin"
+  mount Optimadmin::Engine => '/admin'
 
   resources :departments, only: :show, path: 'department'
   resources :services, only: :show do
@@ -36,6 +36,14 @@ Rails.application.routes.draw do
 end
 
 Optimadmin::Engine.routes.draw do
+  resources :frequently_asked_questions, except: [:show] do
+    collection do
+      post 'order'
+    end
+    member do
+      get 'toggle'
+    end
+  end
   resources :tour_entries, except: [:show] do
     collection do
       post 'order'
