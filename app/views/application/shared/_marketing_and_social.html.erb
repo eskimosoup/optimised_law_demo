@@ -19,6 +19,24 @@
 <% end %>
 
 <div class="home-content-block" data-animation-type="slideInLeft">
+  <div class="row collapse">
+    <section class="small-12 columns">
+      <div class="homepage-downloads">
+        <div class="row">
+          <%= render partial: 'downloads/homepage', collection: @presented_downloads, as: :download_presenter %>
+
+           <div class="medium-3 columns <%= 'end' if @presented_downloads.size < 3 %>">
+             View all of our
+             step by step guides
+           </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+
+<div class="home-content-block" data-animation-type="slideInLeft">
   <div class="row collapse"  data-equalizer="marketing">
     <section class="small-12 medium-3 columns" data-equalizer-watch="marketing">
       <div class="content-block">

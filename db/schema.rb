@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151207114837) do
+ActiveRecord::Schema.define(version: 20151207150305) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -132,15 +132,26 @@ ActiveRecord::Schema.define(version: 20151207114837) do
   add_index "departments", ["audience_id"], name: "index_departments_on_audience_id", using: :btree
   add_index "departments", ["slug"], name: "index_departments_on_slug", using: :btree
 
-  create_table "downloads", force: :cascade do |t|
-    t.string   "title",                     null: false
-    t.string   "image",                     null: false
-    t.string   "summary",                   null: false
-    t.string   "file",                      null: false
-    t.boolean  "display",    default: true
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+  create_table "download_categories", force: :cascade do |t|
+    t.string   "name",                              null: false
+    t.boolean  "display",            default: true
+    t.boolean  "homepage_highlight"
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
   end
+
+  create_table "downloads", force: :cascade do |t|
+    t.string   "title",                               null: false
+    t.string   "image",                               null: false
+    t.string   "summary",                             null: false
+    t.string   "file",                                null: false
+    t.boolean  "display",              default: true
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.integer  "download_category_id"
+  end
+
+  add_index "downloads", ["download_category_id"], name: "index_downloads_on_download_category_id", using: :btree
 
   create_table "event_categories", force: :cascade do |t|
     t.string   "name"
@@ -588,6 +599,7 @@ ActiveRecord::Schema.define(version: 20151207114837) do
   add_foreign_key "articles", "team_members"
   add_foreign_key "case_studies", "case_study_categories"
   add_foreign_key "departments", "audiences"
+  add_foreign_key "downloads", "download_categories"
   add_foreign_key "events", "event_categories"
   add_foreign_key "events", "event_locations"
   add_foreign_key "offices", "office_locations"

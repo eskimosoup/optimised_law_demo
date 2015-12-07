@@ -2,6 +2,10 @@ class DownloadPresenter < BasePresenter
   presents :download
   delegate :title, to: :download
 
+  def category_name
+    download.download_category.name if download.download_category.present?
+  end
+
   def download_button
     h.link_to 'Download', download.file.url, class: 'service-download-read-more'
   end

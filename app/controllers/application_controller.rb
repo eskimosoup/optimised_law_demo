@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
     @presented_articles = BaseCollectionPresenter.new(collection: Article.home_page_highlight.displayed, view_template: view_context, presenter: ArticlePresenter)
     @presented_business_partners = BaseCollectionPresenter.new(collection: BusinessPartner.positioned.displayed, view_template: view_context, presenter: BusinessPartnerPresenter)
     @presented_testimonials = BaseCollectionPresenter.new(collection: Testimonial.positioned.displayed, view_template: view_context, presenter: TestimonialPresenter)
+    @presented_downloads = BaseCollectionPresenter.new(collection: DownloadCategory.homepage_highlight.downloads.limit(3), view_template: view_context, presenter: DownloadPresenter)
   end
 
   private
