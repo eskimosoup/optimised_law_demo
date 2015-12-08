@@ -13,6 +13,10 @@ RSpec.describe DownloadPresenter, type: :presenter do
       expect(download_presenter.category_name).to eq(nil)
     end
 
+    it "returns nil for the linked download category name" do
+      expect(download_presenter.category_name_link).to eq(nil)
+    end
+
     it "returns the index image" do
       expect(download_presenter.index_image(alt: download.title)).to eq(image_tag(download.image.index, alt: download.title))
     end
@@ -33,6 +37,10 @@ RSpec.describe DownloadPresenter, type: :presenter do
 
     it "returns the download category name" do
       expect(download_presenter.category_name).to eq(download.download_category.name)
+    end
+
+    it "returns the linked download category name" do
+      expect(download_presenter.category_name_link).to eq(link_to text, download.download_category, title: download.download_category.name)
     end
   end
 end

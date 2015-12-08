@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     resources :event_locations, only: :show, path: 'event-location'
 
     resources :downloads, only: :show
+    resources :download_categories, only: :show
 
     resources :videos, only: :show
     resources :video_categories, only: :show, path: 'video-category'

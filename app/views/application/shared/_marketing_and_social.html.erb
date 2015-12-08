@@ -22,12 +22,19 @@
   <div class="row collapse">
     <section class="small-12 columns">
       <div class="homepage-downloads">
-        <div class="row">
+        <div class="row collapse" data-equalizer="downloads">
           <%= render partial: 'downloads/homepage', collection: @presented_downloads, as: :download_presenter %>
 
-           <div class="medium-3 columns <%= 'end' if @presented_downloads.size < 3 %>">
-             View all of our
-             step by step guides
+           <div class="medium-3 columns <%= 'end' if @presented_downloads.size < 3 %>" data-equalizer-watch="downloads">
+             <div class="view-all-downloads">
+               <div class="view-all-title">
+                 View all of our
+               </div>
+
+               <div class="view-all-category">
+                 <%= @presented_downloads.first.category_name_link(@presented_downloads.first.category_name.pluralize) %>
+               </div>
+             </div>
            </div>
         </div>
       </div>
@@ -38,8 +45,8 @@
 
 <div class="home-content-block" data-animation-type="slideInLeft">
   <div class="row collapse"  data-equalizer="marketing">
-    <section class="small-12 medium-3 columns" data-equalizer-watch="marketing">
-      <div class="content-block">
+    <section class="small-12 medium-6 columns" data-equalizer-watch="marketing">
+      <div class="content-block home-testimonials">
         <div class="text-center">
           <h6>What People Say</h6>
         </div>
@@ -52,14 +59,16 @@
       </div>
     </section>
 
+    <!--
     <section class="small-12 medium-6 columns" data-equalizer-watch="marketing">
       <div class="marketing-campaign">
-        <%= render 'marketing_campaign/home_marketing_campaign' %>
+        <%#= render 'marketing_campaign/home_marketing_campaign' %>
       </div>
     </section>
+    -->
 
-    <section class="small-12 medium-3 columns" data-equalizer-watch="marketing">
-      <div class="content-block text-center">
+    <section class="small-12 medium-6 columns" data-equalizer-watch="marketing">
+      <div class="content-block text-center home-twitter">
         <%= link_to (image_tag 'components/icons/twitter.png', alt: 'Twitter'), '#', class: 'twitter-bird' %>
 
         <%= link_to global_site_settings['Twitter'], '#', class: 'twitter-username' %>
