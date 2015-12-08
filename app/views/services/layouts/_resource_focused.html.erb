@@ -17,8 +17,16 @@
     <div class="small-12 columns">
       <%= render 'services/header' %>
 
+      <div class="service-row row">
+        <div class="small-12 columns">
+          <div class="pricing-content">
+            <h2>Pricing here</h2>
+          </div>
+        </div>
+      </div>
+
       <div class="service-row row" data-equalizer="service-resources">
-        <div class="medium-8 columns service-downloads-wrap" data-animation-type="slideInLeft">
+        <div class="medium-8 columns" data-animation-type="slideInLeft">
           <%= render partial: 'downloads/service_download' if @service.downloads.present? %>
         </div>
 
