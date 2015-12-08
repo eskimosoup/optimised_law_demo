@@ -18,6 +18,10 @@
   @include media('>tablet') {
     padding: em(33px);
   }
+
+  &.grid {
+    margin: 0;
+  }
 }
 
 .download-image {

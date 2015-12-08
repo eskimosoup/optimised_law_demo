@@ -6,13 +6,13 @@ $(document).on("click", ".toggle-class", function(e) {
   $(toggleContainer).toggleClass(toggleClass);
   $('[data-equalizer-watch]').matchHeight();
 
-
   if (Modernizr.mq('only screen and (min-width: 767px)')) {
     if (dataReturn === 'false') {
       e.preventDefault();
     }
   }
 });
+
 $(document).on("click", ".activity-stream-headline", function(e) {
   var toggleContainer = $(this).attr('data-container');
   var toggleClass     = $(this).attr('data-class');
@@ -20,7 +20,7 @@ $(document).on("click", ".activity-stream-headline", function(e) {
 
   $('.activity-stream-item-expanded').addClass('hide');
   $(toggleContainer).toggleClass(toggleClass);
-  $('[data-equalizer-watch]').matchHeight();
+  $('[data-equalizer-watch=updates]').matchHeight();
 
   if (Modernizr.mq('only screen and (min-width: 767px)')) {
     if (dataReturn === 'false') {

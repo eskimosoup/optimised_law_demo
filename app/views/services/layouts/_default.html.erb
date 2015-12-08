@@ -17,18 +17,21 @@
     <div class="small-12 columns">
       <%= render 'services/header' %>
 
-      <div class="row" data-equalizer="additional-content">
+      <div class="service-row row" data-equalizer="additional-content">
         <%= render 'services/content_tabs' if @presented_case_studies.present? %>
 
-        <div class="medium-6 columns">
+        <div class="medium-6 columns" data-equalizer-watch="additional-content">
           <%= render 'services/activity_stream' if @presented_service_articles.present? %>
         </div>
       </div>
 
       <%= render 'services/resources' %>
 
-      <div class="row">
-        <%= render 'services/people_helped' if @presented_service.has_people_helped_widget.present? %>
+      <div class="service-row row">
+        <div class="medium-6 columns">
+          <%= render 'services/people_helped' if @presented_service.has_people_helped_widget.present? %>
+        </div>
+
         <%= render 'services/service_video' if @presented_video.present? && @presented_service.has_people_helped_widget.present? %>
         <%= render 'services/service_video_full' if @presented_video.present? && @presented_service.has_people_helped_widget.blank? %>
       </div>
@@ -52,8 +55,4 @@
   </div>
 </section>
 
-<% content_for :call_to_action do %>
-  <ul class="service-overview-fixed-contact-methods hide" data-animation-type='slideInLeft' data-animation-delay='500'>
-    <%= render 'services/contact_sidebar_content' %>
-  </ul>
-<% end %>
+<%= render 'services/call_to_action' %>

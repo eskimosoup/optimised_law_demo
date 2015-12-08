@@ -7,6 +7,9 @@ class Audience < ActiveRecord::Base
 
   has_many :departments, dependent: :destroy
 
+  COLOURS = ['slate-blue', 'light-blue', 'dark-grey']
+
+  validates :colour, presence: true, inclusion: COLOURS
   validates :name, :summary, :content, presence: true
   validates :suggested_url, uniqueness: true, allow_blank: true, case_sensitive: false
 

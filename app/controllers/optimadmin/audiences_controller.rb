@@ -46,7 +46,7 @@ module Optimadmin
     end
 
     def audience_params
-      params.require(:audience).permit(:name, :sub_heading, :image, :remote_image_url, :image_cache, :summary, :content, :layout, :display, :suggested_url)
+      params.require(:audience).permit(:name, :colour, :sub_heading, :image, :remote_image_url, :image_cache, :summary, :content, :layout, :display, :suggested_url)
     end
   end
 end

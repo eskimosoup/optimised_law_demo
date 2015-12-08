@@ -5,6 +5,9 @@ FactoryGirl.define do
     summary "MyString"
     file { File.open(File.join(Rails.root, "spec/support/images/landscape_image.jpg")) }
     display true
-  end
 
+    after(:build) do |download|
+      download.services = build_list(:service, 3)
+    end
+  end
 end

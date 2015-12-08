@@ -71,7 +71,7 @@
     color: $service-content-header-color;
     font-size: em(34px);
     font-weight: $service-content-header;
-    margin: 0 0 em(43px, 34px);
+    margin: 0 0 em(22px, 34px);
 
     @include media('<tablet') {
       margin: 0 0 em(22px, 34px);
@@ -193,4 +193,9 @@
 .service-navigation {
   background: $audience-header;
   height: 100%;
+}
+
+.service-row.row,
+.widget-row {
+  margin-bottom: em(20px);
 }

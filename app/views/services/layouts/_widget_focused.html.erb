@@ -17,17 +17,17 @@
     <div class="small-12 columns">
       <%= render 'services/header' %>
 
-      <div class="row">
+      <div class="service-row row">
         <div class="small-12 columns">
           <h2>Conveyancing Quote Calculator</h2>
         </div>
       </div>
 
-      <div class="row">
+      <div class="service-row row">
         <%= render partial: 'downloads/service_download_grid', collection: @presented_all_downloads, as: :download_presenter if @service.downloads.present? %>
       </div>
 
-      <div class="row">
+      <div class="service-row row">
         <div class="medium-6 columns">
           <div class="frequently-asked-questions">
             <%= render partial: 'frequently_asked_questions/frequently_asked_question', collection: @presented_service_faqs, as: :frequently_asked_question_presenter %>
@@ -37,7 +37,7 @@
         <%= render 'services/content_tabs' if @presented_case_studies.present? %>
       </div>
 
-      <div class="row">
+      <div class="service-row row">
         <div class="medium-6 columns" id="testimonials" data-animation-type="slideInLeft" data-animation-delay="750" data-equalizer-watch="service-resources">
           <div class="service-testimonial" id="testimonials">
             <%= render partial: 'testimonials/service_testimonial', collection: @presented_service_testimonials, as: :testimonial_presenter %>
@@ -49,22 +49,24 @@
 
       <%= render 'team_members/service_carousel' %>
 
-      <div class="row">
+      <div class="service-row row">
         <div class="large-8 columns">
           <%= render 'services/activity_stream' if @presented_service_articles.present? %>
         </div>
 
         <div class="large-4 columns">
-          <div class="statistics">
-            <h3>Statistics</h3>
+          <div class="widget-row">
+            <%= render partial: 'services/people_helped' %>
           </div>
 
-          <%= render partial: 'services/twitter' %>
+          <div class="service-twitter-wrap">
+            <%= render partial: 'services/twitter' %>
+          </div>
         </div>
       </div>
 
       <div class="service-event-focus-wrap">
-        <div class="row">
+        <div class="service-row row">
           <div class="large-12 columns">
             <%= render 'services/service_awards' %>
           </div>
@@ -74,8 +76,4 @@
   </div>
 </section>
 
-<% content_for :call_to_action do %>
-  <ul class="service-overview-fixed-contact-methods hide" data-animation-type='slideInLeft' data-animation-delay='500'>
-    <%= render 'services/contact_sidebar_content' %>
-  </ul>
-<% end %>
+<%= render 'services/call_to_action' %>

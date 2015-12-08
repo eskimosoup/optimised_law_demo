@@ -6,6 +6,8 @@ RSpec.describe Audience, type: :model do
     it { should validate_presence_of(:name) }
     it { should validate_presence_of(:summary) }
     it { should validate_presence_of(:content) }
+    it { should validate_presence_of(:colour) }
+    it { should validate_inclusion_of(:colour).in_array(Audience::COLOURS) }
     it { should validate_uniqueness_of(:suggested_url).allow_blank.case_insensitive }
   end
 

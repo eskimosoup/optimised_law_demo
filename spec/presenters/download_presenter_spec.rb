@@ -9,6 +9,10 @@ RSpec.describe DownloadPresenter, type: :presenter do
       expect(download_presenter.title).to eq(download.title)
     end
 
+    # it "returns the presented audience" do
+    #  expect(download_presenter.presented_audience).to eq(AudiencePresenter.new(object: download.services.first.department.audience, view_template: view))
+    # end
+
     it "returns nil for the download category name" do
       expect(download_presenter.category_name).to eq(nil)
     end
@@ -40,7 +44,7 @@ RSpec.describe DownloadPresenter, type: :presenter do
     end
 
     it "returns the linked download category name" do
-      expect(download_presenter.category_name_link).to eq(link_to text, download.download_category, title: download.download_category.name)
+      expect(download_presenter.category_name_link).to eq(link_to download.download_category.name, '#', class: 'invalid-link', title: download.download_category.name)
     end
   end
 end

@@ -1,14 +1,14 @@
-<div class="service-download" id="downloads">
+<div class="service-download <%= @presented_download.presented_audience.class_name %>" id="downloads">
   <div class="row">
     <div class="medium-4 columns">
-      <div class="service-download-image">
+      <div class="download-image-wrap">
         <%= @presented_download.index_image %>
       </div>
     </div>
 
     <div class="medium-8 columns">
       <div class="service-download-content">
-        <div class="service-download-title">
+        <div class="download-title">
           <%= @presented_download.title %>
         </div>
 

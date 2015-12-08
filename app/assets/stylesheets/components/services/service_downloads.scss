@@ -1,5 +1,8 @@
-.service-download {
-  background: $content-background-color;
+.service-download,
+.service-downloads {
+  background: $white;
+  border: 20px solid $content-background-color;
+  color: $white;
 }
 
 @include media('>=1024px') {
@@ -15,14 +18,23 @@
 }
 
 .service-download-content {
+  color: $white;
   padding: em(24px);
 }
 
 .service-download-read-more {
   @extend %read-more;
+  border-color: $white;
+  color: $white;
 
   @include media('>=desktop') {
     margin-top: 0;
+  }
+
+  &:link,
+  &:visited,
+  &:active {
+    color: $white;
   }
 
   &:hover {
@@ -33,7 +45,7 @@
 }
 
 .service-download-overview {
-  color: $service-download-summary-color;
+  color: $white;
   font-family: $service-download-summary-font;
   font-size: em(13px);
   margin: 0;

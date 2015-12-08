@@ -74,7 +74,7 @@
 
 .hero-audience {
   position: relative;
-  cursor: pointer;  
+  cursor: pointer;
 
   .state-normal {
     border-bottom: 12px solid transparent;
@@ -115,18 +115,18 @@
     margin: 0 0 em(20px, 13px);
     line-height: 1.7;
   }
+}
 
-  &.first {
-    background: $hero-first-audience;
-  }
+.audience-slate-blue {
+  background: $hero-first-audience;
+}
 
-  &.second {
-    background: $hero-second-audience;
-  }
+.audience-light-blue {
+  background: $hero-second-audience;
+}
 
-  &.third {
-    background: $hero-third-audience;
-  }
+.audience-dark-grey {
+  background: $hero-third-audience;
 }
 
 .hero-audience .state-hover {

@@ -2,11 +2,17 @@ class DownloadPresenter < BasePresenter
   presents :download
   delegate :title, to: :download
 
+  def presented_audience
+    AudiencePresenter.new(object: download.services.first.department.audience, view_template: self)
+  end
+
   def category_name
     download.download_category.name if download.download_category.present?
   end
 
-  def category_name_link(text = download.download_category.name)
+  def category_name_link(text = nil)
+    return nil if download.download_category.blank?
+    text = download.download_category.name unless text.present?
     h.link_to text, download.download_category, title: download.download_category.name
   rescue
     h.link_to text, '#', class: 'invalid-link', title: download.download_category.name
