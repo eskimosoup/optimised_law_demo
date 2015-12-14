@@ -5,6 +5,6 @@ class DownloadUploader < Optimadmin::ImageUploader
   end
 
   version :homepage do
-    process resize_to_fit: [103, 149]
+    process resize_to_fill: [290, 193]
   end
 end
