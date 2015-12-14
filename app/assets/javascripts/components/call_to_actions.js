@@ -7,24 +7,31 @@ $(document).keyup(function(e) {
 
 function hideStickyCTA() {
   var $elem = $('.service-overview-fixed-contact-methods');
-  var animationType = $elem.attr('data-animation-type');
-  $elem.removeClass('animated ' + animationType).addClass('visibility-hidden');
+  var animationOut = $elem.attr('data-animation-out');
+  var animationIn = $elem.attr('data-animation-in');
+  var animationDelay = 750 + parseInt($elem.attr('data-animation-delay'));
+  $elem.removeClass('animated ' + animationIn).addClass('animated ' + animationOut);
+
+  setTimeout(function() {
+    $elem.addClass('visibility-hidden');
+  }, animationDelay);
 }
 
 function showStickyCTA() {
   var $elem = $('.service-overview-fixed-contact-methods');
-  var animationType  = $elem.attr('data-animation-type');
+  var animationIn  = $elem.attr('data-animation-in');
+  var animationOut  = $elem.attr('data-animation-out');
   var animationDelay = $elem.attr('data-animation-delay');
 
-  $elem.removeClass('hide');
   $elem.find('.call-to-action-content-wrap').removeAttr('style');
+  $elem.removeClass('animated ' + animationOut);
 
   if( animationDelay !== undefined )  {
     setTimeout(function() {
-      $elem.removeClass('visibility-hidden').addClass('animated ' + animationType);
+      $elem.removeClass('visibility-hidden').addClass('animated ' + animationIn);
     }, animationDelay);
   } else {
-    $elem.removeClass('visibility-hidden').addClass('animated ' + animationType);
+    $elem.removeClass('visibility-hidden').addClass('animated ' + animationIn);
   }
 }
 

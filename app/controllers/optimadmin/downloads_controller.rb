@@ -2,7 +2,7 @@ module Optimadmin
   class DownloadsController < Optimadmin::ApplicationController
     before_action :set_download, only: [:show, :edit, :update, :destroy]
 
-    edit_images_for Download, [[:image, { index: ['fill', 257, 257] }]]
+    edit_images_for Download, [[:image, { index: ['fill', 257, 257], homepage: ['fill', 290, 193]  }]]
 
     def index
       @downloads = Optimadmin::BaseCollectionPresenter.new(collection: Download.where('title ILIKE ?', "%#{params[:search]}%").page(params[:page]).per(params[:per_page] || 15), view_template: view_context, presenter: Optimadmin::DownloadPresenter)
@@ -40,15 +40,17 @@ module Optimadmin
       redirect_to downloads_url, notice: 'Download was successfully destroyed.'
     end
 
-  private
-
+    private
 
     def set_download
       @download = Download.find(params[:id])
     end
 
     def download_params
-      params.require(:download).permit(:title, :image, :remote_image_url, :image_cache, :remove_image, :summary, :file, :remote_file_url, :file_cache, :remove_file, service_ids: [])
+      params.require(:download).permit(:title, :image, :remote_image_url,
+      :download_category_id,
+      :image_cache, :remove_image, :summary, :file, :remote_file_url,
+      :file_cache, :remove_file, service_ids: [])
     end
   end
 end

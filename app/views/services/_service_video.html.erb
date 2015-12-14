@@ -1,19 +1,21 @@
-<div class="medium-6 columns" data-animation-type="slideInRight">
-  <div class="service-video-image" id="videos">
-    <%= @presented_video.activity_stream_image(alt: @presented_video.name) %>
+<div class="medium-6 columns" data-animation-type="slideInRight"  data-equalizer-watch="statistics">
+  <div class="service-video">
+    <div class="service-video-image" id="videos">
+      <%= @presented_video.activity_stream_image(alt: @presented_video.name) %>
 
-    <div class="service-video-category">
-      <div class="service-video-category-name">
-        <%= @presented_video.video_category_name %>
+      <div class="service-video-category">
+        <div class="service-video-category-name">
+          <%= @presented_video.video_category_name %>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="service-video-overview">
-    <div class="service-video-title">
-      <%= @presented_video.name %>
+    <div class="service-video-overview">
+      <div class="service-video-title">
+        <%= @presented_video.name %>
+      </div>
+
+      <%= @presented_video.summary %>
     </div>
-
-    <%= @presented_video.summary %>
   </div>
 </div>

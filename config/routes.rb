@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :pages, only: :show
 
-  mount Optimadmin::Engine => "/admin"
+  mount Optimadmin::Engine => '/admin'
 
   resources :departments, only: :show, path: 'department'
   resources :services, only: :show do
@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     resources :event_locations, only: :show, path: 'event-location'
 
     resources :downloads, only: :show
+    # resources :download_categories, only: [:index, :show]
 
     resources :videos, only: :show
     resources :video_categories, only: :show, path: 'video-category'
@@ -36,6 +37,22 @@ Rails.application.routes.draw do
 end
 
 Optimadmin::Engine.routes.draw do
+  resources :download_categories, except: [:show] do
+    collection do
+      post 'order'
+    end
+    member do
+      get 'toggle'
+    end
+  end
+  resources :frequently_asked_questions, except: [:show] do
+    collection do
+      post 'order'
+    end
+    member do
+      get 'toggle'
+    end
+  end
   resources :tour_entries, except: [:show] do
     collection do
       post 'order'

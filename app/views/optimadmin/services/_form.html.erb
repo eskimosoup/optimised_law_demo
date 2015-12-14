@@ -61,6 +61,10 @@
         <%= f.select :related_service_ids, Service.where.not(id: @service).pluck(:name, :id), { }, { multiple: true, class: 'multiple-select' } %>
       </div>
       <div class="field">
+        <%= f.label :layout %><br>
+        <%= f.select :layout, Service::LAYOUTS.map{ |x| [x.humanize, x] }, include_blank: 'Default layout' %>
+      </div>
+      <div class="field">
         <%= f.label :suggested_url %> <%= render 'optimadmin/shared/suggested_url_field' %><br>
         <%= f.text_field :suggested_url %>
       </div>

@@ -1,3 +1,7 @@
+.home-testimonials {
+  margin-right: em(10px);
+}
+
 .testimonials {
   font-family: $testimonial-font;
   text-align: center;
@@ -26,6 +30,7 @@
 
 .testimonial-author-company {
   font-size: em(12px);
+  margin: 0 0 em(6px, 12px);
 }
 
 .quote-close {

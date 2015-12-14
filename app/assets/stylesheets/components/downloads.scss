@@ -1,0 +1,71 @@
+.homepage-downloads {
+  background: $white;
+  padding: em(20px) 0;
+}
+
+.download {
+  color: $white;
+  height: 100%;
+  margin: em(5px);
+  text-align: center;
+
+  @include media('>phone') {
+    margin: 0 0 0 em(20px);
+  }
+
+  &.grid {
+    margin: 0;
+  }
+}
+
+.download-content {
+  padding: em(30px) em(3px) em(40px);
+}
+
+.download-category,
+.view-all-category {
+  font-size: em(11px);
+  font-weight: $open-sans-extrabold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  a {
+    color: $white;
+  }
+}
+
+%download-title {
+  font-size: em(14px);
+  line-height: 1.1;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.download-title {
+  @extend %download-title;
+
+  a {
+    color: $white;
+  }
+}
+
+.view-all-downloads {
+  align-items: center;
+  background: $green image-url('components/icons/downloads-ampersand.png') center no-repeat;
+  color: $white;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: em(5px);
+  justify-content: center;
+  text-align: center;
+
+  @include media('>phone') {
+    margin: 0 em(20px);
+  }
+}
+
+.view-all-downloads {
+  @extend %download-title;
+  line-height: 1.5;
+}

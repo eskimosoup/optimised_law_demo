@@ -10,6 +10,10 @@ RSpec.describe AudiencePresenter, type: :presenter do
       expect(audience_presenter.name).to eq(audience.name)
     end
 
+    it "returns the class name" do
+      expect(audience_presenter.class_name).to eq("audience-#{audience.colour}")
+    end
+
     it "returns the layout" do
       expect(audience_presenter.layout).to eq(audience.layout)
     end

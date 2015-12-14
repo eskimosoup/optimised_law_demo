@@ -1,7 +1,11 @@
 class AudiencePresenter < BasePresenter
   presents :audience
 
-  delegate :name, :sub_heading, :layout, to: :audience
+  delegate :name, :colour, :sub_heading, :layout, to: :audience
+
+  def class_name
+    "audience-#{colour}"
+  end
 
   def summary
     h.simple_format audience.summary

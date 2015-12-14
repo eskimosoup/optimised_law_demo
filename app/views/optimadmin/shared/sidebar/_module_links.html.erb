@@ -35,10 +35,10 @@
 
       <ul class="content-category-list">
         <ul class="content-category-list">
+          <%= module_link(content: "Frequently Asked Questions", model: FrequentlyAskedQuestion, path: frequently_asked_questions_path) %>
           <%= module_link(model: Award, path: awards_path) %>
           <%= module_link(content: "Business Partners", model: BusinessPartner, path: business_partners_path) %>
           <%= module_link(model: Testimonial, path: testimonials_path) %>
-          <%= module_link(model: Download, path: downloads_path) %>
           <%= module_link(content: "Additional Content", model: AdditionalContent, path: additional_contents_path) %>
         </ul>
       </ul>
@@ -53,6 +53,19 @@
             <%= module_link(model: Audience, path: audiences_path) %>
             <%= module_link(model: Service, path: services_path) %>
             <%= module_link(content: "Departments", model: Department, path: departments_path) %>
+          </ul>
+        </ul>
+      <% end %>
+
+      <% if can? :manage, Download %>
+        <div class="content-category-type">
+          Manage Downloads
+        </div>
+
+        <ul class="content-category-list">
+          <ul class="content-category-list">
+            <%= module_link(model: Download, path: downloads_path) %>
+            <%= module_link(content: "Download Categories", model: DownloadCategory, path: download_categories_path) %>
           </ul>
         </ul>
       <% end %>

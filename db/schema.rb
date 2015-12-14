@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151028080904) do
+ActiveRecord::Schema.define(version: 20151208110615) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 20151028080904) do
     t.datetime "updated_at",                   null: false
     t.string   "sub_heading"
     t.integer  "position"
+    t.string   "colour"
   end
 
   create_table "awards", force: :cascade do |t|
@@ -132,15 +133,26 @@ ActiveRecord::Schema.define(version: 20151028080904) do
   add_index "departments", ["audience_id"], name: "index_departments_on_audience_id", using: :btree
   add_index "departments", ["slug"], name: "index_departments_on_slug", using: :btree
 
-  create_table "downloads", force: :cascade do |t|
-    t.string   "title",                     null: false
-    t.string   "image",                     null: false
-    t.string   "summary",                   null: false
-    t.string   "file",                      null: false
-    t.boolean  "display",    default: true
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+  create_table "download_categories", force: :cascade do |t|
+    t.string   "name",                              null: false
+    t.boolean  "display",            default: true
+    t.boolean  "homepage_highlight"
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
   end
+
+  create_table "downloads", force: :cascade do |t|
+    t.string   "title",                               null: false
+    t.string   "image",                               null: false
+    t.string   "summary",                             null: false
+    t.string   "file",                                null: false
+    t.boolean  "display",              default: true
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.integer  "download_category_id"
+  end
+
+  add_index "downloads", ["download_category_id"], name: "index_downloads_on_download_category_id", using: :btree
 
   create_table "event_categories", force: :cascade do |t|
     t.string   "name"
@@ -183,6 +195,15 @@ ActiveRecord::Schema.define(version: 20151028080904) do
 
   add_index "events", ["event_category_id"], name: "index_events_on_event_category_id", using: :btree
   add_index "events", ["event_location_id"], name: "index_events_on_event_location_id", using: :btree
+
+  create_table "frequently_asked_questions", force: :cascade do |t|
+    t.integer  "position"
+    t.string   "question",                  null: false
+    t.text     "answer",                    null: false
+    t.boolean  "display",    default: true
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -382,6 +403,16 @@ ActiveRecord::Schema.define(version: 20151028080904) do
   add_index "service_events", ["event_id"], name: "index_service_events_on_event_id", using: :btree
   add_index "service_events", ["service_id"], name: "index_service_events_on_service_id", using: :btree
 
+  create_table "service_faqs", force: :cascade do |t|
+    t.integer  "frequently_asked_question_id"
+    t.integer  "service_id"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  add_index "service_faqs", ["frequently_asked_question_id"], name: "index_service_faqs_on_frequently_asked_question_id", using: :btree
+  add_index "service_faqs", ["service_id"], name: "index_service_faqs_on_service_id", using: :btree
+
   create_table "service_hierarchies", id: false, force: :cascade do |t|
     t.integer "ancestor_id",   null: false
     t.integer "descendant_id", null: false
@@ -456,6 +487,7 @@ ActiveRecord::Schema.define(version: 20151028080904) do
     t.text     "content"
     t.string   "leaflet"
     t.boolean  "has_people_helped_widget", default: true
+    t.string   "layout"
   end
 
   add_index "services", ["department_id"], name: "index_services_on_department_id", using: :btree
@@ -568,6 +600,7 @@ ActiveRecord::Schema.define(version: 20151028080904) do
   add_foreign_key "articles", "team_members"
   add_foreign_key "case_studies", "case_study_categories"
   add_foreign_key "departments", "audiences"
+  add_foreign_key "downloads", "download_categories"
   add_foreign_key "events", "event_categories"
   add_foreign_key "events", "event_locations"
   add_foreign_key "offices", "office_locations"
@@ -582,6 +615,8 @@ ActiveRecord::Schema.define(version: 20151028080904) do
   add_foreign_key "service_downloads", "services"
   add_foreign_key "service_events", "events"
   add_foreign_key "service_events", "services"
+  add_foreign_key "service_faqs", "frequently_asked_questions"
+  add_foreign_key "service_faqs", "services"
   add_foreign_key "service_offices", "offices"
   add_foreign_key "service_offices", "services"
   add_foreign_key "service_related_services", "services"

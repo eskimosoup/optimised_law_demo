@@ -1,5 +1,7 @@
 .marketing-campaign {
   background: $marketing-campaign-background;
+  border: 20px solid $white;
+  margin: 0 em(20px);
   height: 100%;
 
   @include media('<tablet') {

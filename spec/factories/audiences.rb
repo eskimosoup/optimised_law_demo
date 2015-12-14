@@ -4,6 +4,7 @@ FactoryGirl.define do
     summary "MyText"
     content "<p>MyText</p>"
     layout "basic"
+    colour 'slate-blue'
     display true
     trait :with_image do
       image { File.open(File.join(Rails.root, "spec/support/images/landscape_image.jpg")) }

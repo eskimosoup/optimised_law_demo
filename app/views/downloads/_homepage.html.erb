@@ -1,0 +1,15 @@
+<div class="medium-3 columns" data-equalizer-watch="downloads">
+  <div class="download <%= download_presenter.presented_audience.class_name %>">
+    <%= download_presenter.homepage_image(alt: download_presenter.title, class: 'download-image') %>
+
+    <div class="download-content">
+      <div class="download-category">
+        <%= download_presenter.category_name_link %>
+      </div>
+
+      <div class="download-title">
+        <%= download_presenter.download_link %>
+      </div>
+    </div>
+  </div>
+</div>

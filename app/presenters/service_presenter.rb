@@ -57,4 +57,8 @@ class ServicePresenter < BasePresenter
   def leaflet_download
     h.link_to 'Download a Leaflet', service.leaflet.url if service.leaflet?
   end
+
+  def layout
+    service.layout.present? ? service.layout : 'default'
+  end
 end

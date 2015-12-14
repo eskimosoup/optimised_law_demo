@@ -55,6 +55,11 @@
       </div>
 
       <div class="field">
+        <%= f.label :colour %><br>
+        <%= f.select :colour, Audience::COLOURS.map{ |x| [x.humanize.tr('-', ' '), x] }, prompt: 'Please select' %>
+      </div>
+
+      <div class="field">
         <%= f.label :layout %><br>
         <%= f.select :layout, Audience.layouts %>
       </div>

@@ -42,6 +42,8 @@ class TourEntry < ActiveRecord::Base
                 ]
               ]
 
+  # validates :page_area, inclusion: TourEntry::PAGE_AREA
+
   def page_title
     klass = Module.const_get(self.page.split('_').first)
     return klass.find(self.page.split('_').last.to_i).name || klass.find(self.page.split('_').last.to_i).title

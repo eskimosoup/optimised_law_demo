@@ -1,0 +1,20 @@
+<div class="medium-4 columns <%= 'end' if download_presenter == @presented_all_downloads.last %>" data-equalizer-watch="downloads">
+  <div class="download grid <%= download_presenter.presented_audience.class_name %>">
+    <div class="download-image-wrap">
+      <%= download_presenter.homepage_image(alt: download_presenter.title, class: 'download-image') %>
+    </div>
+
+
+    <div class="download-content">
+      <div class="download-category">
+        <%= download_presenter.category_name_link %>
+      </div>
+
+      <div class="download-title">
+        <%= download_presenter.download_link %>
+      </div>
+
+      <%= download_presenter.summary %>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,5 @@
 class Service < ActiveRecord::Base
-
+  include NullifyBlanks
   extend FriendlyId
   friendly_id :slug_candidates, use: [:slugged, :history]
 
@@ -33,11 +33,16 @@ class Service < ActiveRecord::Base
   has_many :case_studies, -> { displayed }, through: :service_case_studies
   has_many :service_awards, dependent: :nullify
   has_many :awards, -> { displayed }, through: :service_awards
+  has_many :service_faqs, dependent: :destroy
+  has_many :frequently_asked_questions, -> { displayed }, through: :service_faqs
   has_many :pages, dependent: :nullify
+
+  LAYOUTS = %w{ resource_focused widget_focused news_focused }
 
   validates :name, presence: true, uniqueness: { scope: :department_id }
   validates :department_id, presence: true
   validates :suggested_url, uniqueness: true, allow_blank: true, case_sensitive: false
+  validates :layout, inclusion: LAYOUTS, allow_blank: true
 
   scope :displayed, -> { joins(:department).where(display: true).merge(Department.displayed) }
 

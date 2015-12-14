@@ -20,6 +20,7 @@
 //= require components/call_to_actions
 //= require components/tabs
 //= require components/tooltips
+//= require components/smooth_scroll
 //= require vendor/foundation/libraries/jquery.cookie.js
 //= require vendor/foundation/foundation.js
 //= require vendor/foundation/foundation.joyride

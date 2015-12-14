@@ -218,7 +218,7 @@
   a:active {
     color: $color;
     display: block;
-    padding: em(30px) 0 em(30px) em(70px);
+    padding: em(24px) 0 em(24px) em(70px);
 
     @include media('>=tablet', '<desktop') {
       padding: em(15px) em(15px) em(15px) em(45px);
