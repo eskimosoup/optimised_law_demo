@@ -1,0 +1,73 @@
+.pricing-content {
+  background: $white;
+  padding: em(46px) em(20px);
+}
+
+.pricing-title {
+  font-size: em(16px);
+  font-weight: $open-sans-bold;
+  letter-spacing: 2px;
+  margin: 0  0 em(23px, 16px);
+  text-transform: uppercase;
+}
+
+.pricing-band {
+  padding: em(44px) em(37px);
+  text-align: center;
+
+  &.first {
+    background: $green;
+    color: $white;
+  }
+
+  &.second {
+    background: $brown;
+    color: $white;
+  }
+
+  &.third {
+    background: $purple;
+    color: $white;
+  }
+}
+
+.pricing-band-type {
+  font-size: em(22px);
+  font-weight: $open-sans-light;
+  text-transform: uppercase;
+}
+
+.pricing-band-title {
+  border-bottom: 1px solid $white;
+  font-size: em(23px);
+  font-weight: $open-sans-bold;
+  letter-spacing:  1px;
+  padding: 0 0 em(30px, 23px);
+}
+
+.pricing-band-summary {
+  font-size: em(15px);
+  font-weight: $open-sans-bold;
+  margin: em(30px, 15px) 0 0;
+}
+
+.pricing-band-cta {
+  color: $green;
+  font-size: em(22px);
+  font-weight: $open-sans-bold;
+  margin: em(40px, 22px) 0 0;
+  text-align: center;
+
+  strong {
+    color: $purple;
+    font-family: $primary-serif-font;
+    font-size: em(30px, 22px);
+    padding: 0 em(5px, 30px);
+  }
+}
+
+.pricing-band-small-print {
+  font-size: em(14px);
+  margin: 0;
+  text-align: center;
+}
