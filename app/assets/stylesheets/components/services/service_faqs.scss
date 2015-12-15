@@ -1,12 +1,43 @@
 .question-mark {
+  background: $light-purple;
+  border-radius: 50%;
+  color: $white;
   display: inline-block;
+  font-family: $times-new-roman;
+  font-size: em(48px);
+  height: 55px;
+  line-height: 55px;
+  margin-right: em(20px, 48px);
+  text-align: center;
+  width: 55px;
 }
 
 .frequently-asked-questions {
   background: $service-category-overview-background-color;
-  padding: em(38px) em(50px);
+  padding: em(38px) 0;
+
+  .widget-title {
+    border-bottom: 1px solid $grey;
+    padding: 0 em(50px, 16px) em(36px, 16px);
+  }
+}
+
+.frequently-asked-questions-list {
+  padding: 0 em(50px);
 }
 
 .frequently-asked-question {
+  border-bottom: 3px solid $grey;
   margin: em(20px) 0;
+  padding: 0 0 em(30px);
+
+  p {
+    margin-bottom: 0;
+  }
+}
+
+.frequently-asked-question-link {
+  color: $primary-text-color;
+  font-size: em(15px);
+  font-weight: $open-sans-bold;
 }

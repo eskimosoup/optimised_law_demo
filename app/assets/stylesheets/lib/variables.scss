@@ -4,6 +4,7 @@ $tertiary-serif-font: 'PT Serif', serif;
 $primary-sans-serif-font: 'Open Sans', 'Arial', 'Helvetica', sans-serif;
 $secondary-sans-serif-font: 'Lato', sans-serif;
 $tertiary-sans-serif-font: 'Montserrat', sans-serif;
+$times-new-roman: 'Times New Roman', serif;
 
 $body-font: $secondary-sans-serif-font;
 $primary-navigation-font: $secondary-serif-font;
@@ -19,12 +20,16 @@ $light-blue: #8fabbd;
 $brown: #85817a;
 $green: #548782;
 $purple: #464b4e;
+$light-purple: #45575e;
+$deep-purple: #2b2e30;
+$grey: #eeeeee;
 
 $dot-active: #284654;
 $success: $green;
 $alert: #875454;
 
 $open-sans-light: 300;
+$open-sans-semibold: 600;
 $open-sans-bold: 700;
 $open-sans-extrabold: 900;
 
@@ -206,7 +211,7 @@ $activity-stream-time-ago-color: #838d8f;
 $activity-stream-activity-featured-headline-font-weight: 900;
 $activity-stream-activity-headline-font-weight: 700;
 $activity-stream-activity-headline-color: #666d70;
-$activity-stream-activity-headline-font: $primary-serif-font;
+$activity-stream-activity-headline-font: $primary-sans-serif-font;
 $activity-stream-activity-border: #eee;
 $activity-stream-read-more-font-weight: 700;
 
@@ -218,7 +223,7 @@ $service-twitter-color: $white;
 $service-twitter-font-weight: 700;
 
 $service-download-title-font-weight: 700;
-$service-download-summary-font: $primary-serif-font;
+$service-download-summary-font: $primary-sans-serif-font;
 $service-download-summary-color: #808080;
 
 $people-helped-background: #404655;
@@ -258,7 +263,7 @@ $service-calendar-event-date-color: #3b3d40;
 $service-calendar-event-hover: $white;
 $service-calendar-event-hover-background: $service-category-services-sidebar-background;
 
-$service-download-read-more-hover: #548782;
+//$service-download-read-more-hover: #548782;
 
 $service-related-services-background: $audience-header;
 $service-related-services-text-color: $audience-header-text-color;

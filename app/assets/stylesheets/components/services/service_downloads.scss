@@ -1,8 +1,53 @@
-.service-download,
-.service-downloads {
+.service-download {
   background: $white;
-  border: 20px solid $content-background-color;
+  border-bottom-width: 20px;
+  border-color: $content-background-color;
+  border-left-width: 20px;
+  border-right-width: 0;
+  border-style: solid;
+  border-top-width: 20px;
   color: $white;
+  height: 100%;
+  padding: em(40px) em(20px);
+}
+
+.service-downloads-list {
+  background: $light-blue;
+  border-bottom-width: 20px;
+  border-color: $content-background-color;
+  border-left-width: 0;
+  border-right-width: 20px;
+  border-style: solid;
+  border-top-width: 20px;
+  height: 100%;
+}
+
+.service-downloads-list-items {
+  padding: 0 em(20px) em(20px);
+
+  a {
+    border-bottom: 2px solid $light-purple;
+    color: $white;
+    display: block;
+    margin: em(12px) 0 0;
+    padding: 0 0 em(12px);
+
+    &:hover {
+      border-color: $white;
+      text-decoration: none;
+    }
+  }
+}
+
+.service-downloads-list-title {
+  border-bottom: 1px solid $white;
+  color: $white;
+  font-size: em(16px);
+  font-weight: $open-sans-light;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: em(40px, 16px) em(20px, 16px) em(20px, 16px);
+  margin: 0;
 }
 
 @include media('>=1024px') {
@@ -11,21 +56,37 @@
   }
 }
 
+.service-download-category {
+  @extend %download-category;
+  font-size: em(14px);
+}
+
 .service-download-title {
-  font-weight: $service-download-title-font-weight;
-  line-height: 1.1;
-  margin: 0 0 em(24px, 13px);
+  @extend %download-title;
+  font-size: em(16px);
+  margin: em(4px, 16px) 0;
 }
 
 .service-download-content {
   color: $white;
-  padding: em(24px);
+  position: relative;
+
+  @include media('>phone') {
+    height: 100%;
+    min-height: 303px;
+  }
 }
 
 .service-download-read-more {
   @extend %read-more;
+  background: $white;
   border-color: $white;
-  color: $white;
+  bottom: 0;
+  color: $black;
+  letter-spacing: 2px;
+  padding: em(16px, 10px) em(88px, 10px);
+  position: absolute;
+  right: 0;
 
   @include media('>=desktop') {
     margin-top: 0;
@@ -34,11 +95,11 @@
   &:link,
   &:visited,
   &:active {
-    color: $white;
+    color: $black;
   }
 
   &:hover {
-    background: $service-download-read-more-hover;
+    background: transparent;
     color: $white;
     text-decoration: none;
   }
@@ -48,5 +109,33 @@
   color: $white;
   font-family: $service-download-summary-font;
   font-size: em(13px);
-  margin: 0;
+  margin: em(43px, 13px) 0 0;
+
+  p {
+    font-size: em(13px);
+  }
+}
+
+.download-image-wrap {
+  img {
+    box-shadow: 1px 1px 5px 0 rgba($black, .5);
+  }
+}
+
+.service-downloads-more {
+  color: $white;
+  display: block;
+  font-weight: $open-sans-bold;
+  letter-spacing: 1px;
+  padding-right: em(20px);
+  text-align: right;
+  text-transform: uppercase;
+  width: 100%;
+
+  &:link,
+  &:visited,
+  &:hover,
+  &:active, {
+    color: $white;
+  }
 }

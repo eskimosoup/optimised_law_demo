@@ -11,6 +11,7 @@
 
   @include media('>phone') {
     margin: 0 0 0 em(20px);
+    padding: em(20px) 0 0;
   }
 
   &.grid {
@@ -19,15 +20,19 @@
 }
 
 .download-content {
-  padding: em(30px) em(3px) em(40px);
+  padding: em(20px) em(3px);
+}
+
+%download-category {
+  font-weight: $open-sans-extrabold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 .download-category,
 .view-all-category {
+  @extend %download-category;
   font-size: em(11px);
-  font-weight: $open-sans-extrabold;
-  letter-spacing: 1px;
-  text-transform: uppercase;
 
   a {
     color: $white;
@@ -35,7 +40,6 @@
 }
 
 %download-title {
-  font-size: em(14px);
   line-height: 1.1;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -43,6 +47,7 @@
 
 .download-title {
   @extend %download-title;
+  font-size: em(14px);
 
   a {
     color: $white;
@@ -67,5 +72,10 @@
 
 .view-all-downloads {
   @extend %download-title;
+  font-size: em(14px);
   line-height: 1.5;
+}
+
+.download-image {
+  box-shadow: 1px 1px 5px 0 rgba($black, .5);
 }

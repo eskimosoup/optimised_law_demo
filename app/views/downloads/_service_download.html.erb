@@ -2,13 +2,17 @@
   <div class="row">
     <div class="medium-4 columns">
       <div class="download-image-wrap">
-        <%= @presented_download.index_image %>
+        <%= @presented_download.show_image %>
       </div>
     </div>
 
     <div class="medium-8 columns">
       <div class="service-download-content">
-        <div class="download-title">
+        <div class="service-download-category">
+          <%= @presented_download.category_name %>
+        </div>
+
+        <div class="service-download-title">
           <%= @presented_download.title %>
         </div>
 
