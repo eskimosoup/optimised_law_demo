@@ -1,0 +1,128 @@
+.conveyancing-quote {
+  border: 20px solid $white;
+  background: $light-blue;
+  color: $white;
+  padding: em(40px);
+
+  fieldset {
+    border-bottom: 2px solid $white;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    margin: em(30px) 0 0;
+    padding: 0 em(40px) em(36px);
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+
+    &:last-of-type {
+      margin-bottom: em(36px);
+    }
+  }
+
+  legend {
+    color: $deep-purple;
+    font-size: em(15px);
+    letter-spacing: 1px;
+    margin: 0 0 em(20px, 15px);
+    padding: 0;
+  }
+
+  input[type='text'],
+  select {
+    @include media('>phone') {
+      margin: em(10px) 0;
+    }
+  }
+
+  input[type='submit'] {
+    @extend %read-more;
+    background: $white;
+    border-color: $white;
+    color: $black;
+    float: right;
+    letter-spacing: 2px;
+    padding: em(14px, 10px) em(32px, 10px);
+
+    @include media('>=desktop') {
+      margin-top: 0;
+    }
+
+    &:link,
+    &:visited,
+    &:active {
+      color: $black;
+      outline: 0;
+    }
+
+    &:hover {
+      background: transparent;
+      color: $white;
+      outline: 0;
+      text-decoration: none;
+    }
+  }
+}
+
+.conveyancing-quote-fieldset-label {
+  font-weight: $open-sans-semibold;
+}
+
+.conveyancing-quote-radio-group {
+  label {
+    padding: 0 em(5px) 0 em(20px);
+
+    &:first-of-type {
+      padding-left: 0;
+    }
+  }
+}
+
+.conveyancing-quote-new-build-arrow {
+  margin-left: em(20px);
+}
+
+.conveyancing-property-details-label {
+  display: block;
+
+  @include media('>phone') {
+    margin: em(20px) 0;
+  }
+}
+
+.conveyancing-title {
+  align-items: center;
+  background: transparent image-url('components/conveyancing-calculator/background.jpg') no-repeat;
+  display: flex;
+  min-height: 318px;
+  text-align: center;
+
+  h2 {
+    font-size: em(18px);
+    letter-spacing: 2px;
+    line-height: 1.25;
+    text-transform: uppercase;
+  }
+
+  img {
+    display: block;
+    margin: 0 auto em(22px);
+  }
+}
+
+.conveyancing-summary {
+  align-items: center;
+  background: $deep-purple;
+  color: $white;
+  display: flex;
+  font-size: em(14px);
+  padding: em(58px) em(28px);
+  text-align: center;
+
+  a:link {
+    color: $white;
+    font-weight: $open-sans-bold;
+    text-decoration: underline;
+  }
+}

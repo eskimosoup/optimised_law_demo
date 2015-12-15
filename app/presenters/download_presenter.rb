@@ -22,8 +22,8 @@ class DownloadPresenter < BasePresenter
     h.link_to 'Download', download.file.url, class: 'service-download-read-more'
   end
 
-  def download_link
-    h.link_to title, download.file.url
+  def download_link(content = title)
+    h.link_to content, download.file.url
   end
 
   def summary

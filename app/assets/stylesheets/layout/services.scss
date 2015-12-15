@@ -196,6 +196,15 @@
 }
 
 .service-row.row,
+.service-row.row.collapse,
 .widget-row {
   margin-bottom: em(20px);
+}
+
+.widget-title {
+  font-size: em(16px);
+  font-weight: $open-sans-bold;
+  letter-spacing: 2px;
+  margin: 0  0 em(23px, 16px);
+  text-transform: uppercase;
 }

@@ -19,18 +19,42 @@
 
       <div class="service-row row">
         <div class="small-12 columns">
-          <h2>Conveyancing Quote Calculator</h2>
+          <%= render 'services/conveyancing_quote' %>
         </div>
       </div>
 
       <div class="service-row row">
-        <%= render partial: 'downloads/service_download_grid', collection: @presented_all_downloads, as: :download_presenter if @service.downloads.present? %>
+        <section class="small-12 columns">
+          <div class="homepage-downloads">
+            <div class="row collapse" data-equalizer="downloads">
+              <%= render partial: 'downloads/homepage', collection: @presented_all_downloads, as: :download_presenter %>
+
+               <div class="medium-3 columns <%= 'end' if @presented_all_downloads.size < 3 %>" data-equalizer-watch="downloads">
+                 <div class="view-all-downloads">
+                   <div class="view-all-title">
+                     View all of our
+                   </div>
+
+                   <div class="view-all-category">
+                     <%= @presented_download.category_name_link(@presented_download.category_name.pluralize) %>
+                   </div>
+                 </div>
+               </div>
+            </div>
+          </div>
+        </section>
       </div>
 
       <div class="service-row row">
         <div class="medium-6 columns">
           <div class="frequently-asked-questions">
-            <%= render partial: 'frequently_asked_questions/frequently_asked_question', collection: @presented_service_faqs, as: :frequently_asked_question_presenter %>
+            <h2 class="widget-title">
+              Latest FAQs
+            </h2>
+
+            <div class="frequently-asked-questions-list">
+              <%= render partial: 'frequently_asked_questions/frequently_asked_question', collection: @presented_service_faqs, as: :frequently_asked_question_presenter %>
+            </div>
           </div>
         </div>
 

@@ -3,16 +3,10 @@
   padding: em(46px) em(20px);
 }
 
-.pricing-title {
-  font-size: em(16px);
-  font-weight: $open-sans-bold;
-  letter-spacing: 2px;
-  margin: 0  0 em(23px, 16px);
-  text-transform: uppercase;
-}
-
 .pricing-band {
+  height: 100%;
   padding: em(44px) em(37px);
+  position: relative;
   text-align: center;
 
   &.first {
@@ -42,7 +36,7 @@
   font-size: em(23px);
   font-weight: $open-sans-bold;
   letter-spacing:  1px;
-  padding: 0 0 em(30px, 23px);
+  padding: 0 0 em(25px, 23px);
 }
 
 .pricing-band-summary {
@@ -70,4 +64,14 @@
   font-size: em(14px);
   margin: 0;
   text-align: center;
+}
+
+.pricing-band-number {
+  bottom: -20px;
+  font-family: $times-new-roman;
+  font-size: em(192px);
+  line-height: 1;
+  left: 0;
+  opacity: .1;
+  position: absolute;
 }

@@ -25,8 +25,20 @@ RSpec.describe DownloadPresenter, type: :presenter do
       expect(download_presenter.index_image(alt: download.title)).to eq(image_tag(download.image.index, alt: download.title))
     end
 
-    it "returns the index image" do
+    it "returns the show image" do
+      expect(download_presenter.show_image(alt: download.title)).to eq(image_tag(download.image.show, alt: download.title))
+    end
+
+    it "returns the homepage image" do
+      expect(download_presenter.homepage_image(alt: download.title)).to eq(image_tag(download.image.homepage, alt: download.title))
+    end
+
+    it "returns the download link" do
       expect(download_presenter.download_link).to eq(link_to download.title, download.file.url)
+    end
+
+    it "returns the download link with customised content" do
+      expect(download_presenter.download_link('Download now')).to eq(link_to 'Download now', download.file.url)
     end
 
     it "returns the summary - html formatted" do

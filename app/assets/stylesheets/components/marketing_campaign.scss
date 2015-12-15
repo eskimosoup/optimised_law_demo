@@ -42,3 +42,14 @@
     margin: em(10px, 14px) 0 em(20px, 14px);
   }
 }
+
+
+.marketing-image-wrap {
+  padding: em(20px);
+
+  img {
+    box-shadow: 1px 1px 5px 0 rgba($black, .5);
+    display: block;
+    margin: 0 auto;
+  }
+}

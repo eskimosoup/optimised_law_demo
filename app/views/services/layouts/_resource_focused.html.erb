@@ -17,85 +17,60 @@
     <div class="small-12 columns">
       <%= render 'services/header' %>
 
-      <div class="service-row row">
-        <div class="small-12 columns">
-          <div class="pricing-content">
-            <h2 class="pricing-title">Simple, upfront costs</h2>
+      <%# if @service.pricing_band.present? %>
+        <div class="service-row row">
+          <div class="small-12 columns">
+            <div class="pricing-content">
+              <h2 class="widget-title">Simple, upfront costs</h2>
 
-            <div class="row">
-              <div class="medium-4 columns">
-                <div class="pricing-band first">
-                  <div class="pricing-band-type">
-                    Band 1
-                  </div>
-
-                  <div class="pricing-band-title">
-                    Amicable Divorce £120
-                  </div>
-
-                  <p class="pricing-band-summary">
-                    If you're not fighting like cat and dog, and you just need
-                    the paperwork and the formalities sorted.
-                  </p>
-                </div>
+              <div class="row">
+                <%= render partial: 'pricing_bands/pricing_band' %>
               </div>
 
-              <div class="medium-4 columns">
-                <div class="pricing-band second">
-                  <div class="pricing-band-type">
-                    Band 1
-                  </div>
+              <p class="pricing-band-cta">
+                To discuss your options, call <strong>0835 696 8845</strong> now.
+              </p>
 
-                  <div class="pricing-band-title">
-                    Amicable Divorce £120
-                  </div>
-
-                  <p class="pricing-band-summary">
-                    If you're not fighting like cat and dog, and you just need
-                    the paperwork and the formalities sorted.
-                  </p>
-                </div>
-              </div>
-
-              <div class="medium-4 columns">
-                <div class="pricing-band third">
-                  <div class="pricing-band-type">
-                    Band 1
-                  </div>
-
-                  <div class="pricing-band-title">
-                    Amicable Divorce £120
-                  </div>
-
-                  <p class="pricing-band-summary">
-                    If you're not fighting like cat and dog, and you just need
-                    the paperwork and the formalities sorted.
-                  </p>
-                </div>
-              </div>
+              <p class="pricing-band-small-print">
+                Before we do any work outside of the fixed price quoted, we will
+                notify you and agree how any additional work will be charged.
+              </p>
             </div>
+          </div>
+        </div>
+      <%# end %>
 
-            <p class="pricing-band-cta">
-              To discuss your options, call <strong>0835 696 8845</strong> now.
-            </p>
+      <div class="service-row row collapse" data-equalizer="service-resources">
+        <div class="medium-8 columns" data-animation-type="slideInLeft" data-equalizer-watch>
+          <%= render partial: 'downloads/service_download' if @service.downloads.present? %>
+        </div>
 
-            <p class="pricing-band-small-print">
-              Before we do any work outside of the fixed price quoted, we will
-              notify you and agree how any additional work will be charged. 
-            </p>
+        <div class="medium-4 columns" data-animation-type="slideInRight" data-equalizer-watch>
+          <div class="service-downloads-list">
+            <h3 class="service-downloads-list-title">More Guides</h3>
+
+            <ul class="service-downloads-list-items">
+              <%= render partial: 'downloads/service_download_list', collection: @presented_downloads, as: :download_presenter if @service.downloads.present? %>
+            </ul>
+
+            <%= link_to 'More', '#', class: 'invalid-link service-downloads-more' %>
           </div>
         </div>
       </div>
 
-      <div class="service-row row" data-equalizer="service-resources">
-        <div class="medium-8 columns" data-animation-type="slideInLeft">
-          <%= render partial: 'downloads/service_download' if @service.downloads.present? %>
-        </div>
 
-        <div class="medium-4 columns" data-animation-type="slideInRight">
-          <ul class="service-downloads">
-            <%= render partial: 'downloads/service_download_list', collection: @presented_downloads, as: :download_presenter if @service.downloads.present? %>
-          </ul>
+
+      <div class="service-row row">
+        <div class="medium-6 columns">
+          <div class="frequently-asked-questions">
+            <h2 class="widget-title">
+              Latest FAQs
+            </h2>
+
+            <div class="frequently-asked-questions-list">
+              <%= render partial: 'frequently_asked_questions/frequently_asked_question', collection: @presented_service_faqs, as: :frequently_asked_question_presenter %>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -105,14 +80,6 @@
         <div class="medium-6 columns" id="testimonials" data-animation-type="slideInLeft" data-animation-delay="750" data-equalizer-watch="service-resources">
           <div class="service-testimonial">
             <%= render partial: 'testimonials/service_testimonial', collection: @presented_service_testimonials, as: :testimonial_presenter %>
-          </div>
-        </div>
-      </div>
-
-      <div class="service-row row">
-        <div class="medium-12 columns">
-          <div class="frequently-asked-questions">
-            <%= render partial: 'frequently_asked_questions/frequently_asked_question', collection: @presented_service_faqs, as: :frequently_asked_question_presenter %>
           </div>
         </div>
       </div>
