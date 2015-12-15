@@ -1,10 +1,9 @@
 <div id="tweets" data-animation-type="slideInLeft" data-animation-delay="500">
   <div class="service-twitter" id="twitter">
     <p>
-      A whole lot of inspiration you can get from the vast variety of
-      combinations
+      <%= raw twitter_timeline_text(0, global_site_settings['Twitter']) %>
     </p>
 
-    <span class="service-twitter-username">Twitter User</span>
+    <span class="service-twitter-username"><%= twitter_timeline_ago(0, global_site_settings['Twitter']) %></span>
   </div>
 </div>

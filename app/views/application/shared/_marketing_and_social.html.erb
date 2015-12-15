@@ -19,29 +19,31 @@
 <% end %>
 
 <!--
-<div class="home-content-block" data-animation-type="slideInLeft">
-  <div class="row collapse">
-    <section class="small-12 columns">
-      <div class="homepage-downloads">
-        <div class="row collapse" data-equalizer="downloads">
-          <%#= render partial: 'downloads/homepage', collection: @presented_downloads, as: :download_presenter %>
+<% if @downloads.present? %>
+  <div class="home-content-block" data-animation-type="slideInLeft">
+    <div class="row collapse">
+      <section class="small-12 columns">
+        <div class="homepage-downloads">
+          <div class="row collapse" data-equalizer="downloads">
+            <%#= render partial: 'downloads/homepage', collection: @presented_downloads, as: :download_presenter %>
 
-           <div class="medium-3 columns <%= 'end' if @presented_downloads.size < 3 %>" data-equalizer-watch="downloads">
-             <div class="view-all-downloads">
-               <div class="view-all-title">
-                 View all of our
-               </div>
+             <div class="medium-3 columns <%#= 'end' if @presented_downloads.size < 3 %>" data-equalizer-watch="downloads">
+               <div class="view-all-downloads">
+                 <div class="view-all-title">
+                   View all of our
+                 </div>
 
-               <div class="view-all-category">
-                 <%#= @presented_downloads.first.category_name_link(@presented_downloads.first.category_name.pluralize) %>
+                 <div class="view-all-category">
+                   <%#= @presented_downloads.first.category_name_link(@presented_downloads.first.category_name.pluralize) %>
+                 </div>
                </div>
              </div>
-           </div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   </div>
-</div>
+<% end %>
 -->
 
 <div class="home-content-block" data-animation-type="slideInLeft">
