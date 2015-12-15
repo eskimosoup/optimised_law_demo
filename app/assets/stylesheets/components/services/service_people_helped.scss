@@ -9,6 +9,11 @@
     padding: em(40px) 0;
   }
 
+  &.small {
+    background-image: image-url('components/people-helped/home-owners.jpg');
+    background-position: 80% 80%;
+  }
+
   p {
     font-family: $people-helped-paragraph-font;
 

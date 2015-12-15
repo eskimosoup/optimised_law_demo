@@ -19,15 +19,21 @@
     </div>
   </div>
 
-  <div class="service-row row" data-equalizer="service-resources">
-    <div class="medium-8 columns" data-animation-type="slideInLeft" id="downloads" class="service-downloads-wrap">
+  <div class="service-row row collapse" data-equalizer="service-resources">
+    <div class="medium-8 columns" data-animation-type="slideInLeft" data-equalizer-watch>
       <%= render partial: 'downloads/service_download' if @service.downloads.present? %>
     </div>
 
-    <div class="medium-4 columns" data-animation-type="slideInRight">
-      <ul class="service-downloads">
-        <%= render partial: 'downloads/service_download_list', collection: @presented_downloads, as: :download_presenter if @service.downloads.present? %>
-      </ul>
+    <div class="medium-4 columns" data-animation-type="slideInRight" data-equalizer-watch>
+      <div class="service-downloads-list">
+        <h3 class="service-downloads-list-title">More Guides</h3>
+
+        <ul class="service-downloads-list-items">
+          <%= render partial: 'downloads/service_download_list', collection: @presented_downloads, as: :download_presenter if @service.downloads.present? %>
+        </ul>
+
+        <%= link_to 'More', '#', class: 'invalid-link service-downloads-more' %>
+      </div>
     </div>
   </div>
 
@@ -37,10 +43,6 @@
     </div>
 
     <div class="large-4 columns">
-      <div class="widget-row">
-        <%= render 'services/people_helped' if @presented_service.has_people_helped_widget.present? %>
-      </div>
-
       <div class="service-twitter-wrap">
         <%= render partial: 'services/twitter' %>
       </div>
@@ -50,7 +52,13 @@
   <div class="service-row row">
     <div class="medium-6 columns">
       <div class="frequently-asked-questions">
-        <%= render partial: 'frequently_asked_questions/frequently_asked_question', collection: @presented_service_faqs, as: :frequently_asked_question_presenter %>
+        <h2 class="widget-title">
+          Latest FAQs
+        </h2>
+
+        <div class="frequently-asked-questions-list">
+          <%= render partial: 'frequently_asked_questions/frequently_asked_question', collection: @presented_service_faqs, as: :frequently_asked_question_presenter %>
+        </div>
       </div>
     </div>
 

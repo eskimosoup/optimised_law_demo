@@ -17,14 +17,16 @@
     <div class="small-12 columns">
       <%= render 'services/header' %>
 
-      <%# if @service.pricing_band.present? %>
+      <%# if @service.pricing_bands.present? %>
         <div class="service-row row">
           <div class="small-12 columns">
             <div class="pricing-content">
               <h2 class="widget-title">Simple, upfront costs</h2>
 
               <div class="row">
-                <%= render partial: 'pricing_bands/pricing_band' %>
+                <%= render partial: 'pricing_bands/pricing_band_1' %>
+                <%= render partial: 'pricing_bands/pricing_band_2' %>
+                <%= render partial: 'pricing_bands/pricing_band_3' %>
               </div>
 
               <p class="pricing-band-cta">
