@@ -35,7 +35,8 @@ class ServicePresenter < BasePresenter
   end
 
   def read_more_link
-    h.link_to "More on #{name}", h.service_path(service), class: 'service-overview-read-more' if Rails.env.development? || Rails.env.test? || service.name == 'Divorce'
+    unless if Rails.env.test? || Rails.env.development? || service.name == 'Divorce' || service.name == 'Buying or Selling a Home' || service.name == 'Discrimination'
+    h.link_to "More on #{name}", h.service_path(service), class: 'service-overview-read-more' #if Rails.env.development? || Rails.env.test? || service.name == 'Divorce'
   end
 
   def tab_link
