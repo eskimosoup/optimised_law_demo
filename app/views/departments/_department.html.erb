@@ -1,4 +1,4 @@
-<% if department_presenter.name == 'Family Law' %>
+<% if department_presenter.name == 'Family Law' || department_presenter.name == 'Conveyancing'  || department_presenter.name == 'Employment Law' %>
   <li><%= link_to department_presenter.name, department_presenter %></li>
 <% else %>
   <li><%= link_to department_presenter.name, '#', class: 'invalid-link' %></li>

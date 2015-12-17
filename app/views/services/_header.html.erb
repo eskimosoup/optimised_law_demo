@@ -43,8 +43,10 @@
                 </div>
 
                 <div class="hide-for-medium-down large-4 columns text-center">
-                  <%= link_to '#team-members-carousel' do %>
-                    <%= image_tag @service.team_members.first.image.small, class: 'team-members-service-overview-avatar' %>
+                  <% if @service.team_members.present? %>
+                    <%= link_to '#team-members-carousel' do %>
+                      <%= image_tag @service.team_members.first.image.small, class: 'team-members-service-overview-avatar' %>
+                    <% end %>
                   <% end %>
                 </div>
             </div>
