@@ -21,14 +21,16 @@
   </script>
 <% end %>
 
-<div class="service-awards-wrap">
-  <div class="service-awards-service-name">
-    <%= @presented_service.name %>
+<% if @service.awards.present? %>
+  <div class="service-awards-wrap">
+    <div class="service-awards-service-name">
+      <%= @presented_service.name %>
+    </div>
+
+    <h6>Awards & Accreditations</h6>
+
+    <ul class="service-awards" id="awards">
+      <%= render partial: 'awards/award', collection: @presented_service_awards, as: :award_presenter %>
+    </ul>
   </div>
-
-  <h6>Awards & Accreditations</h6>
-
-  <ul class="service-awards" id="awards">
-    <%= render partial: 'awards/award', collection: @presented_service_awards, as: :award_presenter %>
-  </ul>
-</div>
+<% end %>

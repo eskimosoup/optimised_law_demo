@@ -43,21 +43,23 @@
       <%# end %>
 
       <div class="service-row row collapse" data-equalizer="service-resources">
-        <div class="medium-8 columns" data-animation-type="slideInLeft" data-equalizer-watch>
+        <div class="medium-8 columns <%= 'end' if @service.downloads.present? && @service.downloads.size == 1 %>" data-animation-type="slideInLeft" data-equalizer-watch>
           <%= render partial: 'downloads/service_download' if @service.downloads.present? %>
         </div>
 
-        <div class="medium-4 columns" data-animation-type="slideInRight" data-equalizer-watch>
-          <div class="service-downloads-list">
-            <h3 class="service-downloads-list-title">More Guides</h3>
+        <% if @service.downloads.present? && @service.downloads.size > 1 %>
+          <div class="medium-4 columns" data-animation-type="slideInRight" data-equalizer-watch>
+            <div class="service-downloads-list">
+              <h3 class="service-downloads-list-title">More Guides</h3>
 
-            <ul class="service-downloads-list-items">
-              <%= render partial: 'downloads/service_download_list', collection: @presented_downloads, as: :download_presenter if @service.downloads.present? %>
-            </ul>
+              <ul class="service-downloads-list-items">
+                <%= render partial: 'downloads/service_download_list', collection: @presented_downloads, as: :download_presenter if @service.downloads.present? %>
+              </ul>
 
-            <%= link_to 'More', '#', class: 'invalid-link service-downloads-more' %>
+              <%= link_to 'More', '#', class: 'invalid-link service-downloads-more' %>
+            </div>
           </div>
-        </div>
+        <% end %>
       </div>
 
 
