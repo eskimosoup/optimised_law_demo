@@ -1,1 +1,14 @@
+<%= content_for :footer do %>
+  <script>
+    $('.service-testimonial').slick({
+      fade: true,
+      infinte: true,
+      dots: false,
+      arrows: false,
+      autoplay: true,
+      autoplaySpeed: 5000
+    });
+  </script>
+<% end %>
+
 <%= render "services/layouts/#{@presented_service.layout}" %>

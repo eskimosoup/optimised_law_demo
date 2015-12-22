@@ -1,22 +1,11 @@
-<%= content_for :footer do %>
-  <script>
-    $('.service-testimonial').slick({
-      fade: true,
-      infinte: true,
-      dots: false,
-      arrows: false,
-      autoplay: true,
-      autoplaySpeed: 5000
-    });
-  </script>
-<% end %>
-
 <div class="service-row row" data-equalizer="service-resources">
-  <div class="medium-4 columns" id="testimonials" data-animation-type="slideInLeft" data-animation-delay="750" data-equalizer-watch="service-resources">
-    <div class="service-testimonial" id="testimonials">
-      <%= render partial: 'testimonials/service_testimonial', collection: @presented_service_testimonials, as: :testimonial_presenter %>
+  <% if @service.testimonials.present? %>
+    <div class="medium-4 columns" id="testimonials" data-animation-type="slideInLeft" data-animation-delay="750" data-equalizer-watch="service-resources">
+      <div class="service-testimonial" id="testimonials">
+        <%= render partial: 'testimonials/service_testimonial', collection: @presented_service_testimonials, as: :testimonial_presenter %>
+      </div>
     </div>
-  </div>
+  <% end %>
 
   <div class="medium-8 columns" data-equalizer-watch="service-resources">
     <%= render 'services/twitter' %>

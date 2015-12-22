@@ -2,12 +2,13 @@
   background: $light-purple;
   border-radius: 50%;
   color: $white;
-  display: inline-block;
+  display: block;
+  float: left;
   font-family: $times-new-roman;
   font-size: em(48px);
   height: 55px;
   line-height: 55px;
-  margin-right: em(20px, 48px);
+  margin: 0 em(20px, 48px) em(5px, 48px);
   text-align: center;
   width: 55px;
 }
@@ -23,13 +24,16 @@
 }
 
 .frequently-asked-questions-list {
+  @extend %clearfix;
   padding: 0 em(50px);
 }
 
 .frequently-asked-question {
   border-bottom: 3px solid $grey;
+  float: left;
   margin: em(20px) 0;
   padding: 0 0 em(30px);
+  width: 100%;
 
   p {
     margin-bottom: 0;
@@ -40,4 +44,8 @@
   color: $primary-text-color;
   font-size: em(15px);
   font-weight: $open-sans-bold;
+}
+
+.frequently-asked-question-content {
+  overflow: hidden;
 }

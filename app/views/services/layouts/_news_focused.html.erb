@@ -66,11 +66,13 @@
   </div>
 
   <div class="service-row row">
-    <div class="medium-6 columns" id="testimonials" data-animation-type="slideInLeft" data-animation-delay="750" data-equalizer-watch="service-resources">
-      <div class="service-testimonial" id="testimonials">
-        <%= render partial: 'testimonials/service_testimonial', collection: @presented_service_testimonials, as: :testimonial_presenter %>
+    <% if @service.testimonials.present? %>
+      <div class="medium-6 columns" id="testimonials" data-animation-type="slideInLeft" data-animation-delay="750" data-equalizer-watch="service-resources">
+        <div class="service-testimonial" id="testimonials">
+          <%= render partial: 'testimonials/service_testimonial', collection: @presented_service_testimonials, as: :testimonial_presenter %>
+        </div>
       </div>
-    </div>
+    <% end %>
 
     <%= render 'services/service_video' if @presented_video.present? && @presented_service.has_people_helped_widget.present? %>
   </div>
