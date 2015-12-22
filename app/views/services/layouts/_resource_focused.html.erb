@@ -43,13 +43,13 @@
       <%# end %>
 
       <div class="service-row row collapse" data-equalizer="service-resources">
-        <div class="medium-8 columns <%= 'end' if @service.downloads.present? && @service.downloads.size == 1 %>" data-animation-type="slideInLeft" data-equalizer-watch>
+        <div class="medium-<%= @service.downloads.present? && @service.downloads.size == 1 ? '12 full-width-download' : '8' %> columns" data-animation-type="slideInLeft" data-equalizer-watch>
           <%= render partial: 'downloads/service_download' if @service.downloads.present? %>
         </div>
 
         <% if @service.downloads.present? && @service.downloads.size > 1 %>
           <div class="medium-4 columns" data-animation-type="slideInRight" data-equalizer-watch>
-            <div class="service-downloads-list">
+            <div class="service-downloads-list <%= @presented_download.presented_audience.class_name %>">
               <h3 class="service-downloads-list-title">More Guides</h3>
 
               <ul class="service-downloads-list-items">
@@ -81,11 +81,13 @@
       <div class="service-row row" data-equalizer="additional-content">
         <%= render 'services/content_tabs' if @presented_case_studies.present? %>
 
-        <div class="medium-6 columns" id="testimonials" data-animation-type="slideInLeft" data-animation-delay="750" data-equalizer-watch="service-resources">
-          <div class="service-testimonial">
-            <%= render partial: 'testimonials/service_testimonial', collection: @presented_service_testimonials, as: :testimonial_presenter %>
+        <% if @service.testimonials.present? %>
+          <div class="medium-6 columns" id="testimonials" data-animation-type="slideInLeft" data-animation-delay="750" data-equalizer-watch="service-resources">
+            <div class="service-testimonial">
+              <%= render partial: 'testimonials/service_testimonial', collection: @presented_service_testimonials, as: :testimonial_presenter %>
+            </div>
           </div>
-        </div>
+        <% end %>
       </div>
 
       <div class="service-row row" data-equalizer="statistics">
