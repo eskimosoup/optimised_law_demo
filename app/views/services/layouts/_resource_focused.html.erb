@@ -1,3 +1,31 @@
+<% # Divorce %>
+
+<%= content_for :footer do %>
+  <script>
+    $('.service-testimonial').slick({
+      fade: true,
+      infinte: true,
+      dots: false,
+      arrows: false,
+      autoplay: true,
+      autoplaySpeed: 5000
+    });
+  </script>
+<% end %>
+
+<% content_for :service_content_navigation do %>
+  <ul class="service-navigation-page-links" id="sidebar-links">
+    <%= content_tag(:li, (link_to 'Downloads', '#downloads', class: 'smooth-scroll')) if @service.downloads.present? %>
+    <%= content_tag(:li, (link_to 'Case Studies', '#case-studies', class: 'smooth-scroll')) if @service.case_studies.present? %>
+    <%= content_tag(:li, (link_to 'Testimonials', '#testimonials', class: 'smooth-scroll')) if @service.testimonials.present? %>
+    <%= content_tag(:li, (link_to 'People Helped', '#people-helped', class: 'smooth-scroll')) %>
+    <%= content_tag(:li, (link_to 'Videos', '#videos', class: 'smooth-scroll')) if @service.videos.present? %>
+    <%= content_tag(:li, (link_to 'Tweets', '#tweets', class: 'smooth-scroll')) %>
+    <%= content_tag(:li, (link_to 'Meet your Specialists', '#team-members-carousel', class: 'smooth-scroll')) if @service.team_members.present? %>
+    <!-- <li><%#= link_to 'Latest Events', '#events' %></li> -->
+  </ul>
+<% end %>
+
 <section class="service-wrap">
   <div class="row" data-equalizer="service-overview-top">
     <div class="small-6 columns" data-equalizer-watch>
@@ -43,17 +71,17 @@
       <%# end %>
 
       <div class="service-row row collapse" data-equalizer="service-resources">
-        <div class="medium-<%= @service.downloads.present? && @service.downloads.size == 1 ? '12 full-width-download' : '8' %> columns" data-animation-type="slideInLeft" data-equalizer-watch>
-          <%= render partial: 'downloads/service_download' if @service.downloads.present? %>
+        <div class="medium-<%= @service.downloads.blank? ? '12 full-width-download' : '8' %> columns" data-animation-type="slideInLeft" data-equalizer-watch>
+          <%= render partial: 'downloads/service_download' if @service.featured_download.present? %>
         </div>
 
-        <% if @service.downloads.present? && @service.downloads.size > 1 %>
+        <% if @service.downloads.present? %>
           <div class="medium-4 columns" data-animation-type="slideInRight" data-equalizer-watch>
             <div class="service-downloads-list <%= @presented_download.presented_audience.class_name %>">
               <h3 class="service-downloads-list-title">More Guides</h3>
 
               <ul class="service-downloads-list-items">
-                <%= render partial: 'downloads/service_download_list', collection: @presented_downloads, as: :download_presenter if @service.downloads.present? %>
+                <%= render partial: 'downloads/service_download_list', collection: @presented_downloads, as: :download_presenter %>
               </ul>
 
               <%= link_to 'More', '#', class: 'invalid-link service-downloads-more' %>
@@ -65,14 +93,20 @@
 
 
       <div class="service-row row">
-        <div class="medium-6 columns">
+        <div class="medium-12 columns">
           <div class="frequently-asked-questions">
             <h2 class="widget-title">
               Latest FAQs
             </h2>
 
-            <div class="frequently-asked-questions-list">
-              <%= render partial: 'frequently_asked_questions/frequently_asked_question', collection: @presented_service_faqs, as: :frequently_asked_question_presenter %>
+            <div class="frequently-asked-questions-list-wrap">
+              <% @service.frequently_asked_questions.in_groups(2, false) do |group| %>
+                <div class="frequently-asked-questions-list-half-width" data-equalizer="faq-<%= group.first.id %>">
+                  <% group.each do |faq| %>
+                    <%= render partial: 'frequently_asked_questions/frequently_asked_question', locals: { group: group, frequently_asked_question_presenter: FrequentlyAskedQuestionPresenter.new(object: faq, view_template: self) } %>
+                  <% end %>
+                </div>
+              <% end %>
             </div>
           </div>
         </div>
@@ -84,7 +118,13 @@
         <% if @service.testimonials.present? %>
           <div class="medium-6 columns" id="testimonials" data-animation-type="slideInLeft" data-animation-delay="750" data-equalizer-watch="service-resources">
             <div class="service-testimonial">
-              <%= render partial: 'testimonials/service_testimonial', collection: @presented_service_testimonials, as: :testimonial_presenter %>
+              <% @service.testimonials.in_groups_of(2, false) do |group| %>
+                <div class="testimonial-group">
+                  <% group.each do |testimonial| %>
+                    <%= render 'testimonials/service_testimonial', testimonial_presenter: TestimonialPresenter.new(object: testimonial, view_template: self) %>
+                  <% end %>
+                </div>
+              <% end %>
             </div>
           </div>
         <% end %>
@@ -106,7 +146,17 @@
 
         <div class="large-4 columns"  data-equalizer-watch="updates">
           <div class="service-twitter-wrap">
-            <%= render partial: 'services/twitter' %>
+            <%#= render partial: 'services/twitter' %>
+            <div id="tweets" data-animation-type="slideInLeft" data-animation-delay="500">
+              <div class="service-twitter" id="twitter">
+                <p>
+                  5 positive lessons my divorce taught me for future
+                  relationships <%= link_to 'http://harrison.to/1Lb2txp', '#' %>
+                </p>
+
+                <span class="service-twitter-username">21 hours ago </span>
+              </div>
+            </div>
           </div>
         </div>
       </div>

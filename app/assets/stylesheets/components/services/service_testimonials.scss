@@ -23,3 +23,23 @@
     }
   }
 }
+
+.testimonial-group {
+  @include media('>=desktop') {
+    padding: em(124px, 18px) 0 0;
+  }
+
+  @include media('<desktop') {
+    padding: em(74px, 14px) 0 0;
+  }
+
+  .testimonial {
+    &:first-of-type {
+      margin: 0 0 em(60px);
+    }
+
+    p {
+      padding-top: 0;
+    }
+  }
+}

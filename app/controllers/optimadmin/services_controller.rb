@@ -50,7 +50,7 @@ module Optimadmin
     def service_params
       params.require(:service).permit(:department_id, :has_people_helped_widget,
       :parent_id, :name, :image, :summary, :content, :suggested_url, :display,
-      :leaflet, :remote_leaflet_url, :leaflet_cache, :layout,
+      :leaflet, :remote_leaflet_url, :leaflet_cache, :layout, :featured_download_id,
       :remove_leaflet, related_service_ids: [])
     end
   end

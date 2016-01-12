@@ -2,6 +2,7 @@
   background: $marketing-campaign-background;
   border: 20px solid $white;
   margin: 0 em(20px);
+  padding: em(20px);
   height: 100%;
 
   @include media('<tablet') {
@@ -15,7 +16,7 @@
 
 .marketing-campaign-content {
   color: $marketing-campaign-color;
-  padding: em(70px) em(20px) em(20px);
+  //padding: em(70px) em(20px) em(20px);
 
   @include media('<tablet') {
     padding: em(15px);
@@ -43,13 +44,22 @@
   }
 }
 
+.marketing-read-more {
+  @extend %read-more;
+  border-color: $white;
+  color: $white;
+  margin: em(20px, 10px) 0 0;
+
+  &:link,
+  &:visited,
+  &:hover,
+  &:active, {
+    color: $white;
+  }
+}
 
 .marketing-image-wrap {
-  padding: em(20px);
-
   img {
     box-shadow: 1px 1px 5px 0 rgba($black, .5);
-    display: block;
-    margin: 0 auto;
   }
 }

@@ -1,3 +1,31 @@
+<% # Conveyancing %>
+
+<%= content_for :footer do %>
+  <script>
+    $('.service-testimonial').slick({
+      fade: true,
+      infinte: true,
+      dots: false,
+      arrows: false,
+      autoplay: true,
+      autoplaySpeed: 5000
+    });
+  </script>
+<% end %>
+
+<% content_for :service_content_navigation do %>
+  <ul class="service-navigation-page-links" id="sidebar-links">
+    <%= content_tag(:li, (link_to 'Downloads', '#downloads', class: 'smooth-scroll')) if @service.downloads.present? %>
+    <%= content_tag(:li, (link_to 'Case Studies', '#case-studies', class: 'smooth-scroll')) if @service.case_studies.present? %>
+    <%= content_tag(:li, (link_to 'Testimonials', '#testimonials', class: 'smooth-scroll')) if @service.testimonials.present? %>
+    <%= content_tag(:li, (link_to 'Videos', '#videos', class: 'smooth-scroll')) if @service.videos.present? %>
+    <%= content_tag(:li, (link_to 'Meet your Specialists', '#team-members-carousel', class: 'smooth-scroll')) if @service.team_members.present? %>
+    <%= content_tag(:li, (link_to 'People Helped', '#people-helped', class: 'smooth-scroll')) %>
+    <%= content_tag(:li, (link_to 'Tweets', '#tweets', class: 'smooth-scroll')) %>
+    <!-- <li><%#= link_to 'Latest Events', '#events' %></li> -->
+  </ul>
+<% end %>
+
 <section class="service-wrap">
   <div class="row" data-equalizer="service-overview-top">
     <div class="small-6 columns" data-equalizer-watch>
@@ -29,14 +57,15 @@
             <div class="row collapse" data-equalizer="downloads">
               <%= render partial: 'downloads/homepage', collection: @presented_all_downloads, as: :download_presenter %>
 
-               <div class="medium-3 columns <%= 'end' if @presented_all_downloads.size < 3 %>" data-equalizer-watch="downloads">
+               <div class="medium-3 columns <%= 'end' if @presented_all_downloads.present? && @presented_all_downloads.size < 3 %>" data-equalizer-watch="downloads">
                  <div class="view-all-downloads">
                    <div class="view-all-title">
                      View all of our
                    </div>
 
                    <div class="view-all-category">
-                     <%= @presented_download.category_name_link(@presented_download.category_name.pluralize) %>
+                     <%= @presented_download.category_name_link(@presented_download.category_name.pluralize) if @service.featured_download.present? && @presented_download.category_name.present? %>
+                     <%= link_to 'Downloads', '#', class: 'invalid-link' unless @service.featured_download.present? && @presented_download.category_name.present? %>
                    </div>
                  </div>
                </div>
@@ -86,7 +115,17 @@
           </div>
 
           <div class="service-twitter-wrap">
-            <%= render partial: 'services/twitter' %>
+            <div id="tweets" data-animation-type="slideInLeft" data-animation-delay="500">
+              <div class="service-twitter" id="twitter">
+                <p>
+                  What is conveyancing?: <%= link_to 'https://z.co/MOi17hz6HI', '#' %>
+                  The answer to one of the most significant aspects of property buying.
+                </p>
+
+                <span class="service-twitter-username">21 hours ago</span>
+              </div>
+            </div>
+            <%#= render partial: 'services/twitter' %>
           </div>
         </div>
       </div>

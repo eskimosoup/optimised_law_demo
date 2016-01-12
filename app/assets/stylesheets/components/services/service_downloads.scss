@@ -13,6 +13,10 @@
   color: $white;
   height: 100%;
   padding: em(40px) em(20px);
+
+  &.featured {
+    background: $dark-blue;
+  }
 }
 
 .service-downloads-list {
