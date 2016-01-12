@@ -120,7 +120,10 @@
   padding: em(58px) em(28px);
   text-align: center;
 
-  a:link {
+  a:link,
+  a:visited,
+  a:hover,
+  a:active {
     color: $white;
     font-weight: $open-sans-bold;
     text-decoration: underline;

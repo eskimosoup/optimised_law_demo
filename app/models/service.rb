@@ -9,6 +9,7 @@ class Service < ActiveRecord::Base
   mount_uploader :leaflet, Optimadmin::DocumentUploader
 
   belongs_to :department
+  belongs_to :featured_download, class_name: 'Download', foreign_key: :featured_download_id
   has_one :audience, through: :department
   has_many :service_testimonials, dependent: :destroy
   has_many :testimonials, -> { displayed }, through: :service_testimonials

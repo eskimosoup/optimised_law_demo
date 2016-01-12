@@ -1,3 +1,31 @@
+<% # Discrimination %>
+
+<%= content_for :footer do %>
+  <script>
+    $('.service-testimonial').slick({
+      fade: true,
+      infinte: true,
+      dots: false,
+      arrows: false,
+      autoplay: true,
+      autoplaySpeed: 5000
+    });
+  </script>
+<% end %>
+
+<% content_for :service_content_navigation do %>
+  <ul class="service-navigation-page-links" id="sidebar-links">
+    <%= content_tag(:li, (link_to 'Downloads', '#downloads', class: 'smooth-scroll')) if @service.downloads.present? %>
+    <%= content_tag(:li, (link_to 'Tweets', '#tweets', class: 'smooth-scroll')) %>
+    <%= content_tag(:li, (link_to 'Case Studies', '#case-studies', class: 'smooth-scroll')) if @service.case_studies.present? %>
+    <%= content_tag(:li, (link_to 'Testimonials', '#testimonials', class: 'smooth-scroll')) if @service.testimonials.present? %>
+    <%= content_tag(:li, (link_to 'Videos', '#videos', class: 'smooth-scroll')) if @service.videos.present? %>
+    <%= content_tag(:li, (link_to 'Meet your Specialists', '#team-members-carousel', class: 'smooth-scroll')) if @service.team_members.present? %>
+    <%#= content_tag(:li, (link_to 'People Helped', '#people-helped', class: 'smooth-scroll')) %>
+    <!-- <li><%#= link_to 'Latest Events', '#events' %></li> -->
+  </ul>
+<% end %>
+
 <section class="service-wrap">
   <div class="row" data-equalizer="service-overview-top">
     <div class="small-6 columns" data-equalizer-watch>
@@ -20,21 +48,25 @@
   </div>
 
   <div class="service-row row collapse" data-equalizer="service-resources">
-    <div class="medium-8 columns" data-animation-type="slideInLeft" data-equalizer-watch>
-      <%= render partial: 'downloads/service_download' if @service.downloads.present? %>
-    </div>
-
-    <div class="medium-4 columns" data-animation-type="slideInRight" data-equalizer-watch>
-      <div class="service-downloads-list">
-        <h3 class="service-downloads-list-title">More Guides</h3>
-
-        <ul class="service-downloads-list-items">
-          <%= render partial: 'downloads/service_download_list', collection: @presented_downloads, as: :download_presenter if @service.downloads.present? %>
-        </ul>
-
-        <%= link_to 'More', '#', class: 'invalid-link service-downloads-more' %>
+    <% if @service.featured_download.present? %>
+      <div class="medium-8 columns" data-animation-type="slideInLeft" data-equalizer-watch>
+        <%= render partial: 'downloads/service_download' if @service.featured_download.present? %>
       </div>
-    </div>
+    <% end %>
+
+    <% if @service.downloads.present? %>
+      <div class="medium-4 columns" data-animation-type="slideInRight" data-equalizer-watch>
+        <div class="service-downloads-list">
+          <h3 class="service-downloads-list-title">More Guides</h3>
+
+          <ul class="service-downloads-list-items">
+            <%= render partial: 'downloads/service_download_list', collection: @presented_downloads, as: :download_presenter if @service.downloads.present? %>
+          </ul>
+
+          <%= link_to 'More', '#', class: 'invalid-link service-downloads-more' %>
+        </div>
+      </div>
+    <% end %>
   </div>
 
   <div class="service-row row">
@@ -44,7 +76,18 @@
 
     <div class="large-4 columns">
       <div class="service-twitter-wrap">
-        <%= render partial: 'services/twitter' %>
+        <%#= render partial: 'services/twitter' %>
+        <div id="tweets" data-animation-type="slideInLeft" data-animation-delay="500">
+          <div class="service-twitter" id="twitter">
+            <p>
+              Real pay in London has fallen. BBC News - <%= link_to '#Gender', '#' %> pay gap
+              almost unchanged, says ONS
+              <%= link_to 'http://harrison.to/2mc3uyq', 'http://www.bbc.co.uk/news/business-34855056', target: '_blank' %> …
+            </p>
+
+            <span class="service-twitter-username">21 hours ago</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>

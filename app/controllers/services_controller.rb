@@ -12,8 +12,8 @@ class ServicesController < ApplicationController
     @presented_offices = BaseCollectionPresenter.new(collection: @service.offices, view_template: view_context, presenter: OfficePresenter) if @service.offices.present?
     @presented_service_events = BaseCollectionPresenter.new(collection: @service.events, view_template: view_context, presenter: EventPresenter) if @service.events.present?
     @presented_video = VideoPresenter.new(object: @service.videos.last, view_template: view_context) if @service.videos.present?
-    @presented_download = DownloadPresenter.new(object: @service.downloads.first, view_template: view_context) if @service.downloads.present?
-    @presented_downloads = BaseCollectionPresenter.new(collection: @service.downloads[1..-1], view_template: view_context, presenter: DownloadPresenter) if @service.downloads.present?
+    @presented_download = DownloadPresenter.new(object: @service.featured_download, view_template: view_context) if @service.featured_download.present?
+    @presented_downloads = BaseCollectionPresenter.new(collection: @service.downloads.reject { |x| @service.featured_download.present? && x.id == @service.featured_download.id }, view_template: view_context, presenter: DownloadPresenter) if @service.downloads.present?
     @presented_all_downloads = BaseCollectionPresenter.new(collection: @service.downloads.limit(3), view_template: view_context, presenter: DownloadPresenter) if @service.downloads.present?
     @presented_case_studies = BaseCollectionPresenter.new(collection: @service.case_studies.limit(3), view_template: view_context, presenter: CaseStudyPresenter) if @service.case_studies.present?
     @presented_service_awards = BaseCollectionPresenter.new(collection: @service.awards, view_template: view_context, presenter: AwardPresenter) if @service.awards.present?

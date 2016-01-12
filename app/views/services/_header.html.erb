@@ -4,16 +4,7 @@
       <div class="service-navigation">
         <%= @presented_service.index_image %>
 
-        <ul class="service-navigation-page-links" id="sidebar-links">
-          <%= content_tag(:li, (link_to 'Case Studies', '#case-studies', class: 'smooth-scroll')) if @service.case_studies.present? %>
-          <%= content_tag(:li, (link_to 'Testimonials', '#testimonials', class: 'smooth-scroll')) if @service.testimonials.present? %>
-          <%= content_tag(:li, (link_to 'Tweets', '#tweets', class: 'smooth-scroll')) %>
-          <%= content_tag(:li, (link_to 'People Helped', '#people-helped', class: 'smooth-scroll')) %>
-          <%= content_tag(:li, (link_to 'Downloads', '#downloads', class: 'smooth-scroll')) if @service.downloads.present? %>
-          <%= content_tag(:li, (link_to 'Videos', '#videos', class: 'smooth-scroll')) if @service.videos.present? %>
-          <%= content_tag(:li, (link_to 'Meet your Specialists', '#team-members-carousel', class: 'smooth-scroll')) if @service.team_members.present? %>
-          <!-- <li><%#= link_to 'Latest Events', '#events' %></li> -->
-        </ul>
+        <%= yield :service_content_navigation %>
       </div>
     </div>
 

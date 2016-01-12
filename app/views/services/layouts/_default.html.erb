@@ -1,3 +1,16 @@
+<%= content_for :footer do %>
+  <script>
+    $('.service-testimonial').slick({
+      fade: true,
+      infinte: true,
+      dots: false,
+      arrows: false,
+      autoplay: true,
+      autoplaySpeed: 5000
+    });
+  </script>
+<% end %>
+
 <section class="service-wrap">
   <div class="row" data-equalizer="service-overview-top">
     <div class="small-6 columns" data-equalizer-watch>

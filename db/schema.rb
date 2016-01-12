@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151208110615) do
+ActiveRecord::Schema.define(version: 20160112104134) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -488,9 +488,11 @@ ActiveRecord::Schema.define(version: 20151208110615) do
     t.string   "leaflet"
     t.boolean  "has_people_helped_widget", default: true
     t.string   "layout"
+    t.integer  "featured_download_id"
   end
 
   add_index "services", ["department_id"], name: "index_services_on_department_id", using: :btree
+  add_index "services", ["featured_download_id"], name: "index_services_on_featured_download_id", using: :btree
   add_index "services", ["slug"], name: "index_services_on_slug", using: :btree
 
   create_table "team_member_events", force: :cascade do |t|

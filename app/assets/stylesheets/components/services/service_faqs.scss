@@ -23,6 +23,16 @@
   }
 }
 
+.frequently-asked-questions-list-wrap {
+  @extend %clearfix;
+}
+
+.frequently-asked-questions-list-half-width {
+  float: left;
+  padding: 0 em(20px);
+  width: 50%;
+}
+
 .frequently-asked-questions-list {
   @extend %clearfix;
   padding: 0 em(50px);

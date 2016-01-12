@@ -57,6 +57,10 @@
 
     <%= field_set_tag nil, id: 'tabs-3' do %>
       <div class="field">
+        <%= f.label :featured_download_id, "Featured download" %><br>
+        <%= f.select :featured_download_id, Download.pluck(:title, :id), include_blank: 'None' %>
+      </div>
+      <div class="field">
         <%= f.label :related_service_ids, "Related services" %><br>
         <%= f.select :related_service_ids, Service.where.not(id: @service).pluck(:name, :id), { }, { multiple: true, class: 'multiple-select' } %>
       </div>

@@ -11,6 +11,7 @@ RSpec.describe Service, type: :model, service: true do
 
   describe "associations", :association do
     it { should belong_to(:department) }
+    it { should belong_to(:featured_download) }
     it { should have_one(:audience).through(:department) }
     it { should have_many(:service_testimonials).dependent(:destroy) }
     it { should have_many(:testimonials).through(:service_testimonials) }
