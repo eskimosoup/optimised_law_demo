@@ -2,7 +2,7 @@ module Optimadmin
   class DownloadsController < Optimadmin::ApplicationController
     before_action :set_download, only: [:show, :edit, :update, :destroy]
 
-    edit_images_for Download, [[:image, { index: ['fill', 257, 257], homepage: ['fill', 180, 210],  show: ['fill', 213, 303] }]]
+    edit_images_for Download, [[:image, { index: ['fill', 257, 257], homepage: ['fill', 180, 210],  show: ['fill', 233, 303] }]]
 
     def index
       @downloads = Optimadmin::BaseCollectionPresenter.new(collection: Download.where('title ILIKE ?', "%#{params[:search]}%").page(params[:page]).per(params[:per_page] || 15), view_template: view_context, presenter: Optimadmin::DownloadPresenter)

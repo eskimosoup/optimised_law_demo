@@ -16,6 +16,7 @@
 <% content_for :service_content_navigation do %>
   <ul class="service-navigation-page-links" id="sidebar-links">
     <%= content_tag(:li, (link_to 'Downloads', '#downloads', class: 'smooth-scroll')) if @service.downloads.present? %>
+    <%= content_tag(:li, (link_to 'Frequently Asked Questions', '#case-studies', class: 'smooth-scroll')) if @service.frequently_asked_questions.present? %>
     <%= content_tag(:li, (link_to 'Case Studies', '#case-studies', class: 'smooth-scroll')) if @service.case_studies.present? %>
     <%= content_tag(:li, (link_to 'Testimonials', '#testimonials', class: 'smooth-scroll')) if @service.testimonials.present? %>
     <%= content_tag(:li, (link_to 'People Helped', '#people-helped', class: 'smooth-scroll')) %>
