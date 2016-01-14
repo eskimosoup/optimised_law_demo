@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
     @presented_business_partners = BaseCollectionPresenter.new(collection: BusinessPartner.positioned.displayed, view_template: view_context, presenter: BusinessPartnerPresenter)
     @presented_testimonials = BaseCollectionPresenter.new(collection: Testimonial.positioned.displayed, view_template: view_context, presenter: TestimonialPresenter)
     @downloads = DownloadCategory.homepage_highlight
-    @presented_downloads = BaseCollectionPresenter.new(collection: @downloads.downloads, view_template: view_context, presenter: DownloadPresenter) if @downloads.present?
+    @presented_downloads = BaseCollectionPresenter.new(collection: @downloads.downloads.limit(3), view_template: view_context, presenter: DownloadPresenter) if @downloads.present?
   end
 
   private

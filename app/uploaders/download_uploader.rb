@@ -9,6 +9,6 @@ class DownloadUploader < Optimadmin::ImageUploader
   end
 
   version :show do
-    process resize_to_fill: [213, 303]
+    process resize_to_fill: [233, 303]
   end
 end

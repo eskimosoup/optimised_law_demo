@@ -2,6 +2,10 @@
 
 <%= content_for :footer do %>
   <script>
+    $(function() {
+      $('.activity-stream-item-expanded:not(.activity-stream-activity:last-of-type .activity-stream-item-expanded)').removeClass('hide');
+    });
+
     $('.service-testimonial').slick({
       fade: true,
       infinte: true,
@@ -16,6 +20,7 @@
 <% content_for :service_content_navigation do %>
   <ul class="service-navigation-page-links" id="sidebar-links">
     <%= content_tag(:li, (link_to 'Downloads', '#downloads', class: 'smooth-scroll')) if @service.downloads.present? %>
+    <%= content_tag(:li, (link_to 'Frequently Asked Questions', '#case-studies', class: 'smooth-scroll')) if @service.frequently_asked_questions.present? %>
     <%= content_tag(:li, (link_to 'Case Studies', '#case-studies', class: 'smooth-scroll')) if @service.case_studies.present? %>
     <%= content_tag(:li, (link_to 'Testimonials', '#testimonials', class: 'smooth-scroll')) if @service.testimonials.present? %>
     <%= content_tag(:li, (link_to 'Videos', '#videos', class: 'smooth-scroll')) if @service.videos.present? %>
@@ -74,9 +79,9 @@
         </section>
       </div>
 
-      <div class="service-row row">
+      <div class="service-row row" data-equalizer="additional-content">
         <div class="medium-<%= @service.case_studies.present? ? '6' : '12' %> columns">
-          <div class="frequently-asked-questions">
+          <div class="frequently-asked-questions"  data-equalizer-watch="additional-content">
             <h2 class="widget-title">
               Latest FAQs
             </h2>
@@ -92,7 +97,7 @@
 
       <div class="service-row row">
         <% if @service.testimonials.present? %>
-          <div class="medium-6 columns" id="testimonials" data-animation-type="slideInLeft" data-animation-delay="750" data-equalizer-watch="service-resources">
+          <div class="medium-6 columns" data-animation-type="slideInLeft" data-animation-delay="750" data-equalizer-watch="statistics">
             <div class="service-testimonial" id="testimonials">
               <%= render partial: 'testimonials/service_testimonial', collection: @presented_service_testimonials, as: :testimonial_presenter %>
             </div>
