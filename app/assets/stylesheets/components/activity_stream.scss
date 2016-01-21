@@ -91,3 +91,7 @@
   font-size: em(12px);
   font-weight: $activity-stream-read-more-font-weight;
 }
+
+.widget-activity-stream .activity-stream-widget {
+  height: 100%;
+}
