@@ -2,10 +2,6 @@
 
 <%= content_for :footer do %>
   <script>
-    $(function() {
-      $('.activity-stream-item-expanded:not(.activity-stream-activity:last-of-type .activity-stream-item-expanded)').removeClass('hide');
-    });
-
     $('.service-testimonial').slick({
       fade: true,
       infinte: true,
@@ -26,7 +22,7 @@
     <%= content_tag(:li, (link_to 'Videos', '#videos', class: 'smooth-scroll')) if @service.videos.present? %>
     <%= content_tag(:li, (link_to 'Meet your Specialists', '#team-members-carousel', class: 'smooth-scroll')) if @service.team_members.present? %>
     <%= content_tag(:li, (link_to 'People Helped', '#people-helped', class: 'smooth-scroll')) %>
-    <%= content_tag(:li, (link_to 'Tweets', '#tweets', class: 'smooth-scroll')) %>
+    <%= content_tag(:li, (link_to 'Tweets', '#twitter', class: 'smooth-scroll')) %>
     <!-- <li><%#= link_to 'Latest Events', '#events' %></li> -->
   </ul>
 <% end %>
@@ -109,18 +105,18 @@
 
       <%= render 'team_members/service_carousel' %>
 
-      <div class="service-row row">
-        <div class="large-8 columns">
+      <div class="service-row row" data-equalizer="articles-and-widgets">
+        <div class="widget-activity-stream large-8 columns" data-equalizer-watch="articles-and-widgets">
           <%= render 'services/activity_stream' if @presented_service_articles.present? %>
         </div>
 
-        <div class="large-4 columns">
+        <div class="large-4 columns"  data-equalizer-watch="articles-and-widgets">
           <div class="widget-row">
             <%= render partial: 'services/people_helped_small' %>
           </div>
 
           <div class="service-twitter-wrap">
-            <div id="tweets" data-animation-type="slideInLeft" data-animation-delay="500">
+            <div data-animation-type="slideInLeft" data-animation-delay="500">
               <div class="service-twitter" id="twitter">
                 <p>
                   What is conveyancing?: <%= link_to 'https://z.co/MOi17hz6HI', '#' %>
